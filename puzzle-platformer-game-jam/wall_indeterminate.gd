@@ -30,12 +30,14 @@ func determinism_update()->void:
 
 func on_camera(seen:bool)->void:
 	if seen and not determined:
+		print("I've been seen!")
 		existant = true
 		determined = true
-	determinism_update()
+		determinism_update()
 
 func on_touch(touch:bool)->void:
 	if touch and not determined:
+		print("I've been touched!")
 		existant = false
 		determined = true
-	determinism_update()
+		determinism_update()

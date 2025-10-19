@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4erf1qla5yc2"]
+[gd_scene load_steps=10 format=3 uid="uid://bk2m7r8ba3lrw"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://grid.png" id="1_lmyl5"]
-[ext_resource type="PackedScene" uid="uid://ku11hnyxpgxp" path="res://Player.tscn" id="1_mc20k"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://Player.tscn" id="1_mc20k"]
 [ext_resource type="Texture2D" uid="uid://kegcn8hnfpw" path="res://null_white.png" id="2_cove1"]
 [ext_resource type="Script" uid="uid://dwnoc5aykltka" path="res://camera_controller.gd" id="3_cove1"]
-[ext_resource type="PackedScene" uid="uid://dg24sedldgt3w" path="res://wall_indeterminate.tscn" id="3_lmyl5"]
-[ext_resource type="Script" uid="uid://f4p8xu7pweaq" path="res://camera_hitbox.gd" id="4_dwyiq"]
+[ext_resource type="PackedScene" uid="uid://uqhqtm3pw2wl" path="res://wall_indeterminate.tscn" id="3_lmyl5"]
+[ext_resource type="Script" path="res://camera_hitbox.gd" id="4_dwyiq"]
 [ext_resource type="Texture2D" uid="uid://c3da7s3w2c1ll" path="res://overlay.png" id="7_mlbie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyiq"]
@@ -26,7 +26,8 @@ texture = ExtResource("1_lmyl5")
 stretch_mode = 1
 
 [node name="player" parent="." instance=ExtResource("1_mc20k")]
-position = Vector2(567, 260)
+position = Vector2(147, 263)
+scale = Vector2(0.5, 0.5)
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -48,7 +49,7 @@ shape = SubResource("RectangleShape2D_dwyiq")
 position = Vector2(574, -817)
 scale = Vector2(4.9999995, 0.5)
 script = ExtResource("3_cove1")
-shifted_offset = Vector2(-550, 0)
+shifted_offset = Vector2(550, 0)
 subject = NodePath("../player")
 
 [node name="Area2D" type="Area2D" parent="Camera2D"]
@@ -62,7 +63,6 @@ scale = Vector2(4.9999995, 0.5)
 shape = SubResource("RectangleShape2D_cove1")
 
 [node name="Debug" type="Sprite2D" parent="Camera2D"]
-visible = false
 position = Vector2(6.020069e-06, 5.6266785e-05)
 scale = Vector2(0.90000004, 5.0625005)
 texture = ExtResource("7_mlbie")

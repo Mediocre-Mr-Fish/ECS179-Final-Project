@@ -1,10 +1,22 @@
 class_name PlayerController
 extends CharacterBody2D
 
+#@onready var sprite:Sprite2D = $Sprite2D
+@onready var sprite:PlayerSprite = $Sprite2D
+
+enum Facing {
+	LEFT,
+	RIGHT,
+}
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var facing:Facing = Facing.RIGHT
+
+func _ready() -> void:
+	facing = Facing.RIGHT
+	sprite.change_facing(self)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -22,5 +34,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if not Input.is_action_pressed("gimick1"):
+		if 0 < direction:
+			if Facing.RIGHT != facing:
+				facing = Facing.RIGHT
+				sprite.change_facing(self)
+			
+		elif 0 > direction:
+			if Facing.LEFT != facing:
+				facing = Facing.LEFT
+				sprite.change_facing(self)
 
 	move_and_slide()
