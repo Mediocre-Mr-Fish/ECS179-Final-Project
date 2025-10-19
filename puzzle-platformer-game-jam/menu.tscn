@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw8x0k1onny4s"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://grid.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_ouk20"]
+
+[node name="World" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(573.25, 386.5)
+scale = Vector2(4.4746094, 4.4492188)
+texture = ExtResource("1_lti8b")
+
+[node name="start" type="Button" parent="."]
+offset_left = 493.0
+offset_top = 252.0
+offset_right = 656.0
+offset_bottom = 331.0
+text = "PLAY"
+script = ExtResource("2_ouk20")
+scenePath = "res://Level1.tscn"
+
+[node name="credits" type="Button" parent="."]
+offset_left = 468.0
+offset_top = 366.0
+offset_right = 676.0
+offset_bottom = 454.0
+text = "CREDITS"
+script = ExtResource("2_ouk20")
+scenePath = "res://credits.tscn"
+
+[connection signal="pressed" from="start" to="start" method="_on_pressed"]
+[connection signal="pressed" from="credits" to="credits" method="_on_pressed"]
