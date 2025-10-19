@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk2m7r8ba3lrw"]
+[gd_scene load_steps=12 format=3 uid="uid://bk2m7r8ba3lrw"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="1_mc20k"]
@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_mlbie"]
 [ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="8_vcl05"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="9_nn0v1"]
+[ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="9_vcl05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn0v1"]
+size = Vector2(12432, 3173)
 
 [node name="World" type="Node2D"]
 
@@ -45,6 +49,13 @@ position = Vector2(-16, 467)
 [node name="flower2" parent="Level" instance=ExtResource("9_nn0v1")]
 position = Vector2(1377, 461)
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="Level"]
+script = ExtResource("9_vcl05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
+position = Vector2(814, 3097)
+shape = SubResource("RectangleShape2D_nn0v1")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_mlbie")]
 position = Vector2(574, -817)

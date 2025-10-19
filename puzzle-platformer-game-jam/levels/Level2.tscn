@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwp72mip7nahm"]
+[gd_scene load_steps=11 format=3 uid="uid://bwp72mip7nahm"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="3_qcwkq"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="4_5pn2a"]
@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit.tscn" id="5_pixff"]
 [ext_resource type="PackedScene" uid="uid://dsntmiri1j2ce" path="res://levels/Level3.tscn" id="6_6m74g"]
 [ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="6_v0cbu"]
+[ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_qcwkq"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_xcmrh"]
 [ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="9_qcwkq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pn2a"]
+size = Vector2(12432, 3173)
 
 [node name="World" type="Node2D"]
 
@@ -43,6 +47,13 @@ camera = NodePath("../../Camera2D")
 [node name="Exit" parent="Level" instance=ExtResource("5_pixff")]
 position = Vector2(1649, 406)
 target_scene = ExtResource("6_6m74g")
+
+[node name="Area2D" type="Area2D" parent="Level/Exit"]
+script = ExtResource("7_qcwkq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Exit/Area2D"]
+position = Vector2(814, 3097)
+shape = SubResource("RectangleShape2D_5pn2a")
 
 [node name="flower2" parent="Level" instance=ExtResource("9_qcwkq")]
 modulate = Color(0, 1, 0, 1)
