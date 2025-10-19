@@ -27,7 +27,7 @@ offset_right = 632.0
 offset_bottom = 597.0
 text = "BACK"
 script = ExtResource("2_nl5an")
-scene_path = "res://screens/menu.tscn"
+scene_path = "res://screens/tutorial.tscn"
 
 [node name="Title" type="Label" parent="."]
 offset_left = -23.0
