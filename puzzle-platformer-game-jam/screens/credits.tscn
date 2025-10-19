@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://vqmpjhujx5ox"]
+[gd_scene load_steps=3 format=3 uid="uid://vqmpjhujx5ox"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_i2oue"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_pohcg"]
-[ext_resource type="PackedScene" uid="uid://clexu3ggdmson" path="res://levels/menu.tscn" id="3_pohcg"]
 
 [node name="World" type="Node2D"]
 
@@ -30,6 +29,6 @@ offset_right = 632.0
 offset_bottom = 565.0
 text = "BACK"
 script = ExtResource("2_pohcg")
-target_scene = ExtResource("3_pohcg")
+scene_path = "res://screens/menu.tscn"
 
 [connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]

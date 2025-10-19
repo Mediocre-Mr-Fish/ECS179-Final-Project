@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://domr7dqr72ykt"]
+[gd_scene load_steps=7 format=3 uid="uid://domr7dqr72ykt"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_ok11k"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_rbh7r"]
-[ext_resource type="PackedScene" uid="uid://clexu3ggdmson" path="res://levels/menu.tscn" id="3_rbh7r"]
 [ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/think.png" id="4_rbh7r"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="5_0fvvq"]
 
@@ -28,7 +27,7 @@ offset_right = 632.0
 offset_bottom = 597.0
 text = "MENU"
 script = ExtResource("2_rbh7r")
-target_scene = ExtResource("3_rbh7r")
+scene_path = "res://screens/menu.tscn"
 
 [node name="Title" type="Label" parent="."]
 offset_left = -23.0

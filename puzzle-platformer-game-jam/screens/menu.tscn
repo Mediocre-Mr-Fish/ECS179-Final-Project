@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://clexu3ggdmson"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_kfbsc"]
+[ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_gbx6r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ouk20"]
+font_size = 127
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mae5d"]
+font_size = 31
+font_color = Color(1, 0, 0, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(573.25, 386.5)
+scale = Vector2(4.4746094, 4.4492188)
+texture = ExtResource("1_kfbsc")
+
+[node name="start" type="Button" parent="."]
+offset_left = 464.0
+offset_top = 354.0
+offset_right = 683.0
+offset_bottom = 449.0
+text = "PLAY"
+script = ExtResource("2_gbx6r")
+scene_path = "res://levels/Level1.tscn"
+
+[node name="credits" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 490.0
+offset_right = 533.0001
+offset_bottom = 550.0
+text = "CREDITS"
+script = ExtResource("2_gbx6r")
+scene_path = "res://screens/credits.tscn"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 284.0
+offset_top = 90.0
+offset_right = 868.0
+offset_bottom = 264.0
+text = "Beholden"
+label_settings = SubResource("LabelSettings_ouk20")
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 152.0
+offset_right = 706.0
+offset_bottom = 196.0
+rotation = -0.22350973
+text = "Fall Game Jam Ver."
+label_settings = SubResource("LabelSettings_mae5d")
+
+[node name="credits2" type="Button" parent="."]
+offset_left = 600.0
+offset_top = 490.0
+offset_right = 733.0001
+offset_bottom = 550.0
+text = "CONTROLS"
+script = ExtResource("2_gbx6r")
+scene_path = "res://screens/tutorial.tscn"
+
+[connection signal="pressed" from="start" to="start" method="_on_pressed"]
+[connection signal="pressed" from="credits" to="credits" method="_on_pressed"]
+[connection signal="pressed" from="credits2" to="credits2" method="_on_pressed"]
