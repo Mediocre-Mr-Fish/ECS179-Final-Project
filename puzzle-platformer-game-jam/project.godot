@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PuzzlePlatformer_GameJam"
-run/main_scene="res://Level1.tscn"
+run/main_scene="uid://dw8x0k1onny4s"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
