@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3tycvd50f06t"]
+
+[ext_resource type="Script" uid="uid://cnif7fgpw4n3x" path="res://objects/player/player_controller.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://bcvtf6fl3mst" path="res://assets/guy.png" id="2_kne1u"]
+[ext_resource type="Script" uid="uid://b5umy05fi62tq" path="res://objects/player/player_sprite.gd" id="3_e80uo"]
+[ext_resource type="Script" path="res://touch_hit_box.gd" id="3_kne1u"]
+[ext_resource type="Texture2D" uid="uid://cco14dfocmfkh" path="res://assets/overlay_red.png" id="5_cxr5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+size = Vector2(229, 492)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
+size = Vector2(277, 492)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ij6vw")
+menu_route = "res://screens/menu.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kne1u")
+script = ExtResource("3_e80uo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="TouchHitBox" type="Area2D" parent="."]
+script = ExtResource("3_kne1u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TouchHitBox"]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_cxr5p")
+
+[node name="Debug" type="Sprite2D" parent="TouchHitBox"]
+visible = false
+position = Vector2(-5.5, 1.66893e-06)
+scale = Vector2(1.0820313, 1.921875)
+texture = ExtResource("5_cxr5p")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu6bar62m2aui"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_jg8sk"]
+[ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_hd8p4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wqwc"]
+font_size = 120
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oufnp"]
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(573.25, 386.5)
+scale = Vector2(4.4746094, 4.4492188)
+texture = ExtResource("1_jg8sk")
+
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 475.0
+offset_right = 632.0
+offset_bottom = 514.0
+text = "MENU"
+script = ExtResource("2_hd8p4")
+scene_path = "res://screens/menu.tscn"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -23.0
+offset_top = 67.0
+offset_right = 1163.0
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 15
+text = "Congrats!"
+label_settings = SubResource("LabelSettings_7wqwc")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -29.0
+offset_top = 228.0
+offset_right = 1157.0
+offset_bottom = 408.0
+theme_override_font_sizes/font_size = 15
+text = "You beat the game!
+thanks for playing!"
+label_settings = SubResource("LabelSettings_oufnp")
+horizontal_alignment = 1
+
+[node name="credits" type="Button" parent="."]
+offset_left = 505.0
+offset_top = 546.0
+offset_right = 638.0
+offset_bottom = 606.0
+text = "CREDITS"
+script = ExtResource("2_hd8p4")
+scene_path = "res://screens/credits.tscn"
+
+[connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
+[connection signal="pressed" from="credits" to="credits" method="_on_pressed"]

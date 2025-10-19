@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds6a5aqdakuma"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_pcgj5"]
+[ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_7d4r0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtb46"]
+font_size = 127
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(573.25, 386.5)
+scale = Vector2(4.4746094, 4.4492188)
+texture = ExtResource("1_pcgj5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 368.0
+offset_top = 87.0
+offset_right = 952.0
+offset_bottom = 261.0
+text = "LEVELS"
+label_settings = SubResource("LabelSettings_vtb46")
+
+[node name="lvl1" type="Button" parent="."]
+offset_left = 553.0
+offset_top = 355.0
+offset_right = 600.0
+offset_bottom = 408.0
+text = "2"
+script = ExtResource("2_7d4r0")
+scene_path = "res://levels/Level2.tscn"
+
+[node name="lvl2" type="Button" parent="."]
+offset_left = 444.0
+offset_top = 355.0
+offset_right = 491.0
+offset_bottom = 408.0
+text = "1"
+script = ExtResource("2_7d4r0")
+scene_path = "res://levels/Level1.tscn"
+
+[node name="lvl3" type="Button" parent="."]
+offset_left = 669.0
+offset_top = 354.0
+offset_right = 716.0
+offset_bottom = 407.0
+text = "3"
+script = ExtResource("2_7d4r0")
+scene_path = "res://levels/Level3.tscn"
+
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 526.0
+offset_right = 632.0
+offset_bottom = 565.0
+text = "BACK"
+script = ExtResource("2_7d4r0")
+scene_path = "res://screens/menu.tscn"
+
+[connection signal="pressed" from="lvl1" to="lvl1" method="_on_pressed"]
+[connection signal="pressed" from="lvl2" to="lvl2" method="_on_pressed"]
+[connection signal="pressed" from="lvl3" to="lvl3" method="_on_pressed"]
+[connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
