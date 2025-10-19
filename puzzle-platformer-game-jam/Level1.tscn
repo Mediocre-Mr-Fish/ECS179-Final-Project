@@ -16,6 +16,7 @@ size = Vector2(51, 256)
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(567, 260)
 script = ExtResource("8_5py54")
+sceneFileLocation = "res://Level2.tscn"
 metadata/_custom_type_script = "uid://ckjtyknpdr1bh"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
