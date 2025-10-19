@@ -13,7 +13,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pn2a"]
 size = Vector2(12432, 3173)
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1

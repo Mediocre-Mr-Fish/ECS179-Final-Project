@@ -1,42 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://vqmpjhujx5ox"]
+[gd_scene load_steps=4 format=3 uid="uid://vqmpjhujx5ox"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_i2oue"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_pohcg"]
-[ext_resource type="PackedScene" uid="uid://bk2m7r8ba3lrw" path="res://levels/Level1.tscn" id="3_pohcg"]
-
-[sub_resource type="PackedScene" id="PackedScene_i2oue"]
-_bundled = {
-"conn_count": 1,
-"conns": PackedInt32Array(3, 3, 24, 23, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("World", "Node2D", "background", "z_index", "position", "scale", "texture", "Sprite2D", "Credits", "offset_left", "offset_top", "offset_right", "offset_bottom", "theme_override_colors/font_color", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "Label", "mainmenu", "script", "target_scene", "Button", "_on_pressed", "pressed"),
-"node_count": 4,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 7, 2, -1, 4, 3, 0, 4, 1, 5, 2, 6, 3, 0, 0, 0, 18, 8, -1, 9, 9, 4, 10, 5, 11, 6, 12, 7, 13, 8, 14, 9, 15, 10, 16, 11, 17, 11, 0, 0, 0, 22, 19, -1, 7, 9, 12, 10, 13, 11, 14, 12, 15, 15, 16, 20, 17, 21, 18, 0),
-"variants": [-1, Vector2(573.25, 386.5), Vector2(4.4746094, 4.4492188), ExtResource("1_i2oue"), 273.0, 137.0, 869.0, 437.0, Color(0, 0, 0, 1), 31, "Blah Blah Blah ", 1, 512.0, 526.0, 632.0, 565.0, "BACK", ExtResource("2_pohcg"), SubResource("PackedScene_i2oue")],
-"version": 3
-}
-
-[sub_resource type="LabelSettings" id="LabelSettings_ouk20"]
-font_size = 127
-font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_mae5d"]
-font_size = 31
-font_color = Color(1, 0, 0, 1)
-
-[sub_resource type="PackedScene" id="PackedScene_pohcg"]
-_bundled = {
-"conn_count": 2,
-"conns": PackedInt32Array(1073741830, 1073741829, 45, 44, 2, 0, 0, 1073741832, 1073741831, 47, 46, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("World", "Node2D", "position", "background", "Sprite2D", "position", "scale", "texture", "start", "Button", "offset_left", "offset_top", "offset_right", "offset_bottom", "text", "script", "target_scene", "credits", "Button", "offset_left", "offset_top", "offset_right", "offset_bottom", "text", "script", "target_scene", "Label", "Label", "offset_left", "offset_top", "offset_right", "offset_bottom", "text", "label_settings", "Label", "Label", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "text", "label_settings", "_on_pressed", "pressed", "_on_pressed", "pressed"),
-"node_count": 6,
-"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./Label"), NodePath("start"), NodePath("start"), NodePath("credits"), NodePath("credits")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 3, 5, 1, 6, 2, 7, 3, 0, 1073741825, 0, 9, 8, -1, 7, 10, 4, 11, 5, 12, 6, 13, 7, 14, 8, 15, 9, 16, 10, 0, 1073741826, 0, 18, 17, -1, 7, 19, 11, 20, 12, 21, 13, 22, 14, 23, 15, 24, 16, 25, 17, 0, 1073741827, 0, 27, 26, -1, 6, 28, 18, 29, 19, 30, 20, 31, 21, 32, 22, 33, 23, 0, 1073741828, 0, 35, 34, -1, 8, 36, 24, 37, 25, 38, 26, 39, 27, 40, 28, 41, 29, 42, 30, 43, 31, 0),
-"variants": [Vector2(0, 113), Vector2(573.25, 386.5), Vector2(4.4746094, 4.4492188), ExtResource("1_i2oue"), 493.0, 252.0, 656.0, 331.0, "PLAY", ExtResource("2_pohcg"), ExtResource("3_pohcg"), 468.0, 366.0, 676.0, 454.0, "CREDITS", ExtResource("2_pohcg"), SubResource("PackedScene_i2oue"), 276.0, -64.0, 860.0, 110.0, "Beholden", SubResource("LabelSettings_ouk20"), 0, 426.0, 152.0, 706.0, 196.0, -0.22350973, "Fall Game Jam Ver.", SubResource("LabelSettings_mae5d")],
-"version": 3
-}
+[ext_resource type="PackedScene" uid="uid://clexu3ggdmson" path="res://levels/menu.tscn" id="3_pohcg"]
 
 [node name="World" type="Node2D"]
 
@@ -64,6 +30,6 @@ offset_right = 632.0
 offset_bottom = 565.0
 text = "BACK"
 script = ExtResource("2_pohcg")
-target_scene = SubResource("PackedScene_pohcg")
+target_scene = ExtResource("3_pohcg")
 
 [connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
