@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk2m7r8ba3lrw"]
+[gd_scene load_steps=13 format=3 uid="uid://c4erf1qla5yc2"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://grid.png" id="1_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://Player.tscn" id="1_mc20k"]
@@ -7,20 +7,41 @@
 [ext_resource type="PackedScene" uid="uid://uqhqtm3pw2wl" path="res://wall_indeterminate.tscn" id="3_lmyl5"]
 [ext_resource type="Script" path="res://camera_hitbox.gd" id="4_dwyiq"]
 [ext_resource type="Texture2D" uid="uid://c3da7s3w2c1ll" path="res://overlay.png" id="7_mlbie"]
+[ext_resource type="Script" uid="uid://bughqfl8cgaxy" path="res://exit.gd" id="8_5py54"]
+[ext_resource type="Texture2D" uid="uid://bfjf3dgf66ux1" path="res://null_grey.png" id="9_1bjei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g1s2"]
+size = Vector2(51, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyiq"]
-size = Vector2(256.00003, 256)
+size = Vector2(323.20004, 258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cove1"]
 size = Vector2(230.40002, 1296)
 
 [node name="World" type="Node2D"]
 
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(567, 260)
+script = ExtResource("8_5py54")
+metadata/_custom_type_script = "uid://ckjtyknpdr1bh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(1354, 149)
+shape = SubResource("RectangleShape2D_5g1s2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit"]
+z_index = 1
+position = Vector2(1354, 149)
+scale = Vector2(0.19921875, 1)
+texture = ExtResource("9_1bjei")
+
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -1966.9998
-offset_top = -745.0
-offset_right = -1068.1998
-offset_bottom = -489.0
+z_index = -1
+offset_left = -730.0
+offset_top = -744.0
+offset_right = -84.0
+offset_bottom = -488.0
 scale = Vector2(5, 5)
 texture = ExtResource("1_lmyl5")
 stretch_mode = 1
@@ -39,9 +60,12 @@ position = Vector2(600, 600)
 scale = Vector2(10, 0.5)
 
 [node name="floor" type="Sprite2D" parent="Level/Floor"]
+position = Vector2(31.049984, 0)
+scale = Vector2(1.2628905, 1)
 texture = ExtResource("2_cove1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor"]
+position = Vector2(31.099998, 0)
 scale = Vector2(0.99999994, 1)
 shape = SubResource("RectangleShape2D_dwyiq")
 
