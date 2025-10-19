@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwp72mip7nahm"]
+[gd_scene load_steps=11 format=3 uid="uid://bwp72mip7nahm"]
 
 [ext_resource type="Script" uid="uid://bughqfl8cgaxy" path="res://exit.gd" id="1_pixff"]
 [ext_resource type="Texture2D" uid="uid://bfjf3dgf66ux1" path="res://assets/null_grey.png" id="2_6m74g"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="5_p5th2"]
 [ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="6_v0cbu"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_xcmrh"]
+[ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="9_qcwkq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5g1s2"]
 size = Vector2(51, 256)
@@ -58,6 +59,11 @@ scale = Vector2(7, 0.5)
 position = Vector2(1035.0001, 506)
 scale = Vector2(3.5, 0.25)
 camera = NodePath("../../Camera2D")
+
+[node name="flower2" parent="Level" instance=ExtResource("9_qcwkq")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(514, 472)
+flip_h = true
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_xcmrh")]
 position = Vector2(574, -817)

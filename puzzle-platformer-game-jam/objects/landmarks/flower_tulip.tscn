@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://sk5jonqt3uvr"]
+
+[ext_resource type="Texture2D" uid="uid://bqxrhw7idao3a" path="res://assets/flower_tulip.png" id="1_f0mqn"]
+
+[node name="flower2" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_f0mqn")
