@@ -17,6 +17,7 @@ var facing:Facing = Facing.RIGHT
 func _ready() -> void:
 	facing = Facing.RIGHT
 	sprite.change_facing(self)
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,5 +46,8 @@ func _physics_process(delta: float) -> void:
 			if Facing.LEFT != facing:
 				facing = Facing.LEFT
 				sprite.change_facing(self)
-
+	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+	
 	move_and_slide()
