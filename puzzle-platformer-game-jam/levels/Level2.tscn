@@ -1,64 +1,60 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwp72mip7nahm"]
+[gd_scene load_steps=11 format=3 uid="uid://bk2m7r8ba3lrw"]
 
+[ext_resource type="PackedScene" uid="uid://uqhqtm3pw2wl" path="res://objects/wall/wall_indeterminate.tscn" id="3_5pn2a"]
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="3_qcwkq"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="4_5pn2a"]
 [ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="5_p5th2"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit.tscn" id="5_pixff"]
-[ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="6_v0cbu"]
+[ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="7_p5th2"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_qcwkq"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_xcmrh"]
 [ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="9_qcwkq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pn2a"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn0v1"]
 size = Vector2(12432, 3173)
 
-[node name="World2" type="Node2D"]
+[node name="World" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
-offset_left = -1551.0
+offset_left = -1816.0
 offset_top = -744.0
-offset_right = -446.80005
+offset_right = -687.80005
 offset_bottom = -488.0
 scale = Vector2(5, 5)
 texture = ExtResource("3_qcwkq")
 stretch_mode = 1
 
 [node name="player" parent="." instance=ExtResource("4_5pn2a")]
-position = Vector2(-476, 380)
+position = Vector2(147, 263)
 scale = Vector2(0.5, 0.5)
 
 [node name="Level" type="Node2D" parent="."]
 
+[node name="Wall_indet" parent="Level" instance=ExtResource("3_5pn2a")]
+position = Vector2(1507, 151)
+
 [node name="Floor" parent="Level" instance=ExtResource("5_p5th2")]
-position = Vector2(-223, 602)
-scale = Vector2(7, 0.5)
-
-[node name="Floor2" parent="Level" instance=ExtResource("5_p5th2")]
-position = Vector2(2285, 602)
-scale = Vector2(7, 0.5)
-
-[node name="StaticBody2D" parent="Level" node_paths=PackedStringArray("camera") instance=ExtResource("6_v0cbu")]
-position = Vector2(1035.0001, 506)
-scale = Vector2(3.5, 0.25)
-camera = NodePath("../../Camera2D")
+position = Vector2(832, 594)
+scale = Vector2(14.845, 0.5)
 
 [node name="Exit" parent="Level" instance=ExtResource("5_pixff")]
-position = Vector2(1649, 406)
+position = Vector2(1941, 398)
 scene_path = "res://levels/Level3.tscn"
 
-[node name="flower2" parent="Level" instance=ExtResource("9_qcwkq")]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(514, 472)
+[node name="flower3" parent="Level" instance=ExtResource("9_qcwkq")]
+position = Vector2(-16, 467)
+
+[node name="flower2" parent="Level" instance=ExtResource("7_p5th2")]
+position = Vector2(1377, 461)
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="Level"]
-position = Vector2(1649, 406)
 script = ExtResource("7_qcwkq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
 position = Vector2(814, 3097)
-shape = SubResource("RectangleShape2D_5pn2a")
+shape = SubResource("RectangleShape2D_nn0v1")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_xcmrh")]
 position = Vector2(574, -817)
