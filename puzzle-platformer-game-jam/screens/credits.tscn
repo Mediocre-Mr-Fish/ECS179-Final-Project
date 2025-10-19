@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://vqmpjhujx5ox"]
+[gd_scene load_steps=4 format=3 uid="uid://vqmpjhujx5ox"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_i2oue"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_pohcg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkjnt"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D"]
 
@@ -11,6 +15,14 @@ position = Vector2(573.25, 386.5)
 scale = Vector2(4.4746094, 4.4492188)
 texture = ExtResource("1_i2oue")
 
+[node name="Title" type="Label" parent="."]
+offset_left = 412.0
+offset_top = 25.0
+offset_right = 721.0
+offset_bottom = 113.0
+text = "The Team!"
+label_settings = SubResource("LabelSettings_qkjnt")
+
 [node name="Credits" type="Label" parent="."]
 offset_left = 273.0
 offset_top = 137.0
@@ -18,7 +30,12 @@ offset_right = 869.0
 offset_bottom = 437.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 31
-text = "Blah Blah Blah "
+text = "Ellison Song
+Wen Zhao
+Brian Kim
+Eric Nguyen
+Tho Nguyen
+Zishuo Li"
 horizontal_alignment = 1
 vertical_alignment = 1
 
