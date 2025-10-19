@@ -1,36 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bk2m7r8ba3lrw"]
+[gd_scene load_steps=10 format=3 uid="uid://bk2m7r8ba3lrw"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="1_mc20k"]
 [ext_resource type="PackedScene" uid="uid://bwp72mip7nahm" path="res://levels/Level2.tscn" id="2_dkril"]
 [ext_resource type="PackedScene" uid="uid://uqhqtm3pw2wl" path="res://objects/wall/wall_indeterminate.tscn" id="3_lmyl5"]
+[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit.tscn" id="5_lbu4x"]
 [ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="6_mlbie"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_mlbie"]
-[ext_resource type="Script" uid="uid://bughqfl8cgaxy" path="res://exit.gd" id="8_5py54"]
 [ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="8_vcl05"]
-[ext_resource type="Texture2D" uid="uid://bfjf3dgf66ux1" path="res://assets/null_grey.png" id="9_1bjei"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="9_nn0v1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g1s2"]
-size = Vector2(51, 256)
-
 [node name="World" type="Node2D"]
-
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(567, 260)
-script = ExtResource("8_5py54")
-target_scene = ExtResource("2_dkril")
-metadata/_custom_type_script = "uid://ckjtyknpdr1bh"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-position = Vector2(1354, 149)
-shape = SubResource("RectangleShape2D_5g1s2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Exit"]
-z_index = 1
-position = Vector2(1354, 149)
-scale = Vector2(0.19921875, 1)
-texture = ExtResource("9_1bjei")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
@@ -54,6 +34,10 @@ position = Vector2(1507, 151)
 [node name="Floor" parent="Level" instance=ExtResource("6_mlbie")]
 position = Vector2(832, 594)
 scale = Vector2(14.845, 0.5)
+
+[node name="Exit" parent="Level" instance=ExtResource("5_lbu4x")]
+position = Vector2(1941, 398)
+target_scene = ExtResource("2_dkril")
 
 [node name="flower3" parent="Level" instance=ExtResource("8_vcl05")]
 position = Vector2(-16, 467)
