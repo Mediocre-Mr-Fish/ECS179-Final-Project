@@ -28,10 +28,10 @@ script = ExtResource("2_gbx6r")
 scene_path = "res://levels/Level1.tscn"
 
 [node name="credits" type="Button" parent="."]
-offset_left = 400.0
-offset_top = 490.0
-offset_right = 533.0001
-offset_bottom = 550.0
+offset_left = 409.0
+offset_top = 475.0
+offset_right = 542.0001
+offset_bottom = 535.0
 text = "CREDITS"
 script = ExtResource("2_gbx6r")
 scene_path = "res://screens/credits.tscn"
@@ -55,14 +55,24 @@ text = "Fall Game Jam Ver."
 label_settings = SubResource("LabelSettings_mae5d")
 
 [node name="credits2" type="Button" parent="."]
-offset_left = 600.0
-offset_top = 490.0
-offset_right = 733.0001
-offset_bottom = 550.0
+offset_left = 609.0
+offset_top = 475.0
+offset_right = 742.0001
+offset_bottom = 535.0
 text = "CONTROLS"
 script = ExtResource("2_gbx6r")
 scene_path = "res://screens/tutorial.tscn"
 
+[node name="credits3" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 551.0
+offset_right = 645.0001
+offset_bottom = 611.0
+text = "LEVEL SELECT"
+script = ExtResource("2_gbx6r")
+scene_path = "res://screens/levelselect.tscn"
+
 [connection signal="pressed" from="start" to="start" method="_on_pressed"]
 [connection signal="pressed" from="credits" to="credits" method="_on_pressed"]
 [connection signal="pressed" from="credits2" to="credits2" method="_on_pressed"]
+[connection signal="pressed" from="credits3" to="credits3" method="_on_pressed"]
