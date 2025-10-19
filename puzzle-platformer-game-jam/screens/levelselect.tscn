@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyn870fp0j8v3"]
+[gd_scene load_steps=4 format=3 uid="uid://ds6a5aqdakuma"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_pcgj5"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_7d4r0"]
@@ -29,7 +29,7 @@ offset_right = 600.0
 offset_bottom = 408.0
 text = "2"
 script = ExtResource("2_7d4r0")
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Level2.tscn"
 
 [node name="lvl2" type="Button" parent="."]
 offset_left = 444.0
@@ -38,7 +38,7 @@ offset_right = 491.0
 offset_bottom = 408.0
 text = "1"
 script = ExtResource("2_7d4r0")
-scene_path = "res://levels/Level2.tscn"
+scene_path = "res://levels/Level1.tscn"
 
 [node name="lvl3" type="Button" parent="."]
 offset_left = 669.0

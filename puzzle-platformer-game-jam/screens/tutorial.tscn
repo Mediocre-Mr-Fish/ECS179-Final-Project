@@ -49,7 +49,8 @@ text = "[WASD] Move
 [W / Space] Jump
 [R] Reset Level
 [Shift] Shift Camera
-[Q] Activate Filter"
+[Q] Activate Filter
+[Esc] Return to Main Menu"
 label_settings = SubResource("LabelSettings_oufnp")
 
 [node name="Hints" type="Label" parent="."]

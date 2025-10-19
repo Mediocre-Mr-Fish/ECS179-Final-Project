@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceg8slobounvp"]
+[gd_scene load_steps=7 format=3 uid="uid://vbobnauh6tsv"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_e81fy"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_nl5an"]
@@ -25,7 +25,7 @@ offset_left = 512.0
 offset_top = 558.0
 offset_right = 632.0
 offset_bottom = 597.0
-text = "MENU"
+text = "BACK"
 script = ExtResource("2_nl5an")
 scene_path = "res://screens/menu.tscn"
 
@@ -35,34 +35,23 @@ offset_top = -1.0
 offset_right = 1163.0
 offset_bottom = 110.0
 theme_override_font_sizes/font_size = 15
-text = "Controls"
+text = "Explanation"
 label_settings = SubResource("LabelSettings_7wqwc")
 horizontal_alignment = 1
 
 [node name="Controls" type="Label" parent="."]
-offset_left = 81.0
-offset_top = 149.0
-offset_right = 520.0
-offset_bottom = 386.0
+offset_left = 31.0
+offset_top = 167.0
+offset_right = 944.0
+offset_bottom = 452.0
 theme_override_font_sizes/font_size = 15
-text = "[WASD] Move
-[W / Space] Jump
-[R] Reset Level
-[Shift] Shift Camera
-[Q] Activate Filter"
-label_settings = SubResource("LabelSettings_oufnp")
+text = "Certain objects have a fickle existence.
+These objects exist when evidence supports their existence
+and are non-existant when evidence contradicts it.
 
-[node name="Hints" type="Label" parent="."]
-offset_left = 687.0
-offset_top = 267.0
-offset_right = 1126.0
-offset_bottom = 504.0
-theme_override_font_sizes/font_size = 15
-text = "Sometimes, things must be
-unseen to be believed. 
-"
+Seeing an object supports its existence.
+Walking though an empty space denies it."
 label_settings = SubResource("LabelSettings_oufnp")
-horizontal_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1018, 485)
