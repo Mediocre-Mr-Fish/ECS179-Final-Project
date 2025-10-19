@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cga688lj0qs1k"
-path="res://.godot/imported/overlay_filter.png-ad049a0bab0f4fb72f7cdb56fee4864a.ctex"
+uid="uid://cwvs7mrn4c4qf"
+path="res://.godot/imported/think.png-12f4aa391a908098b24f4ba45d2cf5c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://overlay_filter.png"
-dest_files=["res://.godot/imported/overlay_filter.png-ad049a0bab0f4fb72f7cdb56fee4864a.ctex"]
+source_file="res://assets/think.png"
+dest_files=["res://.godot/imported/think.png-12f4aa391a908098b24f4ba45d2cf5c6.ctex"]
 
 [params]
 

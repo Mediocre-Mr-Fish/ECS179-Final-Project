@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cco14dfocmfkh"
-path="res://.godot/imported/overlay_red.png-969e0a9dd3b4a12ae8ec48c7f54dfcbb.ctex"
+uid="uid://kegcn8hnfpw"
+path="res://.godot/imported/null_white.png-487ac3404c3568483a07409f39645e66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://overlay_red.png"
-dest_files=["res://.godot/imported/overlay_red.png-969e0a9dd3b4a12ae8ec48c7f54dfcbb.ctex"]
+source_file="res://assets/null_white.png"
+dest_files=["res://.godot/imported/null_white.png-487ac3404c3568483a07409f39645e66.ctex"]
 
 [params]
 

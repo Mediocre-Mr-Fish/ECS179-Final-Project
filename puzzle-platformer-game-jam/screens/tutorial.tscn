@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://domr7dqr72ykt"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_ok11k"]
+[ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_rbh7r"]
+[ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/think.png" id="4_rbh7r"]
+[ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="5_0fvvq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wqwc"]
+font_size = 64
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oufnp"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(573.25, 386.5)
+scale = Vector2(4.4746094, 4.4492188)
+texture = ExtResource("1_ok11k")
+
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 558.0
+offset_right = 632.0
+offset_bottom = 597.0
+text = "MENU"
+script = ExtResource("2_rbh7r")
+scene_path = "res://screens/menu.tscn"
+
+[node name="Title" type="Label" parent="."]
+offset_left = -23.0
+offset_top = -1.0
+offset_right = 1163.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 15
+text = "Controls"
+label_settings = SubResource("LabelSettings_7wqwc")
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="."]
+offset_left = 81.0
+offset_top = 149.0
+offset_right = 520.0
+offset_bottom = 386.0
+theme_override_font_sizes/font_size = 15
+text = "[WASD] Move
+[W / Space] Jump
+[R] Reset Level
+[Shift] Shift Camera
+[Q] Activate Filter"
+label_settings = SubResource("LabelSettings_oufnp")
+
+[node name="Hints" type="Label" parent="."]
+offset_left = 687.0
+offset_top = 267.0
+offset_right = 1126.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 15
+text = "Sometimes, things must be
+unseen to be believed. 
+"
+label_settings = SubResource("LabelSettings_oufnp")
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1018, 485)
+rotation = 0.10174332
+texture = ExtResource("4_rbh7r")
+
+[node name="flower2" parent="." instance=ExtResource("5_0fvvq")]
+position = Vector2(857, 517)
+flip_h = true
+
+[connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]

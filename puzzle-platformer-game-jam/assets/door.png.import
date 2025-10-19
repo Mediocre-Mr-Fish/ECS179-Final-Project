@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jsvb13vlx2n3"
-path="res://.godot/imported/grid.png-9bb66f80dbdd793fb4bb275a0d999fdf.ctex"
+uid="uid://yg116rutaeph"
+path="res://.godot/imported/door.png-b71998044d513d047c9b0091ee4a07ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grid.png"
-dest_files=["res://.godot/imported/grid.png-9bb66f80dbdd793fb4bb275a0d999fdf.ctex"]
+source_file="res://assets/door.png"
+dest_files=["res://.godot/imported/door.png-b71998044d513d047c9b0091ee4a07ff.ctex"]
 
 [params]
 
