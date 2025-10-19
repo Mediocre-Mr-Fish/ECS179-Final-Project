@@ -22,28 +22,28 @@ scale = Vector2(4.4746094, 4.4492188)
 texture = ExtResource("1_kfbsc")
 
 [node name="start" type="Button" parent="."]
-offset_left = 493.0
-offset_top = 252.0
-offset_right = 656.0
-offset_bottom = 331.0
+offset_left = 464.0
+offset_top = 354.0
+offset_right = 683.0
+offset_bottom = 449.0
 text = "PLAY"
 script = ExtResource("2_gbx6r")
 target_scene = ExtResource("3_bvm7p")
 
 [node name="credits" type="Button" parent="."]
-offset_left = 468.0
-offset_top = 366.0
-offset_right = 676.0
-offset_bottom = 454.0
+offset_left = 505.0
+offset_top = 491.0
+offset_right = 638.0
+offset_bottom = 551.0
 text = "CREDITS"
 script = ExtResource("2_gbx6r")
 target_scene = ExtResource("4_2fskk")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 276.0
-offset_top = -64.0
-offset_right = 860.0
-offset_bottom = 110.0
+offset_left = 284.0
+offset_top = 90.0
+offset_right = 868.0
+offset_bottom = 264.0
 text = "Beholden"
 label_settings = SubResource("LabelSettings_ouk20")
 
