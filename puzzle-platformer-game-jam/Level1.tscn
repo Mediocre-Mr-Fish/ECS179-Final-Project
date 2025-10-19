@@ -1,23 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bk2m7r8ba3lrw"]
+[gd_scene load_steps=9 format=3 uid="uid://bk2m7r8ba3lrw"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://grid.png" id="1_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://Player.tscn" id="1_mc20k"]
-[ext_resource type="Texture2D" uid="uid://kegcn8hnfpw" path="res://null_white.png" id="2_cove1"]
-[ext_resource type="Script" uid="uid://dwnoc5aykltka" path="res://camera_controller.gd" id="3_cove1"]
 [ext_resource type="PackedScene" uid="uid://uqhqtm3pw2wl" path="res://wall_indeterminate.tscn" id="3_lmyl5"]
-[ext_resource type="Script" path="res://camera_hitbox.gd" id="4_dwyiq"]
-[ext_resource type="Texture2D" uid="uid://c3da7s3w2c1ll" path="res://overlay.png" id="7_mlbie"]
+[ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://Floor.tscn" id="6_mlbie"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://PlayerCamera.tscn" id="7_mlbie"]
 [ext_resource type="Script" uid="uid://bughqfl8cgaxy" path="res://exit.gd" id="8_5py54"]
 [ext_resource type="Texture2D" uid="uid://bfjf3dgf66ux1" path="res://null_grey.png" id="9_1bjei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5g1s2"]
 size = Vector2(51, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyiq"]
-size = Vector2(323.20004, 258)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cove1"]
-size = Vector2(230.40002, 1296)
 
 [node name="World" type="Node2D"]
 
@@ -38,9 +30,9 @@ texture = ExtResource("9_1bjei")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
-offset_left = -730.0
+offset_left = -1816.0
 offset_top = -744.0
-offset_right = -84.0
+offset_right = -687.80005
 offset_bottom = -488.0
 scale = Vector2(5, 5)
 texture = ExtResource("1_lmyl5")
@@ -55,38 +47,10 @@ scale = Vector2(0.5, 0.5)
 [node name="Wall_indet" parent="Level" instance=ExtResource("3_lmyl5")]
 position = Vector2(1507, 151)
 
-[node name="Floor" type="StaticBody2D" parent="Level"]
-position = Vector2(600, 600)
-scale = Vector2(10, 0.5)
+[node name="Floor" parent="Level" instance=ExtResource("6_mlbie")]
+position = Vector2(832, 594)
+scale = Vector2(14.845, 0.5)
 
-[node name="floor" type="Sprite2D" parent="Level/Floor"]
-position = Vector2(31.049984, 0)
-scale = Vector2(1.2628905, 1)
-texture = ExtResource("2_cove1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor"]
-position = Vector2(31.099998, 0)
-scale = Vector2(0.99999994, 1)
-shape = SubResource("RectangleShape2D_dwyiq")
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("subject")]
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_mlbie")]
 position = Vector2(574, -817)
-scale = Vector2(4.9999995, 0.5)
-script = ExtResource("3_cove1")
-shifted_offset = Vector2(550, 0)
 subject = NodePath("../player")
-
-[node name="Area2D" type="Area2D" parent="Camera2D"]
-position = Vector2(-114.80001, 1634)
-scale = Vector2(0.20000002, 2)
-script = ExtResource("4_dwyiq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
-position = Vector2(574, -817)
-scale = Vector2(4.9999995, 0.5)
-shape = SubResource("RectangleShape2D_cove1")
-
-[node name="Debug" type="Sprite2D" parent="Camera2D"]
-position = Vector2(6.020069e-06, 5.6266785e-05)
-scale = Vector2(0.90000004, 5.0625005)
-texture = ExtResource("7_mlbie")

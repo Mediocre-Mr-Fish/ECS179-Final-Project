@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7ak1eqk8kbg2"]
+
+[ext_resource type="Script" uid="uid://dyd56rksm05qv" path="res://bridge.gd" id="1_jvmcf"]
+[ext_resource type="Texture2D" uid="uid://bbcsdth1rulpy" path="res://null_green.png" id="2_iysm1"]
+[ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="3_iysm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy2vu"]
+size = Vector2(256, 256.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tynux"]
+size = Vector2(260, 260)
+
+[node name="Bridge" type="StaticBody2D"]
+script = ExtResource("1_jvmcf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_iysm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_xy2vu")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_iysm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_tynux")
