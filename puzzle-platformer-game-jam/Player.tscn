@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ku11hnyxpgxp"]
+[gd_scene load_steps=11 format=3 uid="uid://ku11hnyxpgxp"]
 
-[ext_resource type="Texture2D" uid="uid://dfx60wxux6jx8" path="res://icon.svg" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://cnif7fgpw4n3x" path="res://player_controller.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://bflqer4bi6clt" path="res://sprites/character_spritesheet.png" id="2_kne1u"]
 [ext_resource type="Script" uid="uid://b5hf8j1tluq3w" path="res://touch_hit_box.gd" id="3_kne1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
@@ -10,11 +10,85 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
 size = Vector2(132, 132)
 
+[sub_resource type="Animation" id="Animation_e80uo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_kne1u"]
+resource_name = "idle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666668, 0.23333333, 0.43333334, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_tdg3f"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333336, 0.26666668, 0.39999998, 0.5, 0.6333333, 0.73333335, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 16, 17, 17]
+}
+
+[sub_resource type="Animation" id="Animation_cxr5p"]
+resource_name = "walk"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.100000024, 0.20000003, 0.30000004, 0.43333337, 0.5333333, 0.6333333, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 5, 4, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e80uo"]
+_data = {
+&"RESET": SubResource("Animation_e80uo"),
+&"idle": SubResource("Animation_kne1u"),
+&"jump": SubResource("Animation_tdg3f"),
+&"walk": SubResource("Animation_cxr5p")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_ij6vw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_f50pn")
+scale = Vector2(9.512501, 8.89375)
+texture = ExtResource("2_kne1u")
+hframes = 6
+vframes = 3
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -25,3 +99,8 @@ script = ExtResource("3_kne1u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchHitBox"]
 shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e80uo")
+}
