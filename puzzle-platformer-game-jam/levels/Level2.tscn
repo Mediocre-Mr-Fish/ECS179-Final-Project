@@ -48,17 +48,18 @@ camera = NodePath("../../Camera2D")
 position = Vector2(1649, 406)
 target_scene = ExtResource("6_6m74g")
 
-[node name="Area2D" type="Area2D" parent="Level/Exit"]
-script = ExtResource("7_qcwkq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Exit/Area2D"]
-position = Vector2(814, 3097)
-shape = SubResource("RectangleShape2D_5pn2a")
-
 [node name="flower2" parent="Level" instance=ExtResource("9_qcwkq")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(514, 472)
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="Level"]
+position = Vector2(1649, 406)
+script = ExtResource("7_qcwkq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
+position = Vector2(814, 3097)
+shape = SubResource("RectangleShape2D_5pn2a")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_xcmrh")]
 position = Vector2(574, -817)
