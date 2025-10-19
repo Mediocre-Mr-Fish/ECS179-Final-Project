@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7ak1eqk8kbg2"]
 
-[ext_resource type="Script" uid="uid://dyd56rksm05qv" path="res://bridge.gd" id="1_jvmcf"]
-[ext_resource type="Texture2D" uid="uid://bbcsdth1rulpy" path="res://null_green.png" id="2_iysm1"]
+[ext_resource type="Script" uid="uid://dyd56rksm05qv" path="res://objects/bridge/bridge.gd" id="1_jvmcf"]
+[ext_resource type="Texture2D" uid="uid://bbcsdth1rulpy" path="res://assets/null_green.png" id="2_iysm1"]
 [ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="3_iysm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy2vu"]
