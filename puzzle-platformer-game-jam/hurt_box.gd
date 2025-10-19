@@ -5,6 +5,7 @@ func _init() -> void:
 	collision_layer = 32 + 8
 	collision_mask = 0
 
+#not used yet
 func get_hit(damage)->void:
 	#print("I got hit!")
 	if self.get_owner().has_method("take_damage"):
