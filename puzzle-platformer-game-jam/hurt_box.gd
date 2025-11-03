@@ -11,10 +11,10 @@ func get_hit(damage)->void:
 	if self.get_owner().has_method("take_damage"):
 		self.owner.take_damage(damage)
 
-func on_camera(seen:bool)->void:
+func on_camera(seen:bool, overlay:CameraController.Overlay = CameraController.Overlay.NONE)->void:
 	#print("I'm on camera!")
 	if self.get_owner().has_method("on_camera"):
-		self.owner.on_camera(seen)
+		self.owner.on_camera(seen, overlay)
 
 func on_touch(touched:bool)->void:
 	if self.get_owner().has_method("on_touch"):

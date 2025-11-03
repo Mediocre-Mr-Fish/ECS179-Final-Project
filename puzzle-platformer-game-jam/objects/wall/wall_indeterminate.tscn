@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg24sedldgt3w"]
+[gd_scene load_steps=5 format=3 uid="uid://uqhqtm3pw2wl"]
 
-[ext_resource type="Script" uid="uid://wm08s5jve02u" path="res://wall_indeterminate.gd" id="1_rgv6w"]
-[ext_resource type="Texture2D" uid="uid://bfjf3dgf66ux1" path="res://null_grey.png" id="2_wws4w"]
+[ext_resource type="Script" uid="uid://wm08s5jve02u" path="res://objects/wall/wall_indeterminate.gd" id="1_rgv6w"]
+[ext_resource type="Texture2D" uid="uid://bfjf3dgf66ux1" path="res://assets/null_grey.png" id="2_wws4w"]
 [ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="3_6whjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s3sxq"]
