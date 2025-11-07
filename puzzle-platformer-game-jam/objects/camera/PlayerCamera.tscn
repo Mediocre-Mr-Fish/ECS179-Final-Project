@@ -31,6 +31,7 @@ scale = Vector2(0.90000004, 5.0625005)
 texture = ExtResource("3_brkmr")
 
 [node name="Overlay" type="TextureRect" parent="."]
+z_index = 10
 offset_left = -115.2
 offset_top = -646.0
 offset_right = -38.399994

@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 #@onready var sprite:Sprite2D = $Sprite2D
 @onready var sprite:PlayerSprite = $Sprite2D
+@export var menu_route:String
 
 enum Facing {
 	LEFT,
@@ -49,5 +50,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("menu"):
+		get_tree().change_scene_to_file(menu_route)
 	
 	move_and_slide()

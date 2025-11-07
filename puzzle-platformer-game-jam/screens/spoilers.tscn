@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://vbobnauh6tsv"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_e81fy"]
+[ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_nl5an"]
+[ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/think.png" id="3_m3la5"]
+[ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="4_jr4ly"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wqwc"]
+font_size = 64
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oufnp"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(573.25, 386.5)
+scale = Vector2(4.4746094, 4.4492188)
+texture = ExtResource("1_e81fy")
+
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 558.0
+offset_right = 632.0
+offset_bottom = 597.0
+text = "BACK"
+script = ExtResource("2_nl5an")
+scene_path = "res://screens/tutorial.tscn"
+
+[node name="Title" type="Label" parent="."]
+offset_left = -23.0
+offset_top = -1.0
+offset_right = 1163.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 15
+text = "Explanation"
+label_settings = SubResource("LabelSettings_7wqwc")
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 167.0
+offset_right = 944.0
+offset_bottom = 452.0
+theme_override_font_sizes/font_size = 15
+text = "Certain objects have a fickle existence.
+These objects exist when evidence supports their existence
+and are non-existant when evidence contradicts it.
+
+Seeing an object supports its existence.
+Walking though an empty space denies it."
+label_settings = SubResource("LabelSettings_oufnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1018, 485)
+rotation = 0.10174332
+texture = ExtResource("3_m3la5")
+
+[node name="flower2" parent="." instance=ExtResource("4_jr4ly")]
+position = Vector2(857, 517)
+flip_h = true
+
+[connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
