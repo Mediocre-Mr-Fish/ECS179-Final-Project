@@ -45,7 +45,6 @@ func _process(_delta: float) -> void:
 	
 	global_position += (target_position - global_position).limit_length(shift_speed * _delta)
 	
-	
 	if Input.is_action_pressed("gimick2"):
 		overlay.visible = true
 		current_overlay = Overlay.GREEN
