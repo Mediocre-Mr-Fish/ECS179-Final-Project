@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	# If character is on floor and jump is pressed, initiate jump.
 	# If character is in air and jump is pressed, apply slow fall.
 	# Kinda like the mechnism in google dinosaur game.
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		else:
