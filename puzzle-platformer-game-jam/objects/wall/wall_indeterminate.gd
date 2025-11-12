@@ -23,7 +23,7 @@ func on_camera(seen:bool, overlay:CameraController.Overlay = CameraController.Ov
 		determined = true
 		determinism_update()
 
-func on_touch(touch:bool)->void:
+func on_touch(touch:bool, object:Node2D)->void:
 	if touch and not determined:
 		print("I've been touched!")
 		existant = false

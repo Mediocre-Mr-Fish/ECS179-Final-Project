@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://pf1lstqmxld2"]
+
+[ext_resource type="PackedScene" uid="uid://cd721o2m5c4aq" path="res://objects/physics_box/PhysicsBox.tscn" id="1_j8diy"]
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="2_kn5nt"]
+[ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="3_xdnvt"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="4_5d720"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="5_5d720"]
+
+[node name="Level4" type="Node2D"]
+
+[node name="PhysicsBox" parent="." instance=ExtResource("1_j8diy")]
+position = Vector2(0.43, 259)
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -1816.0
+offset_top = -744.0
+offset_right = -687.80005
+offset_bottom = -488.0
+scale = Vector2(5, 5)
+texture = ExtResource("2_kn5nt")
+stretch_mode = 1
+
+[node name="Floor" parent="." instance=ExtResource("3_xdnvt")]
+position = Vector2(0, 600)
+scale = Vector2(100, 0.5)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_5d720")]
+position = Vector2(-395, 332)
+scale = Vector2(0.5, 0.5)
+pushForce = 1000.0
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("5_5d720")]
+position = Vector2(-270, -871)
+floating_offset = null
+subject = NodePath("../CharacterBody2D")
+
+[node name="Floor2" parent="." instance=ExtResource("3_xdnvt")]
+position = Vector2(392.99997, 567)
+rotation = -0.2617994
+scale = Vector2(3, 0.5)

@@ -4,7 +4,7 @@ extends Camera2D
 @export var floating_offset:Vector2 = Vector2.ZERO
 @export var shifted_offset:Vector2 = Vector2(600, 0)
 
-@export var subject:PlayerController :
+@export var subject:PlayerController:
 	set(value):
 		if value:
 			subject = value

@@ -16,6 +16,6 @@ func on_camera(seen:bool, overlay:CameraController.Overlay = CameraController.Ov
 	if self.get_owner().has_method("on_camera"):
 		self.owner.on_camera(seen, overlay)
 
-func on_touch(touched:bool)->void:
+func on_touch(touched:bool, object:Node2D)->void:
 	if self.get_owner().has_method("on_touch"):
-		self.owner.on_touch(touched)
+		self.owner.on_touch(touched, object)

@@ -4,6 +4,7 @@ extends CharacterBody2D
 #@onready var sprite:Sprite2D = $Sprite2D
 @onready var sprite:PlayerSprite = $Sprite2D
 @export var menu_route:String
+@export var pushForce:float = 100.0
 
 enum Facing {
 	LEFT,
@@ -54,3 +55,8 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file(menu_route)
 	
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		print("I collided with ", collision.get_collider().name)
+		if collision.get_collider() is RigidBody2D:
+			collision.get_collider().apply_force(collision.get_normal() * -pushForce)

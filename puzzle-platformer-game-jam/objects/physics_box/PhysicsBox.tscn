@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd721o2m5c4aq"]
+
+[ext_resource type="Script" uid="uid://qr2q0loggaq6" path="res://objects/physics_box/physics_box.gd" id="1_tkaan"]
+[ext_resource type="Texture2D" uid="uid://ch7lylw36eue8" path="res://assets/box.png" id="2_rq22n"]
+[ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="3_rq22n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm6v7"]
+size = Vector2(256, 256)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_tkaan")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rq22n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vm6v7")
+
+[node name="BoxHurtbox" type="Area2D" parent="."]
+script = ExtResource("3_rq22n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxHurtbox"]
+shape = SubResource("RectangleShape2D_vm6v7")
+
+[node name="BoxTouchbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxTouchbox"]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_vm6v7")
