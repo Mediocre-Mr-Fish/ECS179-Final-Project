@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1g5kps3yij18"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_rmdct"]
+[ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="2_ln44a"]
+
+[node name="LeapOfFaith" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -1816.0
+offset_top = -744.0
+offset_right = -687.80005
+offset_bottom = -488.0
+scale = Vector2(5, 5)
+texture = ExtResource("1_rmdct")
+stretch_mode = 1
+
+[node name="Floor" parent="." instance=ExtResource("2_ln44a")]
+position = Vector2(270, 498)
