@@ -76,6 +76,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		print("I collided with ", collision.get_collider().name)
+		#print("I collided with ", collision.get_collider().name)
 		if collision.get_collider() is RigidBody2D:
 			collision.get_collider().apply_force(collision.get_normal() * -pushForce)

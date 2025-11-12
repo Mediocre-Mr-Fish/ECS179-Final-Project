@@ -6,5 +6,5 @@ extends HurtBox
 func _ready() -> void:
 	pass # Replace with function body.
 
-func on_touch(touch:bool)->void:
+func on_touch(touch:bool, object:Node2D)->void:
 	get_tree().change_scene_to_file(scene_path)

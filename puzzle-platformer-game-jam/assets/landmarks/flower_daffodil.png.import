@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbt4kqpdw8n1q"
-path="res://.godot/imported/flower_daffodil.png-f5c33e6a06e39b5c4c1a79ca50f81e8f.ctex"
+path="res://.godot/imported/flower_daffodil.png-ff29e77a2283b6df2198cd38dc83a8f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/flower_daffodil.png"
-dest_files=["res://.godot/imported/flower_daffodil.png-f5c33e6a06e39b5c4c1a79ca50f81e8f.ctex"]
+source_file="res://assets/landmarks/flower_daffodil.png"
+dest_files=["res://.godot/imported/flower_daffodil.png-ff29e77a2283b6df2198cd38dc83a8f8.ctex"]
 
 [params]
 
