@@ -19,6 +19,7 @@ const IN_THE_AIR_ACCELERATION_RATIO = 0.05
 
 var facing:Facing = Facing.RIGHT
 
+
 func _ready() -> void:
 	facing = Facing.RIGHT
 	sprite.change_facing(self)

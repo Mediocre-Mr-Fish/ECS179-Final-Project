@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd721o2m5c4aq"]
+[gd_scene load_steps=6 format=3 uid="uid://cd721o2m5c4aq"]
 
 [ext_resource type="Script" uid="uid://qr2q0loggaq6" path="res://objects/physics_box/physics_box.gd" id="1_tkaan"]
 [ext_resource type="Texture2D" uid="uid://ch7lylw36eue8" path="res://assets/box.png" id="2_rq22n"]
 [ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="3_rq22n"]
+[ext_resource type="Script" uid="uid://b5hf8j1tluq3w" path="res://touch_hit_box.gd" id="4_vm6v7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm6v7"]
 size = Vector2(256, 256)
@@ -23,6 +24,7 @@ script = ExtResource("3_rq22n")
 shape = SubResource("RectangleShape2D_vm6v7")
 
 [node name="BoxTouchbox" type="Area2D" parent="."]
+script = ExtResource("4_vm6v7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxTouchbox"]
 scale = Vector2(1.1, 1.1)

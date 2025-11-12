@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn50inimverq7"]
+
+[ext_resource type="Script" uid="uid://3fk6hphe2fe5" path="res://objects/floor_button/floor_button.gd" id="1_e6gx6"]
+[ext_resource type="Texture2D" uid="uid://6vro7p8towdm" path="res://assets/pressure_plate.png" id="2_ionen"]
+[ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="3_vhpuw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbk4t"]
+size = Vector2(256, 32)
+
+[node name="FloorButton" type="Node2D"]
+script = ExtResource("1_e6gx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ionen")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("3_vhpuw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 112)
+shape = SubResource("RectangleShape2D_hbk4t")

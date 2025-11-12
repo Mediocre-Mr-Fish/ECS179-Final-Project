@@ -10,6 +10,12 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 	#pass
 
+
 func _on_area_entered(hurtbox: HurtBox) -> void:
 	if hurtbox.has_method("on_touch"):
 		hurtbox.on_touch(true, get_owner())
+
+
+func _on_area_exited(hurtbox: HurtBox) -> void:
+	if hurtbox.has_method("on_touch"):
+		hurtbox.on_touch(false, get_owner())
