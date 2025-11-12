@@ -2,7 +2,11 @@ class_name CameraController
 extends Camera2D
 
 @export var floating_offset:Vector2 = Vector2.ZERO
-@export var shifted_offset:Vector2 = Vector2(600, 0)
+@export var shifted_offset_horizontal:Vector2 = Vector2(550, 0)
+@export var shifted_offset_up:Vector2 = Vector2(0, -300)
+@export var shifted_offset_down:Vector2 = Vector2(0, 300)
+
+@export var shift_speed:float = 2000.0
 
 @export var subject:PlayerController:
 	set(value):
@@ -25,13 +29,22 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	var target_position:Vector2 = subject.global_position
 	if Input.is_action_pressed("gimick1"):
-		if subject.Facing.RIGHT == subject.facing:
-			global_position.x = subject.global_position.x + shifted_offset.x
+		if subject.facing == subject.Facing.RIGHT:
+			target_position += shifted_offset_horizontal
 		else:
-			global_position.x = subject.global_position.x - shifted_offset.x
+			target_position -= shifted_offset_horizontal
+		
+		if subject.facing_y == subject.FacingY.UP:
+			target_position += shifted_offset_up
+		elif subject.facing_y == subject.FacingY.DOWN:
+			target_position += shifted_offset_down
 	else:
-		global_position.x = subject.global_position.x + floating_offset.x
+		target_position += floating_offset
+	
+	global_position += (target_position - global_position).limit_length(shift_speed * _delta)
+	
 	
 	if Input.is_action_pressed("gimick2"):
 		overlay.visible = true

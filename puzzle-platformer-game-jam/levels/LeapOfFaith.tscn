@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://djmtwlejfpafg"]
+[gd_scene load_steps=5 format=3 uid="uid://djmtwlejfpafg"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_rmdct"]
 [ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="2_ln44a"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="3_ln44a"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="4_05iuy"]
 
 [node name="LeapOfFaith" type="Node2D"]
 
@@ -17,8 +18,18 @@ texture = ExtResource("1_rmdct")
 stretch_mode = 1
 
 [node name="Floor" parent="." instance=ExtResource("2_ln44a")]
-position = Vector2(129, 667)
-scale = Vector2(1, 0.5)
+position = Vector2(129, 600)
+scale = Vector2(10, 0.5)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_ln44a")]
-position = Vector2(140, 308)
+position = Vector2(-192, 330)
+scale = Vector2(0.5, 0.5)
+
+[node name="Floor2" parent="." instance=ExtResource("2_ln44a")]
+position = Vector2(241, 506)
+rotation = -0.7853982
+scale = Vector2(5, 0.5)
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("4_05iuy")]
+position = Vector2(-892, 1462)
+subject = NodePath("../CharacterBody2D")
