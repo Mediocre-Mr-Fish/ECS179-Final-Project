@@ -1,5 +1,5 @@
 class_name ObjectIndeterminate
-extends StaticBody2D
+extends Node2D
 
 var determined: bool = false
 

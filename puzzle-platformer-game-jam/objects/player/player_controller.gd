@@ -10,6 +10,11 @@ enum Facing {
 	LEFT,
 	RIGHT,
 }
+enum FacingY{
+	UP,
+	NEUTRAL,
+	DOWN,
+}
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -800.0
@@ -18,10 +23,12 @@ const GRAVITY_CORRECTION_RATIO = 2.5
 const IN_THE_AIR_ACCELERATION_RATIO = 0.05
 
 var facing:Facing = Facing.RIGHT
+var facing_y:FacingY = FacingY.NEUTRAL
 
 
 func _ready() -> void:
 	facing = Facing.RIGHT
+	facing_y = FacingY.NEUTRAL
 	sprite.change_facing(self)
 	
 
@@ -34,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	# If character is on floor and jump is pressed, initiate jump.
 	# If character is in air and jump is pressed, apply slow fall.
 	# Kinda like the mechnism in google dinosaur game.
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		else:
@@ -43,7 +50,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left", "right")
+	var direction:Vector2 = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 
 	# Handle character walking.
 	# Walk normally on ground.
@@ -51,23 +58,33 @@ func _physics_process(delta: float) -> void:
 	# But only in the opposite direction.
 	if is_on_floor():
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = direction.x * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED * 0.1)
 	else:
-		if sign(velocity.x) != sign(direction):
-			velocity.x += direction * SPEED * 0.1 
+		if sign(velocity.x) != sign(direction.x):
+			velocity.x += direction.x * SPEED * 0.1 
 	
 	if not Input.is_action_pressed("gimick1"):
-		if 0 < direction:
-			if Facing.RIGHT != facing:
+		if direction.x > 0:
+			if facing != Facing.RIGHT:
 				facing = Facing.RIGHT
 				sprite.change_facing(self)
 			
-		elif 0 > direction:
-			if Facing.LEFT != facing:
+		elif direction.x < 0:
+			if facing != Facing.LEFT:
 				facing = Facing.LEFT
 				sprite.change_facing(self)
+				
+		if is_zero_approx(direction.y):
+			if facing_y != FacingY.NEUTRAL:
+				facing_y = FacingY.NEUTRAL
+		elif direction.y < 0:
+			if facing_y != FacingY.UP:
+				facing_y = FacingY.UP
+		elif direction.y > 0:
+			if facing_y != FacingY.DOWN:
+				facing_y = FacingY.DOWN
 	
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
