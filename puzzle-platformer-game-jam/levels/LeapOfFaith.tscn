@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://djmtwlejfpafg"]
+[gd_scene load_steps=11 format=3 uid="uid://djmtwlejfpafg"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_rmdct"]
 [ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="2_ln44a"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="3_ln44a"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="4_05iuy"]
+[ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="5_ufph1"]
+[ext_resource type="Script" uid="uid://7jy06it86d6h" path="res://objects/indeterminate_objects/simple_visible_tangible.gd" id="6_7u6x7"]
+[ext_resource type="Texture2D" uid="uid://b5cjedre7n44e" path="res://assets/outline_16.png" id="7_laolv"]
+[ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="8_5qt0y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfqlk"]
+size = Vector2(12432, 3173)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvlx7"]
+size = Vector2(720, 128)
 
 [node name="LeapOfFaith" type="Node2D"]
 
@@ -17,19 +27,60 @@ scale = Vector2(5, 5)
 texture = ExtResource("1_rmdct")
 stretch_mode = 1
 
-[node name="Floor" parent="." instance=ExtResource("2_ln44a")]
-position = Vector2(129, 600)
-scale = Vector2(10, 0.5)
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_ln44a")]
-position = Vector2(-192, 330)
+position = Vector2(0, -235)
 scale = Vector2(0.5, 0.5)
 
-[node name="Floor2" parent="." instance=ExtResource("2_ln44a")]
-position = Vector2(241, 506)
-rotation = -0.7853982
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("4_05iuy")]
+position = Vector2(-1170, 1331)
+subject = NodePath("../CharacterBody2D")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Floor" parent="Level" instance=ExtResource("2_ln44a")]
+modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(0, 390)
+scale = Vector2(5, 2)
+
+[node name="Floor2" parent="Level" instance=ExtResource("2_ln44a")]
+modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(2000, 600)
 scale = Vector2(5, 0.5)
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("4_05iuy")]
-position = Vector2(-892, 1462)
-subject = NodePath("../CharacterBody2D")
+[node name="Area2D" type="Area2D" parent="Level"]
+position = Vector2(1649, 406)
+script = ExtResource("5_ufph1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
+position = Vector2(-740, 2673)
+shape = SubResource("RectangleShape2D_lfqlk")
+
+[node name="Catch" type="Node2D" parent="Level" node_paths=PackedStringArray("visuals", "collisions")]
+script = ExtResource("6_7u6x7")
+visuals = [NodePath("NinePatchRect")]
+collisions = [NodePath("StaticBody2D/CollisionShape2D"), NodePath("Hurtbox/CollisionShape2D")]
+seen_action = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Level/Catch"]
+offset_left = 640.0
+offset_top = 536.0
+offset_right = 1360.0
+offset_bottom = 664.0
+texture = ExtResource("7_laolv")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Catch"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Catch/StaticBody2D"]
+position = Vector2(1000, 600)
+shape = SubResource("RectangleShape2D_gvlx7")
+
+[node name="Hurtbox" type="Area2D" parent="Level/Catch"]
+script = ExtResource("8_5qt0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Catch/Hurtbox"]
+position = Vector2(1000, 600)
+shape = SubResource("RectangleShape2D_gvlx7")

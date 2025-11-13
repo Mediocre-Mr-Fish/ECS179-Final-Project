@@ -13,9 +13,9 @@ func get_hit(damage) -> void:
 
 func on_camera(seen:bool, overlay:CameraController.Overlay = CameraController.Overlay.NONE) -> void:
 	#print("I'm on camera!")
-	if self.get_owner().has_method("on_camera"):
-		self.owner.on_camera(seen, overlay)
+	if self.get_parent().has_method("on_camera"):
+		self.get_parent().on_camera(seen, overlay)
 
 func on_touch(touched:bool, object:Node2D) -> void:
-	if self.get_owner().has_method("on_touch"):
-		self.owner.on_touch(touched, object)
+	if self.get_parent().has_method("on_touch"):
+		self.get_parent().on_touch(touched, object)
