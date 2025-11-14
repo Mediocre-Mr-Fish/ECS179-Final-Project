@@ -11,11 +11,11 @@ size = Vector2(256, 256)
 [node name="RigidBody2D" type="RigidBody2D"]
 script = ExtResource("1_tkaan")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rq22n")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vm6v7")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("2_rq22n")
 
 [node name="BoxHurtbox" type="Area2D" parent="."]
 script = ExtResource("3_rq22n")

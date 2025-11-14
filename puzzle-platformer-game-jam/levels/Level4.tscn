@@ -15,16 +15,21 @@ push_translation = Vector2(0, 16)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-750, 259)
-scale = Vector2(0.5, 0.5)
 
 [node name="PhysicsBox" parent="Node2D" instance=ExtResource("1_j8diy")]
+position = Vector2(85, 79)
+size = 100
+
+[node name="PhysicsBox2" parent="Node2D" instance=ExtResource("1_j8diy")]
+position = Vector2(-350, -81)
+size = 300
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
-offset_left = -1816.0
-offset_top = -744.0
-offset_right = -687.80005
-offset_bottom = -488.0
+offset_left = -1765.0
+offset_top = -1166.0
+offset_right = -636.80005
+offset_bottom = -910.0
 scale = Vector2(5, 5)
 texture = ExtResource("2_kn5nt")
 stretch_mode = 1
