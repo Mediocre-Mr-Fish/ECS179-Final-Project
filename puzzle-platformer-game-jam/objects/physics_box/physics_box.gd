@@ -6,6 +6,7 @@ extends RigidBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	mass = 0.5
+	lock_rotation = true
 	#resize hitbox
 	$CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
 	$CollisionShape2D.shape.set_size(Vector2(size, size))
@@ -24,4 +25,5 @@ func _process(delta: float) -> void:
 
 func on_touch(touch:bool, object:Node2D) -> void:
 	print("bump")
+	
 	
