@@ -36,3 +36,7 @@ visible = false
 position = Vector2(-5.5, 8.499994)
 scale = Vector2(1.0820313, 1.9882811)
 texture = ExtResource("5_cxr5p")
+
+[node name="LassoOrigin" type="Node2D" parent="."]
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(1, 1.0000001)

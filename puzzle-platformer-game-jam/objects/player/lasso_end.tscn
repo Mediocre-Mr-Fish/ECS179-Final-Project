@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkt6yrh67k2p1"]
+
+[ext_resource type="Script" uid="uid://cv5esp5cix6dv" path="res://objects/player/lasso_end.gd" id="1_5p0tk"]
+[ext_resource type="Texture2D" uid="uid://dtyouj2whlurm" path="res://assets/lasso_hoop.png" id="2_npbvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45d0k"]
+size = Vector2(192, 64)
+
+[node name="LassoEnd" type="RigidBody2D"]
+scale = Vector2(1, 0.9999999)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_5p0tk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 4)
+shape = SubResource("RectangleShape2D_45d0k")
+
+[node name="LassoEndTouchBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LassoEndTouchBox"]
+position = Vector2(-3.5, 4)
+shape = SubResource("RectangleShape2D_45d0k")
+
+[node name="LassoEndSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_npbvu")
+
+[node name="LassoEndKnot" type="Node2D" parent="LassoEndSprite"]
+position = Vector2(-68, 22)

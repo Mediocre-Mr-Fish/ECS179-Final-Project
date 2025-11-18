@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var menu_route:String
 @export var pushForce:float = 100.0
 
+@export var lasso_end:LassoEnd
+@export var lasso_toss_force:Vector2 = Vector2(1000, -1000)
 enum Facing {
 	LEFT,
 	RIGHT,
@@ -85,6 +87,13 @@ func _physics_process(delta: float) -> void:
 		elif direction.y > 0:
 			if facing_y != FacingY.DOWN:
 				facing_y = FacingY.DOWN
+	
+	if Input.is_action_just_pressed("gimick3"):
+		if lasso_end:
+			if facing == Facing.RIGHT:
+				lasso_end.toss(self, lasso_toss_force)
+			else:
+				lasso_end.toss(self, lasso_toss_force.reflect(Vector2.UP))
 	
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
