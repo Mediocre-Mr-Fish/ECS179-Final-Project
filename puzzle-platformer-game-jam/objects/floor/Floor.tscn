@@ -6,6 +6,7 @@
 size = Vector2(256, 256)
 
 [node name="Floor" type="StaticBody2D"]
+collision_mask = 0
 
 [node name="floor" type="Sprite2D" parent="."]
 texture = ExtResource("1_wm4b4")

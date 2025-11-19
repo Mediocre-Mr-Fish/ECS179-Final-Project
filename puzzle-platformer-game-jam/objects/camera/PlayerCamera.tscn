@@ -11,11 +11,12 @@ size = Vector2(230.40002, 1296)
 [node name="Camera2D" type="Camera2D"]
 scale = Vector2(4.9999995, 0.5)
 script = ExtResource("1_a02ee")
-shifted_offset = Vector2(550, 0)
 
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("camera")]
 position = Vector2(-114.80001, 1634)
 scale = Vector2(0.20000002, 2)
+collision_layer = 32
+collision_mask = 3
 script = ExtResource("2_75niw")
 camera = NodePath("..")
 
