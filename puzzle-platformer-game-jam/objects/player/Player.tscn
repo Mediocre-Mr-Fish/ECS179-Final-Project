@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3tycvd50f06t"]
+[gd_scene load_steps=29 format=3 uid="uid://b3tycvd50f06t"]
 
 [ext_resource type="Script" uid="uid://cnif7fgpw4n3x" path="res://objects/player/player_controller.gd" id="1_ij6vw"]
-[ext_resource type="Texture2D" uid="uid://bcvtf6fl3mst" path="res://assets/guy.png" id="2_kne1u"]
+[ext_resource type="Texture2D" uid="uid://dyfwvhmqw0txo" path="res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3.png" id="2_h7ooo"]
 [ext_resource type="Script" uid="uid://b5umy05fi62tq" path="res://objects/player/player_sprite.gd" id="3_e80uo"]
 [ext_resource type="Script" uid="uid://b5hf8j1tluq3w" path="res://touch_hit_box.gd" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://cco14dfocmfkh" path="res://assets/overlay_red.png" id="5_cxr5p"]
@@ -10,17 +10,181 @@
 size = Vector2(229, 457)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
-size = Vector2(277, 509)
+size = Vector2(277, 502)
+
+[sub_resource type="Animation" id="Animation_lalkq"]
+resource_name = "Idle"
+length = 0.3996
+loop_mode = 1
+step = 0.1332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1332, 0.2664),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 3]
+}
+
+[sub_resource type="Animation" id="Animation_45d0k"]
+resource_name = "Idle_With_Torch"
+length = 0.3996
+loop_mode = 1
+step = 0.1332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1332, 0.2664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 7]
+}
+
+[sub_resource type="Animation" id="Animation_t2uaq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_veo1v"]
+resource_name = "Run"
+loop_mode = 1
+step = 0.1332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1332, 0.2664, 0.39960003, 0.5328, 0.666, 0.79920006, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19, 20, 20]
+}
+
+[sub_resource type="Animation" id="Animation_h7ooo"]
+resource_name = "Run_With_Torch"
+length = 0.9324
+loop_mode = 1
+step = 0.1332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1332, 0.2664, 0.39960003, 0.5328, 0.666, 0.79920006),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [21, 22, 23, 24, 25, 26, 27]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n1h8g"]
+_data = {
+&"Idle": SubResource("Animation_lalkq"),
+&"Idle_With_Torch": SubResource("Animation_45d0k"),
+&"RESET": SubResource("Animation_t2uaq"),
+&"Run": SubResource("Animation_veo1v"),
+&"Run_With_Torch": SubResource("Animation_h7ooo")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7ooo"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lalkq"]
+animation = &"Idle_With_Torch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t2uaq"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_45d0k"]
+animation = &"Run_With_Torch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_veo1v"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n1h8g"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sq4k3"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cq43t"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ercwk"]
+advance_mode = 2
+advance_condition = &"torch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ijwuf"]
+advance_mode = 2
+advance_condition = &"untorch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iy4hj"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4d57e"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2qrau"]
+advance_mode = 2
+advance_condition = &"untorch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x2mbb"]
+advance_mode = 2
+advance_condition = &"torch"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sq4k3"]
+states/End/position = Vector2(933, 277)
+states/Idle/node = SubResource("AnimationNodeAnimation_h7ooo")
+states/Idle/position = Vector2(421, 226)
+states/Idle_With_Torch/node = SubResource("AnimationNodeAnimation_lalkq")
+states/Idle_With_Torch/position = Vector2(421, 367)
+states/Run/node = SubResource("AnimationNodeAnimation_t2uaq")
+states/Run/position = Vector2(727, 226)
+states/Run_With_Torch/node = SubResource("AnimationNodeAnimation_45d0k")
+states/Run_With_Torch/position = Vector2(727, 367)
+states/Start/position = Vector2(233, 277)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veo1v"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n1h8g"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sq4k3"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_cq43t"), "Idle", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_ercwk"), "Idle_With_Torch", "Idle", SubResource("AnimationNodeStateMachineTransition_ijwuf"), "Idle_With_Torch", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_iy4hj"), "Run_With_Torch", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_4d57e"), "Run_With_Torch", "Run", SubResource("AnimationNodeStateMachineTransition_2qrau"), "Run", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_x2mbb")]
+graph_offset = Vector2(-195, 154)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_ij6vw")
 menu_route = "res://screens/menu.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_kne1u")
+position = Vector2(1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_h7ooo")
+hframes = 7
+vframes = 7
 script = ExtResource("3_e80uo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-4.5, 17.5)
 shape = SubResource("RectangleShape2D_kpjcp")
 
@@ -28,7 +192,7 @@ shape = SubResource("RectangleShape2D_kpjcp")
 script = ExtResource("3_kne1u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TouchHitBox"]
-position = Vector2(-5.5, 8.5)
+position = Vector2(-5.5, 5)
 shape = SubResource("RectangleShape2D_cxr5p")
 
 [node name="Debug" type="Sprite2D" parent="TouchHitBox"]
@@ -36,3 +200,13 @@ visible = false
 position = Vector2(-5.5, 8.499994)
 scale = Vector2(1.0820313, 1.9882811)
 texture = ExtResource("5_cxr5p")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n1h8g")
+}
+tree_root = SubResource("AnimationNodeStateMachine_sq4k3")
+parameters/conditions/idle = false
+parameters/conditions/run = false
+parameters/conditions/torch = false
+parameters/conditions/untorch = false
