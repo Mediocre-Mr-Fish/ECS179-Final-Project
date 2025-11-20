@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp7yhq3dqw33m"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_ku32d"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="2_ying2"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="3_vyqvx"]
+[ext_resource type="Script" uid="uid://cbjogg8tame7y" path="res://levels/collection1/floor.gd" id="4_yw7sv"]
+[ext_resource type="Texture2D" uid="uid://b2sidnhsp6qnv" path="res://assets/hard_floor.png" id="5_0jp7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktf8o"]
+
+[node name="RunAndJump" type="Node2D"]
+
+[node name="BackGround" type="TextureRect" parent="."]
+offset_right = 10000.0
+offset_bottom = 10000.0
+texture = ExtResource("1_ku32d")
+stretch_mode = 1
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("2_ying2")]
+position = Vector2(-992, -472)
+subject = NodePath("../CharacterBody2D")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_vyqvx")]
+position = Vector2(1536, 2184)
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level"]
+position = Vector2(0, 5000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ktf8o")
+script = ExtResource("4_yw7sv")
+
+[node name="CollisionTexture" type="TextureRect" parent="Level/StaticBody2D/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 10000.0
+offset_bottom = 256.0
+texture = ExtResource("5_0jp7o")
+stretch_mode = 1

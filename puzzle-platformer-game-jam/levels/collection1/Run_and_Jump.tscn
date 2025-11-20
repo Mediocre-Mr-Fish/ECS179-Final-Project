@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://dp7yhq3dqw33m"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_ku32d"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="2_ying2"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="3_vyqvx"]
+[ext_resource type="Script" uid="uid://cbjogg8tame7y" path="res://scripts/Texture_to_CollisionShape.gd" id="4_yw7sv"]
+[ext_resource type="Texture2D" uid="uid://b2sidnhsp6qnv" path="res://assets/hard_floor.png" id="5_0jp7o"]
+[ext_resource type="Texture2D" uid="uid://kegcn8hnfpw" path="res://assets/null_textures/null_white.png" id="6_vyqvx"]
+[ext_resource type="Texture2D" uid="uid://56ydkywj1l7u" path="res://assets/outline_8.png" id="6_ying2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktf8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyqvx"]
+
+[node name="RunAndJump" type="Node2D"]
+
+[node name="BackGround" type="TextureRect" parent="."]
+offset_right = 10000.0
+offset_bottom = 10000.0
+texture = ExtResource("1_ku32d")
+stretch_mode = 1
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("2_ying2")]
+position = Vector2(-992, -472)
+zoom_scale = 0.5
+subject = NodePath("../CharacterBody2D")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_vyqvx")]
+position = Vector2(1848, 4584)
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="floor" type="StaticBody2D" parent="Level"]
+position = Vector2(0, 5000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/floor"]
+shape = SubResource("RectangleShape2D_ktf8o")
+script = ExtResource("4_yw7sv")
+
+[node name="CollisionTexture" type="TextureRect" parent="Level/floor/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 10000.0
+offset_bottom = 256.0
+texture = ExtResource("5_0jp7o")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Level/floor"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_top = 256.0
+offset_right = 10000.0
+offset_bottom = 1256.0
+texture = ExtResource("6_vyqvx")
+
+[node name="block" type="StaticBody2D" parent="Level"]
+position = Vector2(3840, 4744)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/block"]
+shape = SubResource("RectangleShape2D_vyqvx")
+script = ExtResource("4_yw7sv")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/block/CollisionShape2D"]
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("6_ying2")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="block2" type="StaticBody2D" parent="Level"]
+position = Vector2(5296, 4744)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/block2"]
+shape = SubResource("RectangleShape2D_vyqvx")
+script = ExtResource("4_yw7sv")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/block2/CollisionShape2D"]
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("6_ying2")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8

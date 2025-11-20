@@ -26,7 +26,7 @@ var current_overlay:Overlay = Overlay.NONE
 
 func _ready() -> void:
 	zoom = Vector2.ONE * zoom_scale
-	print(self.scale)
+	self.scale = Vector2.ONE / zoom_scale
 	
 	overlay.visible = false
 	global_position = subject.global_position + floating_offset
