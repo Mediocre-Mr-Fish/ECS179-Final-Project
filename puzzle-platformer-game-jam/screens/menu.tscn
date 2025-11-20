@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://clexu3ggdmson"]
 
-[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_kfbsc"]
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/Beholden Assets/grid.png" id="1_kfbsc"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_gbx6r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ouk20"]
@@ -26,6 +26,15 @@ offset_bottom = 449.0
 text = "PLAY"
 script = ExtResource("2_gbx6r")
 scene_path = "res://levels/Level1.tscn"
+
+[node name="start" type="Button" parent="start"]
+layout_mode = 0
+offset_left = 239.0
+offset_right = 458.0
+offset_bottom = 95.0
+text = "TEST"
+script = ExtResource("2_gbx6r")
+scene_path = "res://levels/Level0.tscn"
 
 [node name="credits" type="Button" parent="."]
 offset_left = 409.0
@@ -73,6 +82,7 @@ script = ExtResource("2_gbx6r")
 scene_path = "res://screens/levelselect.tscn"
 
 [connection signal="pressed" from="start" to="start" method="_on_pressed"]
+[connection signal="pressed" from="start/start" to="start/start" method="_on_pressed"]
 [connection signal="pressed" from="credits" to="credits" method="_on_pressed"]
 [connection signal="pressed" from="credits2" to="credits2" method="_on_pressed"]
 [connection signal="pressed" from="credits3" to="credits3" method="_on_pressed"]
