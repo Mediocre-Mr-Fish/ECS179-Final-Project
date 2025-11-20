@@ -6,13 +6,17 @@ extends ObjectIndeterminate
 @onready var sprite:Sprite2D = $Sprite2D
 @onready var collision:CollisionShape2D = $CollisionShape2D
 @export var camera:CameraController
+@export var objectColor:colors.FilterColors
 
 var existant: bool = true
+
+func _ready() -> void:
+	sprite.modulate = colors.getColorFromEnum(objectColor)
 
 func should_be_visible()->bool:
 	if not camera:
 		return false
-	return CameraController.Overlay.GREEN == camera.current_overlay
+	return objectColor == camera.subject.currentColor and camera.overlay.visible
 
 func _process(delta: float) -> void:
 	if should_be_visible() and existant:
@@ -26,7 +30,7 @@ func determinism_update()->void:
 	elif determined and not existant:
 		collision.set_deferred("disabled",true)
 
-func on_camera(seen:bool, overlay:CameraController.Overlay = CameraController.Overlay.NONE)->void:
+func on_camera(seen:bool)->void:
 	if seen and should_be_visible() and not determined:
 		print("I've been seen!")
 		existant = true

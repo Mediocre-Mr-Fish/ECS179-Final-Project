@@ -40,3 +40,5 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_75niw")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -16,7 +16,7 @@ func determinism_update()->void:
 		sprite.visible = false
 		collision.set_deferred("disabled",true)
 
-func on_camera(seen:bool, overlay:CameraController.Overlay = CameraController.Overlay.NONE)->void:
+func on_camera(seen:bool)->void:
 	if seen and not determined:
 		print("I've been seen!")
 		existant = true
