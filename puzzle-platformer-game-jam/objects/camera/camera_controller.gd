@@ -1,6 +1,7 @@
 class_name CameraController
 extends Camera2D
 
+@export var zoom_scale:float = 1.0
 @export var floating_offset:Vector2 = Vector2.ZERO
 @export var shifted_offset_horizontal:Vector2 = Vector2(550, 0)
 @export var shifted_offset_up:Vector2 = Vector2(0, -300)
@@ -24,6 +25,9 @@ enum Overlay{
 var current_overlay:Overlay = Overlay.NONE
 
 func _ready() -> void:
+	zoom = Vector2.ONE * zoom_scale
+	print(self.scale)
+	
 	overlay.visible = false
 	global_position = subject.global_position + floating_offset
 
