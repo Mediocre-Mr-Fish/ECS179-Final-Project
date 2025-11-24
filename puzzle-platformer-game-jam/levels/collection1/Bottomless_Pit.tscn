@@ -1,0 +1,182 @@
+[gd_scene load_steps=12 format=3 uid="uid://mpqt21vrpm8j"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_hf446"]
+[ext_resource type="Script" uid="uid://cbjogg8tame7y" path="res://scripts/Texture_to_CollisionShape.gd" id="2_b3c3v"]
+[ext_resource type="Texture2D" uid="uid://b2sidnhsp6qnv" path="res://assets/hard_floor.png" id="3_wlaya"]
+[ext_resource type="Texture2D" uid="uid://56ydkywj1l7u" path="res://assets/outline_8.png" id="4_b3c3v"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="5_ahfh2"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="5_hf446"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sju0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywcyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf446"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3c3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlaya"]
+
+[node name="BottomlessPit" type="Node2D"]
+
+[node name="BackGround" type="TextureRect" parent="."]
+offset_right = 10000.0
+offset_bottom = 10000.0
+texture = ExtResource("1_hf446")
+stretch_mode = 1
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="LeftWall" type="StaticBody2D" parent="Level"]
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/LeftWall"]
+shape = SubResource("RectangleShape2D_sju0q")
+script = ExtResource("2_b3c3v")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/LeftWall/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 15000.0
+offset_bottom = 4490.541
+texture = ExtResource("3_wlaya")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Floor1" type="StaticBody2D" parent="Level"]
+position = Vector2(0, 9472)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor1"]
+shape = SubResource("RectangleShape2D_ywcyy")
+script = ExtResource("2_b3c3v")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/Floor1/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 768.0
+offset_bottom = 2096.0
+texture = ExtResource("3_wlaya")
+region_rect = Rect2(32, 0, 223, 256)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Floor2" type="StaticBody2D" parent="Level"]
+position = Vector2(1280, 9472)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor2"]
+shape = SubResource("RectangleShape2D_hf446")
+script = ExtResource("2_b3c3v")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/Floor2/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 768.0
+offset_bottom = 2096.0
+texture = ExtResource("3_wlaya")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Floor3" type="StaticBody2D" parent="Level"]
+position = Vector2(2560, 9216)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor3"]
+shape = SubResource("RectangleShape2D_b3c3v")
+script = ExtResource("2_b3c3v")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/Floor3/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 1536.0
+offset_bottom = 2360.0
+texture = ExtResource("3_wlaya")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Steps" type="Node2D" parent="Level"]
+
+[node name="block" type="StaticBody2D" parent="Level/Steps"]
+position = Vector2(3328, 8960)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Steps/block"]
+shape = SubResource("RectangleShape2D_wlaya")
+script = ExtResource("2_b3c3v")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/Steps/block/CollisionShape2D"]
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("4_b3c3v")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="block2" type="StaticBody2D" parent="Level/Steps"]
+position = Vector2(3584, 8704)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Steps/block2"]
+shape = SubResource("RectangleShape2D_wlaya")
+script = ExtResource("2_b3c3v")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/Steps/block2/CollisionShape2D"]
+offset_right = 256.0
+offset_bottom = 512.0
+texture = ExtResource("4_b3c3v")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="block3" type="StaticBody2D" parent="Level/Steps"]
+position = Vector2(3840, 8448)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Steps/block3"]
+shape = SubResource("RectangleShape2D_wlaya")
+script = ExtResource("2_b3c3v")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/Steps/block3/CollisionShape2D"]
+offset_right = 256.0
+offset_bottom = 768.0
+texture = ExtResource("4_b3c3v")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Floor4" type="StaticBody2D" parent="Level"]
+position = Vector2(5120, 9216)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor4"]
+shape = SubResource("RectangleShape2D_hf446")
+script = ExtResource("2_b3c3v")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/Floor4/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 768.0
+offset_bottom = 2096.0
+texture = ExtResource("3_wlaya")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_ahfh2")]
+position = Vector2(408, 9048)
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("5_hf446")]
+position = Vector2(-1000, -1000)
+zoom_scale = 0.5
+subject = NodePath("../CharacterBody2D")

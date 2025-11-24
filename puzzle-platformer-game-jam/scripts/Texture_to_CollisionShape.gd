@@ -5,7 +5,7 @@ extends CollisionShape2D
 func _ready() -> void:
 	var texture: CanvasItem = $CollisionTexture
 	if self.shape is RectangleShape2D:
-		var shape := self.shape as RectangleShape2D
+		shape = RectangleShape2D.new()
 		shape.size = texture.size
 		self.position = texture.size / 2
 		texture.position = -texture.size / 2

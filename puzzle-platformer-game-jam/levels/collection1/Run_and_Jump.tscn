@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp7yhq3dqw33m"]
+[gd_scene load_steps=14 format=3 uid="uid://dp7yhq3dqw33m"]
 
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_ku32d"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="2_ying2"]
@@ -7,10 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://b2sidnhsp6qnv" path="res://assets/hard_floor.png" id="5_0jp7o"]
 [ext_resource type="Texture2D" uid="uid://kegcn8hnfpw" path="res://assets/null_textures/null_white.png" id="6_vyqvx"]
 [ext_resource type="Texture2D" uid="uid://56ydkywj1l7u" path="res://assets/outline_8.png" id="6_ying2"]
+[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit.tscn" id="6_yw7sv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw7sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktf8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyqvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jp7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h5qu"]
 
 [node name="RunAndJump" type="Node2D"]
 
@@ -22,8 +29,58 @@ stretch_mode = 1
 
 [node name="Level" type="Node2D" parent="."]
 
+[node name="LeftWall" type="StaticBody2D" parent="Level"]
+rotation = 1.5707964
+
+[node name="TextureRect" type="TextureRect" parent="Level/LeftWall"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 10000.0
+offset_bottom = 4631.774
+texture = ExtResource("6_vyqvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/LeftWall"]
+shape = SubResource("RectangleShape2D_yw7sv")
+script = ExtResource("4_yw7sv")
+
+[node name="CollisionTexture" type="TextureRect" parent="Level/LeftWall/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 5000.0
+offset_bottom = 256.0
+texture = ExtResource("5_0jp7o")
+stretch_mode = 1
+
+[node name="RicghtWall" type="StaticBody2D" parent="Level"]
+position = Vector2(10000, 10000)
+rotation = -1.5707964
+
+[node name="TextureRect" type="TextureRect" parent="Level/RicghtWall"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_right = 10000.0
+offset_bottom = 4631.774
+texture = ExtResource("6_vyqvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RicghtWall"]
+shape = SubResource("RectangleShape2D_yw7sv")
+script = ExtResource("4_yw7sv")
+
+[node name="CollisionTexture" type="TextureRect" parent="Level/RicghtWall/CollisionShape2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_left = 5000.0
+offset_top = 0.00021409988
+offset_right = 10000.0
+offset_bottom = 256.0002
+texture = ExtResource("5_0jp7o")
+stretch_mode = 1
+
 [node name="floor" type="StaticBody2D" parent="Level"]
 position = Vector2(0, 5000)
+
+[node name="TextureRect" type="TextureRect" parent="Level/floor"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+offset_top = 256.0
+offset_right = 10000.0
+offset_bottom = 5256.0
+texture = ExtResource("6_vyqvx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/floor"]
 shape = SubResource("RectangleShape2D_ktf8o")
@@ -36,15 +93,8 @@ offset_bottom = 256.0
 texture = ExtResource("5_0jp7o")
 stretch_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="Level/floor"]
-modulate = Color(0.9, 0.9, 0.9, 1)
-offset_top = 256.0
-offset_right = 10000.0
-offset_bottom = 1256.0
-texture = ExtResource("6_vyqvx")
-
 [node name="block" type="StaticBody2D" parent="Level"]
-position = Vector2(3840, 4744)
+position = Vector2(2000, 4744)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/block"]
 shape = SubResource("RectangleShape2D_vyqvx")
@@ -60,7 +110,7 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 
 [node name="block2" type="StaticBody2D" parent="Level"]
-position = Vector2(5296, 4744)
+position = Vector2(4000, 4744)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/block2"]
 shape = SubResource("RectangleShape2D_vyqvx")
@@ -75,8 +125,43 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
+[node name="block3" type="StaticBody2D" parent="Level"]
+position = Vector2(6000, 4490)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/block3"]
+shape = SubResource("RectangleShape2D_0jp7o")
+script = ExtResource("4_yw7sv")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/block3/CollisionShape2D"]
+offset_right = 256.0
+offset_bottom = 512.0
+texture = ExtResource("6_ying2")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="block4" type="StaticBody2D" parent="Level"]
+position = Vector2(5744, 4744)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/block4"]
+shape = SubResource("RectangleShape2D_7h5qu")
+script = ExtResource("4_yw7sv")
+
+[node name="CollisionTexture" type="NinePatchRect" parent="Level/block4/CollisionShape2D"]
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("6_ying2")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Exit" parent="Level/block4" instance=ExtResource("6_yw7sv")]
+position = Vector2(2768, 80)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_vyqvx")]
-position = Vector2(1848, 4584)
+position = Vector2(520, 4720)
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("2_ying2")]
 position = Vector2(-992, -472)

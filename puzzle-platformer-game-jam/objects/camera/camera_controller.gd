@@ -11,9 +11,9 @@ extends Camera2D
 @export var pushbox_bot_right:Vector2 = Vector2(250, 250)
 
 @export var floating_offset:Vector2 = Vector2.ZERO
-@export var shifted_offset_horizontal:Vector2 = Vector2(550, 0)
-@export var shifted_offset_up:Vector2 = Vector2(0, -300)
-@export var shifted_offset_down:Vector2 = Vector2(0, 300)
+@export var shifted_offset_horizontal:Vector2 = Vector2(1100, 0)
+@export var shifted_offset_up:Vector2 = Vector2(0, -600)
+@export var shifted_offset_down:Vector2 = Vector2(0, 600)
 
 @export var shift_speed:float = 2000.0
 @export var subject:PlayerController:
@@ -22,8 +22,6 @@ extends Camera2D
 			subject = value
 			global_position = subject.global_position + floating_offset
 
-@onready var overlay:Node = $Overlay
-
 enum Overlay {
 	NONE,
 	GREEN,
@@ -31,15 +29,20 @@ enum Overlay {
 
 var current_overlay:Overlay = Overlay.NONE
 # pair of ints that describe camera shift direction. Values are only -1, 0, 1. Checked using <0, >0, ==0
-var shift: Vector2i = Vector2i.ZERO
+var shift_tri_state: Vector2i = Vector2i.ZERO
+var is_shifted: bool = false
 var pushbox_position: Vector2 = Vector2.ZERO
+
+@onready var overlay:Node = $Overlay
+
 
 func _ready() -> void:
 	zoom = Vector2.ONE * zoom_scale
 	self.scale = Vector2.ONE / zoom_scale
 	
 	overlay.visible = false
-	shift = Vector2.ZERO
+	is_shifted = false
+	shift_tri_state = Vector2.ZERO
 	pushbox_position = Vector2.ZERO
 	
 	global_position = subject.global_position + floating_offset
@@ -62,15 +65,17 @@ func _draw() -> void:
 
 func _detect_shift() -> bool:
 	var pressed:bool = Input.is_action_pressed("gimick1")
-	if pressed and shift == Vector2i.ZERO:
+	if pressed and not is_shifted:
 		@warning_ignore("narrowing_conversion")
-		shift.x = signf(Input.get_axis("left", "right"))
+		shift_tri_state.x = signf(Input.get_axis("left", "right"))
 		@warning_ignore("narrowing_conversion")
-		shift.y = signf(Input.get_axis("up", "down"))
+		shift_tri_state.y = signf(Input.get_axis("up", "down"))
+		is_shifted = true
 	elif pressed:
-		pass
+		is_shifted = true
 	else:
-		shift = Vector2i.ZERO
+		shift_tri_state = Vector2i.ZERO
+		is_shifted = false
 	return pressed
 
 
@@ -78,17 +83,18 @@ func _process(_delta: float) -> void:
 	var target_position:Vector2 = global_position
 	if _detect_shift():
 		target_position = subject.global_position
-		if shift.x > 0:
+		if shift_tri_state.x > 0:
 			target_position += shifted_offset_horizontal
-		elif shift.x < 0:
+		elif shift_tri_state.x < 0:
 			target_position -= shifted_offset_horizontal
 		
-		if shift.y < 0:
+		if shift_tri_state.y < 0:
 			target_position += shifted_offset_up
-		elif shift.y > 0:
+		elif shift_tri_state.y > 0:
 			target_position += shifted_offset_down
 	else:
-		target_position += floating_offset
+		#target_position += floating_offset
+		target_position = subject.global_position
 	
 	global_position += (target_position - global_position).limit_length(shift_speed * _delta)
 	
