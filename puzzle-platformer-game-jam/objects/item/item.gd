@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var player:Node
+@export var camera:Node
 @export var item_name:Item
 @export var color:colors.FilterColors
 
@@ -31,11 +32,16 @@ func on_touch(_touch:bool) -> void:
 	match item_name:
 		Item.BEHOLDER:
 			player.hasBeholder = true
+			camera.inventoryHandler.showBeholder()
 		Item.GEM:
 			player.beholder.append(color)
 			player.currentColor = color
+			camera.setColor(color)
+			camera.inventoryHandler.updateBeholder()
 		Item.LASSO:
 			player.hasLasso = true
+			camera.inventoryHandler.showLasso()
 		Item.TORCH:
 			player.hasTorch = true
+			camera.inventoryHandler.showTorch()
 	queue_free()

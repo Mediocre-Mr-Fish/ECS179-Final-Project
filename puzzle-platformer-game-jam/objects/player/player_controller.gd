@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var sprite:PlayerSprite = $Sprite2D
 @export var menu_route:String
 
+signal filter_switch(color)
+
 enum Facing {
 	LEFT,
 	RIGHT,
@@ -55,23 +57,16 @@ func _physics_process(delta: float) -> void:
 				sprite.change_facing(self)
 
 	if Input.is_action_just_pressed("filter_switch"):
-		print("filter")
 		if not hasBeholder:
 			return
 		#if theres no current color, pick the first color gem player picked up
 		if currentColor == null:
-			print("no current color")
-			if beholder == []: #player hasn't picked up any color gems
-				return
-			currentColor = beholder[0]
 			return
 		#get index of current color in the beholder
 		var index = beholder.find(currentColor)
-		print("next color: ", index)
-		if index == -1:
-			currentColor = beholder[0]
-		#set the current color to the next one
+		#set the color to the next one inside the beholder
 		currentColor = beholder[(index+1)%beholder.size()]
+		filter_switch.emit(currentColor)
 
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()

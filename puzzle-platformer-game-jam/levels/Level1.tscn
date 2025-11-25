@@ -75,3 +75,5 @@ item_name = 2
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_mlbie")]
 position = Vector2(574, -817)
 subject = NodePath("../player")
+
+[connection signal="gem_picked_up" from="Level/Green Gem" to="Camera2D" method="_on_gem_picked_up"]

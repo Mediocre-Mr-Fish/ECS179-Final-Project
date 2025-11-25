@@ -1,28 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt6ny7gkud23l"]
+[gd_scene load_steps=11 format=3 uid="uid://bt6ny7gkud23l"]
 
 [ext_resource type="Script" uid="uid://dwnoc5aykltka" path="res://objects/camera/camera_controller.gd" id="1_a02ee"]
 [ext_resource type="Script" uid="uid://f4p8xu7pweaq" path="res://objects/camera/camera_hitbox.gd" id="2_75niw"]
-[ext_resource type="Texture2D" uid="uid://c3da7s3w2c1ll" path="res://assets/overlay_green.png" id="3_brkmr"]
-[ext_resource type="Texture2D" uid="uid://cga688lj0qs1k" path="res://assets/overlay_filter.png" id="4_75niw"]
+[ext_resource type="Texture2D" uid="uid://c3da7s3w2c1ll" path="res://assets/Beholden Assets/overlay_green.png" id="3_brkmr"]
+[ext_resource type="Texture2D" uid="uid://cga688lj0qs1k" path="res://assets/Beholden Assets/overlay_filter.png" id="4_75niw"]
+[ext_resource type="Script" uid="uid://35ddahpu5ij0" path="res://objects/camera/inventory_handler.gd" id="5_eyefh"]
+[ext_resource type="Texture2D" uid="uid://ywerpdwfgkb4" path="res://assets/Beholden Assets/frame.png" id="6_s8xkx"]
+[ext_resource type="Texture2D" uid="uid://dfx60wxux6jx8" path="res://icon.svg" id="7_44s4m"]
+[ext_resource type="Texture2D" uid="uid://kgji0bf6kucb" path="res://assets/beholder/beholder.png" id="7_uaobj"]
+[ext_resource type="Texture2D" uid="uid://c2tlbhgntgktb" path="res://assets/beholder/gem_deactivated.png" id="8_44s4m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cove1"]
-size = Vector2(230.40002, 1296)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyefh"]
+size = Vector2(5759.9995, 324)
 
 [node name="Camera2D" type="Camera2D"]
-scale = Vector2(4.9999995, 0.5)
 script = ExtResource("1_a02ee")
 shifted_offset = Vector2(550, 0)
 
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("camera")]
-position = Vector2(-114.80001, 1634)
 scale = Vector2(0.20000002, 2)
 script = ExtResource("2_75niw")
 camera = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(574, -817)
-scale = Vector2(4.9999995, 0.5)
-shape = SubResource("RectangleShape2D_cove1")
+position = Vector2(-0.00012159346, -0.5)
+shape = SubResource("RectangleShape2D_eyefh")
 
 [node name="Debug" type="Sprite2D" parent="."]
 visible = false
@@ -32,13 +34,118 @@ texture = ExtResource("3_brkmr")
 
 [node name="Overlay" type="TextureRect" parent="."]
 z_index = 10
-offset_left = -115.2
-offset_top = -646.0
-offset_right = -38.399994
-offset_bottom = -214.0
-scale = Vector2(3, 3)
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 575.80005
+offset_bottom = 324.0
 texture = ExtResource("4_75niw")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="inventory handler" type="Node2D" parent="."]
+position = Vector2(-569, 267)
+script = ExtResource("5_eyefh")
+
+[node name="Beholden" type="Sprite2D" parent="inventory handler"]
+visible = false
+z_index = 1
+position = Vector2(53, 0)
+texture = ExtResource("6_s8xkx")
+
+[node name="ItemSprite" type="Sprite2D" parent="inventory handler/Beholden"]
+position = Vector2(-5.722046e-05, 13.999996)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_uaobj")
+
+[node name="Input" type="Label" parent="inventory handler/Beholden"]
+anchors_preset = -1
+anchor_left = 0.18100001
+anchor_top = 0.5
+anchor_right = 0.18100001
+anchor_bottom = 0.5
+offset_left = -32.10002
+offset_top = -90.0
+offset_right = -3.734661
+offset_bottom = -67.0
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="green" type="Sprite2D" parent="inventory handler/Beholden"]
+position = Vector2(-10.000001, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_44s4m")
+
+[node name="red" type="Sprite2D" parent="inventory handler/Beholden"]
+position = Vector2(9.999999, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_44s4m")
+
+[node name="blue" type="Sprite2D" parent="inventory handler/Beholden"]
+position = Vector2(-9.536743e-07, 24)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_44s4m")
+
+[node name="second text ui" type="Sprite2D" parent="inventory handler/Beholden"]
+visible = false
+z_index = -1
+position = Vector2(0, -36)
+texture = ExtResource("6_s8xkx")
+
+[node name="Input" type="Label" parent="inventory handler/Beholden/second text ui"]
+anchors_preset = -1
+anchor_left = 0.18100001
+anchor_top = 0.5
+anchor_right = 0.18100001
+anchor_bottom = 0.5
+offset_left = -32.10002
+offset_top = -91.0
+offset_right = -3.734661
+offset_bottom = -68.0
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Lasso" type="Sprite2D" parent="inventory handler"]
+visible = false
+position = Vector2(139, 0)
+texture = ExtResource("6_s8xkx")
+
+[node name="ItemSprite" type="Sprite2D" parent="inventory handler/Lasso"]
+position = Vector2(-0.9999961, 12.999998)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_44s4m")
+
+[node name="Input" type="Label" parent="inventory handler/Lasso"]
+anchors_preset = -1
+anchor_left = 0.18100001
+anchor_top = 0.5
+anchor_right = 0.18100001
+anchor_bottom = 0.5
+offset_left = -32.09999
+offset_top = -91.0
+offset_right = -3.7346306
+offset_bottom = -68.0
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Torch" type="Sprite2D" parent="inventory handler"]
+visible = false
+position = Vector2(226, 0)
+texture = ExtResource("6_s8xkx")
+
+[node name="ItemSprite" type="Sprite2D" parent="inventory handler/Torch"]
+position = Vector2(-0.9999961, 12.999998)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_44s4m")
+
+[node name="Input" type="Label" parent="inventory handler/Torch"]
+anchors_preset = -1
+anchor_left = 0.18100001
+anchor_top = 0.5
+anchor_right = 0.18100001
+anchor_bottom = 0.5
+offset_left = -32.09999
+offset_top = -91.0
+offset_right = -3.7346306
+offset_bottom = -68.0
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
