@@ -14,7 +14,7 @@ func _ready() -> void:
 func determinism_update()->void:
 	pass
 
-func on_camera(seen:bool, overlay:CameraController.Overlay = CameraController.Overlay.NONE)->void:
+func on_camera(seen:bool)->void:
 	pass
 	
 func on_touch(touch:bool)->void:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7ak1eqk8kbg2"]
 
 [ext_resource type="Script" uid="uid://dyd56rksm05qv" path="res://objects/bridge/bridge.gd" id="1_jvmcf"]
-[ext_resource type="Texture2D" uid="uid://bbcsdth1rulpy" path="res://assets/null_green.png" id="2_iysm1"]
+[ext_resource type="Texture2D" uid="uid://kegcn8hnfpw" path="res://assets/null_white.png" id="2_bk4wa"]
 [ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="3_iysm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy2vu"]
@@ -14,7 +14,7 @@ size = Vector2(260, 260)
 script = ExtResource("1_jvmcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_iysm1")
+texture = ExtResource("2_bk4wa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
