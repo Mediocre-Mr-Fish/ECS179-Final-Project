@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqyr2ukdesbr"]
+
+[ext_resource type="Texture2D" uid="uid://bjv860pvx1pfa" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-1.png" id="1_7cykc"]
+[ext_resource type="Texture2D" uid="uid://cvu5qs2wwwkxi" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-2.png" id="2_5tcd0"]
+[ext_resource type="Texture2D" uid="uid://k3j65jmvifju" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-3.png" id="3_cpdx8"]
+[ext_resource type="Texture2D" uid="uid://c8ger0i6omha2" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-5.png" id="4_cj6hi"]
+
+[node name="Background" type="ParallaxBackground"]
+offset = Vector2(0, 20)
+transform = Transform2D(1, 0, 0, 1, 0, 20)
+
+[node name="Sky" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -1437.0
+offset_top = -508.0
+offset_right = -332.80005
+offset_bottom = -252.0
+scale = Vector2(5, 5)
+color = Color(0.5293918, 0.7439572, 0.78852654, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 3
+position = Vector2(576, 150)
+scale = Vector2(1.44, 2.5312502)
+texture = ExtResource("1_7cykc")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 75)
+transform = Transform2D(1, 0, 0, 1, 0, 75)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(576, 200)
+scale = Vector2(1.44, 2.5312502)
+texture = ExtResource("2_5tcd0")
+
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 75)
+transform = Transform2D(1, 0, 0, 1, 0, 75)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer"]
+position = Vector2(576, 300)
+scale = Vector2(1.44, 2.5312502)
+texture = ExtResource("3_cpdx8")
+
+[node name="ParallaxBackground4" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 75)
+transform = Transform2D(1, 0, 0, 1, 0, 75)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground4"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer"]
+position = Vector2(576, 325)
+scale = Vector2(1.44, 2.5312502)
+texture = ExtResource("4_cj6hi")

@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://domr7dqr72ykt"]
+[gd_scene load_steps=16 format=3 uid="uid://domr7dqr72ykt"]
 
-[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_ok11k"]
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/Beholden Assets/grid.png" id="1_ok11k"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_rbh7r"]
-[ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/think.png" id="4_rbh7r"]
+[ext_resource type="Texture2D" uid="uid://ciqxw2fr8b4ks" path="res://assets/Buttons/spoiler.png" id="4_4vhok"]
+[ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/Beholden Assets/think.png" id="4_rbh7r"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="5_0fvvq"]
+[ext_resource type="Texture2D" uid="uid://cwegdgpuptewt" path="res://assets/Buttons/Back.png" id="5_8kns1"]
+[ext_resource type="PackedScene" uid="uid://p2cl4x5mbeh2" path="res://Backgrounds/title_screen_background.tscn" id="6_4vhok"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7wqwc"]
 font_size = 64
@@ -13,21 +16,37 @@ font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qloh"]
+atlas = ExtResource("4_4vhok")
+region = Rect2(0, 22.825182, 58, 19.229834)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgx2b"]
+atlas = ExtResource("4_4vhok")
+region = Rect2(0, 45.05031, 58, 18.949692)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s72f7"]
+atlas = ExtResource("4_4vhok")
+region = Rect2(0, 0, 58, 18.949041)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rr0y"]
+atlas = ExtResource("5_8kns1")
+region = Rect2(8.942732, 22.807886, 46.001602, 19.330046)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpmf5"]
+atlas = ExtResource("5_8kns1")
+region = Rect2(8.835441, 43.924236, 46.274956, 19.05669)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hdvq"]
+atlas = ExtResource("5_8kns1")
+region = Rect2(8.963565, 1.8331382, 46.040653, 19.290997)
+
 [node name="World" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(573.25, 386.5)
 scale = Vector2(4.4746094, 4.4492188)
 texture = ExtResource("1_ok11k")
-
-[node name="mainmenu" type="Button" parent="."]
-offset_left = 512.0
-offset_top = 558.0
-offset_right = 632.0
-offset_bottom = 597.0
-text = "MENU"
-script = ExtResource("2_rbh7r")
-scene_path = "res://screens/menu.tscn"
 
 [node name="Title" type="Label" parent="."]
 offset_left = -23.0
@@ -74,15 +93,31 @@ texture = ExtResource("4_rbh7r")
 position = Vector2(857, 517)
 flip_h = true
 
-[node name="mainmenu2" type="Button" parent="."]
-offset_left = 12.0
+[node name="spoiler" type="TextureButton" parent="."]
+offset_left = 10.0
 offset_top = 609.0
-offset_right = 69.0
-offset_bottom = 640.0
-theme_override_font_sizes/font_size = 10
-text = "SPOILERS"
+offset_right = 68.0
+offset_bottom = 628.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_2qloh")
+texture_pressed = SubResource("AtlasTexture_tgx2b")
+texture_hover = SubResource("AtlasTexture_s72f7")
 script = ExtResource("2_rbh7r")
 scene_path = "res://screens/spoilers.tscn"
 
+[node name="mainmenu" type="TextureButton" parent="."]
+offset_left = 465.0
+offset_top = 521.0
+offset_right = 511.0
+offset_bottom = 540.0
+scale = Vector2(4.5, 4.5)
+texture_normal = SubResource("AtlasTexture_5rr0y")
+texture_pressed = SubResource("AtlasTexture_jpmf5")
+texture_hover = SubResource("AtlasTexture_6hdvq")
+script = ExtResource("2_rbh7r")
+scene_path = "res://screens/menu.tscn"
+
+[node name="Title_Screen_Background" parent="." instance=ExtResource("6_4vhok")]
+
+[connection signal="pressed" from="spoiler" to="spoiler" method="_on_pressed"]
 [connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
-[connection signal="pressed" from="mainmenu2" to="mainmenu2" method="_on_pressed"]

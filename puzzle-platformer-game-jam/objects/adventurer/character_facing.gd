@@ -6,8 +6,8 @@ extends Node2D
 
 func _on_character_body_2d_character_direction_change(facing: Character.Facing) -> void:
 	if Character.Facing.LEFT == facing:
-		print("turning right")
+		print("turning RIGHT")
 		position = flipped_position
 	elif Character.Facing.RIGHT == facing:
-		print("turning left")
+		print("turning LEFT")
 		position = unflipped_position

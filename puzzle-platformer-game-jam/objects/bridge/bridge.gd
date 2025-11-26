@@ -5,6 +5,7 @@ extends ObjectIndeterminate
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite:Sprite2D = $Sprite2D
 @onready var collision:CollisionShape2D = $CollisionShape2D
+@onready var bridge:TileMapLayer = $Bridge_Sprite
 @export var camera:CameraController
 
 var existant: bool = true
@@ -16,9 +17,11 @@ func should_be_visible()->bool:
 
 func _process(delta: float) -> void:
 	if should_be_visible() and existant:
-		sprite.visible = true
+		bridge.visible = true
+		bridge.collision_enabled = true
 	else:
-		sprite.visible = false
+		bridge.visible = false
+		bridge.collision_enabled = false
 
 func determinism_update()->void:
 	if determined and existant:

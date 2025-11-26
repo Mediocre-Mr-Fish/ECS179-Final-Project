@@ -1,19 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://vqmpjhujx5ox"]
+[gd_scene load_steps=8 format=3 uid="uid://vqmpjhujx5ox"]
 
-[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_i2oue"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_pohcg"]
+[ext_resource type="PackedScene" uid="uid://p2cl4x5mbeh2" path="res://Backgrounds/title_screen_background.tscn" id="2_qkjnt"]
+[ext_resource type="Texture2D" uid="uid://cwegdgpuptewt" path="res://assets/Buttons/Back.png" id="2_w0rrl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkjnt"]
 font_size = 64
 font_color = Color(0, 0, 0, 1)
 
-[node name="World" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3bfq"]
+atlas = ExtResource("2_w0rrl")
+region = Rect2(8.942732, 22.807886, 46.001602, 19.330046)
 
-[node name="background" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(573.25, 386.5)
-scale = Vector2(4.4746094, 4.4492188)
-texture = ExtResource("1_i2oue")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t626m"]
+atlas = ExtResource("2_w0rrl")
+region = Rect2(8.835441, 43.924236, 46.274956, 19.05669)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxtnb"]
+atlas = ExtResource("2_w0rrl")
+region = Rect2(8.963565, 1.8331382, 46.040653, 19.290997)
+
+[node name="World" type="Node2D"]
 
 [node name="Title" type="Label" parent="."]
 offset_left = 412.0
@@ -39,13 +46,18 @@ Zishuo Li"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mainmenu" type="Button" parent="."]
-offset_left = 512.0
-offset_top = 526.0
-offset_right = 632.0
-offset_bottom = 565.0
-text = "BACK"
+[node name="mainmenu" type="TextureButton" parent="."]
+offset_left = 465.0
+offset_top = 477.0
+offset_right = 511.0
+offset_bottom = 496.0
+scale = Vector2(4.5177617, 4.5)
+texture_normal = SubResource("AtlasTexture_b3bfq")
+texture_pressed = SubResource("AtlasTexture_t626m")
+texture_hover = SubResource("AtlasTexture_yxtnb")
 script = ExtResource("2_pohcg")
 scene_path = "res://screens/menu.tscn"
+
+[node name="Title_Screen_Background" parent="." instance=ExtResource("2_qkjnt")]
 
 [connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]

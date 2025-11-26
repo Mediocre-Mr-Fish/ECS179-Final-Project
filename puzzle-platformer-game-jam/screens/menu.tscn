@@ -1,88 +1,141 @@
-[gd_scene load_steps=5 format=3 uid="uid://clexu3ggdmson"]
+[gd_scene load_steps=22 format=3 uid="uid://clexu3ggdmson"]
 
-[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/Beholden Assets/grid.png" id="1_kfbsc"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_gbx6r"]
+[ext_resource type="PackedScene" uid="uid://p2cl4x5mbeh2" path="res://Backgrounds/title_screen_background.tscn" id="2_o3ram"]
+[ext_resource type="Texture2D" uid="uid://j1njv5hrc4hn" path="res://assets/Buttons/start.png" id="3_dhgkt"]
+[ext_resource type="Script" uid="uid://60lm0qwdlq3u" path="res://changeSceneButton_texturedbutton.gd" id="3_gq33n"]
+[ext_resource type="Texture2D" uid="uid://bnkifi7q6ywky" path="res://assets/Buttons/title.png" id="3_lt0en"]
+[ext_resource type="Texture2D" uid="uid://bmt7foewghj3e" path="res://assets/Buttons/credit.png" id="4_8qoiq"]
+[ext_resource type="Texture2D" uid="uid://cv0g3jo8w5yum" path="res://assets/Buttons/control.png" id="6_w6t7d"]
+[ext_resource type="Texture2D" uid="uid://buw321pe8c2nl" path="res://assets/Buttons/level.png" id="7_gq33n"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ouk20"]
-font_size = 127
-font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhgkt"]
+atlas = ExtResource("3_dhgkt")
+region = Rect2(6.9341264, 22.726181, 49.09994, 18.415333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qoiq"]
+atlas = ExtResource("3_dhgkt")
+region = Rect2(6.8918505, 42.97669, 49.04483, 18.187008)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6t7d"]
+atlas = ExtResource("3_dhgkt")
+region = Rect2(6.832857, 1.8629255, 49.33734, 18.300396)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq33n"]
+atlas = ExtResource("4_8qoiq")
+region = Rect2(5.039263, 23.054405, 55.38263, 19.062157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsmig"]
+atlas = ExtResource("4_8qoiq")
+region = Rect2(4.216693, 43.93007, 56.8452, 19.354671)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbf75"]
+atlas = ExtResource("4_8qoiq")
+region = Rect2(3.9110587, 1.0027018, 57.08896, 19.403423)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mae5d"]
 font_size = 31
 font_color = Color(1, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_16v1w"]
+atlas = ExtResource("6_w6t7d")
+region = Rect2(30.798962, 21.591835, 65.13309, 19.500927)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45kd6"]
+atlas = ExtResource("6_w6t7d")
+region = Rect2(30.860834, 42.867542, 65.27935, 19.354668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jpem"]
+atlas = ExtResource("6_w6t7d")
+region = Rect2(30.556765, 0.7053962, 65.669365, 19.452173)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xao2u"]
+atlas = ExtResource("7_gq33n")
+region = Rect2(3.6254451, 22.956902, 55.57764, 19.208412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1fnv"]
+atlas = ExtResource("7_gq33n")
+region = Rect2(4.949318, 44.005524, 54.115074, 19.110909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqvmf"]
+atlas = ExtResource("7_gq33n")
+region = Rect2(4.906786, 2.0271788, 54.26133, 19.013401)
+
 [node name="World" type="Node2D"]
 
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(573.25, 386.5)
-scale = Vector2(4.4746094, 4.4492188)
-texture = ExtResource("1_kfbsc")
+[node name="test" type="TextureButton" parent="."]
+visible = false
+offset_left = 1547.5
+offset_top = 345.0
+offset_right = 1766.5
+offset_bottom = 440.0
 
-[node name="start" type="Button" parent="."]
-offset_left = 464.0
-offset_top = 354.0
-offset_right = 683.0
-offset_bottom = 449.0
-text = "PLAY"
-script = ExtResource("2_gbx6r")
+[node name="Title_Screen_Background" parent="." instance=ExtResource("2_o3ram")]
+
+[node name="start" type="TextureButton" parent="."]
+offset_left = 472.0
+offset_top = 345.0
+offset_right = 521.0
+offset_bottom = 363.0
+scale = Vector2(4.5, 4.5)
+texture_normal = SubResource("AtlasTexture_dhgkt")
+texture_pressed = SubResource("AtlasTexture_8qoiq")
+texture_hover = SubResource("AtlasTexture_w6t7d")
+script = ExtResource("3_gq33n")
 scene_path = "res://levels/Level1.tscn"
 
-[node name="start" type="Button" parent="start"]
-layout_mode = 0
-offset_left = 239.0
-offset_right = 458.0
-offset_bottom = 95.0
-text = "TEST"
-script = ExtResource("2_gbx6r")
-scene_path = "res://levels/Level0.tscn"
-
-[node name="credits" type="Button" parent="."]
-offset_left = 409.0
-offset_top = 475.0
-offset_right = 542.0001
-offset_bottom = 535.0
-text = "CREDITS"
+[node name="credits" type="TextureButton" parent="."]
+offset_left = 327.0
+offset_top = 435.0
+offset_right = 382.0
+offset_bottom = 454.0
+scale = Vector2(4.5, 4.5)
+texture_normal = SubResource("AtlasTexture_gq33n")
+texture_pressed = SubResource("AtlasTexture_tsmig")
+texture_hover = SubResource("AtlasTexture_rbf75")
 script = ExtResource("2_gbx6r")
 scene_path = "res://screens/credits.tscn"
 
-[node name="Label" type="Label" parent="."]
-offset_left = 284.0
-offset_top = 90.0
-offset_right = 868.0
-offset_bottom = 264.0
-text = "Beholden"
-label_settings = SubResource("LabelSettings_ouk20")
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(585, 174)
+scale = Vector2(8, 8)
+texture = ExtResource("3_lt0en")
 
-[node name="Label" type="Label" parent="Label"]
-layout_mode = 0
-offset_left = 426.0
-offset_top = 152.0
-offset_right = 706.0
-offset_bottom = 196.0
+[node name="Red Text" type="Label" parent="."]
+offset_left = 746.0
+offset_top = 281.99994
+offset_right = 1079.0
+offset_bottom = 325.99994
 rotation = -0.22350973
-text = "Fall Game Jam Ver."
+text = "Progress Report 1 Ver."
 label_settings = SubResource("LabelSettings_mae5d")
 
-[node name="credits2" type="Button" parent="."]
-offset_left = 609.0
-offset_top = 475.0
-offset_right = 742.0001
-offset_bottom = 535.0
-text = "CONTROLS"
+[node name="control" type="TextureButton" parent="."]
+offset_left = 435.0
+offset_top = 521.0
+offset_right = 500.0
+offset_bottom = 540.0
+scale = Vector2(4.5, 4.5)
+texture_normal = SubResource("AtlasTexture_16v1w")
+texture_pressed = SubResource("AtlasTexture_45kd6")
+texture_hover = SubResource("AtlasTexture_0jpem")
 script = ExtResource("2_gbx6r")
 scene_path = "res://screens/tutorial.tscn"
 
-[node name="credits3" type="Button" parent="."]
-offset_left = 512.0
-offset_top = 551.0
-offset_right = 645.0001
-offset_bottom = 611.0
-text = "LEVEL SELECT"
+[node name="level_select" type="TextureButton" parent="."]
+offset_left = 582.0
+offset_top = 436.0
+offset_right = 638.0
+offset_bottom = 456.0
+scale = Vector2(4.5, 4.5)
+texture_normal = SubResource("AtlasTexture_xao2u")
+texture_pressed = SubResource("AtlasTexture_b1fnv")
+texture_hover = SubResource("AtlasTexture_yqvmf")
 script = ExtResource("2_gbx6r")
 scene_path = "res://screens/levelselect.tscn"
 
+[connection signal="pressed" from="test" to="test" method="_on_pressed"]
 [connection signal="pressed" from="start" to="start" method="_on_pressed"]
-[connection signal="pressed" from="start/start" to="start/start" method="_on_pressed"]
 [connection signal="pressed" from="credits" to="credits" method="_on_pressed"]
-[connection signal="pressed" from="credits2" to="credits2" method="_on_pressed"]
-[connection signal="pressed" from="credits3" to="credits3" method="_on_pressed"]
+[connection signal="pressed" from="control" to="control" method="_on_pressed"]
+[connection signal="pressed" from="level_select" to="level_select" method="_on_pressed"]

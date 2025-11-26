@@ -1,28 +1,169 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7ak1eqk8kbg2"]
+[gd_scene load_steps=12 format=3 uid="uid://c7ak1eqk8kbg2"]
 
 [ext_resource type="Script" uid="uid://dyd56rksm05qv" path="res://objects/bridge/bridge.gd" id="1_jvmcf"]
-[ext_resource type="Texture2D" uid="uid://bbcsdth1rulpy" path="res://assets/null_green.png" id="2_iysm1"]
+[ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="2_0xttk"]
+[ext_resource type="Texture2D" uid="uid://b8c1n5ier2sjd" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ui-icons.png" id="3_0bby4"]
 [ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="3_iysm1"]
+[ext_resource type="Texture2D" uid="uid://crs4gem7yihgp" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-animated-environ-sprites.png" id="4_n3n34"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ubq5j"]
+texture = ExtResource("2_0xttk")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfqw3"]
+texture = ExtResource("3_0bby4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hetk4"]
+texture = ExtResource("4_n3n34")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mgmqe"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ubq5j")
+sources/1 = SubResource("TileSetAtlasSource_nfqw3")
+sources/3 = SubResource("TileSetAtlasSource_hetk4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy2vu"]
-size = Vector2(256, 256.5)
+size = Vector2(256, 255)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tynux"]
-size = Vector2(260, 260)
+size = Vector2(256, 255)
 
 [node name="Bridge" type="StaticBody2D"]
 script = ExtResource("1_jvmcf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_iysm1")
+[node name="Bridge_Sprite" type="TileMapLayer" parent="."]
+position = Vector2(0, -0.25)
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 255, 255, 0, 0, 4, 0, 3, 0, 0, 0, 255, 255, 0, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0)
+tile_set = SubResource("TileSet_mgmqe")
+collision_enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -0.25)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_xy2vu")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_iysm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_tynux")

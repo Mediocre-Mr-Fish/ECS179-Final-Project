@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://vbobnauh6tsv"]
+[gd_scene load_steps=11 format=3 uid="uid://vbobnauh6tsv"]
 
-[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/grid.png" id="1_e81fy"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_nl5an"]
-[ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/think.png" id="3_m3la5"]
+[ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/Beholden Assets/think.png" id="3_m3la5"]
+[ext_resource type="Texture2D" uid="uid://cwegdgpuptewt" path="res://assets/Buttons/Back.png" id="3_nl5an"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="4_jr4ly"]
+[ext_resource type="PackedScene" uid="uid://p2cl4x5mbeh2" path="res://Backgrounds/title_screen_background.tscn" id="5_m3la5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7wqwc"]
 font_size = 64
@@ -13,21 +14,19 @@ font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr4ly"]
+atlas = ExtResource("3_nl5an")
+region = Rect2(8.942732, 22.807886, 46.001602, 19.330046)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvg3j"]
+atlas = ExtResource("3_nl5an")
+region = Rect2(8.835441, 43.924236, 46.274956, 19.05669)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqkke"]
+atlas = ExtResource("3_nl5an")
+region = Rect2(8.963565, 1.8331382, 46.040653, 19.290997)
+
 [node name="World" type="Node2D"]
-
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(573.25, 386.5)
-scale = Vector2(4.4746094, 4.4492188)
-texture = ExtResource("1_e81fy")
-
-[node name="mainmenu" type="Button" parent="."]
-offset_left = 512.0
-offset_top = 558.0
-offset_right = 632.0
-offset_bottom = 597.0
-text = "BACK"
-script = ExtResource("2_nl5an")
-scene_path = "res://screens/tutorial.tscn"
 
 [node name="Title" type="Label" parent="."]
 offset_left = -23.0
@@ -62,4 +61,18 @@ texture = ExtResource("3_m3la5")
 position = Vector2(857, 517)
 flip_h = true
 
-[connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
+[node name="mainmenu2" type="TextureButton" parent="."]
+offset_left = 465.0
+offset_top = 521.0
+offset_right = 511.0
+offset_bottom = 540.0
+scale = Vector2(4.5, 4.5)
+texture_normal = SubResource("AtlasTexture_jr4ly")
+texture_pressed = SubResource("AtlasTexture_vvg3j")
+texture_hover = SubResource("AtlasTexture_kqkke")
+script = ExtResource("2_nl5an")
+scene_path = "res://screens/tutorial.tscn"
+
+[node name="Title_Screen_Background" parent="." instance=ExtResource("5_m3la5")]
+
+[connection signal="pressed" from="mainmenu2" to="mainmenu2" method="_on_pressed"]
