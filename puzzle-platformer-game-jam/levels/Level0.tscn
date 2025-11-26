@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="2_yrrca"]
 [ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="3_yrrca"]
 [ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="4_7ibxt"]
-[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit.tscn" id="5_5h8y2"]
+[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="5_5h8y2"]
 [ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="6_p1d1a"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_yye3l"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="8_gnwoi"]

@@ -12,7 +12,7 @@ extends ObjectIndeterminate
 var existant: bool = true
 
 func _ready() -> void:
-	sprite.modulate = colors.getColorFromEnum(objectColor)
+	bridge.modulate = colors.getColorFromEnum(objectColor)
 
 func should_be_visible()->bool:
 	if not camera:
