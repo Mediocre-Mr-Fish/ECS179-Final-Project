@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://bwp72mip7nahm"]
+[gd_scene load_steps=13 format=4 uid="uid://bwp72mip7nahm"]
 
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="1_mc20k"]
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_nn0v1"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="4_nn0v1"]
-[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit.tscn" id="5_lbu4x"]
+[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="5_lbu4x"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_mlbie"]
 [ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="8_nu2w0"]
 [ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="8_vcl05"]
@@ -88,7 +88,6 @@ scale = Vector2(0.50092506, 0.50151044)
 position = Vector2(1000.0001, 484)
 scale = Vector2(3.5, 0.25)
 camera = NodePath("../../Camera2D")
-objectColor = null
 
 [node name="Exit" parent="Level" instance=ExtResource("5_lbu4x")]
 position = Vector2(2222, 427)
@@ -108,11 +107,13 @@ position = Vector2(814, 3097)
 shape = SubResource("RectangleShape2D_5pn2a")
 
 [node name="Beholder" parent="Level" node_paths=PackedStringArray("player") instance=ExtResource("10_nn0v1")]
+visible = false
 position = Vector2(-211, 443)
 player = NodePath("../../player")
 item_name = 1
 
 [node name="Green Gem" parent="Level" node_paths=PackedStringArray("player") instance=ExtResource("10_nn0v1")]
+visible = false
 position = Vector2(29, 437)
 player = NodePath("../../player")
 item_name = 2
