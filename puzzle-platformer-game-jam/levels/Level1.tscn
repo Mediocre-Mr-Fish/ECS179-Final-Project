@@ -106,16 +106,18 @@ script = ExtResource("9_vcl05")
 position = Vector2(814, 3097)
 shape = SubResource("RectangleShape2D_5pn2a")
 
-[node name="Beholder" parent="Level" node_paths=PackedStringArray("player") instance=ExtResource("10_nn0v1")]
+[node name="Beholder" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("10_nn0v1")]
 visible = false
 position = Vector2(-211, 443)
 player = NodePath("../../player")
+camera = NodePath("../../Camera2D")
 item_name = 1
 
-[node name="Green Gem" parent="Level" node_paths=PackedStringArray("player") instance=ExtResource("10_nn0v1")]
+[node name="Green Gem" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("10_nn0v1")]
 visible = false
 position = Vector2(29, 437)
 player = NodePath("../../player")
+camera = NodePath("../../Camera2D")
 item_name = 2
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_mlbie")]
