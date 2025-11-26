@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://p2cl4x5mbeh2"]
+
+[ext_resource type="Shader" uid="uid://defo50iv8to2k" path="res://Backgrounds/title_screen_background.gdshader" id="1_7kd4r"]
+[ext_resource type="Texture2D" uid="uid://bjv860pvx1pfa" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-1.png" id="1_ha7jj"]
+[ext_resource type="Texture2D" uid="uid://cvu5qs2wwwkxi" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-2.png" id="3_3ixc6"]
+[ext_resource type="Texture2D" uid="uid://c8ger0i6omha2" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-5.png" id="5_fxgd0"]
+[ext_resource type="Texture2D" uid="uid://b7dq0lmlgjc84" path="res://assets/World/Clouds/Clouds_bg.png" id="6_lf4ee"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ixc6"]
+shader = ExtResource("1_7kd4r")
+shader_parameter/speed = 0.1
+
+[node name="Title_Screen_Background" type="ParallaxBackground"]
+
+[node name="Sky" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 230.6
+offset_bottom = 130.2
+scale = Vector2(5, 5)
+color = Color(0.5293918, 0.7439572, 0.78852654, 1)
+
+[node name="Clouds" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_3ixc6")
+offset_top = -58.0
+offset_right = 1152.0
+offset_bottom = 590.0
+texture = ExtResource("6_lf4ee")
+
+[node name="Mountain" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_3ixc6")
+offset_top = -137.0
+offset_right = 1152.0
+offset_bottom = 511.0
+texture = ExtResource("1_ha7jj")
+
+[node name="Hill" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_3ixc6")
+offset_left = 1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("3_3ixc6")
+
+[node name="Plants" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_3ixc6")
+offset_top = 44.0
+offset_right = 1152.0
+offset_bottom = 692.0
+texture = ExtResource("5_fxgd0")

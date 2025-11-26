@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://by4wjuj2u6sme"]
+[gd_scene load_steps=3 format=3 uid="uid://by4wjuj2u6sme"]
 
-[ext_resource type="Texture2D" uid="uid://dbt4kqpdw8n1q" path="res://assets/flower_daffodil.png" id="1_ngat6"]
+[ext_resource type="Texture2D" uid="uid://crs4gem7yihgp" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-animated-environ-sprites.png" id="1_ngat6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x77y2"]
+atlas = ExtResource("1_ngat6")
+region = Rect2(64.8758, 96.01819, 14.063019, 15.804153)
 
 [node name="flower2" type="Sprite2D"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ngat6")
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_x77y2")
