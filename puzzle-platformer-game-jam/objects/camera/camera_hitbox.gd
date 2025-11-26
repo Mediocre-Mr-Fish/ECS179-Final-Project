@@ -10,4 +10,4 @@ func _init() -> void:
 
 func _on_area_entered(hurtbox: HurtBox) -> void:
 	if hurtbox.has_method("on_camera"):
-		hurtbox.on_camera(true, camera.current_overlay)
+		hurtbox.on_camera(true)

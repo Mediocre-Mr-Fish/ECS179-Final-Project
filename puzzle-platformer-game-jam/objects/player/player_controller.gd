@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var sprite:PlayerSprite = $Sprite2D
 @export var menu_route:String
 
+signal filter_switch(color)
+
 enum Facing {
 	LEFT,
 	RIGHT,
@@ -14,11 +16,17 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 
 var facing:Facing = Facing.RIGHT
+var hasBeholder = false
+var hasLasso = false
+var hasTorch = false
+var beholder:Array = []
+var currentColor = null
+
 
 func _ready() -> void:
 	facing = Facing.RIGHT
 	sprite.change_facing(self)
-	
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -37,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if not Input.is_action_pressed("gimick1"):
+	if not Input.is_action_pressed("look_in_direction"):
 		if 0 < direction:
 			if Facing.RIGHT != facing:
 				facing = Facing.RIGHT
@@ -47,7 +55,19 @@ func _physics_process(delta: float) -> void:
 			if Facing.LEFT != facing:
 				facing = Facing.LEFT
 				sprite.change_facing(self)
-	
+
+	if Input.is_action_just_pressed("filter_switch"):
+		if not hasBeholder:
+			return
+		#if theres no current color, pick the first color gem player picked up
+		if currentColor == null:
+			return
+		#get index of current color in the beholder
+		var index = beholder.find(currentColor)
+		#set the color to the next one inside the beholder
+		currentColor = beholder[(index+1)%beholder.size()]
+		filter_switch.emit(currentColor)
+
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("menu"):
