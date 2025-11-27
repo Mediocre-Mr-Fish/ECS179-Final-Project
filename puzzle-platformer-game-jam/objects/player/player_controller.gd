@@ -4,6 +4,7 @@ extends CharacterBody2D
 #@onready var sprite:Sprite2D = $Sprite2D
 @onready var sprite:PlayerSprite = $Sprite2D
 @export var menu_route:String
+@export var pushForce:float = 100.0
 
 signal filter_switch(color)
 
@@ -11,11 +12,20 @@ enum Facing {
 	LEFT,
 	RIGHT,
 }
+enum FacingY{
+	UP,
+	NEUTRAL,
+	DOWN,
+}
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -500.0
+const SPEED = 800.0
+const JUMP_VELOCITY = -1200.0
+const SLOW_FALL_RATIO = 0.4
+const GRAVITY_CORRECTION_RATIO = 2.5
+const IN_THE_AIR_ACCELERATION_RATIO = 0.05
 
 var facing:Facing = Facing.RIGHT
+var facing_y:FacingY = FacingY.NEUTRAL
 var hasBeholder = false
 var hasLasso = false
 var hasTorch = false
@@ -25,37 +35,64 @@ var currentColor = null
 
 func _ready() -> void:
 	facing = Facing.RIGHT
+	facing_y = FacingY.NEUTRAL
 	sprite.change_facing(self)
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * GRAVITY_CORRECTION_RATIO
 
 	# Handle jump.
-	if Input.is_action_just_pressed("up") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	# If character is on floor and jump is pressed, initiate jump.
+	# If character is in air and jump is pressed, apply slow fall.
+	# Kinda like the mechnism in google dinosaur game.
+	if Input.is_action_pressed("jump"):
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		else:
+			velocity -= get_gravity() * delta * SLOW_FALL_RATIO * IN_THE_AIR_ACCELERATION_RATIO
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
+	var direction:Vector2 = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
+
+	# Handle character walking.
+	# Walk normally on ground.
+	# Apply small amount of acceleration in the air.
+	# But only in the opposite direction.
+	if is_on_floor():
+		if direction:
+			velocity.x = direction.x * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED * 0.1)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if sign(velocity.x) != sign(direction.x):
+			velocity.x += direction.x * SPEED * 0.1 
 	
 	if not Input.is_action_pressed("look_in_direction"):
-		if 0 < direction:
-			if Facing.RIGHT != facing:
+		if direction.x > 0:
+			if facing != Facing.RIGHT:
 				facing = Facing.RIGHT
 				sprite.change_facing(self)
 			
-		elif 0 > direction:
-			if Facing.LEFT != facing:
+		elif direction.x < 0:
+			if facing != Facing.LEFT:
 				facing = Facing.LEFT
 				sprite.change_facing(self)
-
+		
+		if is_zero_approx(direction.y):
+			if facing_y != FacingY.NEUTRAL:
+				facing_y = FacingY.NEUTRAL
+		elif direction.y < 0:
+			if facing_y != FacingY.UP:
+				facing_y = FacingY.UP
+		elif direction.y > 0:
+			if facing_y != FacingY.DOWN:
+				facing_y = FacingY.DOWN
+	
 	if Input.is_action_just_pressed("filter_switch"):
 		if not hasBeholder:
 			return
@@ -74,3 +111,8 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file(menu_route)
 	
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		#print("I collided with ", collision.get_collider().name)
+		if collision.get_collider() is RigidBody2D:
+			collision.get_collider().apply_force(collision.get_normal() * -pushForce)
