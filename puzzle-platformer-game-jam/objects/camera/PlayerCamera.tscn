@@ -11,24 +11,22 @@
 [ext_resource type="Texture2D" uid="uid://c2tlbhgntgktb" path="res://assets/beholder/gem_deactivated.png" id="8_44s4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyefh"]
-size = Vector2(5759.9995, 324)
+size = Vector2(1151.9998, 655)
 
 [node name="Camera2D" type="Camera2D"]
 script = ExtResource("1_a02ee")
 
-[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("camera")]
-scale = Vector2(0.20000002, 2)
+[node name="CameraHitBox" type="Area2D" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("2_75niw")
 camera = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraHitBox"]
 position = Vector2(-0.00012159346, -0.5)
 shape = SubResource("RectangleShape2D_eyefh")
 
 [node name="Debug" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(6.020069e-06, 5.6266785e-05)
-scale = Vector2(0.90000004, 5.0625005)
+position = Vector2(2.7656555e-05, 7.6293945e-06)
+scale = Vector2(4.5, 2.5625002)
 texture = ExtResource("3_brkmr")
 
 [node name="Overlay" type="TextureRect" parent="."]

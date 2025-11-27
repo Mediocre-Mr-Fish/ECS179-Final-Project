@@ -11,9 +11,9 @@ extends Camera2D
 @export var pushbox_bot_right:Vector2 = Vector2(250, 250)
 
 @export var floating_offset:Vector2 = Vector2.ZERO
-@export var shifted_offset_horizontal:Vector2 = Vector2(1100, 0)
-@export var shifted_offset_up:Vector2 = Vector2(0, -600)
-@export var shifted_offset_down:Vector2 = Vector2(0, 600)
+@export var shifted_offset_horizontal:Vector2 = Vector2(550, 0)
+@export var shifted_offset_up:Vector2 = Vector2(0, -300)
+@export var shifted_offset_down:Vector2 = Vector2(0, 300)
 
 @export var shift_speed:float = 2000.0
 @export var subject:PlayerController:
@@ -35,6 +35,7 @@ var pushbox_position: Vector2 = Vector2.ZERO
 
 @onready var overlay:Node = $Overlay
 @onready var inventoryHandler = $"inventory handler"
+@onready var camera_hit_box = $CameraHitBox
 
 
 func _ready() -> void:
@@ -103,9 +104,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("filter_activate"):
 		if subject.currentColor == null:
 			return
-		var overlapping_areas = $Area2D.get_overlapping_areas()
+		var overlapping_areas = camera_hit_box.get_overlapping_areas()
 		for area in overlapping_areas:
-			$Area2D._on_area_entered(area)
+			camera_hit_box._on_area_entered(area)
 
 	if Input.is_action_just_pressed("filter_activate"):
 		overlay.visible = true
