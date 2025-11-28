@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var menu_route:String
 @export var pushForce:float = 100.0
 
-signal filter_switch(color)
+@onready var animation_tree:AnimationTree = $AnimationTree
 
 enum Facing {
 	LEFT,
@@ -37,7 +37,8 @@ func _ready() -> void:
 	facing = Facing.RIGHT
 	facing_y = FacingY.NEUTRAL
 	sprite.change_facing(self)
-
+	animation_tree.active = true
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -110,9 +111,46 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("menu"):
 		get_tree().change_scene_to_file(menu_route)
 	
+	
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		#print("I collided with ", collision.get_collider().name)
 		if collision.get_collider() is RigidBody2D:
 			collision.get_collider().apply_force(collision.get_normal() * -pushForce)
+	
+	_manage_animation_tree_state()
+
+func command_callback(cmd_name:String) -> void:
+	if "burst" == cmd_name:
+		pass
+		#_play($Audio/attack)
+		
+	if "attack" == cmd_name:
+		pass
+		#_play($Audio/attack)
+		
+	if "jump" == cmd_name:
+		pass
+		#_play($Audio/jump)
+		
+	if "engage" == cmd_name:
+		pass
+		#_play($Audio/engage)
+		
+	if "undeath" == cmd_name:
+		pass
+		#_play($Audio/undeath)
+
+
+#Logic to support the state machine in the AnimationTree
+func _manage_animation_tree_state() -> void:
+	if !is_zero_approx(velocity.x):
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/run"] = true
+	elif is_on_floor():
+		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/run"] = false
+	#elif not is_on_floor():
+		#pass
+		
