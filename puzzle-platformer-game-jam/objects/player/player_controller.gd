@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var pushForce:float = 100.0
 
 @onready var animation_tree:AnimationTree = $AnimationTree
+signal filter_switch(color)
 
 enum Facing {
 	LEFT,
