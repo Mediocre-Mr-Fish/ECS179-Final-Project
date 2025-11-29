@@ -83,7 +83,7 @@ tile_set = SubResource("TileSet_5h8y2")
 
 [node name="player" parent="." instance=ExtResource("2_tp4os")]
 position = Vector2(13.000002, 355.00006)
-scale = Vector2(10, 10)
+scale = Vector2(0.01, 0.01)
 
 [node name="Level" type="Node2D" parent="."]
 
