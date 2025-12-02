@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkqjsav0kklvt"]
+
+[ext_resource type="AudioStream" uid="uid://c5bfhpogc1wqn" path="res://assets/Audio/BGM/Temple%20of%20the%20Manes.mp3" id="1_pha87"]
+[ext_resource type="Script" uid="uid://copbgc4rat3n1" path="res://audio_control/bgm_player.gd" id="2_hj4vk"]
+
+[node name="SoundPlayer" type="Node2D"]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_hj4vk")
+main_menu_bgm = ExtResource("1_pha87")
