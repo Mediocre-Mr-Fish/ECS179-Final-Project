@@ -7,8 +7,11 @@ extends AudioStreamPlayer
 @export var level_two_bgm:AudioStream
 @export var level_three_bgm:AudioStream
 
+var current_bgm:AudioStream = null
+
 func _ready():
-	stream = main_menu_bgm 
+
+	print("BGM players:", get_tree().get_nodes_in_group("bgm").size())
 
 	if main_menu_bgm == null:
 		print("Warning: main_menu_bgm is not assigned.")
@@ -19,10 +22,6 @@ func _ready():
 	if level_three_bgm == null:
 		print("Warning: level_three_bgm is not assigned.")
 
-	if is_bgm_playing and stream != null:
-		play()
-	else:
-		stop()
 
 func scene_changed(bgm_select: String) -> void:
 	
@@ -46,7 +45,9 @@ func scene_changed(bgm_select: String) -> void:
 		_:
 			stream = null
 
-	if is_bgm_playing and stream != null:
+	if is_bgm_playing and stream != null and stream != current_bgm:
+		stop()
+		current_bgm = stream
 		play()
 	else:
 		stop()

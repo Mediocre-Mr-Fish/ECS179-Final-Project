@@ -26,7 +26,7 @@ var sprite: Sprite2D
 func _ready() -> void:
 	rail_object = $RailObjectRigidBody2D
 	groove = $RailObjectGrooveJoint2D
-	sprite = $RailObjectSprite2D
+	sprite = $RailObjectRigidBody2D/RailObjectSprite2D
 	
 	_update_rail()
 

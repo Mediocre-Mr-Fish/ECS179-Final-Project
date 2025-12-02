@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://clexu3ggdmson"]
+[gd_scene load_steps=23 format=3 uid="uid://clexu3ggdmson"]
 
+[ext_resource type="Script" uid="uid://nqwuolgloy8p" path="res://screens/main_menu.gd" id="1_rbf75"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_gbx6r"]
 [ext_resource type="PackedScene" uid="uid://p2cl4x5mbeh2" path="res://Backgrounds/title_screen_background.tscn" id="2_o3ram"]
 [ext_resource type="Texture2D" uid="uid://j1njv5hrc4hn" path="res://assets/Buttons/start.png" id="3_dhgkt"]
@@ -62,6 +63,7 @@ atlas = ExtResource("7_gq33n")
 region = Rect2(4.906786, 2.0271788, 54.26133, 19.013401)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_rbf75")
 
 [node name="test" type="TextureButton" parent="."]
 visible = false
