@@ -24,6 +24,7 @@ scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_t2246")
 
 [node name="RailObjectSprite2D" type="Sprite2D" parent="RailObjectRigidBody2D"]
+unique_name_in_owner = true
 
 [node name="RailObjectGrooveJoint2D" type="GrooveJoint2D" parent="."]
 unique_name_in_owner = true

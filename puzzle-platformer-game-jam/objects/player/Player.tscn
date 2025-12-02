@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3tycvd50f06t"]
+[gd_scene load_steps=30 format=3 uid="uid://b3tycvd50f06t"]
 
 [ext_resource type="Script" uid="uid://cnif7fgpw4n3x" path="res://objects/player/player_controller.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dyfwvhmqw0txo" path="res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3.png" id="2_h7ooo"]
 [ext_resource type="Script" uid="uid://b5umy05fi62tq" path="res://objects/player/player_sprite.gd" id="3_e80uo"]
 [ext_resource type="Script" uid="uid://b5hf8j1tluq3w" path="res://touch_hit_box.gd" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://cco14dfocmfkh" path="res://assets/Beholden Assets/overlay_red.png" id="5_cxr5p"]
+[ext_resource type="PackedScene" uid="uid://dkqjsav0kklvt" path="res://audio_control/AudioPlayer.tscn" id="6_lalkq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
 size = Vector2(229, 457)
@@ -20,7 +21,7 @@ step = 0.1332
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PlayerSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +39,7 @@ step = 0.1332
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PlayerSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,7 +54,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PlayerSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,19 +66,37 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_veo1v"]
 resource_name = "Run"
+length = 0.9324
 loop_mode = 1
 step = 0.1332
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PlayerSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1332, 0.2664, 0.39960003, 0.5328, 0.666, 0.79920006, 1),
+"times": PackedFloat32Array(0, 0.1332, 0.2664, 0.39960003, 0.5328, 0.666, 0.79920006, 0.9324),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [14, 15, 16, 17, 18, 19, 20, 20]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.125, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"playback_walk_sfx"
+}, {
+"args": [],
+"method": &"playback_walk_sfx"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_h7ooo"]
@@ -88,7 +107,7 @@ step = 0.1332
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PlayerSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -171,11 +190,11 @@ states/Start/position = Vector2(233, 277)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veo1v"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n1h8g"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sq4k3"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_cq43t"), "Idle", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_ercwk"), "Idle_With_Torch", "Idle", SubResource("AnimationNodeStateMachineTransition_ijwuf"), "Idle_With_Torch", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_iy4hj"), "Run_With_Torch", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_4d57e"), "Run_With_Torch", "Run", SubResource("AnimationNodeStateMachineTransition_2qrau"), "Run", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_x2mbb")]
 graph_offset = Vector2(-195, 154)
 
-[node name="CharacterBody2D2" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ij6vw")
 menu_route = "res://screens/menu.tscn"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerSprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1, 0)
 scale = Vector2(2, 2)
@@ -211,3 +230,5 @@ parameters/conditions/idle = false
 parameters/conditions/run = false
 parameters/conditions/torch = false
 parameters/conditions/untorch = false
+
+[node name="SoundPlayer" parent="." instance=ExtResource("6_lalkq")]

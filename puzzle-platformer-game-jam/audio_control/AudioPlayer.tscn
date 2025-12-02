@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkqjsav0kklvt"]
+
+[ext_resource type="AudioStream" uid="uid://c5bfhpogc1wqn" path="res://assets/Audio/BGM/Temple%20of%20the%20Manes.mp3" id="1_pha87"]
+[ext_resource type="Script" uid="uid://copbgc4rat3n1" path="res://audio_control/bgm_player.gd" id="2_hj4vk"]
+[ext_resource type="Script" uid="uid://cm2boset675wo" path="res://audio_control/player_sfx_player.gd" id="3_hj4vk"]
+[ext_resource type="AudioStream" uid="uid://b6bdr53l3y7rl" path="res://assets/Audio/SFX/Steps/01-footstep.ogg" id="4_6yhnr"]
+
+[node name="SoundPlayer" type="Node2D"]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_hj4vk")
+main_menu_bgm = ExtResource("1_pha87")
+
+[node name="PlayerSFXPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_hj4vk")
+walk_sfx = ExtResource("4_6yhnr")
