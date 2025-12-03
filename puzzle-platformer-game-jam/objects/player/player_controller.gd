@@ -34,6 +34,8 @@ var hasTorch = false
 var beholder:Array = []
 var currentColor = null
 
+enum PlayerState { MOVE, DEAD }
+var current_state: PlayerState = PlayerState.MOVE
 
 func _ready() -> void:
 	facing = Facing.RIGHT
@@ -161,3 +163,6 @@ func playback_walk_sfx() -> void:
 	if is_on_floor():
 		PlayerSFXPlayer.play_walk_sfx(global_position)
 	
+func take_damage(amount: int) -> void:
+	print("Player took damage:", amount)
+	# TODO: health variable if you have one

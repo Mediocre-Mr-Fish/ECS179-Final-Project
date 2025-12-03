@@ -1,7 +1,7 @@
 class_name Player
 extends Character 
 
-@export var health:int = 100
+@export var health:int = 1
 
 var _damaged:bool = false
 var _dead:bool = false
@@ -9,6 +9,9 @@ var _dead:bool = false
 var cmd_list : Array[Command]
 
 @onready var animation_tree:AnimationTree = $AnimationTree
+
+enum PlayerState { MOVE, DEAD }
+var current_state: PlayerState = PlayerState.MOVE
 
 func _ready():
 	animation_tree.active = true
@@ -47,15 +50,25 @@ func _physics_process(delta: float):
 	#_manage_animation_tree_state()
 
 
-func take_damage(damage:int) -> void:
-	health -= damage
+func take_damage(amount: int) -> void:
+	if _dead:
+		
+		return
+
+	health -= amount
 	_damaged = true
-	#if 0 >= health:
-		#_dead = true
-		#animation_tree.active = false
-		#animation_player.play("death")
-	#else:
-		#_play($Audio/hurt)
+
+	if health <= 0:
+		_dead = true
+		current_state = PlayerState.DEAD
+		dead()
+
+
+func dead() -> void:
+	velocity.x = 0
+	animation_tree.active = false
+	# Play death animation if you want
+	# $AnimationPlayer.play("death")
 
 
 func bind_player_input_commands():
@@ -80,7 +93,7 @@ func resurrect() -> void:
 	animation_tree.active = true
 	var sm:AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
-
+	
 #func command_callback(cmd_name:String) -> void:
 	#if "attack" == cmd_name:
 		#_play($Audio/attack)
