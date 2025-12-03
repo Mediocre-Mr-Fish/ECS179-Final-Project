@@ -17,7 +17,7 @@ func tp_player_to_left_end() -> void:
 	tp_distance = player.position.x - tp_to_left_position
 	player.position.x = tp_to_left_position  # Example position for left end
 	camera.position.x -= tp_distance
-
+	# whatever else needs to be done when teleporting to left end
 	print("Teleporting player to left end")
 	pass  # Replace with function body.
 
