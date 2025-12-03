@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://f4p8xu7pweaq" path="res://objects/camera/camera_hitbox.gd" id="2_75niw"]
 [ext_resource type="Texture2D" uid="uid://c3da7s3w2c1ll" path="res://assets/Beholden Assets/overlay_green.png" id="3_brkmr"]
 [ext_resource type="Texture2D" uid="uid://cga688lj0qs1k" path="res://assets/Beholden Assets/overlay_filter.png" id="4_75niw"]
-[ext_resource type="Script" uid="uid://35ddahpu5ij0" path="res://objects/camera/inventory_handler.gd" id="5_eyefh"]
+[ext_resource type="Script" path="res://objects/camera/inventory_handler.gd" id="5_eyefh"]
 [ext_resource type="Texture2D" uid="uid://ywerpdwfgkb4" path="res://assets/Beholden Assets/frame.png" id="6_s8xkx"]
 [ext_resource type="Texture2D" uid="uid://dfx60wxux6jx8" path="res://icon.svg" id="7_44s4m"]
 [ext_resource type="Texture2D" uid="uid://kgji0bf6kucb" path="res://assets/beholder/beholder.png" id="7_uaobj"]
@@ -25,6 +25,7 @@ position = Vector2(-0.00012159346, -0.5)
 shape = SubResource("RectangleShape2D_eyefh")
 
 [node name="Debug" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(2.7656555e-05, 7.6293945e-06)
 scale = Vector2(4.5, 2.5625002)
 texture = ExtResource("3_brkmr")
