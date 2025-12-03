@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 colors="*res://colors.gd"
-AutoloadAudioPlayer="*res://audio_control/AudioPlayer.tscn"
 
 [display]
 

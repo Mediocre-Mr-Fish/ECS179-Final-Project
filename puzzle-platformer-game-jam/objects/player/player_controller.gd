@@ -1,13 +1,12 @@
 class_name PlayerController
 extends CharacterBody2D
 
-@onready var sprite: PlayerSprite = $PlayerSprite2D
-@onready var PlayerSFXPlayer: AudioStreamPlayer2D = get_node("/root/AutoloadAudioPlayer/PlayerSFXPlayer")
-@export var menu_route: String
+#@onready var sprite:Sprite2D = $Sprite2D
+@onready var sprite:PlayerSprite = $Sprite2D
+@export var menu_route:String
 @export var pushForce:float = 100.0
 
 @onready var animation_tree:AnimationTree = $AnimationTree
-
 signal filter_switch(color)
 
 enum Facing {
@@ -144,6 +143,7 @@ func command_callback(cmd_name:String) -> void:
 		pass
 		#_play($Audio/undeath)
 
+
 #Logic to support the state machine in the AnimationTree
 func _manage_animation_tree_state() -> void:
 	if !is_zero_approx(velocity.x):
@@ -155,9 +155,3 @@ func _manage_animation_tree_state() -> void:
 	#elif not is_on_floor():
 		#pass
 		
-# sound effect functions
-
-func playback_walk_sfx() -> void:
-	if is_on_floor():
-		PlayerSFXPlayer.play_walk_sfx(global_position)
-	

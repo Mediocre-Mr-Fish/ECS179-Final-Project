@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ds6a5aqdakuma"]
+[gd_scene load_steps=22 format=3 uid="uid://ds6a5aqdakuma"]
 
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_7d4r0"]
 [ext_resource type="Texture2D" uid="uid://c2bwmwksdioy4" path="res://assets/Buttons/button_1.png" id="2_aner1"]
@@ -45,32 +45,21 @@ region = Rect2(15.9449005, 0, 15.076998, 15.072294)
 atlas = ExtResource("3_1yq2q")
 region = Rect2(32.053654, 0, 14.946346, 15.005728)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_su37s"]
-atlas = ExtResource("5_aner1")
-region = Rect2(9, 2, 46, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbjki"]
-atlas = ExtResource("5_aner1")
-region = Rect2(9, 44, 46, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_is24j"]
-atlas = ExtResource("5_aner1")
-region = Rect2(9, 23, 46, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7brn7"]
-atlas = ExtResource("7_3utos")
-region = Rect2(4.9560895, 22.952868, 54.09996, 19.036963)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jbyek"]
-load_path = "res://.godot/imported/debug.png-f0710cf84db269549c1bc568353ad832.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_farm0"]
-atlas = SubResource("CompressedTexture2D_jbyek")
+atlas = ExtResource("7_m1h3a")
 region = Rect2(0, 0, 52, 19)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbbpq"]
 atlas = ExtResource("7_m1h3a")
 region = Rect2(0, 41, 52, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is24j"]
+atlas = ExtResource("5_aner1")
+region = Rect2(8.963565, 1.8331382, 46.040653, 19.290997)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7brn7"]
+atlas = ExtResource("7_3utos")
+region = Rect2(4.9560895, 22.952868, 54.09996, 19.036963)
 
 [node name="World" type="Node2D"]
 
@@ -118,16 +107,11 @@ offset_top = 500.0
 offset_right = 526.0
 offset_bottom = 519.0
 scale = Vector2(4.5, 4.5)
-texture_normal = SubResource("AtlasTexture_su37s")
-texture_pressed = SubResource("AtlasTexture_cbjki")
+texture_normal = SubResource("AtlasTexture_farm0")
+texture_pressed = SubResource("AtlasTexture_gbbpq")
 texture_hover = SubResource("AtlasTexture_is24j")
 script = ExtResource("2_7d4r0")
 scene_path = "res://screens/menu.tscn"
-
-[node name="Title" type="Sprite2D" parent="."]
-position = Vector2(585, 200)
-scale = Vector2(8, 8)
-texture = SubResource("AtlasTexture_7brn7")
 
 [node name="debug_level" type="TextureButton" parent="."]
 offset_left = 845.0
@@ -140,6 +124,11 @@ texture_pressed = SubResource("AtlasTexture_gbbpq")
 texture_hover = SubResource("AtlasTexture_gbbpq")
 script = ExtResource("2_7d4r0")
 scene_path = "res://levels/item_testing.tscn"
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(585, 200)
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_7brn7")
 
 [connection signal="pressed" from="lvl1" to="lvl1" method="_on_pressed"]
 [connection signal="pressed" from="lvl2" to="lvl2" method="_on_pressed"]
