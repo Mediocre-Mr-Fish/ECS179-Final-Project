@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://vbobnauh6tsv"]
+[gd_scene load_steps=13 format=3 uid="uid://vbobnauh6tsv"]
 
+[ext_resource type="Texture2D" uid="uid://vcphjxnwnhw1" path="res://assets/Buttons/control_panel.png" id="1_m3la5"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_nl5an"]
 [ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/Beholden Assets/think.png" id="3_m3la5"]
 [ext_resource type="Texture2D" uid="uid://cwegdgpuptewt" path="res://assets/Buttons/Back.png" id="3_nl5an"]
@@ -9,6 +10,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_7wqwc"]
 font_size = 64
 font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gihy8"]
+atlas = ExtResource("1_m3la5")
+region = Rect2(16.000406, 32.003242, 96.00699, 64.04925)
 
 [sub_resource type="LabelSettings" id="LabelSettings_oufnp"]
 font_size = 32
@@ -38,11 +43,26 @@ text = "Explanation"
 label_settings = SubResource("LabelSettings_7wqwc")
 horizontal_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.0
+offset_top = 48.5
+offset_right = 527.0
+offset_bottom = 433.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_gihy8")
+
 [node name="Controls" type="Label" parent="."]
-offset_left = 31.0
-offset_top = 167.0
-offset_right = 944.0
-offset_bottom = 452.0
+offset_left = 117.0
+offset_top = 145.0
+offset_right = 1030.0
+offset_bottom = 430.0
 theme_override_font_sizes/font_size = 15
 text = "Certain objects have a fickle existence.
 These objects exist when evidence supports their existence
@@ -53,12 +73,12 @@ Walking though an empty space denies it."
 label_settings = SubResource("LabelSettings_oufnp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1018, 485)
+position = Vector2(970.0001, 372)
 rotation = 0.10174332
 texture = ExtResource("3_m3la5")
 
 [node name="flower2" parent="." instance=ExtResource("4_jr4ly")]
-position = Vector2(857, 517)
+position = Vector2(847, 406)
 flip_h = true
 
 [node name="mainmenu2" type="TextureButton" parent="."]

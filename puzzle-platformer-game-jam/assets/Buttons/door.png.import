@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvfws1j53kwjk"
-path="res://.godot/imported/button_3.png-d81480eeb56c00f099108fe131ff8a18.ctex"
+uid="uid://btoxppu4qrve6"
+path="res://.godot/imported/door.png-0db2218f1f2006b8293dc024b7961a1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Buttons/button_3.png"
-dest_files=["res://.godot/imported/button_3.png-d81480eeb56c00f099108fe131ff8a18.ctex"]
+source_file="res://assets/Buttons/door.png"
+dest_files=["res://.godot/imported/door.png-0db2218f1f2006b8293dc024b7961a1a.ctex"]
 
 [params]
 
