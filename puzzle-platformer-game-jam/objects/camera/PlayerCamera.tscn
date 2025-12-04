@@ -25,6 +25,7 @@ position = Vector2(-0.00012159346, -0.5)
 shape = SubResource("RectangleShape2D_eyefh")
 
 [node name="Debug" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(2.7656555e-05, 7.6293945e-06)
 scale = Vector2(4.5, 2.5625002)
 texture = ExtResource("3_brkmr")
