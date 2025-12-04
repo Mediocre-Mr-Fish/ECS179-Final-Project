@@ -6,11 +6,11 @@ extends Node2D
 
 
 func change_facing(player:PlayerController) -> void:
-	if PlayerController.Facing.LEFT == player.facing:
+	if PlayerController.Facing.RIGHT == player.facing:
 		position = flipped_position
 		self.flip_h = false
 		#print("left")
-	elif PlayerController.Facing.RIGHT == player.facing:
+	elif PlayerController.Facing.LEFT == player.facing:
 		position = unflipped_position
 		self.flip_h = true
 		#print("right")

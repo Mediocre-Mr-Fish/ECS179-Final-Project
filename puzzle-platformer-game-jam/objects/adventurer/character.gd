@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 signal CharacterDirectionChange(facing: Facing)
 
-
 enum Facing {
 	LEFT,
 	RIGHT,
@@ -62,7 +61,7 @@ func handle_gravity(delta: float) -> void:
 
 
 func handle_jump() -> void:
-	if Input.is_action_just_pressed("up") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 
 

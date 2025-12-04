@@ -169,6 +169,7 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(10, 0)
+scale = Vector2(80, 80)
 texture = ExtResource("3_0f76q")
 hframes = 7
 vframes = 7
