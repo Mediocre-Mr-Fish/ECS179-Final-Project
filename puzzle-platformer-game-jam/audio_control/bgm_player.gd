@@ -10,7 +10,7 @@ extends AudioStreamPlayer
 var current_bgm:AudioStream = null
 
 func _ready():
-
+	
 	print("BGM players:", get_tree().get_nodes_in_group("bgm").size())
 
 	if main_menu_bgm == null:
