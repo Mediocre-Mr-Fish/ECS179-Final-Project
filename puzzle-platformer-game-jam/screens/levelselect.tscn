@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://ds6a5aqdakuma"]
+[gd_scene load_steps=25 format=3 uid="uid://ds6a5aqdakuma"]
 
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_7d4r0"]
-[ext_resource type="Texture2D" uid="uid://c2bwmwksdioy4" path="res://assets/Buttons/button_1.png" id="2_aner1"]
-[ext_resource type="Texture2D" uid="uid://bvfws1j53kwjk" path="res://assets/Buttons/button_3.png" id="3_1yq2q"]
+[ext_resource type="Texture2D" uid="uid://c2bwmwksdioy4" path="res://assets/Buttons/Number Buttons/button_1.png" id="2_aner1"]
+[ext_resource type="Texture2D" uid="uid://bvfws1j53kwjk" path="res://assets/Buttons/Number Buttons/button_3.png" id="3_1yq2q"]
 [ext_resource type="PackedScene" uid="uid://p2cl4x5mbeh2" path="res://Backgrounds/title_screen_background.tscn" id="3_7d4r0"]
-[ext_resource type="Texture2D" uid="uid://cr7p5evghw23d" path="res://assets/Buttons/button_2.png" id="4_3utos"]
+[ext_resource type="Texture2D" uid="uid://cr7p5evghw23d" path="res://assets/Buttons/Number Buttons/button_2.png" id="4_3utos"]
+[ext_resource type="Texture2D" uid="uid://b55l346i5inon" path="res://assets/Buttons/button_4.png" id="4_m1h3a"]
 [ext_resource type="Texture2D" uid="uid://cwegdgpuptewt" path="res://assets/Buttons/Back.png" id="5_aner1"]
 [ext_resource type="Texture2D" uid="uid://buw321pe8c2nl" path="res://assets/Buttons/level.png" id="7_3utos"]
 [ext_resource type="Texture2D" uid="uid://c50tur3it35br" path="res://assets/Buttons/debug.png" id="7_m1h3a"]
@@ -45,19 +46,19 @@ region = Rect2(15.9449005, 0, 15.076998, 15.072294)
 atlas = ExtResource("3_1yq2q")
 region = Rect2(32.053654, 0, 14.946346, 15.005728)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbyek"]
-atlas = ExtResource("3_1yq2q")
-region = Rect2(0, 0, 15.03274, 15.03782)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbgx0"]
-atlas = ExtResource("3_1yq2q")
-region = Rect2(15.9449005, 0, 15.076998, 15.072294)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmvjy"]
-atlas = ExtResource("3_1yq2q")
-region = Rect2(32.053654, 0, 14.946346, 15.005728)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_su37s"]
+atlas = ExtResource("4_m1h3a")
+region = Rect2(0, 0, 15.020951, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbjki"]
+atlas = ExtResource("4_m1h3a")
+region = Rect2(15.947767, 0, 15.07213, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbyek"]
+atlas = ExtResource("4_m1h3a")
+region = Rect2(31.999905, 0, 15.000095, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_farm0"]
 atlas = ExtResource("5_aner1")
 region = Rect2(9, 2, 46, 19)
 
@@ -123,16 +124,16 @@ script = ExtResource("2_7d4r0")
 scene_path = "res://levels/Level3.tscn"
 
 [node name="lvl4" type="TextureButton" parent="."]
-offset_left = 848.0
-offset_top = 350.0
-offset_right = 863.0
-offset_bottom = 365.0
+offset_left = 832.0
+offset_top = 353.0
+offset_right = 847.0
+offset_bottom = 368.0
 scale = Vector2(4.5, 4.5)
-texture_normal = SubResource("AtlasTexture_jbyek")
-texture_pressed = SubResource("AtlasTexture_kbgx0")
-texture_hover = SubResource("AtlasTexture_jmvjy")
+texture_normal = SubResource("AtlasTexture_su37s")
+texture_pressed = SubResource("AtlasTexture_cbjki")
+texture_hover = SubResource("AtlasTexture_jbyek")
 script = ExtResource("2_7d4r0")
-scene_path = "res://levels/level_loop/level_loop.tscn"
+scene_path = "res://levels/Level4_tho.tscn"
 
 [node name="Title_Screen_Background" parent="." instance=ExtResource("3_7d4r0")]
 

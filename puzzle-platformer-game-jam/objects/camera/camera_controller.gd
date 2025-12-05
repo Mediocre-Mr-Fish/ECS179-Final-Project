@@ -3,12 +3,16 @@ extends Camera2D
 
 @export var zoom_scale:float = 1.0
 
-## the size of the pushbox
-@export var pushbox_size:Vector2 = Vector2(500,500)
+@export_group("Pushbox")
+## the size of the inner pushbox
+@export var pushbox_size:Vector2 = Vector2(250,250)
 ## the top left limit of the pushbox
 @export var pushbox_top_left:Vector2 = Vector2(-250, -250)
 ## the bottom right limit of the pushbox
 @export var pushbox_bot_right:Vector2 = Vector2(250, 250)
+## the speed that the inner pushbox moves inside the limits
+@export var pushbox_speed: float = 100.0
+
 
 @export var floating_offset:Vector2 = Vector2.ZERO
 @export var shifted_offset_horizontal:Vector2 = Vector2(550, 0)
@@ -51,20 +55,95 @@ func _ready() -> void:
 	global_position = subject.global_position + floating_offset
 
 
-func _camera_logic() -> void:
+func _camera_logic(_delta:float) -> void:
+	# where the subject is on the screen
 	var subject_offset:Vector2 = subject.global_position - global_position
-	if subject_offset.x < pushbox_top_left.x:
-		pass
-	if subject_offset.x > pushbox_bot_right.x:
-		pass
+	var target_offset:Vector2 = subject_offset
+	
+	if (subject_offset.x < pushbox_position.x - pushbox_size.x / 2
+			and subject.velocity.x < 0):
+		pushbox_position.x = clampf(
+				pushbox_position.x + pushbox_speed * _delta,
+				pushbox_top_left.x,
+				pushbox_bot_right.x,
+		)
+		
+	if (subject_offset.x > pushbox_position.x + pushbox_size.x / 2
+			and subject.velocity.x > 0):
+		pushbox_position.x = clampf(
+				pushbox_position.x - pushbox_speed * _delta,
+				pushbox_top_left.x,
+				pushbox_bot_right.x,
+		)
+	
+	if (subject_offset.y < pushbox_position.y - pushbox_size.y / 2
+			and subject.velocity.y < 0):
+		pushbox_position.y = clampf(
+				pushbox_position.y + pushbox_speed * _delta,
+				pushbox_top_left.y,
+				pushbox_bot_right.y,
+		)
+		
+	if (subject_offset.y > pushbox_position.y + pushbox_size.y / 2
+			and subject.velocity.y > 0):
+		pushbox_position.y = clampf(
+				pushbox_position.y - pushbox_speed * _delta,
+				pushbox_top_left.y,
+				pushbox_bot_right.y,
+		)
+	
+	target_offset.x = clampf(
+			target_offset.x,
+			pushbox_position.x - pushbox_size.x / 2,
+			pushbox_position.x + pushbox_size.x / 2,
+	)
+	target_offset.y = clampf(
+			target_offset.y,
+			pushbox_position.y - pushbox_size.y / 2,
+			pushbox_position.y + pushbox_size.y / 2,
+	)
+		
+	var target_position = subject.global_position - target_offset
+	global_position += (target_position - global_position).limit_length(shift_speed * _delta)
+
+func _shifted_camera_logic(_delta:float) -> void:
+	var target_position:Vector2 = global_position
+	target_position = subject.global_position
+	if shift_tri_state.x < 0:
+		target_position -= shifted_offset_horizontal
+		pushbox_position.x = pushbox_bot_right.x
+	elif shift_tri_state.x > 0:
+		target_position += shifted_offset_horizontal
+		pushbox_position.x = pushbox_top_left.x
+	else:
+		pushbox_position.x = 0
+	
+	if shift_tri_state.y < 0:
+		target_position += shifted_offset_up
+		pushbox_position.y = pushbox_bot_right.y
+	elif shift_tri_state.y > 0:
+		target_position += shifted_offset_down
+		pushbox_position.y = pushbox_top_left.y
+	else:
+		pushbox_position.y = 0
+	
+	global_position += (target_position - global_position).limit_length(shift_speed * _delta)
 
 func _draw() -> void:
+	if not OS.is_debug_build():
+		return
+	
 	var thickness:float = 3
-	var color: Color = Color.BLACK
+	var color_limits: Color = Color.DARK_BLUE
+	var color_box: Color = Color.BLACK
 	
 	var pushbox_limits: Rect2 = Rect2(pushbox_top_left, pushbox_bot_right - pushbox_top_left)
-	draw_rect(pushbox_limits, color, false, thickness)
+	draw_rect(pushbox_limits, color_limits, false, thickness)
 	
+	#var pushbox: Rect2 = Rect2(pushbox_position - pushbox_size / 2, pushbox_position + pushbox_size / 2) 
+	var pushbox: Rect2 = Rect2(pushbox_position - pushbox_size / 2, pushbox_size) 
+	draw_rect(pushbox, color_box, false, thickness)
+
 
 func _detect_shift() -> bool:
 	var pressed:bool = Input.is_action_pressed("look_in_direction")
@@ -83,23 +162,13 @@ func _detect_shift() -> bool:
 
 
 func _process(_delta: float) -> void:
-	var target_position:Vector2 = global_position
 	if _detect_shift():
-		target_position = subject.global_position
-		if shift_tri_state.x > 0:
-			target_position += shifted_offset_horizontal
-		elif shift_tri_state.x < 0:
-			target_position -= shifted_offset_horizontal
-		
-		if shift_tri_state.y < 0:
-			target_position += shifted_offset_up
-		elif shift_tri_state.y > 0:
-			target_position += shifted_offset_down
+		_shifted_camera_logic(_delta)
 	else:
-		#target_position += floating_offset
-		target_position = subject.global_position
+		_camera_logic(_delta)
 	
-	global_position += (target_position - global_position).limit_length(shift_speed * _delta)
+	if OS.is_debug_build():
+		queue_redraw()
 	
 	if Input.is_action_pressed("filter_activate"):
 		if subject.currentColor == null:
