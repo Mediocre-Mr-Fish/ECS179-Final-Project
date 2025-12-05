@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpcht0t44h8fj"]
+[gd_scene load_steps=5 format=3 uid="uid://dpcht0t44h8fj"]
 
 [ext_resource type="Script" uid="uid://bughqfl8cgaxy" path="res://objects/exit/exit.gd" id="1_mlcv5"]
-[ext_resource type="Texture2D" uid="uid://yg116rutaeph" path="res://assets/door.png" id="3_d0uvg"]
+[ext_resource type="Texture2D" uid="uid://btoxppu4qrve6" path="res://assets/Buttons/door.png" id="2_daxgu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywcxy"]
+atlas = ExtResource("2_daxgu")
+region = Rect2(16.010538, 15.997997, 13.166796, 19.014263)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5g1s2"]
 size = Vector2(168, 227)
@@ -12,7 +16,9 @@ metadata/_custom_type_script = "uid://ckjtyknpdr1bh"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-texture = ExtResource("3_d0uvg")
+position = Vector2(-7.846156, 11.052627)
+scale = Vector2(12.6923065, 11.894736)
+texture = SubResource("AtlasTexture_ywcxy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 16.5)

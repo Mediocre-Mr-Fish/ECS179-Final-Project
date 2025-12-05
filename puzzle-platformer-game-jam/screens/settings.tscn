@@ -1,0 +1,186 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdtqqirog1fyv"]
+
+[ext_resource type="PackedScene" uid="uid://nmkxfuui0iq1" path="res://screens/hotkey_keybind.tscn" id="1_5em86"]
+[ext_resource type="Texture2D" uid="uid://vcphjxnwnhw1" path="res://assets/Buttons/control_panel.png" id="1_hfwxu"]
+[ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="3_qyhqh"]
+[ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/Beholden Assets/think.png" id="4_0o1eh"]
+
+[sub_resource type="Theme" id="Theme_e8gum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyhqh"]
+atlas = ExtResource("1_hfwxu")
+region = Rect2(16.01191, 31.956522, 95.96403, 63.984894)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0o1eh"]
+texture = SubResource("AtlasTexture_qyhqh")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfwxu"]
+atlas = ExtResource("1_hfwxu")
+region = Rect2(32.00335, 26.99211, 15.997055, 4.9879704)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e8gum"]
+content_margin_left = 10.0
+texture = SubResource("AtlasTexture_hfwxu")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8gum"]
+atlas = ExtResource("1_hfwxu")
+region = Rect2(48.02242, 22.992558, 15.999424, 9.961094)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qyhqh"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+texture = SubResource("AtlasTexture_e8gum")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5em86"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_230t2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hhs7c"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -437.0
+offset_top = -191.5
+offset_right = 437.0
+offset_bottom = 191.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_e8gum")
+theme_override_colors/font_selected_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_hovered_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_unselected_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
+theme_override_constants/tab_separation = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_0o1eh")
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_e8gum")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_qyhqh")
+tab_alignment = 1
+current_tab = 2
+
+[node name="Controls" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = -152.5
+offset_right = 400.0
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5em86")
+
+[node name="Hotkey_Keybind2" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+
+[node name="Hotkey_Keybind" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "right"
+
+[node name="Hotkey_Keybind4" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "up"
+
+[node name="Hotkey_Keybind3" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "look_in_direction"
+
+[node name="Hotkey_Keybind5" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "filter_activate"
+
+[node name="Hotkey_Keybind6" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "filter_switch"
+
+[node name="Hotkey_Keybind7" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "restart"
+
+[node name="Hotkey_Keybind8" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "menu"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_230t2")
+
+[node name="Sounds" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Hint" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="flower2" parent="TabContainer/Hint" instance=ExtResource("3_qyhqh")]
+position = Vector2(610, 286.5)
+scale = Vector2(0.421875, 0.4296875)
+flip_h = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Hint"]
+position = Vector2(709, 264.5)
+rotation = 0.10174332
+scale = Vector2(0.7107377, 0.7107377)
+texture = ExtResource("4_0o1eh")
+
+[node name="Hints" type="Label" parent="TabContainer/Hint"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 120.5
+offset_right = 652.0
+offset_bottom = 357.5
+theme_override_font_sizes/font_size = 15
+text = "Sometimes, things must be
+unseen to be believed. 
+"
+label_settings = SubResource("LabelSettings_hhs7c")
+horizontal_alignment = 2

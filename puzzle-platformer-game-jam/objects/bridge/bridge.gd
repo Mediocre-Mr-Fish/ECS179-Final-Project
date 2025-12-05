@@ -3,7 +3,7 @@ extends ObjectIndeterminate
 
 #@onready var animation_tree: AnimationTree = $AnimationTree
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprite:Sprite2D = $Sprite2D
+#@onready var sprite:Sprite2D = $Sprite2D
 @onready var collision:CollisionShape2D = $CollisionShape2D
 @onready var bridge:TileMapLayer = $Bridge_Sprite
 @export var camera:CameraController
