@@ -1,13 +1,6 @@
 class_name PlayerController
 extends CharacterBody2D
 
-@onready var sprite: PlayerSprite = $PlayerSprite2D
-@onready var PlayerSFXPlayer: AudioStreamPlayer2D = get_node("/root/AutoloadAudioPlayer/PlayerSFXPlayer")
-@export var menu_route: String
-@export var pushForce:float = 100.0
-
-@onready var animation_tree:AnimationTree = $AnimationTree
-
 signal filter_switch(color)
 
 enum Facing {
@@ -26,6 +19,10 @@ const SLOW_FALL_RATIO = 0.4
 const GRAVITY_CORRECTION_RATIO = 2.5
 const IN_THE_AIR_ACCELERATION_RATIO = 0.05
 
+@export var menu_route: String
+@export var pushForce: float = 100.0
+@export var forwards_box_extender_ratio: float = 0.1
+
 var facing:Facing = Facing.RIGHT
 var facing_y:FacingY = FacingY.NEUTRAL
 var hasBeholder = false
@@ -34,6 +31,12 @@ var hasTorch = false
 var beholder:Array = []
 var currentColor = null
 
+@onready var sprite: PlayerSprite = $PlayerSprite2D
+@onready var PlayerSFXPlayer: AudioStreamPlayer2D = get_node("/root/AutoloadAudioPlayer/PlayerSFXPlayer")
+@onready var animation_tree:AnimationTree = $AnimationTree
+# A second shape that extends the touch hitbox in the direction of movement
+# to compensate for high movenet speed
+@onready var forwards_box_extender: CollisionShape2D = $TouchHitBox/ForwardsBoxExtender
 
 func _ready() -> void:
 	facing = Facing.RIGHT
@@ -75,6 +78,9 @@ func _physics_process(delta: float) -> void:
 		if sign(velocity.x) != sign(direction.x):
 			velocity.x += direction.x * SPEED * 0.1 
 	
+	# move the second touchbox in the direction of movement	
+	forwards_box_extender.position = velocity * forwards_box_extender_ratio
+	
 	if not Input.is_action_pressed("look_in_direction"):
 		if direction.x > 0:
 			if facing != Facing.RIGHT:
@@ -112,7 +118,6 @@ func _physics_process(delta: float) -> void:
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("menu"):
 		get_tree().change_scene_to_file(menu_route)
-	
 	
 	move_and_slide()
 	for i in get_slide_collision_count():
