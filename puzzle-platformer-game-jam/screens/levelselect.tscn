@@ -166,7 +166,7 @@ texture_normal = SubResource("AtlasTexture_jyjk0")
 texture_pressed = SubResource("AtlasTexture_mdxpn")
 texture_hover = SubResource("AtlasTexture_uss4j")
 script = ExtResource("2_7d4r0")
-scene_path = "res://levels/level_loop/level_loop.tscn"
+scene_path = "res://levels/level_loop/LevelLoop.tscn"
 
 [node name="Title_Screen_Background" parent="." instance=ExtResource("3_7d4r0")]
 
