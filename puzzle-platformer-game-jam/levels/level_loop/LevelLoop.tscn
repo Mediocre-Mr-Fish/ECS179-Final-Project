@@ -1,15 +1,22 @@
-[gd_scene load_steps=11 format=4 uid="uid://th6jdadyjus"]
+[gd_scene load_steps=18 format=4 uid="uid://ru5hopewms17"]
 
-[ext_resource type="Script" uid="uid://cp01n82ou5v1f" path="res://levels/level_loop/level_loop.gd" id="1_2g2jj"]
-[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="2_fpejj"]
-[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="3_bby8e"]
-[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="4_opdej"]
-[ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="5_j0hvy"]
-[ext_resource type="Texture2D" uid="uid://c2ek7i1n7k8kf" path="res://assets/World/Desert/desert-8x8/sprites/desert_brickwall_background.png" id="6_7ur00"]
-[ext_resource type="Script" uid="uid://bk704g0wp1n5w" path="res://levels/level_loop/trigger.gd" id="7_fpejj"]
+[ext_resource type="Script" uid="uid://cp01n82ou5v1f" path="res://levels/level_loop/level_loop.gd" id="1_ja8hb"]
+[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="2_lwnbc"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="3_8hr7c"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="4_0a4s2"]
+[ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="5_cp5jv"]
+[ext_resource type="Texture2D" uid="uid://c2ek7i1n7k8kf" path="res://assets/World/Desert/desert-8x8/sprites/desert_brickwall_background.png" id="6_boccd"]
+[ext_resource type="Script" uid="uid://bk704g0wp1n5w" path="res://levels/level_loop/trigger.gd" id="7_icmin"]
+[ext_resource type="Texture2D" uid="uid://pvjyy8up4wcm" path="res://objects/skeleton/skeleton.png" id="8_d7ep7"]
+[ext_resource type="Texture2D" uid="uid://djfb8g4kqvf36" path="res://objects/painting/painting1.png" id="9_q5w88"]
+[ext_resource type="Texture2D" uid="uid://c3u8y4r4xix1n" path="res://objects/painting/painting2.png" id="10_ucsgq"]
+[ext_resource type="Texture2D" uid="uid://bt7o04o4fyq5n" path="res://objects/painting/painting3.png" id="11_eggmq"]
+[ext_resource type="Texture2D" uid="uid://vbi6f3e1r0xb" path="res://objects/painting/painting4.png" id="12_8wp0b"]
+[ext_resource type="PackedScene" uid="uid://d332nk1x7sahw" path="res://levels/level_loop/ThePainting.tscn" id="13_lwnbc"]
+[ext_resource type="Texture2D" uid="uid://ygea37bnx3qx" path="res://objects/painting/painting5.png" id="13_pv2fy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mppvi"]
-texture = ExtResource("5_j0hvy")
+texture = ExtResource("5_cp5jv")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -73,20 +80,20 @@ sources/0 = SubResource("TileSetAtlasSource_mppvi")
 size = Vector2(160, 1333)
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_2g2jj")
+script = ExtResource("1_ja8hb")
 
 [node name="Level" type="Node2D" parent="."]
 
-[node name="Exit" parent="Level" instance=ExtResource("2_fpejj")]
+[node name="Exit" parent="Level" instance=ExtResource("2_lwnbc")]
 position = Vector2(2877, -316)
 scene_path = "res://screens/End.tscn"
 
-[node name="player" parent="." groups=["TPGroup"] instance=ExtResource("3_bby8e")]
+[node name="player" parent="." groups=["TPGroup"] instance=ExtResource("3_8hr7c")]
 unique_name_in_owner = true
 position = Vector2(-1207, 377)
 scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("4_opdej")]
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("4_0a4s2")]
 position = Vector2(574, -817)
 subject = NodePath("../player")
 
@@ -102,13 +109,13 @@ tile_set = SubResource("TileSet_uog4x")
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
 position = Vector2(1450, 176)
-texture = ExtResource("6_7ur00")
+texture = ExtResource("6_boccd")
 region_enabled = true
 region_rect = Rect2(-2792.7546, -725.822, 7128.4775, 2213.9426)
 
 [node name="LeftTPTrigger" type="Area2D" parent="." groups=["TPGroup"]]
 position = Vector2(-1481, 24)
-script = ExtResource("7_fpejj")
+script = ExtResource("7_icmin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTPTrigger"]
 position = Vector2(0, 5)
@@ -116,10 +123,47 @@ shape = SubResource("RectangleShape2D_vnd53")
 
 [node name="RightTPTrigger" type="Area2D" parent="." groups=["TPGroup"]]
 position = Vector2(4366, 103)
-script = ExtResource("7_fpejj")
+script = ExtResource("7_icmin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightTPTrigger"]
 position = Vector2(0, -37)
 shape = SubResource("RectangleShape2D_vnd53")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Decoration" type="Node2D" parent="."]
+z_index = -5
+
+[node name="Skeleton" type="Sprite2D" parent="Decoration"]
+position = Vector2(792, 478)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("8_d7ep7")
+
+[node name="Painting" type="Node2D" parent="."]
+z_index = -10
+
+[node name="Painting1" type="Sprite2D" parent="Painting"]
+position = Vector2(-435, 238)
+scale = Vector2(2, 2)
+texture = ExtResource("9_q5w88")
+
+[node name="Painting2" type="Sprite2D" parent="Painting"]
+position = Vector2(3157, 228)
+scale = Vector2(2, 2)
+texture = ExtResource("10_ucsgq")
+
+[node name="Painting3" type="Sprite2D" parent="Painting"]
+position = Vector2(2117, 202)
+scale = Vector2(2, 2)
+texture = ExtResource("11_eggmq")
+
+[node name="Painting4" type="Sprite2D" parent="Painting"]
+position = Vector2(373, 210)
+scale = Vector2(2, 2)
+texture = ExtResource("12_8wp0b")
+
+[node name="ThePainting" parent="Painting" instance=ExtResource("13_lwnbc")]
+position = Vector2(-704, 235)
+
+[node name="Painting5" type="Sprite2D" parent="Painting"]
+position = Vector2(1255, 113)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pv2fy")
