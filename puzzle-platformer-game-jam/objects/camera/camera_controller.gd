@@ -52,7 +52,7 @@ static func _clamp_vec2_rect(value: Vector2, top_left: Vector2, bottom_right: Ve
 
 
 func _ready() -> void:
-	self.setZoom(zoom_scale)
+	self.setZoom(zoom_scale, true)
 	subject.filter_switch.connect(setColor)
 	
 	overlay.visible = false
@@ -72,14 +72,14 @@ func _draw() -> void:
 	var color_box: Color = Color.BLACK
 	
 	var pushbox_limits: Rect2 = Rect2(
-			pushbox_top_left,
-			(pushbox_bot_right - pushbox_top_left),
+			pushbox_top_left * zoom_scale,
+			(pushbox_bot_right - pushbox_top_left) * zoom_scale,
 	)
 	draw_rect(pushbox_limits, color_limits, false, thickness)
 	
 	var pushbox: Rect2 = Rect2(
-			(pushbox_position - pushbox_size / 2),
-			pushbox_size,
+			(pushbox_position - pushbox_size / 2) * zoom_scale,
+			pushbox_size * zoom_scale,
 	) 
 	draw_rect(pushbox, color_box, false, thickness)
 
@@ -92,6 +92,11 @@ func _process(_delta: float) -> void:
 	
 	if OS.is_debug_build():
 		queue_redraw()
+		var label := $DebugHUD
+		if label.visible:
+			label.text = "Subject Offset: " + str(subject.global_position - global_position) + "\n"
+			label.text += "Pushbox: " + str(pushbox_position - pushbox_size / 2) + str(pushbox_position + pushbox_size / 2)
+			 
 	
 	if Input.is_action_pressed("filter_activate"):
 		if subject.currentColor == null:
@@ -190,7 +195,13 @@ func setColor(color):
 	inventoryHandler.switchColor(color)
 
 
-func setZoom(new_zoom: float) -> void:
+func setZoom(new_zoom: float, is_init:bool = false) -> void:
+	var ratio: float = new_zoom / self.zoom_scale
+	if is_init:
+		ratio = new_zoom
+	pushbox_size /= ratio
+	pushbox_top_left /= ratio
+	pushbox_bot_right /= ratio
 	self.zoom_scale = new_zoom
 	self.zoom = Vector2.ONE * new_zoom
 	self.scale = Vector2.ONE / new_zoom
