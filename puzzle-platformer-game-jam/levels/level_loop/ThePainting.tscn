@@ -26,4 +26,4 @@ z_index = -1
 texture = ExtResource("3_dt2qh")
 script = ExtResource("4_kxwwu")
 max_eye_offset_y = 2.5
-max_eye_offset_x = 8.0
+max_eye_offset_x = 6.0
