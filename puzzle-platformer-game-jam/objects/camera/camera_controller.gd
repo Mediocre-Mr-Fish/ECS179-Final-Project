@@ -196,6 +196,7 @@ func setColor(color):
 
 
 func setZoom(new_zoom: float, is_init:bool = false) -> void:
+	print("setting zoom: ", new_zoom)
 	var ratio: float = new_zoom / self.zoom_scale
 	if is_init:
 		ratio = new_zoom
