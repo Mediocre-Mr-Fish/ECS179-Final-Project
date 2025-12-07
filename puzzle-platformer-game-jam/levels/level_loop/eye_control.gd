@@ -4,7 +4,7 @@ extends Sprite2D
 @export var max_eye_offset_y: float = 0.0
 @export var max_eye_offset_x: float = 0.0
 
-@onready var player: Node2D = get_parent().get_parent().get_parent().get_parent().get_node("player")
+@onready var player: Node2D = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("player")
 @onready var painting: Node2D = get_parent(). get_parent()
 
 var eye_position: Vector2 = Vector2.ZERO
@@ -30,9 +30,9 @@ func _physics_process(delta: float) -> void:
 
 func _track_the_player() -> void:
 	player_dis_x = player.position.x - painting.position.x
-	player_dis_y = player.position.y - painting.position.y
+	player_dis_y = (player.position.y) - painting.position.y
 
-	eye_position.x = player_dis_x * (max_eye_offset_y / player_dis_y)
+	eye_position.x = player_dis_x * (max_eye_offset_x / player_dis_y)
 
 	eye_position.x = clamp(eye_position.x, -max_eye_offset_x, max_eye_offset_x)
 	position.x = eye_position.x

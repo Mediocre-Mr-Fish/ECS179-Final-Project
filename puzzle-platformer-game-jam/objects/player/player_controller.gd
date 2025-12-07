@@ -35,6 +35,8 @@ var currentColor = null
 var _is_having_torch: bool = false
 var _is_having_torch_out: bool = false
 var _is_torch_light_on: bool = false
+var torch_light_texture: Texture2D = preload("res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3.png")
+var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3_Torch_No_Fire.png")
 @onready var torch_light: Node2D = $PlayerSprite2D/TorchLight
 
 
@@ -50,6 +52,8 @@ func _ready() -> void:
 	facing_y = FacingY.NEUTRAL
 	sprite.change_facing(self)
 	animation_tree.active = true
+	sprite.texture = torch_light_off_texture
+	
 	
 
 func _physics_process(delta: float) -> void:
@@ -175,8 +179,11 @@ func _manage_animation_tree_state() -> void:
 			animation_tree["parameters/conditions/untorch"] = false
 			if _is_torch_light_on:
 				torch_light.visible = true
+				sprite.texture = torch_light_texture
 			else:
 				torch_light.visible = false
+				sprite.texture = torch_light_off_texture
+				
 		else :
 			animation_tree["parameters/conditions/untorch"] = true
 			animation_tree["parameters/conditions/torch"] = false
