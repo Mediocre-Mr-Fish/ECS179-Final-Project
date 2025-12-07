@@ -31,6 +31,13 @@ var hasTorch = false
 var beholder:Array = []
 var currentColor = null
 
+# Torch related variables
+var _is_having_torch: bool = false
+var _is_having_torch_out: bool = false
+var _is_torch_light_on: bool = false
+@onready var torch_light: Node2D = $PlayerSprite2D/TorchLight
+
+
 @onready var sprite: PlayerSprite = $PlayerSprite2D
 @onready var PlayerSFXPlayer: AudioStreamPlayer2D = get_node("/root/AutoloadAudioPlayer/PlayerSFXPlayer")
 @onready var animation_tree:AnimationTree = $AnimationTree
@@ -102,6 +109,10 @@ func _physics_process(delta: float) -> void:
 			if facing_y != FacingY.DOWN:
 				facing_y = FacingY.DOWN
 	
+	if Input.is_action_just_pressed("torch_interact"):
+		_is_having_torch_out = not _is_having_torch_out
+		
+
 	if Input.is_action_just_pressed("filter_switch"):
 		if not hasBeholder:
 			return
@@ -157,8 +168,19 @@ func _manage_animation_tree_state() -> void:
 	elif is_on_floor():
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/run"] = false
-	#elif not is_on_floor():
-		#pass
+	
+	if _is_having_torch:
+		if _is_having_torch_out == true:
+			animation_tree["parameters/conditions/torch"] = true
+			animation_tree["parameters/conditions/untorch"] = false
+			if _is_torch_light_on:
+				torch_light.visible = true
+			else:
+				torch_light.visible = false
+		else :
+			animation_tree["parameters/conditions/untorch"] = true
+			animation_tree["parameters/conditions/torch"] = false
+			torch_light.visible = false
 		
 # sound effect functions
 
@@ -166,3 +188,6 @@ func playback_walk_sfx() -> void:
 	if is_on_floor():
 		PlayerSFXPlayer.play_walk_sfx(global_position)
 	
+
+func player_having_torch(having: bool) -> void:
+	_is_having_torch = having

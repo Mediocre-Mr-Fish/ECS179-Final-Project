@@ -37,4 +37,4 @@ func _track_the_player() -> void:
 	eye_position.x = clamp(eye_position.x, -max_eye_offset_x, max_eye_offset_x)
 	position.x = eye_position.x
 
-	print("Eye Position: ", eye_position, "Player distance X: ", player_dis_x, "Player distance Y: ", player_dis_y)
+	# print("Eye Position: ", eye_position, "Player distance X: ", player_dis_x, "Player distance Y: ", player_dis_y)
