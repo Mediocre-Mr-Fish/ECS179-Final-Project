@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dw1xcfi4m6pc3"]
+[gd_scene load_steps=41 format=3 uid="uid://dw1xcfi4m6pc3"]
 
 [ext_resource type="Script" uid="uid://cnif7fgpw4n3x" path="res://objects/player/player_controller.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dyfwvhmqw0txo" path="res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3.png" id="2_h7ooo"]
@@ -208,6 +208,9 @@ animation = &"Run_With_Torch"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_veo1v"]
 animation = &"death"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n1h8g"]
+animation = &"jump"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_veo1v"]
 advance_mode = 2
 
@@ -246,6 +249,18 @@ advance_condition = &"untorch"
 advance_mode = 2
 advance_condition = &"torch"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t2uaq"]
+advance_mode = 2
+advance_condition = &"jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_45d0k"]
+advance_mode = 2
+advance_condition = &"on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o85vh"]
+advance_mode = 2
+advance_condition = &"jumping"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sq4k3"]
 states/End/position = Vector2(933, 277)
 states/Idle/node = SubResource("AnimationNodeAnimation_h7ooo")
@@ -259,14 +274,14 @@ states/Run_With_Torch/position = Vector2(727, 367)
 states/Start/position = Vector2(233, 277)
 states/death/node = SubResource("AnimationNodeAnimation_veo1v")
 states/death/position = Vector2(933, 360)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veo1v"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n1h8g"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sq4k3"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_cq43t"), "Idle", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_ercwk"), "Idle_With_Torch", "Idle", SubResource("AnimationNodeStateMachineTransition_ijwuf"), "Idle_With_Torch", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_iy4hj"), "Run_With_Torch", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_4d57e"), "Run_With_Torch", "Run", SubResource("AnimationNodeStateMachineTransition_2qrau"), "Run", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_x2mbb")]
-graph_offset = Vector2(125, 187)
+states/jump/node = SubResource("AnimationNodeAnimation_n1h8g")
+states/jump/position = Vector2(579, 160)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veo1v"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n1h8g"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sq4k3"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_cq43t"), "Idle", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_ercwk"), "Idle_With_Torch", "Idle", SubResource("AnimationNodeStateMachineTransition_ijwuf"), "Idle_With_Torch", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_iy4hj"), "Run_With_Torch", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_4d57e"), "Run_With_Torch", "Run", SubResource("AnimationNodeStateMachineTransition_2qrau"), "Run", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_x2mbb"), "Idle", "jump", SubResource("AnimationNodeStateMachineTransition_t2uaq"), "jump", "Idle", SubResource("AnimationNodeStateMachineTransition_45d0k"), "Run", "jump", SubResource("AnimationNodeStateMachineTransition_o85vh")]
+graph_offset = Vector2(-49, 96)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ij6vw")
 menu_route = "res://screens/menu.tscn"
-pushForce = null
-forwards_box_extender_ratio = null
 
 [node name="PlayerSprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -338,6 +353,8 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_sq4k3")
 parameters/conditions/idle = false
+parameters/conditions/jumping = false
+parameters/conditions/on_floor = false
 parameters/conditions/run = false
 parameters/conditions/torch = false
 parameters/conditions/untorch = false

@@ -81,8 +81,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
-		#else:
-			#velocity -= get_gravity() * delta * SLOW_FALL_RATIO * IN_THE_AIR_ACCELERATION_RATIO
+		else:
+			velocity -= get_gravity() * delta * SLOW_FALL_RATIO * IN_THE_AIR_ACCELERATION_RATIO
 
 
 	# Get the input direction and handle the movement/deceleration.
@@ -182,9 +182,16 @@ func _manage_animation_tree_state() -> void:
 	if !is_zero_approx(velocity.x):
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/run"] = true
-	elif is_on_floor():
+	else:	
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/run"] = false
+	
+	if is_on_floor():
+		animation_tree["parameters/conditions/jumping"] = false
+		animation_tree["parameters/conditions/on_floor"] = true
+	else:
+		animation_tree["parameters/conditions/on_floor"] = false
+		animation_tree["parameters/conditions/jumping"] = true
 	
 	if _is_having_torch:
 		if _is_having_torch_out == true:

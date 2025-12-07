@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://pf1lstqmxld2"]
+[gd_scene load_steps=15 format=4 uid="uid://pf1lstqmxld2"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_a84uq"]
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/Beholden Assets/grid.png" id="2_4pch3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="9_epe4b"]
 [ext_resource type="PackedScene" uid="uid://dxg22kmh4417k" path="res://scripts/traps/moving_platform.tscn" id="10_4pch3"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="10_dyigy"]
+[ext_resource type="PackedScene" uid="uid://n0s4ecnxoow5" path="res://scripts/traps/wall_bow.tscn" id="11_4pch3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nn0v1"]
 size = Vector2(12432, 3173)
@@ -131,9 +132,12 @@ offset_bottom = 1470.0
 color = Color(0, 0, 0, 1)
 
 [node name="Spring" parent="." instance=ExtResource("9_a84uq")]
-position = Vector2(-172, 560)
+position = Vector2(-504, 597)
 scale = Vector2(8, 8)
 
-[node name="MovingPlatform" parent="Spring" instance=ExtResource("10_4pch3")]
-position = Vector2(108, -26.25)
-scale = Vector2(2, 2)
+[node name="MovingPlatform" parent="." instance=ExtResource("10_4pch3")]
+position = Vector2(445, 378)
+scale = Vector2(8, 8)
+
+[node name="Wall Bow" parent="MovingPlatform" instance=ExtResource("11_4pch3")]
+position = Vector2(-73.25, -5.625)
