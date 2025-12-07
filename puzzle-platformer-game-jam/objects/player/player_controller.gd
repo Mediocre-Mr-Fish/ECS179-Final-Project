@@ -31,6 +31,10 @@ var hasTorch = false
 var beholder:Array = []
 var currentColor = null
 
+# Player commands
+var input_enabled: bool = true
+var cmd_list: Array = []
+
 # Torch related variables
 var _is_having_torch: bool = false
 var _is_having_torch_out: bool = false
@@ -54,9 +58,12 @@ func _ready() -> void:
 	animation_tree.active = true
 	sprite.texture = torch_light_off_texture
 	
-	
-
 func _physics_process(delta: float) -> void:
+	# Locks movement on death
+	_process_commands()
+	if not input_enabled:
+		return
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta * GRAVITY_CORRECTION_RATIO
@@ -140,7 +147,7 @@ func _physics_process(delta: float) -> void:
 		#print("I collided with ", collision.get_collider().name)
 		if collision.get_collider() is RigidBody2D:
 			collision.get_collider().apply_force(collision.get_normal() * -pushForce)
-	
+			
 	_manage_animation_tree_state()
 
 func command_callback(cmd_name:String) -> void:
@@ -189,6 +196,14 @@ func _manage_animation_tree_state() -> void:
 			animation_tree["parameters/conditions/torch"] = false
 			torch_light.visible = false
 		
+	#if take_damage:
+		##animation_tree["parameters/conditions/idle"] = false
+		##animation_tree["parameters/conditions/run"] = false
+		##animation_tree["parameters/conditions/untorch"] = false
+		##animation_tree["parameters/conditions/torch"] = false
+		#animation_tree["parameters/conditions/death"] = true
+
+		
 # sound effect functions
 
 func playback_walk_sfx() -> void:
@@ -198,3 +213,30 @@ func playback_walk_sfx() -> void:
 
 func player_having_torch(having: bool) -> void:
 	_is_having_torch = having
+	
+func take_damage(if_damaged: bool) -> void:
+	cmd_list.push_back(DurativeDeathCommand.new())
+	cmd_list.push_back(FadeOutCommand.new(1.5, 1.0))
+	
+
+func _process_commands():
+	if cmd_list.size() == 0:
+		return
+	
+	var status = cmd_list[0].execute(self)
+	
+	match status:
+		Command.Status.DONE:
+			var finished_cmd = cmd_list.pop_front()
+		
+			if finished_cmd is DurativeDeathCommand:
+				get_tree().reload_current_scene()
+				
+		Command.Status.ACTIVE:
+			pass
+			
+		Command.Status.ERROR:
+			print("command error")
+			cmd_list.pop_front()
+			
+		
