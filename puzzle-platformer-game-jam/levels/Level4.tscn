@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2k3hxkybv016"]
+
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/Beholden Assets/grid.png" id="1_g2dj0"]
+[ext_resource type="PackedScene" uid="uid://bu6w2c4wk28yu" path="res://objects/rail_object/rail_object.tscn" id="1_yvnx5"]
+[ext_resource type="PackedScene" uid="uid://drjhdoxfqm1la" path="res://objects/floor/Floor.tscn" id="2_a84uq"]
+[ext_resource type="PackedScene" uid="uid://bbcckirjlcdtp" path="res://objects/item/item.tscn" id="6_1l6gy"]
+[ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="7_dfood"]
+[ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_mcv5s"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="8_o472v"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="9_8giit"]
+[ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="10_bkgnd"]
+[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="11_exit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uog4x"]
+size = Vector2(12432, 3173)
+
+[node name="World" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("10_bkgnd")]
+
+[node name="RailObject" parent="." instance=ExtResource("1_yvnx5")]
+position = Vector2(1000, 500)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = -1
+offset_left = -1559.9999
+offset_top = -736.0
+offset_right = -840.19995
+offset_bottom = -480.0
+scale = Vector2(5, 5)
+texture = ExtResource("1_g2dj0")
+stretch_mode = 1
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Floor" parent="Level" instance=ExtResource("2_a84uq")]
+position = Vector2(253, 598)
+scale = Vector2(14, 0.5)
+
+[node name="OutOfBounds" type="Area2D" parent="Level"]
+position = Vector2(1660, -427)
+script = ExtResource("7_mcv5s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/OutOfBounds"]
+position = Vector2(-740, 2673)
+shape = SubResource("RectangleShape2D_uog4x")
+
+[node name="Exit" parent="Level" instance=ExtResource("11_exit")]
+position = Vector2(1700, 150)
+scene_path = "res://screens/End.tscn"
+
+[node name="player" parent="." instance=ExtResource("8_o472v")]
+position = Vector2(-1174, 394)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("9_8giit")]
+position = Vector2(574, -817)
+subject = NodePath("../player")
+
+[node name="items" type="Node2D" parent="."]
+
+[node name="red gem" parent="items" node_paths=PackedStringArray("player", "camera") instance=ExtResource("6_1l6gy")]
+position = Vector2(-307, 391)
+player = NodePath("../../player")
+camera = NodePath("../../Camera2D")
+item_name = 2
+color = 1
+
+[node name="blue gem" parent="items" node_paths=PackedStringArray("player", "camera") instance=ExtResource("6_1l6gy")]
+position = Vector2(202, 386)
+player = NodePath("../../player")
+camera = NodePath("../../Camera2D")
+item_name = 2
+color = 2
+
+[node name="green gem" parent="items" node_paths=PackedStringArray("player", "camera") instance=ExtResource("6_1l6gy")]
+position = Vector2(-42, 390)
+player = NodePath("../../player")
+camera = NodePath("../../Camera2D")
+item_name = 2
+
+[node name="beholder" parent="items" node_paths=PackedStringArray("player", "camera") instance=ExtResource("6_1l6gy")]
+position = Vector2(-711, 398)
+player = NodePath("../../player")
+camera = NodePath("../../Camera2D")
+item_name = 1
+
+[node name="Bridge" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("7_dfood")]
+position = Vector2(1400, 400)
+scale = Vector2(1.0, 0.25)
+camera = NodePath("../Camera2D")
+
+[node name="Bridge2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("7_dfood")]
+position = Vector2(1550, 300)
+scale = Vector2(0.8, 0.25)
+camera = NodePath("../Camera2D")
+objectColor = 2
+
+[node name="Bridge3" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("7_dfood")]
+position = Vector2(1700, 220)
+scale = Vector2(0.6, 0.25)
+camera = NodePath("../Camera2D")
+objectColor = 1
