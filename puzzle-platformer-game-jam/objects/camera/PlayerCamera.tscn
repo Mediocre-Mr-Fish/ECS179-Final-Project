@@ -15,6 +15,10 @@ size = Vector2(1151.9998, 655)
 
 [node name="Camera2D" type="Camera2D"]
 script = ExtResource("1_a02ee")
+pushbox_size = Vector2(150, 100)
+pushbox_top_left = Vector2(-200, -100)
+pushbox_bot_right = Vector2(200, 100)
+pushbox_speed = 500.0
 
 [node name="CameraHitBox" type="Area2D" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("2_75niw")
@@ -31,6 +35,7 @@ scale = Vector2(4.5, 2.5625002)
 texture = ExtResource("3_brkmr")
 
 [node name="Overlay" type="TextureRect" parent="."]
+visible = false
 z_index = 10
 offset_left = -576.0
 offset_top = -324.0
