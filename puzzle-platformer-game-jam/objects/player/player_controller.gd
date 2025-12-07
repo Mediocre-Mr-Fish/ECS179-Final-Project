@@ -33,6 +33,7 @@ var currentColor = null
 
 # Player commands
 var input_enabled: bool = true
+var input_locked: bool = false
 var cmd_list: Array = []
 
 # Torch related variables
@@ -50,13 +51,18 @@ var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platfor
 # A second shape that extends the touch hitbox in the direction of movement
 # to compensate for high movenet speed
 @onready var forwards_box_extender: CollisionShape2D = $TouchHitBox/ForwardsBoxExtender
+@onready var fade: ColorRect = $"../Fade"
 
 func _ready() -> void:
+	fade.modulate.a = 1.0
+	
 	facing = Facing.RIGHT
 	facing_y = FacingY.NEUTRAL
 	sprite.change_facing(self)
 	animation_tree.active = true
 	sprite.texture = torch_light_off_texture
+	
+	_fade_in(1.5)
 	
 func _physics_process(delta: float) -> void:
 	# Locks movement on death
@@ -75,8 +81,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
-		else:
-			velocity -= get_gravity() * delta * SLOW_FALL_RATIO * IN_THE_AIR_ACCELERATION_RATIO
+		#else:
+			#velocity -= get_gravity() * delta * SLOW_FALL_RATIO * IN_THE_AIR_ACCELERATION_RATIO
 
 
 	# Get the input direction and handle the movement/deceleration.
@@ -215,11 +221,23 @@ func player_having_torch(having: bool) -> void:
 	_is_having_torch = having
 	
 func take_damage(if_damaged: bool) -> void:
+	#var knockback_h = 500.0
+	#var knockback_v = -500.0
+	#var direction = -1 if facing == Facing.RIGHT else 1
+	#var knockback_velocity = Vector2(direction * knockback_h, knockback_v) 
+	#
+	#cmd_list.push_back(DurativeKnockbackCommand.new(knockback_velocity))
 	cmd_list.push_back(DurativeDeathCommand.new())
-	cmd_list.push_back(FadeOutCommand.new(1.5, 1.0))
+	cmd_list.push_back(FadeOutCommand.new(0.5, 1.0))
 	
-
+func spring_jump():
+	velocity.y = -200 + JUMP_VELOCITY
+	
+	
 func _process_commands():
+	#if not input_enabled or input_locked:
+		#return
+		
 	if cmd_list.size() == 0:
 		return
 	
@@ -229,7 +247,7 @@ func _process_commands():
 		Command.Status.DONE:
 			var finished_cmd = cmd_list.pop_front()
 		
-			if finished_cmd is DurativeDeathCommand:
+			if finished_cmd is FadeOutCommand:
 				get_tree().reload_current_scene()
 				
 		Command.Status.ACTIVE:
@@ -238,5 +256,7 @@ func _process_commands():
 		Command.Status.ERROR:
 			print("command error")
 			cmd_list.pop_front()
-			
-		
+	
+func _fade_in(duration: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(fade, "modulate:a", 0.0, duration)

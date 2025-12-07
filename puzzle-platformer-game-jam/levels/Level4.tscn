@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://pf1lstqmxld2"]
+[gd_scene load_steps=14 format=4 uid="uid://pf1lstqmxld2"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_a84uq"]
 [ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/Beholden Assets/grid.png" id="2_4pch3"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="5_nurn8"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="8_8giit"]
 [ext_resource type="PackedScene" uid="uid://bpceoq335jlgj" path="res://scripts/traps/spike.tscn" id="8_vf7bx"]
+[ext_resource type="PackedScene" uid="uid://c72ik43gvcxwk" path="res://scripts/traps/spring.tscn" id="9_a84uq"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="9_epe4b"]
+[ext_resource type="PackedScene" uid="uid://dxg22kmh4417k" path="res://scripts/traps/moving_platform.tscn" id="10_4pch3"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="10_dyigy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nn0v1"]
@@ -91,8 +93,8 @@ stretch_mode = 1
 [node name="player" parent="." instance=ExtResource("3_yisop")]
 position = Vector2(77, 419)
 scale = Vector2(0.5, 0.5)
-pushForce = null
-forwards_box_extender_ratio = null
+pushForce = 100.0
+forwards_box_extender_ratio = 0.1
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -127,3 +129,11 @@ offset_top = -1167.0
 offset_right = 4105.0
 offset_bottom = 1470.0
 color = Color(0, 0, 0, 1)
+
+[node name="Spring" parent="." instance=ExtResource("9_a84uq")]
+position = Vector2(-172, 560)
+scale = Vector2(8, 8)
+
+[node name="MovingPlatform" parent="Spring" instance=ExtResource("10_4pch3")]
+position = Vector2(108, -26.25)
+scale = Vector2(2, 2)
