@@ -276,6 +276,12 @@ position = Vector2(0, -7.6293945e-06)
 scale = Vector2(1, 2.0625)
 texture = ExtResource("5_cxr5p")
 
+[node name="PlayerHurtBox" type="Area2D" parent="."]
+script = ExtResource("6_t2uaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
+shape = SubResource("RectangleShape2D_kpjcp")
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_n1h8g")
