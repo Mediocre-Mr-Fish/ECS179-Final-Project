@@ -22,6 +22,7 @@ extends Camera2D
 			subject = value
 			global_position = subject.global_position + floating_offset
 
+
 enum Overlay {
 	NONE,
 	GREEN,

@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqyr2ukdesbr"]
+[gd_scene load_steps=8 format=3 uid="uid://dqyr2ukdesbr"]
 
 [ext_resource type="Texture2D" uid="uid://bjv860pvx1pfa" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-1.png" id="1_7cykc"]
 [ext_resource type="Texture2D" uid="uid://cvu5qs2wwwkxi" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-2.png" id="2_5tcd0"]
 [ext_resource type="Texture2D" uid="uid://k3j65jmvifju" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-3.png" id="3_cpdx8"]
 [ext_resource type="Texture2D" uid="uid://c8ger0i6omha2" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-5.png" id="4_cj6hi"]
+[ext_resource type="Shader" uid="uid://dpvlp1c0yihnd" path="res://Backgrounds/level_background.gdshader" id="5_av68r"]
+[ext_resource type="Texture2D" uid="uid://b7dq0lmlgjc84" path="res://assets/World/Clouds/Clouds_bg.png" id="5_cj6hi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmpv6"]
+shader = ExtResource("5_av68r")
+shader_parameter/speed = 0.05
 
 [node name="Background" type="ParallaxBackground"]
 offset = Vector2(0, 20)
@@ -64,3 +70,11 @@ motion_mirroring = Vector2(1152, 0)
 position = Vector2(576, 325)
 scale = Vector2(1.44, 2.5312502)
 texture = ExtResource("4_cj6hi")
+
+[node name="Clouds" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_wmpv6")
+offset_top = -58.0
+offset_right = 1152.0
+offset_bottom = 590.0
+texture = ExtResource("5_cj6hi")
