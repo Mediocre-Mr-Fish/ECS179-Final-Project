@@ -3,6 +3,9 @@ extends Node2D
 
 @export var guide: Node2D = null
 @export var node_list: Array[Node2D] = []
+@export var player_crown: Node2D = null
+
+var player_crown_picked_up: bool = false
 
 @onready var player: Node = $player
 @onready var camera: Camera2D = $Camera2D
@@ -29,10 +32,15 @@ func _ready() -> void:
 	current_room_age = RoomAge.FARPAST
 	tp_to_left_position = tp_to_left_mark.global_position.x
 	tp_to_right_position = tp_to_right_mark.global_position.x
+	
+	# Initialize player_crown as hidden
+	if player_crown:
+		player_crown.visible = false
 
 
 func _physics_process(delta: float) -> void:
 	_handle_torch_mechanics()
+	_handle_crown_visibility()
 
 
 # All torch-related mechanics are handled here
@@ -66,15 +74,22 @@ func _handle_torch_lighting() -> void:
 		if node and player.global_position.distance_to(node.global_position) < 200.0:
 			is_near_light_source = true
 			
+			var has_torch = player.has_torch()
+			var torch_out = player.is_torch_out()
+			var torch_lit = player.is_player_torch_light_on()
+			print("Near light source. has_torch: ", has_torch, " torch_out: ", torch_out, " torch_lit: ", torch_lit)
+			
 			# Show prompt to light torch if player has torch but it's not lit
-			if player.has_torch() and player.is_torch_out() and not player.is_player_torch_light_on():
+			if has_torch and torch_out and not torch_lit:
 				guide.show_prompt(guide.press_e_to_light_torch)
+				print("Showing light torch prompt")
 				
 				# Light the torch when E is pressed
 				if Input.is_action_just_pressed("torch_interact"):
 					player.light_torch()
 					guide.hide_prompt(guide.press_e_to_light_torch)
 					torch_interact_consumed = true
+					print("Torch lit!")
 			else:
 				guide.hide_prompt(guide.press_e_to_light_torch)
 			break
@@ -86,11 +101,28 @@ func _handle_torch_lighting() -> void:
 	# Update player state
 	player.set_near_light_source(is_near_light_source)
 	player.set_torch_interact_consumed(torch_interact_consumed)
+
+
+var real_room_age: RoomAge = RoomAge.PAST
+func _handle_crown_visibility() -> void:
+	
+	if player_crown and player_crown_picked_up:
+		if Input.is_action_just_pressed("filter_activate"):
+			player_crown.visible = not player_crown.visible
+
+			if player_crown.visible:
+				current_room_age = real_room_age
+				switch_room_age()
+			else:
+				real_room_age = current_room_age
+				current_room_age = RoomAge.FARPAST
+				
+				switch_room_age()
+				
 			
 
 func tp_player_to_left_end() -> void:
-	room_age_change(false) 
-	switch_room_age()
+	room_age_change_handler()
 
 	tp_distance = player.position.x - tp_to_left_position
 	player.position.x = tp_to_left_position 
@@ -99,8 +131,7 @@ func tp_player_to_left_end() -> void:
 	print("Teleporting player to left end")
 
 func tp_player_to_right_end() -> void:
-	room_age_change(true) 
-	switch_room_age()
+	room_age_change_handler()
 
 	tp_distance = player.position.x - tp_to_right_position
 	player.position.x = tp_to_right_position 
@@ -108,28 +139,24 @@ func tp_player_to_right_end() -> void:
 
 	print("Teleporting player to right end")
 
-func room_age_change(_is_moving_left: bool) -> void:
-	# far past <--> past <--> present <--> past <--> far past (loop)
-	if _is_moving_left:
-		current_room_age_index -= 1
-		print("Current Room Age Index: ", current_room_age_index)
-		if current_room_age_index < 0:
-			current_room_age_index = 3
-	else:
-		current_room_age_index += 1
-		print("Current Room Age Index: ", current_room_age_index)
-		if current_room_age_index > 3:
-			current_room_age_index = 0
+func room_age_change_handler() -> void:
+	room_age_change()
+	switch_room_age()
 
-	match current_room_age_index:
-		0:
-			current_room_age = RoomAge.FARPAST
-		1:
-			current_room_age = RoomAge.PAST
-		2:
+func room_age_change() -> void:
+	# far past <--> past <--> present <--> past <--> far past (loop)
+	if player_crown.visible:
+		# if crown is visible, then show far past and past
+		print("Crown is visible, toggling between PAST and PRESENT")
+		if current_room_age == RoomAge.PAST:
 			current_room_age = RoomAge.PRESENT
-		3:
+		elif current_room_age == RoomAge.PRESENT:
 			current_room_age = RoomAge.PAST
+		return
+	else:
+		# crown not visible
+		print("Crown is not visible, cycling through all room ages")
+
 
 func switch_room_age() -> void:
 	match current_room_age:

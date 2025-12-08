@@ -3,6 +3,9 @@ extends Node2D
 
 @onready var player: Node2D = get_parent()
 @export var crown: Node2D = null
+@export var camera: Camera2D = null
+
+@export var level_loop: LevelLoop = null
 
 @onready var treaure_is_ahead: TabBar = $TreasureIsAhead
 @onready var press_e_to_pick_up: TabBar = $PressEToPickUp
@@ -32,6 +35,13 @@ func _physics_process(delta: float) -> void:
 			show_prompt(press_e_to_pick_up)
 			if Input.is_action_just_pressed("torch_interact"):
 				_is_crown_picked_up = true
+				print("Crown picked up! Setting level_loop flag...")
+				if level_loop:
+					level_loop.player_crown_picked_up = true
+					print("level_loop.player_crown_picked_up set to: ", level_loop.player_crown_picked_up)
+				else:
+					print("ERROR: level_loop is null!")
+				camera.showCrown()
 				crown.queue_free()
 				show_num_seconds(time_to_leave,3)
 		else:

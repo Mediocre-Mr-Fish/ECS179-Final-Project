@@ -187,3 +187,7 @@ func _process(_delta: float) -> void:
 func setColor(color):
 	overlay.modulate = colors.getColorFromEnum(color)
 	inventoryHandler.switchColor(color)
+	
+# A bridge func
+func showCrown():
+	$inventory_handler.showCrown()
