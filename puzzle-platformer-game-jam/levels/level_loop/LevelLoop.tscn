@@ -216,12 +216,11 @@ position = Vector2(-240, -37)
 
 [node name="FarPast" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="Lighting" type="Node2D" parent="FarPast"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="FarPast/Lighting"]
-color = Color(0, 0, 0, 1)
+color = Color(0.0035999988, 0.006026664, 0.04, 1)
 
 [node name="Decoration" type="Node2D" parent="FarPast"]
 z_index = -5
