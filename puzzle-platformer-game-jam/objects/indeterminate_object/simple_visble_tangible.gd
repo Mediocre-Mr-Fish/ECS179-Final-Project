@@ -20,7 +20,11 @@ var existant:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	super()
+	if seen_action == Actions.MAKE_EXIST:
+		change_visibility(true)
+	else:
+		change_visibility(false)
 
 
 func change_visibility(visibility: bool) -> void:
