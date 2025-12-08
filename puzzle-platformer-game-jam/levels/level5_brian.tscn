@@ -210,7 +210,7 @@ sources/0 = SubResource("TileSetAtlasSource_mppvi")
 
 [node name="Exit" parent="Level" instance=ExtResource("4_rd3y7")]
 position = Vector2(6481, 428)
-scene_path = "res://screens/End.tscn"
+scene_path = "res://levels/Level6.tscn"
 
 [node name="Area2D" type="Area2D" parent="Level"]
 position = Vector2(1649, 406)
@@ -555,8 +555,8 @@ tile_set = SubResource("TileSet_uog4x")
 
 [node name="Fade" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = -1802.0
-offset_top = -1163.0
-offset_right = 4091.0
-offset_bottom = 1474.0
+offset_left = -1788.0
+offset_top = -1167.0
+offset_right = 4105.0
+offset_bottom = 1470.0
 color = Color(0, 0, 0, 1)

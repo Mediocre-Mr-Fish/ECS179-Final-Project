@@ -70,7 +70,7 @@ var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platfor
 
 func _ready() -> void:
 	fade.modulate.a = 1.0
-	
+	_fade_in(1.5)
 	facing = Facing.RIGHT
 	facing_y = FacingY.NEUTRAL
 	sprite.change_facing(self)

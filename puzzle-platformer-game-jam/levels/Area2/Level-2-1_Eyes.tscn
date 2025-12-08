@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="8_c6b3e"]
 [ext_resource type="PackedScene" uid="uid://bpceoq335jlgj" path="res://scripts/traps/spike.tscn" id="9_yn5yv"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spkli"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22vc6"]
 texture = ExtResource("4_qsb2u")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -81,9 +81,9 @@ texture = ExtResource("4_qsb2u")
 
 [sub_resource type="TileSet" id="TileSet_m1xiq"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_spkli")
+sources/0 = SubResource("TileSetAtlasSource_22vc6")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuoqu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dvcnj"]
 texture = ExtResource("4_qsb2u")
 0:0/0 = 0
 1:0/0 = 0
@@ -135,7 +135,7 @@ texture = ExtResource("4_qsb2u")
 5:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mi1ep"]
-sources/0 = SubResource("TileSetAtlasSource_nuoqu")
+sources/0 = SubResource("TileSetAtlasSource_dvcnj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfk0b"]
 size = Vector2(640, 80)
@@ -151,7 +151,7 @@ scale = Vector2(0.50092506, 0.50151044)
 
 [node name="Exit" parent="." instance=ExtResource("3_klhsm")]
 position = Vector2(1120, 832)
-scene_path = "res://screens/End.tscn"
+scene_path = "res://levels/Area2/Level-2-2_Wall.tscn"
 
 [node name="p" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
