@@ -8,6 +8,8 @@ extends ObjectIndeterminate
 @onready var bridge:TileMapLayer = $Bridge_Sprite
 @export var camera:CameraController
 @export var objectColor:colors.FilterColors
+@export var require_overlay: bool = true
+@export var disable_collision_shape_when_inactive: bool = false
 
 var existant: bool = true
 
@@ -15,17 +17,31 @@ func _ready() -> void:
 	bridge.modulate = colors.getColorFromEnum(objectColor)
 
 func should_be_visible()->bool:
-	if not camera:
+	if not camera or camera.subject == null:
 		return false
-	return objectColor == camera.subject.currentColor and camera.overlay.visible
+	
+	if objectColor != camera.subject.currentColor:
+		return false
+	
+	if require_overlay:
+		return camera.overlay.visible
+	
+	return true
 
 func _process(delta: float) -> void:
-	if should_be_visible() and existant:
-		bridge.visible = true
-		bridge.collision_enabled = true
-	else:
-		bridge.visible = false
-		bridge.collision_enabled = false
+	var active := should_be_visible() and existant
+	bridge.visible = active
+	if bridge.collision_enabled != active:
+		bridge.collision_enabled = active
+	
+	if collision:
+		if disable_collision_shape_when_inactive:
+			# Defer toggling so the physics server updates cleanly mid-frame.
+			collision.set_deferred("disabled", not active)
+		else:
+			# Default bridges keep their collision active regardless of tinting.
+			if collision.disabled:
+				collision.set_deferred("disabled", false)
 
 func determinism_update()->void:
 	if determined and existant:
