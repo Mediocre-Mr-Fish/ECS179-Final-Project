@@ -220,18 +220,6 @@ script = ExtResource("7_mppvi")
 position = Vector2(166, 2476)
 shape = SubResource("RectangleShape2D_uog4x")
 
-[node name="Beholder" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_oq8ku")]
-position = Vector2(178, 470)
-player = NodePath("../../player")
-camera = NodePath("../../Camera2D")
-item_name = 1
-
-[node name="Green Gem" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_oq8ku")]
-position = Vector2(424, 466)
-player = NodePath("../../player")
-camera = NodePath("../../Camera2D")
-item_name = 2
-
 [node name="Red Gem" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_oq8ku")]
 position = Vector2(592, 466)
 player = NodePath("../../player")
@@ -553,11 +541,11 @@ shape = SubResource("RectangleShape2D_tjudt")
 [node name="player" parent="." instance=ExtResource("5_qlmxs")]
 position = Vector2(-90, 433)
 scale = Vector2(0.5, 0.5)
+inventory = Array[int]([0, 5])
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_nqeel")]
 unique_name_in_owner = true
 position = Vector2(574, -817)
-zoom_scale = 0.6
 subject = NodePath("../player")
 
 [node name="Ground" type="TileMapLayer" parent="."]
