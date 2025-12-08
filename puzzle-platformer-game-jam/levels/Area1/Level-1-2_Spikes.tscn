@@ -93,6 +93,7 @@ scale = Vector2(0.50092506, 0.50151044)
 
 [node name="Exit" parent="." instance=ExtResource("3_4lbsx")]
 position = Vector2(4512, 912)
+scene_path = "res://levels/Area2/Level-2-1_Eyes.tscn"
 
 [node name="ground" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)

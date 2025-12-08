@@ -94,7 +94,7 @@ scale = Vector2(0.50092506, 0.50151044)
 
 [node name="Exit" parent="." instance=ExtResource("3_i6tw1")]
 position = Vector2(3616, 432)
-scene_path = "res://levels/Area1/Level-1-2_Bottomless_Pit.tscn"
+scene_path = "res://levels/Area1/Level-1-2_Spikes.tscn"
 
 [node name="Ground" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
@@ -104,11 +104,12 @@ tile_set = SubResource("TileSet_yr5xh")
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("3_8w3em")]
 unique_name_in_owner = true
 position = Vector2(-1264, -1376)
+zoom_scale = 1.0
 subject = NodePath("../player")
 
 [node name="CameraChangerBox" type="Area2D" parent="."]
 script = ExtResource("5_8w3em")
-zoom_end = 0.5
+zoom_end = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraChangerBox"]
 position = Vector2(624, 357)
