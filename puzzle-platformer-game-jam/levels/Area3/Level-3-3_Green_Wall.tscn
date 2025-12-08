@@ -148,7 +148,7 @@ scale = Vector2(0.50092506, 0.50151044)
 
 [node name="Exit" parent="Level" instance=ExtResource("3_lhuy4")]
 position = Vector2(4344, 512)
-scene_path = "res://screens/End.tscn"
+scene_path = "res://levels/level5_brian.tscn"
 
 [node name="flower2" parent="Level" instance=ExtResource("4_awee0")]
 modulate = Color(0, 1, 0, 1)

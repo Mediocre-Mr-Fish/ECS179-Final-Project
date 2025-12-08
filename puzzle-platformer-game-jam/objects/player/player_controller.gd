@@ -77,7 +77,6 @@ func _ready() -> void:
 	animation_tree.active = true
 	sprite.texture = torch_light_off_texture
 	
-<<<<<<< Updated upstream
 	_fade_in(1.5)
 	for i in inventory:
 		match i:
