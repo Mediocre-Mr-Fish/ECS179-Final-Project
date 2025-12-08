@@ -271,7 +271,7 @@ position = Vector2(31.400002, -0.39999938)
 position = Vector2(31, -0.39999938)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("12_ploog")]
-position = Vector2(3407, 1397)
+position = Vector2(3407, 1402)
 scale = Vector2(8, 5)
 
 [node name="Bridge2" type="Node2D" parent="." node_paths=PackedStringArray("visuals", "collisions")]
@@ -302,7 +302,7 @@ shape = SubResource("RectangleShape2D_isatf")
 position = Vector2(2560, 0)
 script = ExtResource("14_8uipk")
 visuals = [NodePath("TileMapLayer")]
-collisions = [NodePath("")]
+collisions = [NodePath("StaticBody2D/CollisionShape2D")]
 touch_action = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Wall"]
