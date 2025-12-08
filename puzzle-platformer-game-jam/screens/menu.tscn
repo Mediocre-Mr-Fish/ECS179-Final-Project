@@ -84,7 +84,7 @@ texture_normal = SubResource("AtlasTexture_dhgkt")
 texture_pressed = SubResource("AtlasTexture_8qoiq")
 texture_hover = SubResource("AtlasTexture_w6t7d")
 script = ExtResource("3_gq33n")
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Area1/Level-1-1_Run_And_Jump.tscn"
 
 [node name="credits" type="TextureButton" parent="."]
 offset_left = 327.0
