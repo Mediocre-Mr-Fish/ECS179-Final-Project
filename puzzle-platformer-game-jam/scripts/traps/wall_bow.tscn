@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://n0s4ecnxoow5"]
+[gd_scene load_steps=13 format=3 uid="uid://n0s4ecnxoow5"]
 
 [ext_resource type="Script" uid="uid://divgwkl7rwe8a" path="res://wall_bow.gd" id="1_4m05q"]
 [ext_resource type="Texture2D" uid="uid://jcwq4ic17ayc" path="res://assets/Objects/Trap/Shooter_Arrow_Trap.png" id="2_ce4f1"]
@@ -30,10 +30,6 @@ region = Rect2(48, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvmym"]
 atlas = ExtResource("2_ce4f1")
 region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q2eak"]
-atlas = ExtResource("2_ce4f1")
-region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yx1ym"]
 atlas = ExtResource("2_ce4f1")
@@ -71,11 +67,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wvmym")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q2eak")
 }],
-"loop": true,
+"loop": false,
 "name": &"firing",
 "speed": 5.0
 }, {
@@ -98,6 +91,9 @@ animations = [{
 script = ExtResource("1_4m05q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 4.712389
 sprite_frames = SubResource("SpriteFrames_1lpmx")
-animation = &"firing"
-frame_progress = 0.25629282
+animation = &"empty"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 3)

@@ -216,7 +216,7 @@ texture_normal = SubResource("AtlasTexture_sngxk")
 texture_pressed = SubResource("AtlasTexture_s255a")
 texture_hover = SubResource("AtlasTexture_u31k4")
 script = ExtResource("4_i3mvl")
-scene_path = "res://levels/Level2.tscn"
+scene_path = "res://levels/Level debug - eric.tscn"
 
 [node name="lvl7" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -224,7 +224,7 @@ texture_normal = SubResource("AtlasTexture_0fsmg")
 texture_pressed = SubResource("AtlasTexture_pk8vh")
 texture_hover = SubResource("AtlasTexture_nvmhi")
 script = ExtResource("4_i3mvl")
-scene_path = "res://levels/Level2.tscn"
+scene_path = "res://levels/Level7 - Eric.tscn"
 
 [node name="lvl8" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2

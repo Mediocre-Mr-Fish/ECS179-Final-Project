@@ -55,14 +55,35 @@ var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platfor
 
 func _ready() -> void:
 	fade.modulate.a = 1.0
-	
+	_fade_in(1.5)
 	facing = Facing.RIGHT
 	facing_y = FacingY.NEUTRAL
 	sprite.change_facing(self)
 	animation_tree.active = true
 	sprite.texture = torch_light_off_texture
 	
+<<<<<<< Updated upstream
 	_fade_in(1.5)
+=======
+	for i in inventory:
+		match i:
+			Items.BEHOLDER:
+				hasBeholder = true
+			Items.TORCH:
+				hasTorch = true
+				_is_having_torch = true
+			Items.LASSO:
+				hasLasso = true
+			Items.RED:
+				beholder.append(colors.FilterColors.RED)
+				currentColor = colors.FilterColors.RED
+			Items.GREEN:
+				beholder.append(colors.FilterColors.GREEN)
+				currentColor = colors.FilterColors.GREEN
+			Items.BLUE:
+				beholder.append(colors.FilterColors.BLUE)
+				currentColor = colors.FilterColors.BLUE
+>>>>>>> Stashed changes
 	
 func _physics_process(delta: float) -> void:
 	# Locks movement on death
@@ -238,7 +259,7 @@ func take_damage(if_damaged: bool) -> void:
 	cmd_list.push_back(FadeOutCommand.new(0.5, 1.0))
 	
 func spring_jump():
-	velocity.y = -200 + JUMP_VELOCITY
+	velocity.y = -500 + JUMP_VELOCITY
 	
 	
 func _process_commands():

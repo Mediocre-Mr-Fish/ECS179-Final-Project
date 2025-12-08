@@ -92,6 +92,7 @@ size = Vector2(21.5, 4.25)
 
 [node name="Spring" type="Area2D"]
 script = ExtResource("1_jfyw3")
+activation_delay = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
