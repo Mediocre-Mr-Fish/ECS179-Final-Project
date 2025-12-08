@@ -8,7 +8,11 @@ func _ready():
 	
 func shoot():
 	var instance = arrow.instantiate()
+	
 	instance.dir = rotation
 	instance.spawn_pos = global_position
-	instance.spawn_rot = rotation
+	instance.spawn_rot = global_rotation
+	instance.zdex = z_index - 1
 	call_deferred("add_child", instance)
+	print("arrow spawned")
+	get_parent().add_child(instance)
