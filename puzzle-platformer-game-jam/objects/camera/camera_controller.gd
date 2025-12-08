@@ -199,6 +199,10 @@ func setColor(color: Colors.FilterColors):
 	current_overlay = color
 	overlay.modulate = colors.getColorFromEnum(color)
 	inventoryHandler.switchColor(color)
+	
+# A bridge func
+func showCrown():
+	$inventory_handler.showCrown()
 
 
 func setZoom(new_zoom: float, is_init:bool = false) -> void:

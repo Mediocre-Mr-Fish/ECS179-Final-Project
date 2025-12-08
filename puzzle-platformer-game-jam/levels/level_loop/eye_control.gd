@@ -3,6 +3,7 @@ extends Sprite2D
 
 @export var max_eye_offset_y: float = 0.0
 @export var max_eye_offset_x: float = 0.0
+@export var _is_eyes_able_to_move: bool = false
 
 @onready var player: Node2D = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("player")
 @onready var painting: Node2D = get_parent(). get_parent()

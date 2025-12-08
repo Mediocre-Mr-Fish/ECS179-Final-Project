@@ -33,6 +33,10 @@ func switchColor(color):
 			$Beholden/green.texture = deactivated
 			$Beholden/red.texture = deactivated
 
+func showCrown():
+	$Crown.visible = true
+	$Beholden/Input.text = getInputText("filter_activate")
+
 func showBeholder():
 	$Beholden.visible = true
 	$Beholden/Input.text = getInputText("filter_activate")

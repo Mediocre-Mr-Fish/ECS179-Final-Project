@@ -21,7 +21,7 @@ enum Items{
 	GREEN,
 }
 
-const SPEED = 600.0
+const SPEED = 1200.0
 const JUMP_VELOCITY = -950.0
 const SLOW_FALL_RATIO = 0.4
 const GRAVITY_CORRECTION_RATIO = 2.5
@@ -52,6 +52,9 @@ var cmd_list: Array = []
 var _is_having_torch: bool = false
 var _is_having_torch_out: bool = false
 var _is_torch_light_on: bool = false
+var _is_near_light_source: bool = false
+var _torch_interact_consumed: bool = false
+var is_saw_darkness_warning: bool = false
 var torch_light_texture: Texture2D = preload("res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3.png")
 var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3_Torch_No_Fire.png")
 @onready var torch_light: Node2D = $PlayerSprite2D/TorchLight
@@ -156,8 +159,17 @@ func _physics_process(delta: float) -> void:
 			if facing_y != FacingY.DOWN:
 				facing_y = FacingY.DOWN
 	
-	if Input.is_action_just_pressed("torch_interact"):
-		_is_having_torch_out = not _is_having_torch_out
+	if Input.is_action_just_pressed("torch_interact") and not _torch_interact_consumed:
+		# Don't allow toggling off if near light source and not lit yet
+		# Once lit, allow normal toggling
+		if _is_near_light_source and not _is_torch_light_on and _is_having_torch_out:
+			# In range, not lit, and torch is already out - keep it out
+			pass
+		else:
+			_is_having_torch_out = not _is_having_torch_out
+	
+	# Reset the consumed flag for next frame
+	_torch_interact_consumed = false
 		
 
 	if Input.is_action_just_pressed("filter_switch"):
@@ -256,6 +268,26 @@ func playback_walk_sfx() -> void:
 
 func player_having_torch(having: bool) -> void:
 	_is_having_torch = having
+
+func is_player_torch_light_on() -> bool:
+	return _is_torch_light_on
+
+func light_torch() -> void:
+	_is_torch_light_on = true
+	_is_having_torch_out = true
+
+func set_near_light_source(near: bool) -> void:
+	_is_near_light_source = near
+
+func has_torch() -> bool:
+	return _is_having_torch
+
+func is_torch_out() -> bool:
+	return _is_having_torch_out
+
+func set_torch_interact_consumed(consumed: bool) -> void:
+	_torch_interact_consumed = consumed
+	
 	
 func take_damage(if_damaged: bool) -> void:
 	#var knockback_h = 500.0
