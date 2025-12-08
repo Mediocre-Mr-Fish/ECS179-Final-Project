@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://df05sh52lygxh"]
+[gd_scene load_steps=13 format=3 uid="uid://df05sh52lygxh"]
 
 [ext_resource type="Script" uid="uid://dwnoc5aykltka" path="res://objects/camera/camera_controller.gd" id="1_a02ee"]
 [ext_resource type="Script" uid="uid://f4p8xu7pweaq" path="res://objects/camera/camera_hitbox.gd" id="2_75niw"]

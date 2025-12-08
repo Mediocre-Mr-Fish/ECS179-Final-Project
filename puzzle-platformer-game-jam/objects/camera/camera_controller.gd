@@ -33,7 +33,7 @@ var is_shifted: bool = false
 var pushbox_position: Vector2 = Vector2.ZERO
 
 @onready var overlay:Node = $Overlay
-@onready var inventoryHandler = $"inventory handler"
+@onready var inventoryHandler = $"inventory_handler"
 @onready var camera_hit_box = $CameraHitBox
 
 
