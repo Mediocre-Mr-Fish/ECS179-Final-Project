@@ -82,21 +82,22 @@ scene_path = "res://levels/Level1.tscn"
 [node name="lvl2" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl2"
+scene_path = "res://levels/Level2.tscn"
 
 [node name="lvl3" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl3"
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Level3.tscn"
 
 [node name="lvl4" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl4"
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Level4_tho.tscn"
 
 [node name="lvl5" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl5"
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Level5.tscndddd"
 
 [node name="lvl6" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
