@@ -300,7 +300,7 @@ func take_damage(if_damaged: bool) -> void:
 	cmd_list.push_back(FadeOutCommand.new(0.5, 1.0))
 	
 func spring_jump():
-	velocity.y = -200 + JUMP_VELOCITY
+	velocity.y = -700 + JUMP_VELOCITY
 	
 	
 func _process_commands():

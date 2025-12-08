@@ -75,7 +75,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q2eak")
 }],
-"loop": true,
+"loop": false,
 "name": &"firing",
 "speed": 5.0
 }, {
@@ -98,6 +98,7 @@ animations = [{
 script = ExtResource("1_4m05q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_1lpmx")
 animation = &"firing"
 frame_progress = 0.25629282

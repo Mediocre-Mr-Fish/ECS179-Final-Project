@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@export var SPEED = 250
+@export var SPEED = 10
 
 var dir: float
-var spawn_pos : Vector2
-var spawn_rot : float
-var zdex : int
+var spawn_pos: Vector2
+var spawn_rot: float
+var zdex: int
 
 func _ready():
 	global_position = spawn_pos
@@ -14,13 +14,15 @@ func _ready():
 	print("arrow spawned at", global_position)
 
 func _physics_process(delta):
-	#velocity = Vector2(0, -SPEED).rotated(dir)
 	velocity = Vector2.RIGHT.rotated(dir) * SPEED
-	move_and_slide()
+	var collision = move_and_collide(velocity)
+	if collision != null:
+		var body = collision.get_collider()
+		print("hit")
+		if body is PlayerController:
+			body.take_damage(true) 
+			print("player hit by arrow")
+		queue_free()
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("hit")
-	queue_free()
-	
 func _on_life_timeout():
 	queue_free()

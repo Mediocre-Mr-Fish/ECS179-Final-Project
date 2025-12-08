@@ -1,7 +1,7 @@
 class_name CameraController
 extends Camera2D
 
-@export var zoom_scale: float = 1.0
+@export var zoom_scale: float = 0.6
 
 @export_group("Required Nodes")
 @export var subject:PlayerController:
@@ -113,24 +113,24 @@ func _shifted_camera_logic(_delta:float) -> void:
 	var target_position:Vector2 = global_position
 	target_position = subject.global_position
 	if shift_tri_state.x < 0:
-		target_position -= shifted_offset_horizontal
+		target_position -= shifted_offset_horizontal / zoom_scale
 		pushbox_position.x = pushbox_bot_right.x
 	elif shift_tri_state.x > 0:
-		target_position += shifted_offset_horizontal
+		target_position += shifted_offset_horizontal / zoom_scale
 		pushbox_position.x = pushbox_top_left.x
 	else:
 		pushbox_position.x = 0
 	
 	if shift_tri_state.y < 0:
-		target_position += shifted_offset_up
+		target_position += shifted_offset_up / zoom_scale
 		pushbox_position.y = pushbox_bot_right.y
 	elif shift_tri_state.y > 0:
-		target_position += shifted_offset_down
+		target_position += shifted_offset_down / zoom_scale
 		pushbox_position.y = pushbox_top_left.y
 	else:
 		pushbox_position.y = 0
 	
-	global_position += (target_position - global_position).limit_length(shift_speed * _delta)
+	global_position += (target_position - global_position).limit_length(shift_speed * _delta  / zoom_scale)
 
 func _draw() -> void:
 	if not OS.is_debug_build():

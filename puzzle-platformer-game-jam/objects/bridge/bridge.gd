@@ -16,6 +16,12 @@ var existant: bool = true
 func _ready() -> void:
 	bridge.modulate = colors.getColorFromEnum(objectColor)
 
+func _set_active(active: bool) -> void:
+	bridge.visible = active
+	bridge.collision_enabled = active
+	if collision:
+		collision.disabled = not active
+
 func should_be_visible()->bool:
 	if not camera or camera.subject == null:
 		return false
