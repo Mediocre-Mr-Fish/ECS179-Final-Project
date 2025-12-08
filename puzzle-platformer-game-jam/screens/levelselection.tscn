@@ -208,7 +208,7 @@ texture_normal = SubResource("AtlasTexture_2dktp")
 texture_pressed = SubResource("AtlasTexture_8adas")
 texture_hover = SubResource("AtlasTexture_xot2b")
 script = ExtResource("4_i3mvl")
-scene_path = "res://levels/Level2.tscn"
+scene_path = "res://levels/Level5.tscn"
 
 [node name="lvl6" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
