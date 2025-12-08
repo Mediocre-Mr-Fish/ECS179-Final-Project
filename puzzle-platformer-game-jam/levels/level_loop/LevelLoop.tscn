@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ru5hopewms17"]
+[gd_scene load_steps=28 format=4 uid="uid://ru5hopewms17"]
 
 [ext_resource type="Script" uid="uid://cp01n82ou5v1f" path="res://levels/level_loop/level_loop.gd" id="1_ja8hb"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="2_lwnbc"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dja82uo763102" path="res://assets/World/Desert/desert-8x8/sprites/desert_brickwall_background_normal_map.png" id="3_boccd"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="4_0a4s2"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="5_cp5jv"]
+[ext_resource type="Texture2D" uid="uid://4aar73wq5jw5" path="res://assets/Objects/Treasure/crown.png" id="5_d7ep7"]
 [ext_resource type="Texture2D" uid="uid://c2ek7i1n7k8kf" path="res://assets/World/Desert/desert-8x8/sprites/desert_brickwall_background.png" id="6_boccd"]
+[ext_resource type="PackedScene" uid="uid://djx20pujuc4b0" path="res://levels/level_loop/Guide.tscn" id="6_icmin"]
 [ext_resource type="Script" uid="uid://bk704g0wp1n5w" path="res://levels/level_loop/trigger.gd" id="7_icmin"]
 [ext_resource type="Texture2D" uid="uid://pvjyy8up4wcm" path="res://objects/skeleton/skeleton.png" id="8_d7ep7"]
 [ext_resource type="Texture2D" uid="uid://b637wmwwka2qi" path="res://assets/Objects/Decoration/brazier.png" id="9_lwnbc"]
@@ -105,10 +107,10 @@ fill_to = Vector2(0, 0.5)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cp5jv"]
 polygon = PackedVector2Array(-11, -27, 12, -27, 12, -27, -11, -27)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0a4s2"]
-
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" node_paths=PackedStringArray("guide", "node_list")]
 script = ExtResource("1_ja8hb")
+guide = NodePath("player/Guide")
+node_list = [NodePath("FarPast/Decoration/Node2D2"), NodePath("FarPast/Decoration/Node2D3"), NodePath("FarPast/Decoration/Node2D6"), NodePath("FarPast/Decoration/Node2D7"), NodePath("Past/Decoration/Node2D2"), NodePath("Past/Decoration/Node2D3"), NodePath("Past/Decoration/Node2D6"), NodePath("Past/Decoration/Node2D7")]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -20
@@ -127,10 +129,23 @@ region_rect = Rect2(-3239.2715, -725.822, 11307.223, 2213.9426)
 position = Vector2(2877, -316)
 scene_path = "res://screens/End.tscn"
 
+[node name="Crown" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1195, 291)
+
+[node name="Sprite2D" type="Sprite2D" parent="Crown"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_d7ep7")
+
 [node name="player" parent="." groups=["TPGroup"] instance=ExtResource("3_8hr7c")]
 unique_name_in_owner = true
 position = Vector2(-1207, 377)
 scale = Vector2(0.5, 0.5)
+
+[node name="Guide" parent="player" node_paths=PackedStringArray("crown") instance=ExtResource("6_icmin")]
+z_index = 3
+position = Vector2(0, -344)
+crown = NodePath("../../Crown")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("4_0a4s2")]
 position = Vector2(574, -817)
@@ -166,7 +181,7 @@ unique_name_in_owner = true
 position = Vector2(-240, -37)
 
 [node name="FarPast" type="Node2D" parent="."]
-visible = false
+unique_name_in_owner = true
 
 [node name="Lighting" type="Node2D" parent="FarPast"]
 
@@ -255,89 +270,6 @@ texture = ExtResource("9_lwnbc")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="FarPast/Decoration/Node2D3"]
 occluder = SubResource("OccluderPolygon2D_cp5jv")
-
-[node name="Node2D4" type="Node2D" parent="FarPast/Decoration"]
-visible = false
-position = Vector2(3511, 479)
-scale = Vector2(3, 3)
-
-[node name="PointLight2D" type="PointLight2D" parent="FarPast/Decoration/Node2D4"]
-position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-height = 100.0
-
-[node name="PointLight2D" type="PointLight2D" parent="FarPast/Decoration/Node2D4/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = ExtResource("3_0a4s2")
-height = 100.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="FarPast/Decoration/Node2D4/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 1.5
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-texture_scale = 2.0
-height = 1000.0
-
-[node name="Brazier" type="Sprite2D" parent="FarPast/Decoration/Node2D4"]
-texture = ExtResource("9_lwnbc")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="FarPast/Decoration/Node2D4"]
-occluder = SubResource("OccluderPolygon2D_cp5jv")
-
-[node name="Node2D5" type="Node2D" parent="FarPast/Decoration"]
-visible = false
-position = Vector2(-751, 473)
-scale = Vector2(3, 3)
-
-[node name="PointLight2D" type="PointLight2D" parent="FarPast/Decoration/Node2D5"]
-position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-height = 100.0
-
-[node name="PointLight2D" type="PointLight2D" parent="FarPast/Decoration/Node2D5/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = ExtResource("3_0a4s2")
-height = 100.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="FarPast/Decoration/Node2D5/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 1.5
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-texture_scale = 2.0
-height = 1000.0
-
-[node name="Brazier" type="Sprite2D" parent="FarPast/Decoration/Node2D5"]
-texture = ExtResource("9_lwnbc")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="FarPast/Decoration/Node2D5"]
-position = Vector2(0.33329266, 0)
-occluder = SubResource("OccluderPolygon2D_0a4s2")
 
 [node name="Node2D6" type="Node2D" parent="FarPast/Decoration"]
 position = Vector2(2518, 390)
@@ -447,6 +379,7 @@ texture = ExtResource("12_8wp0b")
 position = Vector2(1199, -138)
 
 [node name="Past" type="Node2D" parent="."]
+unique_name_in_owner = true
 visible = false
 
 [node name="Lighting" type="Node2D" parent="Past"]
@@ -456,11 +389,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="Decoration" type="Node2D" parent="Past"]
 z_index = -5
-
-[node name="Skeleton" type="Sprite2D" parent="Past/Decoration"]
-position = Vector2(657.00006, 407)
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("8_d7ep7")
 
 [node name="Node2D2" type="Node2D" parent="Past/Decoration"]
 position = Vector2(1672.0001, 313)
@@ -541,89 +469,6 @@ texture = ExtResource("9_lwnbc")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Past/Decoration/Node2D3"]
 occluder = SubResource("OccluderPolygon2D_cp5jv")
-
-[node name="Node2D4" type="Node2D" parent="Past/Decoration"]
-visible = false
-position = Vector2(3511, 479)
-scale = Vector2(3, 3)
-
-[node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D4"]
-position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-height = 100.0
-
-[node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D4/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = ExtResource("3_0a4s2")
-height = 100.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="Past/Decoration/Node2D4/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 1.5
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-texture_scale = 2.0
-height = 1000.0
-
-[node name="Brazier" type="Sprite2D" parent="Past/Decoration/Node2D4"]
-texture = ExtResource("9_lwnbc")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Past/Decoration/Node2D4"]
-occluder = SubResource("OccluderPolygon2D_cp5jv")
-
-[node name="Node2D5" type="Node2D" parent="Past/Decoration"]
-visible = false
-position = Vector2(-751, 473)
-scale = Vector2(3, 3)
-
-[node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D5"]
-position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-height = 100.0
-
-[node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D5/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = ExtResource("3_0a4s2")
-height = 100.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="Past/Decoration/Node2D5/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 1.5
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-texture_scale = 2.0
-height = 1000.0
-
-[node name="Brazier" type="Sprite2D" parent="Past/Decoration/Node2D5"]
-texture = ExtResource("9_lwnbc")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Past/Decoration/Node2D5"]
-position = Vector2(0.33329266, 0)
-occluder = SubResource("OccluderPolygon2D_0a4s2")
 
 [node name="Node2D6" type="Node2D" parent="Past/Decoration"]
 position = Vector2(2518, 390)
@@ -732,13 +577,21 @@ texture = ExtResource("12_8wp0b")
 [node name="ThePainting" parent="Past/Painting" instance=ExtResource("13_lwnbc")]
 position = Vector2(1199, -138)
 
-[node name="Torch" type="Node2D" parent="Past" node_paths=PackedStringArray("player")]
+[node name="Skeleton" type="Sprite2D" parent="Past"]
+z_index = -10
+position = Vector2(657.00006, 407)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("8_d7ep7")
+
+[node name="Torch" type="Node2D" parent="Past" node_paths=PackedStringArray("player", "guide", "level_loop")]
 z_index = -5
 position = Vector2(602, 469)
 rotation = 0.06414986
 script = ExtResource("16_cp5jv")
 player = NodePath("../../player")
+guide = NodePath("../../player/Guide")
 visible_distance = 200.0
+level_loop = NodePath("../../Level")
 
 [node name="TorchSprite2D" type="Sprite2D" parent="Past/Torch"]
 scale = Vector2(3, 3)
@@ -746,6 +599,8 @@ texture = ExtResource("16_0a4s2")
 vframes = 2
 
 [node name="Present" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
 
 [node name="Lighting" type="Node2D" parent="Present"]
 
@@ -951,16 +806,3 @@ texture = ExtResource("12_8wp0b")
 
 [node name="ThePainting" parent="Present/Painting" instance=ExtResource("13_lwnbc")]
 position = Vector2(1199, -138)
-
-[node name="Torch" type="Node2D" parent="Present" node_paths=PackedStringArray("player")]
-z_index = -5
-position = Vector2(602, 469)
-rotation = 0.06414986
-script = ExtResource("16_cp5jv")
-player = NodePath("../../player")
-visible_distance = 200.0
-
-[node name="TorchSprite2D" type="Sprite2D" parent="Present/Torch"]
-scale = Vector2(3, 3)
-texture = ExtResource("16_0a4s2")
-vframes = 2

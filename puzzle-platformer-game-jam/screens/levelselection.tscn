@@ -240,7 +240,7 @@ texture_normal = SubResource("AtlasTexture_o2b3v")
 texture_pressed = SubResource("AtlasTexture_p7p3x")
 texture_hover = SubResource("AtlasTexture_bcxvy")
 script = ExtResource("4_i3mvl")
-scene_path = "res://levels/Level2.tscn"
+scene_path = "res://levels/level_loop/LevelLoop.tscn"
 
 [connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl1" to="MarginContainer/ScrollContainer/HBoxContainer/lvl1" method="_on_pressed"]
