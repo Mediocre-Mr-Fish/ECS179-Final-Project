@@ -120,6 +120,7 @@ item_name = 2
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_mlbie")]
 position = Vector2(574, -817)
+zoom_scale = 0.6
 subject = NodePath("../player")
 
 [node name="Ground" type="TileMapLayer" parent="."]
