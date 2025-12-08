@@ -179,7 +179,7 @@ tile_set = SubResource("TileSet_yrqv2")
 [node name="Exit" parent="ground2" instance=ExtResource("3_iu235")]
 position = Vector2(1006.39996, 84.799995)
 scale = Vector2(0.19999999, 0.19999999)
-scene_path = "res://screens/End.tscn"
+scene_path = "res://levels/Area3/Level-3-1_Green.tscn"
 
 [node name="flower2" parent="." instance=ExtResource("7_i5mg3")]
 position = Vector2(1088, -1240)

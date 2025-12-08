@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c5le2ai70dn7b"]
+[gd_scene load_steps=17 format=4 uid="uid://c5le2ai70dn7b"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_bdl2p"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="2_g8w7r"]
@@ -141,6 +141,9 @@ sources/0 = SubResource("TileSetAtlasSource_p3kpt")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61s0v"]
 size = Vector2(240, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdl2p"]
+size = Vector2(3917, 2433)
+
 [node name="Level31Climb" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_bdl2p")]
@@ -152,7 +155,7 @@ scale = Vector2(0.50092506, 0.50151044)
 
 [node name="Exit" parent="." instance=ExtResource("3_5ndrp")]
 position = Vector2(928, 112)
-scene_path = "res://screens/End.tscn"
+scene_path = "res://levels/Area3/Level-3-2_Bridge.tscn"
 
 [node name="p" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
@@ -184,7 +187,7 @@ touch_action = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Bridge"]
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAFAAMAAAAAAAYAAAAGAAMAAAABAAYAAAAHAAMAAAACAAYAAAD8/wkAAAABAAEAAAD9/wgAAAABAAEAAAD9/wkAAAAAAAYAAAD9/woAAAABAAEAAAD+/wgAAAADAAAAAAD+/wkAAAADAAEAAAD+/woAAAADAAIAAAD//wgAAAABAAIAAAD//wkAAAABAAEAAAD//woAAAABAAAAAAAAAAgAAAAFAAAAAAAAAAkAAAAFAAEAAAAAAAoAAAAFAAIAAAABAAgAAAABAAEAAAABAAkAAAACAAYAAAABAAoAAAABAAEAAAACAAkAAAABAAEAAADp/wUAAAABAAEAAADq/wQAAAABAAEAAADq/wUAAAAAAAYAAADq/wYAAAABAAEAAADr/wQAAAADAAAAAADr/wUAAAADAAEAAADr/wYAAAADAAIAAADs/wQAAAABAAIAAADs/wUAAAABAAEAAADs/wYAAAABAAAAAADt/wQAAAAFAAAAAADt/wUAAAAFAAEAAADt/wYAAAAFAAIAAADu/wQAAAABAAEAAADu/wUAAAACAAYAAADu/wYAAAABAAEAAADv/wUAAAABAAEAAADr//r/AAABAAEAAADs//n/AAABAAEAAADs//r/AAAAAAYAAADs//v/AAABAAEAAADt//n/AAADAAAAAADt//r/AAADAAEAAADt//v/AAADAAIAAADu//n/AAABAAIAAADu//r/AAABAAEAAADu//v/AAABAAAAAADv//n/AAAFAAAAAADv//r/AAAFAAEAAADv//v/AAAFAAIAAADw//n/AAABAAEAAADw//r/AAACAAYAAADw//v/AAABAAEAAADx//r/AAABAAEAAAAMAPr/AAABAAEAAAANAPn/AAABAAEAAAANAPr/AAAAAAYAAAANAPv/AAABAAEAAAAOAPn/AAADAAAAAAAOAPr/AAADAAEAAAAOAPv/AAADAAIAAAAPAPn/AAABAAIAAAAPAPr/AAABAAEAAAAPAPv/AAABAAAAAAAQAPn/AAAFAAAAAAAQAPr/AAAFAAEAAAAQAPv/AAAFAAIAAAARAPn/AAABAAEAAAARAPr/AAACAAYAAAARAPv/AAABAAEAAAASAPr/AAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAFAAMAAAAAAAYAAAAGAAMAAAABAAYAAAAHAAMAAAACAAYAAAA=")
 tile_set = SubResource("TileSet_fe335")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Bridge"]
@@ -199,6 +202,22 @@ script = ExtResource("8_0uctl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/Hurtbox"]
 position = Vector2(520, 280)
 shape = SubResource("RectangleShape2D_61s0v")
+
+[node name="Eyes" type="Node2D" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("7_wxthe")
+visuals = [NodePath("TileMapLayer")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Eyes"]
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD8/wkAAAABAAEAAAD9/wgAAAABAAEAAAD9/wkAAAAAAAYAAAD9/woAAAABAAEAAAD+/wgAAAADAAAAAAD+/wkAAAADAAEAAAD+/woAAAADAAIAAAD//wgAAAABAAIAAAD//wkAAAABAAEAAAD//woAAAABAAAAAAAAAAgAAAAFAAAAAAAAAAkAAAAFAAEAAAAAAAoAAAAFAAIAAAABAAgAAAABAAEAAAABAAkAAAACAAYAAAABAAoAAAABAAEAAAACAAkAAAABAAEAAADp/wUAAAABAAEAAADq/wQAAAABAAEAAADq/wUAAAAAAAYAAADq/wYAAAABAAEAAADr/wQAAAADAAAAAADr/wUAAAADAAEAAADr/wYAAAADAAIAAADs/wQAAAABAAIAAADs/wUAAAABAAEAAADs/wYAAAABAAAAAADt/wQAAAAFAAAAAADt/wUAAAAFAAEAAADt/wYAAAAFAAIAAADu/wQAAAABAAEAAADu/wUAAAACAAYAAADu/wYAAAABAAEAAADv/wUAAAABAAEAAADr//r/AAABAAEAAADs//n/AAABAAEAAADs//r/AAAAAAYAAADs//v/AAABAAEAAADt//n/AAADAAAAAADt//r/AAADAAEAAADt//v/AAADAAIAAADu//n/AAABAAIAAADu//r/AAABAAEAAADu//v/AAABAAAAAADv//n/AAAFAAAAAADv//r/AAAFAAEAAADv//v/AAAFAAIAAADw//n/AAABAAEAAADw//r/AAACAAYAAADw//v/AAABAAEAAADx//r/AAABAAEAAAAMAPr/AAABAAEAAAANAPn/AAABAAEAAAANAPr/AAAAAAYAAAANAPv/AAABAAEAAAAOAPn/AAADAAAAAAAOAPr/AAADAAEAAAAOAPv/AAADAAIAAAAPAPn/AAABAAIAAAAPAPr/AAABAAEAAAAPAPv/AAABAAAAAAAQAPn/AAAFAAAAAAAQAPr/AAAFAAEAAAAQAPv/AAAFAAIAAAARAPn/AAABAAEAAAARAPr/AAACAAYAAAARAPv/AAABAAEAAAASAPr/AAABAAEAAAA=")
+tile_set = SubResource("TileSet_fe335")
+
+[node name="Hurtbox" type="Area2D" parent="Eyes"]
+script = ExtResource("8_0uctl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eyes/Hurtbox"]
+position = Vector2(-102.5, 151.5)
+shape = SubResource("RectangleShape2D_bdl2p")
 
 [node name="Fade" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)

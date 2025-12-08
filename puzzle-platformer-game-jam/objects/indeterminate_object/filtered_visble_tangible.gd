@@ -11,6 +11,7 @@ extends SimpleVisibleTangible
 
 func _ready() -> void:
 	assert(camera, "Could not find camera. Make sure it is Acessable as a Unique Node!")
+	super()
 	if auto_modulate:
 		for item in visuals:
 			item.modulate = colors.getColorFromEnum(seen_filter)
