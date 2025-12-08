@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dsntmiri1j2ce"]
+[gd_scene load_steps=13 format=4 uid="uid://dsntmiri1j2ce"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_ldhjt"]
 [ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="3_h8oof"]
@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="5_qlmxs"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="6_oq8ku"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_mppvi"]
-[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_nqeel"]
-[ext_resource type="PackedScene" uid="uid://bbcckirjlcdtp" path="res://objects/item/item.tscn" id="7_oq8ku"]
+[ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="7_nqeel"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="10_oq8ku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uog4x"]
@@ -117,21 +116,10 @@ script = ExtResource("7_mppvi")
 position = Vector2(-740, 2673)
 shape = SubResource("RectangleShape2D_uog4x")
 
-[node name="Beholder" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_oq8ku")]
-position = Vector2(655, 452)
-player = NodePath("../../player")
-camera = NodePath("../../Camera2D")
-item_name = 1
-
-[node name="Green Gem" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_oq8ku")]
-position = Vector2(895, 451)
-player = NodePath("../../player")
-camera = NodePath("../../Camera2D")
-item_name = 2
-
 [node name="player" parent="." instance=ExtResource("5_qlmxs")]
 position = Vector2(191, 321)
 scale = Vector2(0.5, 0.5)
+inventory = Array[int]([0, 5])
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_nqeel")]
 position = Vector2(574, -817)
