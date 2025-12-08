@@ -82,6 +82,7 @@ sources/0 = SubResource("TileSetAtlasSource_mppvi")
 [sub_resource type="CircleShape2D" id="CircleShape2D_8vy3l"]
 
 [node name="World2" type="Node2D"]
+position = Vector2(-733, -733)
 
 [node name="Background" parent="." instance=ExtResource("1_cw3f8")]
 
@@ -129,11 +130,12 @@ scale = Vector2(1.5, 1)
 
 [node name="Fade" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = -1788.0
-offset_top = -1167.0
-offset_right = 5033.0
-offset_bottom = 2382.0
+offset_left = -1904.0
+offset_top = -1550.0
+offset_right = 4917.0
+offset_bottom = 1999.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Spike" parent="." instance=ExtResource("9_vse3i")]
 position = Vector2(1275, 1330)
