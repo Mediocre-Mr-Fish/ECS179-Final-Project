@@ -1,22 +1,22 @@
-[gd_scene load_steps=18 format=4 uid="uid://bk2m7r8ba3lrw"]
+[gd_scene load_steps=18 format=4 uid="uid://br0sbdvuvsr8i"]
 
-[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/Beholden Assets/grid.png" id="3_qcwkq"]
-[ext_resource type="PackedScene" uid="uid://dw1xcfi4m6pc3" path="res://objects/player/Player.tscn" id="4_5pn2a"]
-[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="5_pixff"]
-[ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="7_p5th2"]
-[ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_qcwkq"]
-[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_xcmrh"]
-[ext_resource type="Script" uid="uid://hxm4kh6f1vsv" path="res://objects/indeterminate_object/simple_visble_tangible.gd" id="9_5pn2a"]
-[ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="9_qcwkq"]
-[ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="10_5pn2a"]
-[ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="11_p5th2"]
-[ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="11_v0cbu"]
+[ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_4gs7e"]
+[ext_resource type="Texture2D" uid="uid://jsvb13vlx2n3" path="res://assets/Beholden Assets/grid.png" id="2_k4ddm"]
+[ext_resource type="PackedScene" uid="uid://dw1xcfi4m6pc3" path="res://objects/player/Player.tscn" id="3_a7chc"]
+[ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="4_i8krq"]
+[ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="5_y5q54"]
+[ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="6_l1t8a"]
+[ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_64mom"]
+[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="8_bg8qx"]
+[ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="9_ty2cc"]
+[ext_resource type="Script" uid="uid://hxm4kh6f1vsv" path="res://objects/indeterminate_object/simple_visble_tangible.gd" id="10_edweb"]
+[ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="11_am1c8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nn0v1"]
 size = Vector2(12432, 3173)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0cbu"]
-texture = ExtResource("11_p5th2")
+texture = ExtResource("9_ty2cc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -77,7 +77,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_v0cbu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qcwkq"]
-texture = ExtResource("11_p5th2")
+texture = ExtResource("9_ty2cc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -135,7 +135,7 @@ size = Vector2(160, 560)
 
 [node name="World" type="Node2D"]
 
-[node name="Background" parent="." instance=ExtResource("10_5pn2a")]
+[node name="Background" parent="." instance=ExtResource("1_4gs7e")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -145,10 +145,10 @@ offset_top = -744.0
 offset_right = -687.80005
 offset_bottom = -488.0
 scale = Vector2(5, 5)
-texture = ExtResource("3_qcwkq")
+texture = ExtResource("2_k4ddm")
 stretch_mode = 1
 
-[node name="player" parent="." instance=ExtResource("4_5pn2a")]
+[node name="player" parent="." instance=ExtResource("3_a7chc")]
 unique_name_in_owner = true
 position = Vector2(147, 263)
 scale = Vector2(0.5, 0.5)
@@ -156,25 +156,25 @@ inventory = Array[int]([0, 5])
 
 [node name="Level" type="Node2D" parent="."]
 
-[node name="Exit" parent="Level" instance=ExtResource("5_pixff")]
+[node name="Exit" parent="Level" instance=ExtResource("4_i8krq")]
 position = Vector2(2008, 433)
 scene_path = "res://levels/Level3.tscn"
 
-[node name="flower3" parent="Level" instance=ExtResource("9_qcwkq")]
+[node name="flower3" parent="Level" instance=ExtResource("5_y5q54")]
 position = Vector2(-52.999996, 523)
 
-[node name="flower2" parent="Level" instance=ExtResource("7_p5th2")]
+[node name="flower2" parent="Level" instance=ExtResource("6_l1t8a")]
 position = Vector2(1384, 500)
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="Level"]
-script = ExtResource("7_qcwkq")
+script = ExtResource("7_64mom")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
 position = Vector2(814, 3097)
 shape = SubResource("RectangleShape2D_nn0v1")
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_xcmrh")]
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("8_bg8qx")]
 unique_name_in_owner = true
 position = Vector2(574, -817)
 subject = NodePath("../player")
@@ -185,7 +185,7 @@ tile_map_data = PackedByteArray("AAD0/wcAAAADAAAAAAD0/wgAAAACAAEAAAD0/wkAAAACAAE
 tile_set = SubResource("TileSet_xcmrh")
 
 [node name="Wall" type="Node2D" parent="." node_paths=PackedStringArray("visuals", "collisions")]
-script = ExtResource("9_5pn2a")
+script = ExtResource("10_edweb")
 visuals = [NodePath("TileMapLayer")]
 collisions = [NodePath("StaticBody2D/CollisionShape2D")]
 seen_action = null
@@ -203,7 +203,7 @@ position = Vector2(1520, 280)
 shape = SubResource("RectangleShape2D_5pn2a")
 
 [node name="Hurtbox" type="Area2D" parent="Wall"]
-script = ExtResource("11_v0cbu")
+script = ExtResource("11_am1c8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Hurtbox"]
 position = Vector2(1520, 280)

@@ -1,18 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0mw2e4xycfp3"]
+[gd_scene load_steps=4 format=3 uid="uid://batkbig1x7jtb"]
 
-[ext_resource type="Script" uid="uid://bem35r5o6n0pm" path="res://arrow.gd" id="1_0b50e"]
-[ext_resource type="Texture2D" uid="uid://fep4vxknc1vp" path="res://assets/Objects/Trap/Arrow_small.png" id="2_0b50e"]
+[ext_resource type="Script" uid="uid://bem35r5o6n0pm" path="res://arrow.gd" id="1_j8diy"]
+[ext_resource type="Texture2D" uid="uid://fep4vxknc1vp" path="res://assets/Objects/Trap/Arrow_small.png" id="2_kn5nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b50e"]
 size = Vector2(4, 5)
 
 [node name="Arrow" type="CharacterBody2D"]
-scale = Vector2(3, 3)
-script = ExtResource("1_0b50e")
+script = ExtResource("1_j8diy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -1.5707964
-texture = ExtResource("2_0b50e")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_kn5nt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -28,3 +27,5 @@ disabled = true
 [node name="Life" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
