@@ -1,8 +1,9 @@
-[gd_scene load_steps=63 format=4 uid="uid://dchiqmg6qhjxt"]
+[gd_scene load_steps=64 format=4 uid="uid://dchiqmg6qhjxt"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_fyd7e"]
 [ext_resource type="Script" uid="uid://cx331m440ailt" path="res://levels/level_4_tho.gd" id="1_qsve6"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="3_x6mvt"]
+[ext_resource type="Script" uid="uid://bg1skxgeudlsj" path="res://Backgrounds/Background_scale.gd" id="5_obpke"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="6_qsve6"]
 [ext_resource type="Script" uid="uid://cocwgmidp6chg" path="res://Level Props/surprise.gd" id="7_2e3ev"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="7_k3fly"]
@@ -575,6 +576,8 @@ tile_map_data = PackedByteArray("AAAzAAQAAAAAAAMAAAAzAAUAAAAAAAQAAAA0AAQAAAABAAY
 tile_set = SubResource("TileSet_fmyj0")
 
 [node name="Background" parent="." instance=ExtResource("1_fyd7e")]
+script = ExtResource("5_obpke")
+zoom_scale = 0.6
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -715,13 +718,16 @@ position = Vector2(0.33485413, 0.42222214)
 scale = Vector2(0.9999999, 0.99999976)
 shape = SubResource("RectangleShape2D_u5yh1")
 
+[node name="Camera2D2" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("8_06pqo")]
+unique_name_in_owner = true
+position = Vector2(574, -817)
+zoom_scale = 0.6
+subject = NodePath("../player")
+
 [node name="player" parent="." instance=ExtResource("7_k3fly")]
 position = Vector2(191, 321)
 scale = Vector2(0.5, 0.5)
-
-[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("8_06pqo")]
-position = Vector2(574, -817)
-subject = NodePath("../player")
+inventory = Array[int]([0, 5])
 
 [node name="Ground" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
