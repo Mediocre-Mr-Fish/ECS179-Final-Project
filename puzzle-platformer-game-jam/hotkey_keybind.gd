@@ -30,6 +30,8 @@ func set_action_name() -> void:
 			label.text = "Reset"
 		"menu":
 			label.text = "Menu"
+		"torch_interact":
+			label.text = "Interactions"
 		"hint":
 			label.text = "Hint Popup"
 
