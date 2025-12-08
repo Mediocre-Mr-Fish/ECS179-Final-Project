@@ -14,18 +14,19 @@ var existant: bool = true
 func _ready() -> void:
 	bridge.modulate = colors.getColorFromEnum(objectColor)
 
+func _set_active(active: bool) -> void:
+	bridge.visible = active
+	bridge.collision_enabled = active
+	if collision:
+		collision.disabled = not active
+
 func should_be_visible()->bool:
 	if not camera:
 		return false
 	return objectColor == camera.subject.currentColor and camera.overlay.visible
 
 func _process(delta: float) -> void:
-	if should_be_visible() and existant:
-		bridge.visible = true
-		bridge.collision_enabled = true
-	else:
-		bridge.visible = false
-		bridge.collision_enabled = false
+	_set_active(should_be_visible() and existant)
 
 func determinism_update()->void:
 	if determined and existant:
