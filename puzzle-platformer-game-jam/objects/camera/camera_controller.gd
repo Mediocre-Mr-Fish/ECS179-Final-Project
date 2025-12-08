@@ -65,36 +65,30 @@ func _camera_logic(_delta:float) -> void:
 	
 	if (subject_offset.x < pushbox_position.x - pushbox_size.x / 2
 			and subject.velocity.x < 0):
-		pushbox_position.x = clampf(
-				pushbox_position.x + pushbox_speed * _delta,
-				pushbox_top_left.x,
-				pushbox_bot_right.x,
-		)
+		pushbox_position.x += pushbox_speed * _delta
 		
 	if (subject_offset.x > pushbox_position.x + pushbox_size.x / 2
 			and subject.velocity.x > 0):
-		pushbox_position.x = clampf(
-				pushbox_position.x - pushbox_speed * _delta,
-				pushbox_top_left.x,
-				pushbox_bot_right.x,
-		)
+		pushbox_position.x -= pushbox_speed * _delta
 	
 	if (subject_offset.y < pushbox_position.y - pushbox_size.y / 2
 			and subject.velocity.y < 0):
-		pushbox_position.y = clampf(
-				pushbox_position.y + pushbox_speed * _delta,
-				pushbox_top_left.y,
-				pushbox_bot_right.y,
-		)
+		pushbox_position.y += pushbox_speed * _delta
 		
 	if (subject_offset.y > pushbox_position.y + pushbox_size.y / 2
 			and subject.velocity.y > 0):
-		pushbox_position.y = clampf(
-				pushbox_position.y - pushbox_speed * _delta,
-				pushbox_top_left.y,
-				pushbox_bot_right.y,
-		)
+		pushbox_position.y -= pushbox_speed * _delta
 	
+	pushbox_position.x = clampf(
+			pushbox_position.x,
+			pushbox_top_left.x,
+			pushbox_bot_right.x,
+	)
+	pushbox_position.y = clampf(
+			pushbox_position.y,
+			pushbox_top_left.y,
+			pushbox_bot_right.y,
+	)
 	target_offset.x = clampf(
 			target_offset.x,
 			pushbox_position.x - pushbox_size.x / 2,
