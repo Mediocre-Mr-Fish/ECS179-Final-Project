@@ -151,6 +151,11 @@ modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
 layout_mode = 2
 action_name = "hint"
 
+[node name="Hotkey_Keybind10" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "torch_interact"
+
 [node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 2
