@@ -208,3 +208,11 @@ script = ExtResource("11_v0cbu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Hurtbox"]
 position = Vector2(1520, 280)
 shape = SubResource("RectangleShape2D_5pn2a")
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1788.0
+offset_top = -1167.0
+offset_right = 4105.0
+offset_bottom = 1470.0
+color = Color(0, 0, 0, 1)

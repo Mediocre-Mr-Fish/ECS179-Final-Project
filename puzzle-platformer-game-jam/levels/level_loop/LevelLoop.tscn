@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d1mslew7b65ix" path="res://assets/Lighting/inverse_square_light_1024.png" id="3_0a4s2"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="3_8hr7c"]
 [ext_resource type="Texture2D" uid="uid://dja82uo763102" path="res://assets/World/Desert/desert-8x8/sprites/desert_brickwall_background_normal_map.png" id="3_boccd"]
-[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="4_0a4s2"]
+[ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="4_0a4s2"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="5_cp5jv"]
 [ext_resource type="Texture2D" uid="uid://4aar73wq5jw5" path="res://assets/Objects/Treasure/crown.png" id="5_d7ep7"]
 [ext_resource type="Texture2D" uid="uid://c2ek7i1n7k8kf" path="res://assets/World/Desert/desert-8x8/sprites/desert_brickwall_background.png" id="6_boccd"]
@@ -216,11 +216,11 @@ position = Vector2(-240, -37)
 
 [node name="FarPast" type="Node2D" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="Lighting" type="Node2D" parent="FarPast"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="FarPast/Lighting"]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Decoration" type="Node2D" parent="FarPast"]
@@ -840,3 +840,12 @@ texture = ExtResource("12_8wp0b")
 
 [node name="ThePainting" parent="Present/Painting" instance=ExtResource("13_lwnbc")]
 position = Vector2(1199, -138)
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -1788.0
+offset_top = -1167.0
+offset_right = 4105.0
+offset_bottom = 1470.0
+color = Color(0, 0, 0, 1)

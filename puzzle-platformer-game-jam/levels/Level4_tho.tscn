@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cocwgmidp6chg" path="res://Level Props/surprise.gd" id="7_2e3ev"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="7_k3fly"]
 [ext_resource type="Texture2D" uid="uid://btoxppu4qrve6" path="res://assets/Buttons/door.png" id="7_qrxt7"]
-[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="8_06pqo"]
+[ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="8_06pqo"]
 [ext_resource type="Script" uid="uid://bqqvy15qfqwyj" path="res://Level Props/fake_out.gd" id="8_qrxt7"]
 [ext_resource type="Script" uid="uid://cbxepuihpbanx" path="res://Level Props/falling_platform.gd" id="8_x6mvt"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="9_u5yh1"]
@@ -830,6 +830,14 @@ horizontal_alignment = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_1s8do")
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1788.0
+offset_top = -1167.0
+offset_right = 4105.0
+offset_bottom = 1470.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="Level/All Platforms/Practice Tiles/Area2D" to="Level/All Platforms/Practice Tiles" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Level/All Platforms/Practice Tiles2/Area2D" to="Level/All Platforms/Practice Tiles2" method="_on_area_2d_body_entered"]

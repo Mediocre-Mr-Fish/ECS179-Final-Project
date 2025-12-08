@@ -364,7 +364,7 @@ parameters/conditions/run = false
 parameters/conditions/torch = false
 parameters/conditions/untorch = false
 
-[node name="SoundPlayer" parent="." instance=ExtResource("6_lalkq")]
+[node name="AutoloadAudioPlayer" parent="." instance=ExtResource("6_lalkq")]
 
 [node name="Death" type="Sprite2D" parent="."]
 visible = false
