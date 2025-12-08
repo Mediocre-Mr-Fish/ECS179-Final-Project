@@ -27,12 +27,7 @@ extends Camera2D
 			global_position = subject.global_position + floating_offset
 
 
-enum Overlay {
-	NONE,
-	GREEN,
-}
-
-var current_overlay:Overlay = Overlay.NONE
+var current_overlay:Colors.FilterColors
 # pair of ints that describe camera shift direction. Values are only -1, 0, 1. Checked using <0, >0, ==0
 var shift_tri_state: Vector2i = Vector2i.ZERO
 var is_shifted: bool = false
@@ -187,6 +182,8 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("filter_activate"):
 		overlay.visible = false
 
-func setColor(color):
+
+func setColor(color: Colors.FilterColors):
+	current_overlay = color
 	overlay.modulate = colors.getColorFromEnum(color)
 	inventoryHandler.switchColor(color)

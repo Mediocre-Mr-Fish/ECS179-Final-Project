@@ -149,6 +149,7 @@ texture = ExtResource("3_qcwkq")
 stretch_mode = 1
 
 [node name="player" parent="." instance=ExtResource("4_5pn2a")]
+unique_name_in_owner = true
 position = Vector2(147, 263)
 scale = Vector2(0.5, 0.5)
 inventory = Array[int]([0, 5])
@@ -174,6 +175,7 @@ position = Vector2(814, 3097)
 shape = SubResource("RectangleShape2D_nn0v1")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_xcmrh")]
+unique_name_in_owner = true
 position = Vector2(574, -817)
 subject = NodePath("../player")
 
@@ -186,6 +188,7 @@ tile_set = SubResource("TileSet_xcmrh")
 script = ExtResource("9_5pn2a")
 visuals = [NodePath("TileMapLayer")]
 collisions = [NodePath("StaticBody2D/CollisionShape2D")]
+seen_action = null
 touch_action = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Wall"]
