@@ -162,6 +162,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_xy2vu")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1, 0.5)
 script = ExtResource("3_iysm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

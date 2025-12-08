@@ -97,7 +97,7 @@ scene_path = "res://levels/Level4_tho.tscn"
 [node name="lvl5" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl5"
-scene_path = "res://levels/Level5.tscndddd"
+scene_path = "res://levels/level5_brian.tscn"
 
 [node name="lvl6" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
