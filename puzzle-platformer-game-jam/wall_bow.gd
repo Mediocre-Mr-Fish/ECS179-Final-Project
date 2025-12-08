@@ -10,14 +10,13 @@ func _ready():
 func fire_anim():
 	print("arrow debug1")
 	sprite.animation = "firing"
-	sprite.play("firing")
+	sprite.play()
 	await sprite.animation_finished
 	_on_animation_finished()
 	
-	
 func _on_animation_finished():
 	if sprite.animation == "firing":
-		#sprite.play("firing")
+		sprite.play("firing")
 		print("arrow debug2")
 		shoot()
 		sprite.play("empty")
@@ -28,14 +27,14 @@ func _on_animation_finished():
 			sprite.play("idle")
 		
 		
+	
 func shoot():
 	var instance = arrow.instantiate()
 	
 	instance.dir = rotation
 	instance.spawn_pos = global_position 
 	instance.spawn_rot = global_rotation
-	instance.zdex = z_index 
-	#call_deferred("add_child", instance)
-	print("arrow shot")
+	instance.zdex = z_index - 1
+
 	get_parent().add_child(instance)
-	
+	print("arrow spawned")

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="3_h8oof"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="4_rd3y7"]
 [ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="5_ldhjt"]
-[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="5_qlmxs"]
+[ext_resource type="PackedScene" uid="uid://dw1xcfi4m6pc3" path="res://objects/player/Player.tscn" id="5_qlmxs"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="6_oq8ku"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_mppvi"]
 [ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="7_nqeel"]
