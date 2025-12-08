@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b3tycvd50f06t"]
+[gd_scene load_steps=34 format=3 uid="uid://b3tycvd50f06t"]
 
 [ext_resource type="Script" uid="uid://cnif7fgpw4n3x" path="res://objects/player/player_controller.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dyfwvhmqw0txo" path="res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3.png" id="2_h7ooo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b5hf8j1tluq3w" path="res://touch_hit_box.gd" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://cco14dfocmfkh" path="res://assets/Beholden Assets/overlay_red.png" id="5_cxr5p"]
 [ext_resource type="PackedScene" uid="uid://dkqjsav0kklvt" path="res://audio_control/AudioPlayer.tscn" id="6_lalkq"]
+[ext_resource type="Script" uid="uid://g5x21c2yqion" path="res://objects/player/player_hurt_box.gd" id="6_t2uaq"]
 
 [sub_resource type="Gradient" id="Gradient_lwnbc"]
 interpolation_mode = 2
@@ -249,11 +250,15 @@ texture_scale = 2.0
 height = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="PlayerHurtBox" type="Area2D" parent="."]
+script = ExtResource("6_t2uaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
 shape = SubResource("RectangleShape2D_kpjcp")
 
 [node name="TouchHitBox" type="Area2D" parent="."]
-visible = false
 script = ExtResource("3_kne1u")
 
 [node name="StaticShape" type="CollisionShape2D" parent="TouchHitBox"]
@@ -275,12 +280,6 @@ visible = false
 position = Vector2(0, -7.6293945e-06)
 scale = Vector2(1, 2.0625)
 texture = ExtResource("5_cxr5p")
-
-[node name="PlayerHurtBox" type="Area2D" parent="."]
-script = ExtResource("6_t2uaq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
-shape = SubResource("RectangleShape2D_kpjcp")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
