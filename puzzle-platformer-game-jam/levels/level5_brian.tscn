@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_ldhjt"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="4_rd3y7"]
 [ext_resource type="PackedScene" uid="uid://dw1xcfi4m6pc3" path="res://objects/player/Player.tscn" id="5_qlmxs"]
-[ext_resource type="Script" path="res://objects/indeterminate_object/filtered_visble_tangible.gd" id="6_gjyow"]
+[ext_resource type="Script" uid="uid://u7kg5kmahcs4" path="res://objects/indeterminate_object/filtered_visble_tangible.gd" id="6_gjyow"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_mppvi"]
 [ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="7_nqeel"]
 [ext_resource type="PackedScene" uid="uid://bbcckirjlcdtp" path="res://objects/item/item.tscn" id="7_oq8ku"]
@@ -86,22 +86,22 @@ size = Vector2(241, 85)
 size = Vector2(239, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4xj8"]
-size = Vector2(75, 157)
+size = Vector2(74, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjyow"]
-size = Vector2(76, 158)
+size = Vector2(79, 161)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa4sx"]
-size = Vector2(79, 321)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogm8u"]
-size = Vector2(80, 314)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t55ng"]
 size = Vector2(84, 319)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogm8u"]
+size = Vector2(83, 322)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t55ng"]
+size = Vector2(79, 319)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f306"]
-size = Vector2(80, 319)
+size = Vector2(81, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52ibe"]
 size = Vector2(80, 315)
@@ -326,14 +326,14 @@ tile_set = SubResource("TileSet_t55ng")
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/column1/green"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/column1/green/StaticBody2D"]
-position = Vector2(3881.5, 479.5)
+position = Vector2(3881, 481)
 shape = SubResource("RectangleShape2D_v4xj8")
 
 [node name="Hurtbox" type="Area2D" parent="Level/column1/green"]
 script = ExtResource("8_sa4sx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/column1/green/Hurtbox"]
-position = Vector2(3882, 479)
+position = Vector2(3882.5, 480.5)
 shape = SubResource("RectangleShape2D_gjyow")
 
 [node name="red" type="Node2D" parent="Level/column1" node_paths=PackedStringArray("visuals", "collisions")]
@@ -351,14 +351,14 @@ tile_set = SubResource("TileSet_t55ng")
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/column1/red"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/column1/red/StaticBody2D"]
-position = Vector2(3880.5, 399.5)
+position = Vector2(3884, 400.5)
 shape = SubResource("RectangleShape2D_sa4sx")
 
 [node name="Hurtbox" type="Area2D" parent="Level/column1/red"]
 script = ExtResource("8_sa4sx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/column1/red/Hurtbox"]
-position = Vector2(3883, 402)
+position = Vector2(3881.5, 400)
 shape = SubResource("RectangleShape2D_ogm8u")
 
 [node name="blue" type="Node2D" parent="Level/column1" node_paths=PackedStringArray("visuals", "collisions")]
@@ -376,14 +376,14 @@ tile_set = SubResource("TileSet_t55ng")
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/column1/blue"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/column1/blue/StaticBody2D"]
-position = Vector2(3882, 400.5)
+position = Vector2(3879.5, 400.5)
 shape = SubResource("RectangleShape2D_t55ng")
 
 [node name="Hurtbox" type="Area2D" parent="Level/column1/blue"]
 script = ExtResource("8_sa4sx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/column1/blue/Hurtbox"]
-position = Vector2(3882, 400.5)
+position = Vector2(3879.5, 399)
 shape = SubResource("RectangleShape2D_0f306")
 
 [node name="column2" type="Node2D" parent="Level"]
@@ -421,7 +421,7 @@ touch_action = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Level/column2/red"]
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAwAAYAAAAFAAQAAAAwAAUAAAAFAAQAAAAwAAQAAAAFAAQAAAAwAAMAAAAFAAMAAAA6AAUAAAAFAAMAAAA6AAYAAAAFAAQAAAA=")
+tile_map_data = PackedByteArray("AAA6AAUAAAAFAAMAAAA6AAYAAAAFAAQAAAA=")
 tile_set = SubResource("TileSet_t55ng")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/column2/red"]
@@ -446,7 +446,7 @@ touch_action = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Level/column2/blue"]
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAwAAMAAAAFAAMAAAAwAAQAAAAFAAQAAAAwAAUAAAAFAAQAAAAwAAYAAAAFAAQAAAA=")
+tile_map_data = PackedByteArray("AAA6AAMAAAAFAAMAAAA6AAQAAAAFAAQAAAA6AAUAAAAFAAQAAAA6AAYAAAAFAAQAAAA=")
 tile_set = SubResource("TileSet_t55ng")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/column2/blue"]
@@ -472,7 +472,7 @@ touch_action = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Level/column3/green"]
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAwAAYAAAAFAAQAAABJAAMAAAAFAAMAAABJAAQAAAAFAAQAAABJAAUAAAAFAAQAAABJAAYAAAAFAAQAAAA=")
+tile_map_data = PackedByteArray("AABJAAQAAAAFAAQAAABJAAUAAAAFAAQAAABJAAYAAAAFAAQAAABJAAMAAAAFAAMAAAA=")
 tile_set = SubResource("TileSet_t55ng")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/column3/green"]
@@ -497,7 +497,7 @@ touch_action = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Level/column3/red"]
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AABJAAQAAAAFAAQAAABJAAUAAAAFAAQAAABJAAYAAAAFAAQAAABJAAMAAAAFAAMAAAA=")
+tile_map_data = PackedByteArray("AABJAAMAAAAFAAMAAABJAAQAAAAFAAQAAABJAAUAAAAFAAQAAABJAAYAAAAFAAQAAAA=")
 tile_set = SubResource("TileSet_t55ng")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/column3/red"]
