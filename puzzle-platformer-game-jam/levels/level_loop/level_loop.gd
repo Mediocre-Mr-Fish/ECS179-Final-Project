@@ -47,14 +47,14 @@ func _handle_torch_mechanics() -> void:
 func _handle_darkness_warning() -> void:
 	if current_room_age == RoomAge.PRESENT:
 		if not player.is_player_torch_light_on():
-			guide.this_is_too_dark.visible = true
+			guide.show_prompt(guide.this_is_too_dark)
 			# Only set the flag once when warning is first shown
 			if not player.is_saw_darkness_warning:
 				player.is_saw_darkness_warning = true
 		else:
-			guide.this_is_too_dark.visible = false
+			guide.hide_prompt(guide.this_is_too_dark)
 	else:
-		guide.this_is_too_dark.visible = false
+		guide.hide_prompt(guide.this_is_too_dark)
 
 
 func _handle_torch_lighting() -> void:
@@ -68,20 +68,20 @@ func _handle_torch_lighting() -> void:
 			
 			# Show prompt to light torch if player has torch but it's not lit
 			if player.has_torch() and player.is_torch_out() and not player.is_player_torch_light_on():
-				guide.press_e_to_light_torch.visible = true
+				guide.show_prompt(guide.press_e_to_light_torch)
 				
 				# Light the torch when E is pressed
 				if Input.is_action_just_pressed("torch_interact"):
 					player.light_torch()
-					guide.press_e_to_light_torch.visible = false
+					guide.hide_prompt(guide.press_e_to_light_torch)
 					torch_interact_consumed = true
 			else:
-				guide.press_e_to_light_torch.visible = false
+				guide.hide_prompt(guide.press_e_to_light_torch)
 			break
 	
 	# Hide prompt when not near any light source
 	if not is_near_light_source:
-		guide.press_e_to_light_torch.visible = false
+		guide.hide_prompt(guide.press_e_to_light_torch)
 	
 	# Update player state
 	player.set_near_light_source(is_near_light_source)

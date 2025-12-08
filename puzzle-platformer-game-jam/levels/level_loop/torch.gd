@@ -15,12 +15,17 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var distance_to_player: float = position.distance_to(player.position)
+	
 	if distance_to_player < visible_distance and not is_torch_being_taken and player.is_saw_darkness_warning == true:
 		torch_sprite.frame = 0
-		# Show pick up prompt only in non-FARPAST rooms
-		if level_loop != null and level_loop.current_room_age != level_loop.RoomAge.FARPAST:
+		# Show pick up prompt only in non-FARPAST rooms (or if level_loop is not set)
+		var can_pick_up = true
+		if level_loop != null:
+			can_pick_up = level_loop.current_room_age != level_loop.RoomAge.FARPAST
+		
+		if can_pick_up:
 			if guide:
-				guide.press_e_to_pick_up_torch.visible = true
+				guide.show_prompt(guide.press_e_to_pick_up_torch)
 			
 			# Allow picking up torch only when prompt is shown
 			if Input.is_action_just_pressed("torch_interact"):
@@ -29,14 +34,14 @@ func _physics_process(delta: float) -> void:
 				is_torch_being_taken = true
 				visible = false
 				if guide:
-					guide.press_e_to_pick_up_torch.visible = false
+					guide.hide_prompt(guide.press_e_to_pick_up_torch)
 		else:
-			# Hide prompt in FARPAST or when level_loop is null
+			# Hide prompt in FARPAST
 			if guide:
-				guide.press_e_to_pick_up_torch.visible = false
+				guide.hide_prompt(guide.press_e_to_pick_up_torch)
 	else:
 		torch_sprite.frame = 1
 		if guide and not is_torch_being_taken:
-			guide.press_e_to_pick_up_torch.visible = false
+			guide.hide_prompt(guide.press_e_to_pick_up_torch)
 		
 	return

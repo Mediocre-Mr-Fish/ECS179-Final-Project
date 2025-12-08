@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://ru5hopewms17"]
+[gd_scene load_steps=30 format=4 uid="uid://ru5hopewms17"]
 
 [ext_resource type="Script" uid="uid://cp01n82ou5v1f" path="res://levels/level_loop/level_loop.gd" id="1_ja8hb"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="2_lwnbc"]
@@ -24,6 +24,19 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_icmin"]
 diffuse_texture = ExtResource("6_boccd")
 normal_texture = ExtResource("3_boccd")
+
+[sub_resource type="Gradient" id="Gradient_d7ep7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.23106061, 0.45833334, 0.7651515)
+colors = PackedColorArray(1, 1, 1, 1, 0.72988504, 0.72988504, 0.72988504, 0.72988504, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q5w88"]
+gradient = SubResource("Gradient_d7ep7")
+width = 500
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mppvi"]
 texture = ExtResource("5_cp5jv")
@@ -146,6 +159,11 @@ scale = Vector2(0.5, 0.5)
 z_index = 3
 position = Vector2(0, -344)
 crown = NodePath("../../Crown")
+
+[node name="PointLight2D" type="PointLight2D" parent="player/Guide"]
+position = Vector2(6, -22)
+scale = Vector2(3.1478508, 2.1916497)
+texture = SubResource("GradientTexture2D_q5w88")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("4_0a4s2")]
 position = Vector2(574, -817)
@@ -591,7 +609,7 @@ script = ExtResource("16_cp5jv")
 player = NodePath("../../player")
 guide = NodePath("../../player/Guide")
 visible_distance = 200.0
-level_loop = NodePath("../../Level")
+level_loop = NodePath("../..")
 
 [node name="TorchSprite2D" type="Sprite2D" parent="Past/Torch"]
 scale = Vector2(3, 3)
@@ -605,7 +623,6 @@ visible = false
 [node name="Lighting" type="Node2D" parent="Present"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Present/Lighting"]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Decoration" type="Node2D" parent="Present"]

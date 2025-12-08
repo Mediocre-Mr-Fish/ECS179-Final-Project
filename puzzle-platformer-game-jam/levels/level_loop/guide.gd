@@ -15,31 +15,54 @@ var _is_crown_picked_up: bool = false
 var distance_to_treasure: float = 0.0
 
 func _ready() -> void:
+	visible = false
 	treaure_is_ahead.visible = false
 	press_e_to_pick_up.visible = false
 	press_e_to_pick_up_torch.visible = false
 	time_to_leave.visible = false
 	press_e_to_light_torch.visible = false
+	this_is_too_dark.visible = false
 
 	show_num_seconds(treaure_is_ahead,3)
 
 func _physics_process(delta: float) -> void:
-	
 	if _is_crown_picked_up == false:
 		distance_to_treasure = player.position.distance_to(crown.position)
 		if distance_to_treasure < 200.0:
-			press_e_to_pick_up.visible = true
+			show_prompt(press_e_to_pick_up)
 			if Input.is_action_just_pressed("torch_interact"):
 				_is_crown_picked_up = true
 				crown.queue_free()
 				show_num_seconds(time_to_leave,3)
 		else:
-			press_e_to_pick_up.visible = false
+			hide_prompt(press_e_to_pick_up)
 	else:
-		press_e_to_pick_up.visible = false
+		hide_prompt(press_e_to_pick_up)
+	
+	# Check if any prompt is visible, if not hide the guide itself
+	_update_guide_visibility()
 
 	
 func show_num_seconds(node: TabBar, seconds: int) -> void:
-	node.visible = true
+	show_prompt(node)
 	await get_tree().create_timer(seconds).timeout
+	hide_prompt(node)
+
+
+# Helper function to show a prompt and make guide visible
+func show_prompt(node: TabBar) -> void:
+	visible = true
+	node.visible = true
+
+
+# Helper function to hide a prompt
+func hide_prompt(node: TabBar) -> void:
 	node.visible = false
+
+
+# Update guide visibility based on whether any prompt is showing
+func _update_guide_visibility() -> void:
+	var any_visible = treaure_is_ahead.visible or press_e_to_pick_up.visible or \
+					  press_e_to_pick_up_torch.visible or time_to_leave.visible or \
+					  this_is_too_dark.visible or press_e_to_light_torch.visible
+	visible = any_visible
