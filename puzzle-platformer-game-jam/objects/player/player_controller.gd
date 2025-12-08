@@ -12,6 +12,14 @@ enum FacingY{
 	NEUTRAL,
 	DOWN,
 }
+enum Items{
+	BEHOLDER,
+	LASSO,
+	TORCH,
+	RED,
+	BLUE,
+	GREEN,
+}
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -950.0
@@ -19,12 +27,16 @@ const SLOW_FALL_RATIO = 0.4
 const GRAVITY_CORRECTION_RATIO = 2.5
 const IN_THE_AIR_ACCELERATION_RATIO = 0.05
 
+@export var inventory: Array[Items] = []
 @export var menu_route: String
 @export var pushForce: float = 100.0
 @export var forwards_box_extender_ratio: float = 0.1
 
 var facing:Facing = Facing.RIGHT
 var facing_y:FacingY = FacingY.NEUTRAL
+
+# 'Has' should be depreciated and replaced with the inventory system, but whatever
+# Imma leave this in cause it might break y'alls code if I change it - Wen
 var hasBeholder = false
 var hasLasso = false
 var hasTorch = false
@@ -53,7 +65,24 @@ func _ready() -> void:
 	sprite.change_facing(self)
 	animation_tree.active = true
 	sprite.texture = torch_light_off_texture
-	
+	for i in inventory:
+		match i:
+			Items.BEHOLDER:
+				hasBeholder = true
+			Items.TORCH:
+				hasTorch = true
+				_is_having_torch = true
+			Items.LASSO:
+				hasLasso = true
+			Items.RED:
+				beholder.append(colors.FilterColors.RED)
+				currentColor = colors.FilterColors.RED
+			Items.GREEN:
+				beholder.append(colors.FilterColors.GREEN)
+				currentColor = colors.FilterColors.GREEN
+			Items.BLUE:
+				beholder.append(colors.FilterColors.BLUE)
+				currentColor = colors.FilterColors.BLUE
 	
 
 func _physics_process(delta: float) -> void:

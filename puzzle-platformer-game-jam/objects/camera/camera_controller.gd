@@ -179,6 +179,9 @@ func _process(_delta: float) -> void:
 			camera_hit_box._on_area_entered(area)
 
 	if Input.is_action_just_pressed("filter_activate"):
+		if subject.currentColor == null:
+			return
+		setColor(subject.currentColor)
 		overlay.visible = true
 
 	if Input.is_action_just_released("filter_activate"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bt6ny7gkud23l"]
+[gd_scene load_steps=12 format=3 uid="uid://df05sh52lygxh"]
 
 [ext_resource type="Script" uid="uid://dwnoc5aykltka" path="res://objects/camera/camera_controller.gd" id="1_a02ee"]
 [ext_resource type="Script" uid="uid://f4p8xu7pweaq" path="res://objects/camera/camera_hitbox.gd" id="2_75niw"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyefh"]
 size = Vector2(1151.9998, 655)
+
+[sub_resource type="LabelSettings" id="LabelSettings_44s4m"]
+font_size = 32
 
 [node name="Camera2D" type="Camera2D"]
 script = ExtResource("1_a02ee")
@@ -28,7 +31,7 @@ camera = NodePath("..")
 position = Vector2(-0.00012159346, -0.5)
 shape = SubResource("RectangleShape2D_eyefh")
 
-[node name="Debug" type="Sprite2D" parent="."]
+[node name="OverlayDebug" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(2.7656555e-05, 7.6293945e-06)
 scale = Vector2(4.5, 2.5625002)
@@ -152,3 +155,12 @@ offset_right = -3.7346306
 offset_bottom = -68.0
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="DebugHUD" type="Label" parent="."]
+visible = false
+offset_left = -544.0
+offset_top = -304.0
+offset_right = -175.0
+offset_bottom = -233.0
+text = "Subject Position"
+label_settings = SubResource("LabelSettings_44s4m")
