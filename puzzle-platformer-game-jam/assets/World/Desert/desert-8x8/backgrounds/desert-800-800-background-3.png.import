@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg1qxk85n5khc"
-path="res://.godot/imported/desert-800x256-background-combined.png-6f546d48cd2b4154bc35eb3206b8bb9e.ctex"
+uid="uid://bhr270j12tjoi"
+path="res://.godot/imported/desert-800-800-background-3.png-896055ba1712f3a029ae1a9893f1ab17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/World/Desert/desert-8x8/desert-800x256-background-combined.png"
-dest_files=["res://.godot/imported/desert-800x256-background-combined.png-6f546d48cd2b4154bc35eb3206b8bb9e.ctex"]
+source_file="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-800-background-3.png"
+dest_files=["res://.godot/imported/desert-800-800-background-3.png-896055ba1712f3a029ae1a9893f1ab17.ctex"]
 
 [params]
 

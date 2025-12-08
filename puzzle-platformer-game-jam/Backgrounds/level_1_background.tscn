@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqyr2ukdesbr"]
+[gd_scene load_steps=10 format=3 uid="uid://dqyr2ukdesbr"]
 
-[ext_resource type="Texture2D" uid="uid://bjv860pvx1pfa" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-1.png" id="1_7cykc"]
 [ext_resource type="Script" uid="uid://c54gsryluku02" path="res://Backgrounds/parallax_layer.gd" id="1_wmpv6"]
-[ext_resource type="Texture2D" uid="uid://cvu5qs2wwwkxi" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-2.png" id="2_5tcd0"]
-[ext_resource type="Texture2D" uid="uid://k3j65jmvifju" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-3.png" id="3_cpdx8"]
-[ext_resource type="Texture2D" uid="uid://c8ger0i6omha2" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-256-background-5.png" id="4_cj6hi"]
-[ext_resource type="Shader" path="res://Backgrounds/level_background.gdshader" id="5_av68r"]
+[ext_resource type="Texture2D" uid="uid://dpqvve71aoatg" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-800-background-1.png" id="4_p1qjs"]
+[ext_resource type="Shader" uid="uid://dpvlp1c0yihnd" path="res://Backgrounds/level_background.gdshader" id="5_av68r"]
 [ext_resource type="Texture2D" uid="uid://b7dq0lmlgjc84" path="res://assets/World/Clouds/Clouds_bg.png" id="5_cj6hi"]
+[ext_resource type="Texture2D" uid="uid://fyxlvihbcke7" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-800-background-2.png" id="5_fn7kt"]
+[ext_resource type="Texture2D" uid="uid://bhr270j12tjoi" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-800-background-3.png" id="6_uo4ny"]
+[ext_resource type="Texture2D" uid="uid://d8ajm67aypur" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-800-background-4.png" id="7_wseeb"]
+[ext_resource type="Texture2D" uid="uid://bivvis7ka2hj2" path="res://assets/World/Desert/desert-8x8/backgrounds/desert-800-800-background-5.png" id="8_nihb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wmpv6"]
 shader = ExtResource("5_av68r")
@@ -30,14 +31,23 @@ scale = Vector2(1.6, 1.6)
 transform = Transform2D(1.6, 0, 0, 1.6, 0, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0.47)
 motion_mirroring = Vector2(1152, 0)
 script = ExtResource("1_wmpv6")
 
+[node name="Clouds" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_wmpv6")
+offset_top = -58.0
+offset_right = 1152.0
+offset_bottom = 590.0
+texture = ExtResource("5_cj6hi")
+
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 3
-position = Vector2(576, -30)
+position = Vector2(576, 643.1251)
 scale = Vector2(1.44, 2.5312502)
-texture = ExtResource("1_7cykc")
+texture = ExtResource("4_p1qjs")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 offset = Vector2(0, 75)
@@ -45,13 +55,29 @@ scale = Vector2(1.6, 1.6)
 transform = Transform2D(1.6, 0, 0, 1.6, 0, 75)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0.075, 0.541)
 motion_mirroring = Vector2(1152, 0)
 script = ExtResource("1_wmpv6")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2(576, -10)
+position = Vector2(576, 663.1251)
 scale = Vector2(1.44, 2.5312502)
-texture = ExtResource("2_5tcd0")
+texture = ExtResource("5_fn7kt")
+
+[node name="ParallaxBackground5" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 75)
+scale = Vector2(1.6, 1.6)
+transform = Transform2D(1.6, 0, 0, 1.6, 0, 75)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground5"]
+motion_scale = Vector2(0.12, 0.625)
+motion_mirroring = Vector2(1152, 0)
+script = ExtResource("1_wmpv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground5/ParallaxLayer"]
+position = Vector2(576, 733.1251)
+scale = Vector2(1.44, 2.5312502)
+texture = ExtResource("6_uo4ny")
 
 [node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
 offset = Vector2(0, 75)
@@ -59,13 +85,14 @@ scale = Vector2(1.6, 1.6)
 transform = Transform2D(1.6, 0, 0, 1.6, 0, 75)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_scale = Vector2(0.2, 0.625)
 motion_mirroring = Vector2(1152, 0)
 script = ExtResource("1_wmpv6")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer"]
-position = Vector2(576, 60)
+position = Vector2(576, 733.1251)
 scale = Vector2(1.44, 2.5312502)
-texture = ExtResource("3_cpdx8")
+texture = ExtResource("7_wseeb")
 
 [node name="ParallaxBackground4" type="ParallaxBackground" parent="."]
 offset = Vector2(0, 75)
@@ -73,21 +100,15 @@ scale = Vector2(1.6, 1.6)
 transform = Transform2D(1.6, 0, 0, 1.6, 0, 75)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground4"]
+position = Vector2(0, -20)
+motion_scale = Vector2(0.625, 0.625)
 motion_mirroring = Vector2(1152, 0)
 script = ExtResource("1_wmpv6")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer"]
-position = Vector2(576, 80)
+position = Vector2(576, 753.1251)
 scale = Vector2(1.44, 2.5312502)
-texture = ExtResource("4_cj6hi")
-
-[node name="Clouds" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_wmpv6")
-offset_top = -58.0
-offset_right = 1152.0
-offset_bottom = 590.0
-texture = ExtResource("5_cj6hi")
+texture = ExtResource("8_nihb1")
 
 [node name="Sky2" type="ColorRect" parent="."]
 z_index = -1
