@@ -134,7 +134,7 @@ texture_normal = SubResource("AtlasTexture_xao2u")
 texture_pressed = SubResource("AtlasTexture_b1fnv")
 texture_hover = SubResource("AtlasTexture_yqvmf")
 script = ExtResource("2_gbx6r")
-scene_path = "res://screens/levelselect.tscn"
+scene_path = "res://screens/levelselection.tscn"
 
 [connection signal="pressed" from="test" to="test" method="_on_pressed"]
 [connection signal="pressed" from="start" to="start" method="_on_pressed"]
