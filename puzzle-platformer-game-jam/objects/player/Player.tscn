@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dw1xcfi4m6pc3"]
+[gd_scene load_steps=42 format=3 uid="uid://b3tycvd50f06t"]
 
 [ext_resource type="Script" uid="uid://cnif7fgpw4n3x" path="res://objects/player/player_controller.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dyfwvhmqw0txo" path="res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3.png" id="2_h7ooo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b5hf8j1tluq3w" path="res://touch_hit_box.gd" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://cco14dfocmfkh" path="res://assets/Beholden Assets/overlay_red.png" id="5_cxr5p"]
 [ext_resource type="PackedScene" uid="uid://dkqjsav0kklvt" path="res://audio_control/AudioPlayer.tscn" id="6_lalkq"]
+[ext_resource type="Script" path="res://objects/player/player_hurt_box.gd" id="6_t2uaq"]
 [ext_resource type="Texture2D" uid="uid://dretumwrf38js" path="res://assets/Adventure_Platformer/Player/Player_Death.png" id="7_t2uaq"]
 
 [sub_resource type="Gradient" id="Gradient_lwnbc"]
