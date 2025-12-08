@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://dchiqmg6qhjxt"]
+[gd_scene load_steps=63 format=4 uid="uid://dchiqmg6qhjxt"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_fyd7e"]
 [ext_resource type="Script" path="res://levels/level_4_tho.gd" id="1_qsve6"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bg1skxgeudlsj" path="res://Backgrounds/Background_scale.gd" id="5_obpke"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="6_qsve6"]
 [ext_resource type="Script" uid="uid://cocwgmidp6chg" path="res://Level Props/surprise.gd" id="7_2e3ev"]
-[ext_resource type="PackedScene" uid="uid://dw1xcfi4m6pc3" path="res://objects/player/Player.tscn" id="7_k3fly"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="7_k3fly"]
 [ext_resource type="Texture2D" uid="uid://btoxppu4qrve6" path="res://assets/Buttons/door.png" id="7_qrxt7"]
 [ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="8_06pqo"]
 [ext_resource type="Script" uid="uid://bqqvy15qfqwyj" path="res://Level Props/fake_out.gd" id="8_qrxt7"]
@@ -565,8 +565,6 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="TileSet" id="TileSet_1s8do"]
-
 [node name="World4" type="Node2D"]
 script = ExtResource("1_qsve6")
 
@@ -583,7 +581,7 @@ zoom_scale = 0.6
 
 [node name="Exit" parent="Level" instance=ExtResource("3_x6mvt")]
 position = Vector2(5124, 425)
-scene_path = "res://screens/End.tscn"
+scene_path = "res://levels/level_loop/LevelLoop.tscn"
 
 [node name="Bottom Zone Kill" type="Area2D" parent="Level"]
 position = Vector2(1649, 406)
@@ -721,7 +719,6 @@ shape = SubResource("RectangleShape2D_u5yh1")
 [node name="Camera2D2" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("8_06pqo")]
 unique_name_in_owner = true
 position = Vector2(574, -817)
-zoom_scale = 0.6
 subject = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource("7_k3fly")]

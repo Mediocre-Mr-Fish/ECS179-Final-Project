@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://bi6ibikt0wdly"]
+[gd_scene load_steps=12 format=4 uid="uid://bg65c6j74bcqh"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_ldhjt"]
 [ext_resource type="PackedScene" uid="uid://c7ak1eqk8kbg2" path="res://objects/bridge/bridge.tscn" id="3_h8oof"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="4_rd3y7"]
-[ext_resource type="PackedScene" uid="uid://dw1xcfi4m6pc3" path="res://objects/player/Player.tscn" id="5_qlmxs"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="5_qlmxs"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_mppvi"]
 [ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="7_nqeel"]
 [ext_resource type="PackedScene" uid="uid://bbcckirjlcdtp" path="res://objects/item/item.tscn" id="7_oq8ku"]
@@ -167,7 +167,7 @@ disable_collision_shape_when_inactive = true
 
 [node name="Exit" parent="Level" instance=ExtResource("4_rd3y7")]
 position = Vector2(5608, 512)
-scene_path = "res://screens/End.tscn"
+scene_path = "res://levels/Level6.tscn"
 
 [node name="Area2D" type="Area2D" parent="Level"]
 position = Vector2(1649, 406)

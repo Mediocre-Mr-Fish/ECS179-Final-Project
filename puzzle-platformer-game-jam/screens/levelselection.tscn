@@ -122,17 +122,17 @@ scene_path = "res://levels/level5_brian.tscn"
 [node name="lvl10" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl10"
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Level6.tscn"
 
 [node name="lvl11" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl11"
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Level4_tho.tscn"
 
 [node name="lvl12" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl12"
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/level_loop/LevelLoop.tscn"
 
 [node name="lvl13" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
