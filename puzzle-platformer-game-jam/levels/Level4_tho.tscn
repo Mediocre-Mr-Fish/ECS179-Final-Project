@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://dchiqmg6qhjxt"]
+[gd_scene load_steps=63 format=4 uid="uid://dchiqmg6qhjxt"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_fyd7e"]
 [ext_resource type="Script" uid="uid://cx331m440ailt" path="res://levels/level_4_tho.gd" id="1_qsve6"]
@@ -564,6 +564,8 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="TileSet" id="TileSet_1s8do"]
+
 [node name="World4" type="Node2D"]
 script = ExtResource("1_qsve6")
 
@@ -645,7 +647,7 @@ shape = SubResource("RectangleShape2D_2e3ev")
 [node name="Wall" type="TileMapLayer" parent="Level"]
 visible = false
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAiAAQAAAAFAAMAAAAiAAUAAAAFAAQAAAAiAAYAAAAFAAUAAAA=")
+tile_map_data = PackedByteArray("AAAiAAQAAAAFAAQAAAAiAAUAAAAFAAQAAAAiAAYAAAAFAAUAAAAiAAMAAAAFAAQAAAAiAAIAAAAFAAMAAAA=")
 tile_set = SubResource("TileSet_k3fly")
 script = ExtResource("7_2e3ev")
 
@@ -825,6 +827,9 @@ text = "There seems to be fake exists around...
 you must becareful out there!"
 label_settings = SubResource("LabelSettings_0gn75")
 horizontal_alignment = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_1s8do")
 
 [connection signal="body_entered" from="Level/All Platforms/Practice Tiles/Area2D" to="Level/All Platforms/Practice Tiles" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Level/All Platforms/Practice Tiles2/Area2D" to="Level/All Platforms/Practice Tiles2" method="_on_area_2d_body_entered"]

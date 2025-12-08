@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://n0s4ecnxoow5"]
+
+[ext_resource type="Script" uid="uid://divgwkl7rwe8a" path="res://wall_bow.gd" id="1_4m05q"]
+[ext_resource type="Texture2D" uid="uid://jcwq4ic17ayc" path="res://assets/Objects/Trap/Shooter_Arrow_Trap.png" id="2_ce4f1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f3sp"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bely"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7grj"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k8nh"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5fle"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0qbs"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvmym"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2eak"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx1ym"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cqx7"]
+atlas = ExtResource("2_ce4f1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lpmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f3sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bely")
+}],
+"loop": false,
+"name": &"empty",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7grj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k8nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5fle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0qbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvmym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2eak")
+}],
+"loop": true,
+"name": &"firing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx1ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cqx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cqx7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="Wall Bow" type="Node2D"]
+script = ExtResource("1_4m05q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1lpmx")
+animation = &"firing"
+frame_progress = 0.25629282

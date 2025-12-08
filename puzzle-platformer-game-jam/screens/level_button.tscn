@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4ld1r3uwtsw7"]
+
+[ext_resource type="Script" uid="uid://m7lxr35tta26" path="res://screens/level_button.gd" id="1_8eju0"]
+[ext_resource type="Texture2D" uid="uid://cjxn884clhra7" path="res://assets/Buttons/Number Buttons/num_button_template.png" id="1_74xk8"]
+[ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="2_jf5se"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf5se"]
+atlas = ExtResource("1_74xk8")
+region = Rect2(0.9334049, 113.014435, 15.153704, 15.382874)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eju0"]
+atlas = ExtResource("1_74xk8")
+region = Rect2(16.926155, 112.97963, 15.09042, 15.0203705)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swawl"]
+atlas = ExtResource("1_74xk8")
+region = Rect2(33.02265, 112.919464, 15.036327, 15.080536)
+
+[node name="Level Button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1137.0
+offset_bottom = -633.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8eju0")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 15.0
+texture_normal = SubResource("AtlasTexture_jf5se")
+texture_pressed = SubResource("AtlasTexture_8eju0")
+texture_hover = SubResource("AtlasTexture_swawl")
+script = ExtResource("2_jf5se")
+
+[node name="BoxContainer" type="BoxContainer" parent="TextureButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 15.0
+offset_bottom = 15.0
+
+[node name="Label" type="Label" parent="TextureButton/BoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "  0"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

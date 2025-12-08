@@ -8,14 +8,14 @@ func _init() -> void:
 #not used yet
 func get_hit(damage)->void:
 	#print("I got hit!")
-	if self.get_owner().has_method("take_damage"):
-		self.owner.take_damage(damage)
+	if self.get_parent().has_method("take_damage"):
+		self.get_parent().take_damage(damage)
 
 func on_camera(seen:bool)->void:
 	#print("I'm on camera!")
-	if self.get_owner().has_method("on_camera"):
-		self.owner.on_camera(seen)
+	if self.get_parent().has_method("on_camera"):
+		self.get_parent().on_camera(seen)
 
 func on_touch(touched:bool)->void:
-	if self.get_owner().has_method("on_touch"):
-		self.owner.on_touch(touched)
+	if self.get_parent().has_method("on_touch"):
+		self.get_parent().on_touch(touched)

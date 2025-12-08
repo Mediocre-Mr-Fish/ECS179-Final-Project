@@ -12,6 +12,14 @@ enum FacingY{
 	NEUTRAL,
 	DOWN,
 }
+enum Items{
+	BEHOLDER,
+	LASSO,
+	TORCH,
+	RED,
+	BLUE,
+	GREEN,
+}
 
 const SPEED = 1200.0
 const JUMP_VELOCITY = -950.0
@@ -19,17 +27,26 @@ const SLOW_FALL_RATIO = 0.4
 const GRAVITY_CORRECTION_RATIO = 2.5
 const IN_THE_AIR_ACCELERATION_RATIO = 0.05
 
+@export var inventory: Array[Items] = []
 @export var menu_route: String
 @export var pushForce: float = 100.0
 @export var forwards_box_extender_ratio: float = 0.1
 
 var facing:Facing = Facing.RIGHT
 var facing_y:FacingY = FacingY.NEUTRAL
+
+# 'Has' should be depreciated and replaced with the inventory system, but whatever
+# Imma leave this in cause it might break y'alls code if I change it - Wen
 var hasBeholder = false
 var hasLasso = false
 var hasTorch = false
 var beholder:Array = []
 var currentColor = null
+
+# Player commands
+var input_enabled: bool = true
+var input_locked: bool = false
+var cmd_list: Array = []
 
 # Torch related variables
 var _is_having_torch: bool = false
@@ -49,17 +66,43 @@ var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platfor
 # A second shape that extends the touch hitbox in the direction of movement
 # to compensate for high movenet speed
 @onready var forwards_box_extender: CollisionShape2D = $TouchHitBox/ForwardsBoxExtender
+@onready var fade: ColorRect = $"../Fade"
 
 func _ready() -> void:
+	fade.modulate.a = 1.0
+	
 	facing = Facing.RIGHT
 	facing_y = FacingY.NEUTRAL
 	sprite.change_facing(self)
 	animation_tree.active = true
 	sprite.texture = torch_light_off_texture
 	
+	_fade_in(1.5)
+	for i in inventory:
+		match i:
+			Items.BEHOLDER:
+				hasBeholder = true
+			Items.TORCH:
+				hasTorch = true
+				_is_having_torch = true
+			Items.LASSO:
+				hasLasso = true
+			Items.RED:
+				beholder.append(colors.FilterColors.RED)
+				currentColor = colors.FilterColors.RED
+			Items.GREEN:
+				beholder.append(colors.FilterColors.GREEN)
+				currentColor = colors.FilterColors.GREEN
+			Items.BLUE:
+				beholder.append(colors.FilterColors.BLUE)
+				currentColor = colors.FilterColors.BLUE
 	
-
 func _physics_process(delta: float) -> void:
+	# Locks movement on death
+	_process_commands()
+	if not input_enabled:
+		return
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta * GRAVITY_CORRECTION_RATIO
@@ -152,7 +195,7 @@ func _physics_process(delta: float) -> void:
 		#print("I collided with ", collision.get_collider().name)
 		if collision.get_collider() is RigidBody2D:
 			collision.get_collider().apply_force(collision.get_normal() * -pushForce)
-	
+			
 	_manage_animation_tree_state()
 
 func command_callback(cmd_name:String) -> void:
@@ -181,9 +224,16 @@ func _manage_animation_tree_state() -> void:
 	if !is_zero_approx(velocity.x):
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/run"] = true
-	elif is_on_floor():
+	else:	
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/run"] = false
+	
+	if is_on_floor():
+		animation_tree["parameters/conditions/jumping"] = false
+		animation_tree["parameters/conditions/on_floor"] = true
+	else:
+		animation_tree["parameters/conditions/on_floor"] = false
+		animation_tree["parameters/conditions/jumping"] = true
 	
 	if _is_having_torch:
 		if _is_having_torch_out == true:
@@ -200,6 +250,14 @@ func _manage_animation_tree_state() -> void:
 			animation_tree["parameters/conditions/untorch"] = true
 			animation_tree["parameters/conditions/torch"] = false
 			torch_light.visible = false
+		
+	#if take_damage:
+		##animation_tree["parameters/conditions/idle"] = false
+		##animation_tree["parameters/conditions/run"] = false
+		##animation_tree["parameters/conditions/untorch"] = false
+		##animation_tree["parameters/conditions/torch"] = false
+		#animation_tree["parameters/conditions/death"] = true
+
 		
 # sound effect functions
 
@@ -230,3 +288,44 @@ func is_torch_out() -> bool:
 func set_torch_interact_consumed(consumed: bool) -> void:
 	_torch_interact_consumed = consumed
 	
+	
+func take_damage(if_damaged: bool) -> void:
+	#var knockback_h = 500.0
+	#var knockback_v = -500.0
+	#var direction = -1 if facing == Facing.RIGHT else 1
+	#var knockback_velocity = Vector2(direction * knockback_h, knockback_v) 
+	#
+	#cmd_list.push_back(DurativeKnockbackCommand.new(knockback_velocity))
+	cmd_list.push_back(DurativeDeathCommand.new())
+	cmd_list.push_back(FadeOutCommand.new(0.5, 1.0))
+	
+func spring_jump():
+	velocity.y = -200 + JUMP_VELOCITY
+	
+	
+func _process_commands():
+	#if not input_enabled or input_locked:
+		#return
+		
+	if cmd_list.size() == 0:
+		return
+	
+	var status = cmd_list[0].execute(self)
+	
+	match status:
+		Command.Status.DONE:
+			var finished_cmd = cmd_list.pop_front()
+		
+			if finished_cmd is FadeOutCommand:
+				get_tree().reload_current_scene()
+				
+		Command.Status.ACTIVE:
+			pass
+			
+		Command.Status.ERROR:
+			print("command error")
+			cmd_list.pop_front()
+	
+func _fade_in(duration: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(fade, "modulate:a", 0.0, duration)

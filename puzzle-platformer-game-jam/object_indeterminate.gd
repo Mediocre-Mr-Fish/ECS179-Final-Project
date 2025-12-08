@@ -1,5 +1,5 @@
 class_name ObjectIndeterminate
-extends StaticBody2D
+extends Node2D
 
 var determined: bool = false
 # Called when the node enters the scene tree for the first time.
@@ -11,11 +11,16 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 	#pass
 
+
 func determinism_update()->void:
 	pass
 
+
+@warning_ignore("unused_parameter")
 func on_camera(seen:bool)->void:
 	pass
 	
+	
+@warning_ignore("unused_parameter")
 func on_touch(touch:bool)->void:
 	pass
