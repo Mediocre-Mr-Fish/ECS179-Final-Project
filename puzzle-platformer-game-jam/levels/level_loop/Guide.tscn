@@ -1,0 +1,288 @@
+[gd_scene load_steps=11 format=3 uid="uid://djx20pujuc4b0"]
+
+[ext_resource type="Texture2D" uid="uid://vcphjxnwnhw1" path="res://assets/Buttons/control_panel.png" id="1_6o1r6"]
+[ext_resource type="Script" uid="uid://cm40h2cdcxb4l" path="res://levels/level_loop/guide.gd" id="1_8rrma"]
+
+[sub_resource type="Theme" id="Theme_jxien"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyhqh"]
+atlas = ExtResource("1_6o1r6")
+region = Rect2(16.01191, 31.956522, 95.96403, 63.984894)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y57y1"]
+texture = SubResource("AtlasTexture_qyhqh")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfwxu"]
+atlas = ExtResource("1_6o1r6")
+region = Rect2(32.00335, 26.99211, 15.997055, 4.9879704)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vg7wx"]
+content_margin_left = 10.0
+texture = SubResource("AtlasTexture_hfwxu")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8gum"]
+atlas = ExtResource("1_6o1r6")
+region = Rect2(48.02242, 22.992558, 15.999424, 9.961094)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8yn7"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+texture = SubResource("AtlasTexture_e8gum")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jldo6"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Guide" type="Node2D"]
+script = ExtResource("1_8rrma")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -437.0
+offset_top = -129.0
+offset_right = 437.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.56)
+theme = SubResource("Theme_jxien")
+theme_override_colors/font_selected_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_hovered_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_unselected_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
+theme_override_constants/tab_separation = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_y57y1")
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_vg7wx")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_r8yn7")
+tab_alignment = 1
+
+[node name="TreasureIsAhead" type="TabBar" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -437.0
+offset_top = -130.0
+offset_right = -437.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hints2" type="Label" parent="TreasureIsAhead"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 84.0
+offset_right = 778.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 15
+text = "Finally, the treasure is just ahead"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="PressEToPickUp" type="TabBar" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -874.0
+offset_top = -260.0
+offset_right = -874.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hints2" type="Label" parent="PressEToPickUp"]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 210.0
+offset_right = 1225.0
+offset_bottom = 323.0
+theme_override_font_sizes/font_size = 15
+text = "Press E to pick up"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="PressEToPickUpTorch" type="TabBar" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -874.0
+offset_top = -260.0
+offset_right = -874.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hints2" type="Label" parent="PressEToPickUpTorch"]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 210.0
+offset_right = 1225.0
+offset_bottom = 323.0
+theme_override_font_sizes/font_size = 15
+text = "Press E to pick up"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="TimeToLeave" type="TabBar" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -874.0
+offset_top = -260.0
+offset_right = -874.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hints2" type="Label" parent="TimeToLeave"]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 210.0
+offset_right = 1225.0
+offset_bottom = 323.0
+theme_override_font_sizes/font_size = 15
+text = "TimeToLeave"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="ThisIsTooDark" type="TabBar" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -874.0
+offset_top = -260.0
+offset_right = -874.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hints2" type="Label" parent="ThisIsTooDark"]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 191.0
+offset_right = 1212.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 15
+text = "This is too dark
+I need a light source"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="PressEToLightTorch" type="TabBar" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -874.0
+offset_top = -260.0
+offset_right = -874.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hints2" type="Label" parent="PressEToLightTorch"]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 191.0
+offset_right = 1212.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 15
+text = "Press E to light up the torch"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="SomethingIsWrongWithThePainting" type="TabBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -437.0
+offset_top = -111.64
+offset_right = -437.0
+offset_bottom = -111.64
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hints2" type="Label" parent="SomethingIsWrongWithThePainting"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 70.64
+offset_right = 760.0
+offset_bottom = 183.64
+theme_override_font_sizes/font_size = 15
+text = "This painting looks weird"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="ThePaintingIsLookingAtPlayer" type="TabBar" parent="."]
+visible = false
+offset_left = -437.0
+offset_top = -129.0
+offset_right = -437.0
+offset_bottom = -129.0
+
+[node name="Hints2" type="Label" parent="ThePaintingIsLookingAtPlayer"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 98.0
+offset_right = 780.0
+offset_bottom = 211.0
+theme_override_font_sizes/font_size = 15
+text = "It is looking at me"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="INeedToDoSomething" type="TabBar" parent="."]
+visible = false
+offset_left = -437.0
+offset_top = -129.0
+offset_right = -437.0
+offset_bottom = -129.0
+
+[node name="Hints2" type="Label" parent="INeedToDoSomething"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 87.0
+offset_right = 779.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 15
+text = "I need to do something"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="PressEToSetOnFire" type="TabBar" parent="."]
+visible = false
+offset_left = -437.0
+offset_top = -129.0
+offset_right = -437.0
+offset_bottom = -129.0
+
+[node name="Hints2" type="Label" parent="PressEToSetOnFire"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 87.0
+offset_right = 778.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 15
+text = "Press E to set on fire"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1

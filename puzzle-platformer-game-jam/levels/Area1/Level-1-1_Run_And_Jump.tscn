@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="2_yr5xh"]
 [ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="3_8w3em"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="3_i6tw1"]
-[ext_resource type="Script" uid="uid://ctl5unetag48o" path="res://objects/camera/camera_changer.gd" id="5_8w3em"]
+[ext_resource type="Script" path="res://objects/camera/camera_changer.gd" id="5_8w3em"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6tw1"]
 texture = ExtResource("1_nr8nu")
@@ -113,3 +113,11 @@ zoom_end = 0.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraChangerBox"]
 position = Vector2(624, 357)
 shape = SubResource("RectangleShape2D_yr5xh")
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1788.0
+offset_top = -1167.0
+offset_right = 4105.0
+offset_bottom = 1470.0
+color = Color(0, 0, 0, 1)

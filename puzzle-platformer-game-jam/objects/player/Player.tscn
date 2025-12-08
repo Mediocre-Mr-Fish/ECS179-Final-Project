@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b3tycvd50f06t"]
+[gd_scene load_steps=42 format=3 uid="uid://b3tycvd50f06t"]
 
 [ext_resource type="Script" uid="uid://cnif7fgpw4n3x" path="res://objects/player/player_controller.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dyfwvhmqw0txo" path="res://assets/Adventure_Platformer/Player/Player_Character_Sheet_V3.png" id="2_h7ooo"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://b5hf8j1tluq3w" path="res://touch_hit_box.gd" id="3_kne1u"]
 [ext_resource type="Texture2D" uid="uid://cco14dfocmfkh" path="res://assets/Beholden Assets/overlay_red.png" id="5_cxr5p"]
 [ext_resource type="PackedScene" uid="uid://dkqjsav0kklvt" path="res://audio_control/AudioPlayer.tscn" id="6_lalkq"]
-[ext_resource type="Script" uid="uid://g5x21c2yqion" path="res://objects/player/player_hurt_box.gd" id="6_t2uaq"]
+[ext_resource type="Script" path="res://objects/player/player_hurt_box.gd" id="6_t2uaq"]
+[ext_resource type="Texture2D" uid="uid://dretumwrf38js" path="res://assets/Adventure_Platformer/Player/Player_Death.png" id="7_t2uaq"]
 
 [sub_resource type="Gradient" id="Gradient_lwnbc"]
 interpolation_mode = 2
@@ -82,6 +83,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Death:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_veo1v"]
 resource_name = "Run"
@@ -136,13 +149,49 @@ tracks/0/keys = {
 "values": [21, 22, 23, 24, 25, 26, 27]
 }
 
+[sub_resource type="Animation" id="Animation_n1h8g"]
+resource_name = "death"
+length = 1.5
+step = 0.1332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Death:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.375, 0.625, 0.875, 1, 1.125),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_sq4k3"]
+resource_name = "jump"
+loop_mode = 1
+step = 0.1332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [28]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n1h8g"]
 _data = {
 &"Idle": SubResource("Animation_lalkq"),
 &"Idle_With_Torch": SubResource("Animation_45d0k"),
 &"RESET": SubResource("Animation_t2uaq"),
 &"Run": SubResource("Animation_veo1v"),
-&"Run_With_Torch": SubResource("Animation_h7ooo")
+&"Run_With_Torch": SubResource("Animation_h7ooo"),
+&"death": SubResource("Animation_n1h8g"),
+&"jump": SubResource("Animation_sq4k3")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7ooo"]
@@ -156,6 +205,12 @@ animation = &"Run"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_45d0k"]
 animation = &"Run_With_Torch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_veo1v"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n1h8g"]
+animation = &"jump"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_veo1v"]
 advance_mode = 2
@@ -195,6 +250,18 @@ advance_condition = &"untorch"
 advance_mode = 2
 advance_condition = &"torch"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t2uaq"]
+advance_mode = 2
+advance_condition = &"jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_45d0k"]
+advance_mode = 2
+advance_condition = &"on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o85vh"]
+advance_mode = 2
+advance_condition = &"jumping"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sq4k3"]
 states/End/position = Vector2(933, 277)
 states/Idle/node = SubResource("AnimationNodeAnimation_h7ooo")
@@ -206,8 +273,12 @@ states/Run/position = Vector2(727, 226)
 states/Run_With_Torch/node = SubResource("AnimationNodeAnimation_45d0k")
 states/Run_With_Torch/position = Vector2(727, 367)
 states/Start/position = Vector2(233, 277)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veo1v"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n1h8g"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sq4k3"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_cq43t"), "Idle", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_ercwk"), "Idle_With_Torch", "Idle", SubResource("AnimationNodeStateMachineTransition_ijwuf"), "Idle_With_Torch", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_iy4hj"), "Run_With_Torch", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_4d57e"), "Run_With_Torch", "Run", SubResource("AnimationNodeStateMachineTransition_2qrau"), "Run", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_x2mbb")]
-graph_offset = Vector2(-195, 154)
+states/death/node = SubResource("AnimationNodeAnimation_veo1v")
+states/death/position = Vector2(933, 360)
+states/jump/node = SubResource("AnimationNodeAnimation_n1h8g")
+states/jump/position = Vector2(579, 160)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veo1v"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n1h8g"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sq4k3"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_cq43t"), "Idle", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_ercwk"), "Idle_With_Torch", "Idle", SubResource("AnimationNodeStateMachineTransition_ijwuf"), "Idle_With_Torch", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_iy4hj"), "Run_With_Torch", "Idle_With_Torch", SubResource("AnimationNodeStateMachineTransition_4d57e"), "Run_With_Torch", "Run", SubResource("AnimationNodeStateMachineTransition_2qrau"), "Run", "Run_With_Torch", SubResource("AnimationNodeStateMachineTransition_x2mbb"), "Idle", "jump", SubResource("AnimationNodeStateMachineTransition_t2uaq"), "jump", "Idle", SubResource("AnimationNodeStateMachineTransition_45d0k"), "Run", "jump", SubResource("AnimationNodeStateMachineTransition_o85vh")]
+graph_offset = Vector2(-49, 96)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ij6vw")
@@ -287,8 +358,18 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_sq4k3")
 parameters/conditions/idle = false
+parameters/conditions/jumping = false
+parameters/conditions/on_floor = false
 parameters/conditions/run = false
 parameters/conditions/torch = false
 parameters/conditions/untorch = false
 
-[node name="SoundPlayer" parent="." instance=ExtResource("6_lalkq")]
+[node name="AutoloadAudioPlayer" parent="." instance=ExtResource("6_lalkq")]
+
+[node name="Death" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(7, 14)
+scale = Vector2(2, 2)
+texture = ExtResource("7_t2uaq")
+hframes = 8
+frame = 1

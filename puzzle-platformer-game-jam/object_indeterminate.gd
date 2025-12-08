@@ -11,11 +11,16 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 	#pass
 
+
 func determinism_update()->void:
 	pass
 
+
+@warning_ignore("unused_parameter")
 func on_camera(seen:bool)->void:
 	pass
 	
+	
+@warning_ignore("unused_parameter")
 func on_touch(touch:bool)->void:
 	pass

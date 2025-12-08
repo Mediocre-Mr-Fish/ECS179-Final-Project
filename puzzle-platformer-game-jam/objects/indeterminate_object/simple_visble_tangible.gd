@@ -23,17 +23,23 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
+func change_visibility(visibility: bool) -> void:
+	for item in visuals:
+		item.visible = visibility
+
+
+func change_tangiblity(tangiblity: bool) -> void:
+	for collision in collisions:
+		collision.set_deferred("disabled", not tangiblity)
+
+
 func determinism_update()->void:
 	if determined and existant:
-		for item in visuals:
-			item.visible = true
-		for collision in collisions:
-			collision.set_deferred("disabled", false)
+		change_visibility(true)
+		change_tangiblity(true)
 	elif determined and not existant:
-		for item in visuals:
-			item.visible = false
-		for collision in collisions:
-			collision.set_deferred("disabled", true)
+		change_visibility(false)
+		change_tangiblity(false)
 
 
 func do_action(action:Actions) -> void:
@@ -48,7 +54,8 @@ func do_action(action:Actions) -> void:
 			determinism_update()
 
 
-func on_camera(seen:bool, overlay:CameraController.Overlay = CameraController.Overlay.NONE) -> void:
+@warning_ignore("unused_parameter")
+func on_camera(seen:bool) -> void:
 	if seen and not determined:
 		print("I've been seen!")
 		do_action(seen_action)
