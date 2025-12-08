@@ -13,7 +13,7 @@ enum FacingY{
 	DOWN,
 }
 
-const SPEED = 600.0
+const SPEED = 1200.0
 const JUMP_VELOCITY = -950.0
 const SLOW_FALL_RATIO = 0.4
 const GRAVITY_CORRECTION_RATIO = 2.5

@@ -209,3 +209,80 @@ theme_override_font_sizes/font_size = 15
 text = "Press E to light up the torch"
 label_settings = SubResource("LabelSettings_jldo6")
 horizontal_alignment = 1
+
+[node name="SomethingIsWrongWithThePainting" type="TabBar" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -437.0
+offset_top = -111.64
+offset_right = -437.0
+offset_bottom = -111.64
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hints2" type="Label" parent="SomethingIsWrongWithThePainting"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 70.64
+offset_right = 760.0
+offset_bottom = 183.64
+theme_override_font_sizes/font_size = 15
+text = "This painting looks weird"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="ThePaintingIsLookingAtPlayer" type="TabBar" parent="."]
+visible = false
+offset_left = -437.0
+offset_top = -129.0
+offset_right = -437.0
+offset_bottom = -129.0
+
+[node name="Hints2" type="Label" parent="ThePaintingIsLookingAtPlayer"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 98.0
+offset_right = 780.0
+offset_bottom = 211.0
+theme_override_font_sizes/font_size = 15
+text = "It is looking at me"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="INeedToDoSomething" type="TabBar" parent="."]
+visible = false
+offset_left = -437.0
+offset_top = -129.0
+offset_right = -437.0
+offset_bottom = -129.0
+
+[node name="Hints2" type="Label" parent="INeedToDoSomething"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 87.0
+offset_right = 779.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 15
+text = "I need to do something"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1
+
+[node name="PressEToSetOnFire" type="TabBar" parent="."]
+visible = false
+offset_left = -437.0
+offset_top = -129.0
+offset_right = -437.0
+offset_bottom = -129.0
+
+[node name="Hints2" type="Label" parent="PressEToSetOnFire"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 87.0
+offset_right = 778.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 15
+text = "Press E to set on fire"
+label_settings = SubResource("LabelSettings_jldo6")
+horizontal_alignment = 1

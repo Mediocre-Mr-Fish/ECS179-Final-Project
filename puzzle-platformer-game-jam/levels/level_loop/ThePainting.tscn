@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://d332nk1x7sahw"]
+[gd_scene load_steps=9 format=3 uid="uid://d332nk1x7sahw"]
 
+[ext_resource type="Script" uid="uid://dq423ten0vcwt" path="res://levels/level_loop/the_painting.gd" id="1_5l8sb"]
 [ext_resource type="Texture2D" uid="uid://ygea37bnx3qx" path="res://objects/painting/painting5.png" id="1_j64ij"]
 [ext_resource type="Texture2D" uid="uid://b2xjw610fh4xt" path="res://objects/painting/painting5_n.png" id="2_dt2qh"]
 [ext_resource type="Texture2D" uid="uid://bfbairb3b1bxf" path="res://objects/painting/painting5_eye_base.png" id="2_kxwwu"]
 [ext_resource type="Texture2D" uid="uid://dqcrnrqcdg2ya" path="res://objects/painting/painting5_eye.png" id="3_dt2qh"]
 [ext_resource type="Script" uid="uid://dkl4jg2oojdss" path="res://levels/level_loop/eye_control.gd" id="4_kxwwu"]
+[ext_resource type="Texture2D" uid="uid://ddfjvo65n3tyq" path="res://assets/Objects/Trap/Fire.png" id="7_aynm6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_m1ul1"]
 diffuse_texture = ExtResource("1_j64ij")
 normal_texture = ExtResource("2_dt2qh")
 
 [node name="ThePainting" type="Node2D"]
+script = ExtResource("1_5l8sb")
 
 [node name="Painting" type="Sprite2D" parent="."]
 position = Vector2(0, 45)
@@ -27,3 +30,39 @@ texture = ExtResource("3_dt2qh")
 script = ExtResource("4_kxwwu")
 max_eye_offset_y = 2.5
 max_eye_offset_x = 6.0
+
+[node name="Fires" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Fires"]
+position = Vector2(6, 46)
+rotation = -0.6846275
+scale = Vector2(6.025448, 55.859768)
+energy = 14.0
+texture = ExtResource("7_aynm6")
+height = 30.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="Fires"]
+position = Vector2(-21, -220)
+rotation = 0.5324863
+scale = Vector2(19.226112, 97.06861)
+energy = 14.0
+texture = ExtResource("7_aynm6")
+height = 30.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="Fires"]
+position = Vector2(-14, -20.000015)
+rotation = -0.8191085
+scale = Vector2(19.226112, 97.06861)
+energy = 14.0
+texture = ExtResource("7_aynm6")
+height = 30.0
+
+[node name="PointLight2D4" type="PointLight2D" parent="Fires"]
+position = Vector2(0, -159)
+rotation = -0.077982664
+scale = Vector2(19.226112, 97.06861)
+energy = 14.0
+texture = ExtResource("7_aynm6")
+height = 30.0

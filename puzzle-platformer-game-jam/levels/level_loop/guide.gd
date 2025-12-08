@@ -13,6 +13,10 @@ extends Node2D
 @onready var time_to_leave: TabBar = $TimeToLeave
 @onready var this_is_too_dark: TabBar = $ThisIsTooDark
 @onready var press_e_to_light_torch: TabBar = $PressEToLightTorch
+@onready var something_is_wrong_with_the_painting: TabBar = $SomethingIsWrongWithThePainting
+@onready var the_painting_is_looking_at_player: TabBar = $ThePaintingIsLookingAtPlayer
+@onready var i_need_to_do_something: TabBar = $INeedToDoSomething
+@onready var press_e_to_set_on_fire: TabBar = $PressEToSetOnFire
 
 var _is_crown_picked_up: bool = false
 var distance_to_treasure: float = 0.0
@@ -74,5 +78,8 @@ func hide_prompt(node: TabBar) -> void:
 func _update_guide_visibility() -> void:
 	var any_visible = treaure_is_ahead.visible or press_e_to_pick_up.visible or \
 					  press_e_to_pick_up_torch.visible or time_to_leave.visible or \
-					  this_is_too_dark.visible or press_e_to_light_torch.visible
+					  this_is_too_dark.visible or press_e_to_light_torch.visible or \
+					  something_is_wrong_with_the_painting.visible or \
+					  the_painting_is_looking_at_player.visible or \
+					  i_need_to_do_something.visible or press_e_to_set_on_fire.visible
 	visible = any_visible
