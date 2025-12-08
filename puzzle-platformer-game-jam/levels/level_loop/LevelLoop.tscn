@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=4 uid="uid://ru5hopewms17"]
+[gd_scene load_steps=27 format=4 uid="uid://ru5hopewms17"]
 
 [ext_resource type="Script" uid="uid://cp01n82ou5v1f" path="res://levels/level_loop/level_loop.gd" id="1_ja8hb"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="2_lwnbc"]
 [ext_resource type="Texture2D" uid="uid://d1mslew7b65ix" path="res://assets/Lighting/inverse_square_light_1024.png" id="3_0a4s2"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="3_8hr7c"]
+[ext_resource type="Texture2D" uid="uid://dja82uo763102" path="res://assets/World/Desert/desert-8x8/sprites/desert_brickwall_background_normal_map.png" id="3_boccd"]
 [ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="4_0a4s2"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="5_cp5jv"]
 [ext_resource type="Texture2D" uid="uid://c2ek7i1n7k8kf" path="res://assets/World/Desert/desert-8x8/sprites/desert_brickwall_background.png" id="6_boccd"]
@@ -17,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://d332nk1x7sahw" path="res://levels/level_loop/ThePainting.tscn" id="13_lwnbc"]
 [ext_resource type="Texture2D" uid="uid://b1560p8tw635w" path="res://assets/Objects/Torch/torch.png" id="16_0a4s2"]
 [ext_resource type="Script" uid="uid://bbbueggp61ul4" path="res://levels/level_loop/torch.gd" id="16_cp5jv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_icmin"]
+diffuse_texture = ExtResource("6_boccd")
+normal_texture = ExtResource("3_boccd")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mppvi"]
 texture = ExtResource("5_cp5jv")
@@ -112,14 +117,9 @@ scroll_offset = Vector2(267, 380)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture_repeat = 2
 position = Vector2(911, 26)
-texture = ExtResource("6_boccd")
+texture = SubResource("CanvasTexture_icmin")
 region_enabled = true
 region_rect = Rect2(-3239.2715, -725.822, 11307.223, 2213.9426)
-
-[node name="Lighting" type="Node2D" parent="."]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
-color = Color(0, 0, 0, 1)
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -166,6 +166,12 @@ unique_name_in_owner = true
 position = Vector2(-240, -37)
 
 [node name="FarPast" type="Node2D" parent="."]
+visible = false
+
+[node name="Lighting" type="Node2D" parent="FarPast"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="FarPast/Lighting"]
+color = Color(0, 0, 0, 1)
 
 [node name="Decoration" type="Node2D" parent="FarPast"]
 z_index = -5
@@ -442,6 +448,11 @@ position = Vector2(1199, -138)
 
 [node name="Past" type="Node2D" parent="."]
 visible = false
+
+[node name="Lighting" type="Node2D" parent="Past"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Past/Lighting"]
+color = Color(0, 0, 0, 1)
 
 [node name="Decoration" type="Node2D" parent="Past"]
 z_index = -5
@@ -735,7 +746,12 @@ texture = ExtResource("16_0a4s2")
 vframes = 2
 
 [node name="Present" type="Node2D" parent="."]
+
+[node name="Lighting" type="Node2D" parent="Present"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Present/Lighting"]
 visible = false
+color = Color(0, 0, 0, 1)
 
 [node name="Decoration" type="Node2D" parent="Present"]
 z_index = -5
@@ -750,6 +766,7 @@ position = Vector2(1672.0001, 313)
 scale = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="Present/Decoration/Node2D2"]
+visible = false
 position = Vector2(-0.6666667, -35.00001)
 color = Color(0.8458318, 0.57573074, 0.33930078, 1)
 energy = 3.0
@@ -790,6 +807,7 @@ position = Vector2(811, 317)
 scale = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="Present/Decoration/Node2D3"]
+visible = false
 position = Vector2(-0.6666667, -35.00001)
 color = Color(0.8458318, 0.57573074, 0.33930078, 1)
 energy = 3.0
@@ -825,94 +843,12 @@ texture = ExtResource("9_lwnbc")
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Present/Decoration/Node2D3"]
 occluder = SubResource("OccluderPolygon2D_cp5jv")
 
-[node name="Node2D4" type="Node2D" parent="Present/Decoration"]
-visible = false
-position = Vector2(3511, 479)
-scale = Vector2(3, 3)
-
-[node name="PointLight2D" type="PointLight2D" parent="Present/Decoration/Node2D4"]
-position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-height = 100.0
-
-[node name="PointLight2D" type="PointLight2D" parent="Present/Decoration/Node2D4/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = ExtResource("3_0a4s2")
-height = 100.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="Present/Decoration/Node2D4/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 1.5
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-texture_scale = 2.0
-height = 1000.0
-
-[node name="Brazier" type="Sprite2D" parent="Present/Decoration/Node2D4"]
-texture = ExtResource("9_lwnbc")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Present/Decoration/Node2D4"]
-occluder = SubResource("OccluderPolygon2D_cp5jv")
-
-[node name="Node2D5" type="Node2D" parent="Present/Decoration"]
-visible = false
-position = Vector2(-751, 473)
-scale = Vector2(3, 3)
-
-[node name="PointLight2D" type="PointLight2D" parent="Present/Decoration/Node2D5"]
-position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-height = 100.0
-
-[node name="PointLight2D" type="PointLight2D" parent="Present/Decoration/Node2D5/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 3.0
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = ExtResource("3_0a4s2")
-height = 100.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="Present/Decoration/Node2D5/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
-energy = 1.5
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_filter_smooth = 4.9
-texture = SubResource("GradientTexture2D_8hr7c")
-texture_scale = 2.0
-height = 1000.0
-
-[node name="Brazier" type="Sprite2D" parent="Present/Decoration/Node2D5"]
-texture = ExtResource("9_lwnbc")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Present/Decoration/Node2D5"]
-position = Vector2(0.33329266, 0)
-occluder = SubResource("OccluderPolygon2D_0a4s2")
-
 [node name="Node2D6" type="Node2D" parent="Present/Decoration"]
 position = Vector2(2518, 390)
 scale = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="Present/Decoration/Node2D6"]
+visible = false
 position = Vector2(-0.6666667, -35.00001)
 color = Color(0.8458318, 0.57573074, 0.33930078, 1)
 energy = 3.0
@@ -953,6 +889,7 @@ position = Vector2(6, 392)
 scale = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="Present/Decoration/Node2D7"]
+visible = false
 position = Vector2(-0.6666667, -35.00001)
 color = Color(0.8458318, 0.57573074, 0.33930078, 1)
 energy = 3.0
