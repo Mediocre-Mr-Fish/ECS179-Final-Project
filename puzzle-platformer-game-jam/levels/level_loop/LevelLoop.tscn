@@ -611,6 +611,81 @@ texture = ExtResource("12_8wp0b")
 [node name="TheNotMovingPainting" parent="Past/Painting" instance=ExtResource("17_q5w88")]
 position = Vector2(1199, -138)
 
+[node name="Skeleton2" type="Sprite2D" parent="Past"]
+z_index = -10
+position = Vector2(1188, 421)
+rotation = 0.6127731
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton12" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(11.047589, -11.608923)
+rotation = 0.06616759
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton11" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(19.224068, -7.9274073)
+rotation = -2.169562
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton10" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(-12.464251, 5.619693)
+rotation = -1.7178681
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton9" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(-14.553535, 14.073797)
+rotation = -2.4210753
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton8" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(-7.825325, -15.104679)
+rotation = -0.67728734
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton7" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(-2.763916, -12.376465)
+rotation = 0.06701433
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton6" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(-6.514822, -3.8019466)
+rotation = -1.0871861
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton5" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(4.5837874, -13.351183)
+rotation = -0.9067513
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("8_d7ep7")
+flip_h = true
+
+[node name="Skeleton4" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(-7.7315063, 7.8804855)
+rotation = -1.0871861
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton2" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(5.938183, -3.4763374)
+rotation = -1.3919303
+texture = ExtResource("8_d7ep7")
+
+[node name="Skeleton3" type="Sprite2D" parent="Past/Skeleton2"]
+z_index = -10
+position = Vector2(12.843939, -3.0925612)
+rotation = -0.25011575
+texture = ExtResource("8_d7ep7")
+
 [node name="Skeleton" type="Sprite2D" parent="Past"]
 z_index = -10
 position = Vector2(657.00006, 407)
