@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="5_pixff"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="7_p5th2"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_qcwkq"]
-[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="7_xcmrh"]
+[ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="7_xcmrh"]
 [ext_resource type="PackedScene" uid="uid://by4wjuj2u6sme" path="res://objects/landmarks/flower_daffodil.tscn" id="9_qcwkq"]
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="10_5pn2a"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="11_p5th2"]
@@ -93,6 +93,7 @@ stretch_mode = 1
 [node name="player" parent="." instance=ExtResource("4_5pn2a")]
 position = Vector2(147, 263)
 scale = Vector2(0.5, 0.5)
+inventory = Array[int]([0, 5])
 
 [node name="Level" type="Node2D" parent="."]
 

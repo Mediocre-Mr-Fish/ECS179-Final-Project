@@ -1,0 +1,254 @@
+[gd_scene load_steps=37 format=3 uid="uid://ddqykxjcpkvdl"]
+
+[ext_resource type="PackedScene" uid="uid://p2cl4x5mbeh2" path="res://Backgrounds/title_screen_background.tscn" id="1_y15wq"]
+[ext_resource type="Texture2D" uid="uid://buw321pe8c2nl" path="res://assets/Buttons/level.png" id="2_5wdeb"]
+[ext_resource type="Texture2D" uid="uid://cftslyc5shb5f" path="res://assets/Buttons/menu.png" id="3_7apgu"]
+[ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="4_i3mvl"]
+[ext_resource type="Texture2D" uid="uid://cjxn884clhra7" path="res://assets/Buttons/Number Buttons/num_button_template.png" id="5_i3mvl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmqt"]
+atlas = ExtResource("2_5wdeb")
+region = Rect2(4.854229, 22.946178, 54.21884, 19.116467)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7wxu"]
+atlas = ExtResource("3_7apgu")
+region = Rect2(0, 20.896551, 52, 19.116419)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66hfc"]
+atlas = ExtResource("3_7apgu")
+region = Rect2(0, 41.100525, 52, 18.899475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf43n"]
+atlas = ExtResource("3_7apgu")
+region = Rect2(0, 0, 52, 18.999308)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oesi6"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(0.98918676, 16.989187, 15.057247, 15.057482)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3mvl"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(16.979534, 17.011686, 15.010605, 15.148806)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp4vp"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(32.915512, 17.038736, 15.179985, 15.083509)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgnis"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(0.96660805, 33.05152, 15.246607, 15.585419)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agvs6"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(16.98521, 33.00332, 15.837711, 15.062752)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxqeb"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(32.982864, 32.94912, 15.018921, 15.048546)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4201d"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(0.8513031, 48.939987, 15.225735, 15.262611)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egw0k"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(17.048527, 48.967197, 15.008907, 15.043491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0twsl"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(32.95136, 48.998905, 15.078468, 15.084682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eel1j"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(0.9600744, 64.95177, 15.121568, 15.645866)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq2tl"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(16.952377, 64.91849, 15.095699, 15.206589)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24l1q"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(32.91757, 64.89912, 15.069569, 15.496773)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dktp"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(0.9092064, 81.00968, 15.184103, 15.143829)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8adas"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(16.957563, 81.07581, 15.163248, 15.126358)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xot2b"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(32.90965, 80.96952, 15.158768, 15.128571)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sngxk"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(0.8913479, 96.96917, 15.127417, 15.1274185)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s255a"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(16.929188, 96.94454, 15.06628, 15.1471405)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u31k4"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(32.987576, 96.95836, 15.157635, 15.125992)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fsmg"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(64.82741, 17.071133, 15.28344, 15.037724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk8vh"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(80.90638, 17.072104, 15.006493, 15.006491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvmhi"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(96.9383, 17.045923, 15.043152, 15.043154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7p3w"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(65.08515, 33.019634, 15.122589, 15.011063)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5dv4"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(80.94876, 32.952435, 15.161987, 15.587883)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t102d"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(96.893295, 32.92159, 15.164963, 15.219025)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2b3v"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(64.95065, 48.988167, 15.170639, 15.170631)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7p3x"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(80.81656, 48.93287, 15.330597, 15.529045)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcxvy"]
+atlas = ExtResource("5_i3mvl")
+region = Rect2(96.90263, 48.964058, 15.21489, 15.128929)
+
+[node name="levelselection" type="Node2D"]
+
+[node name="Title_Screen_Background" parent="." instance=ExtResource("1_y15wq")]
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(576.00006, 178)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_vxmqt")
+
+[node name="mainmenu" type="TextureButton" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 487.99997
+offset_top = 426.99997
+offset_right = 540.0
+offset_bottom = 445.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.5, 3.5)
+texture_normal = SubResource("AtlasTexture_l7wxu")
+texture_pressed = SubResource("AtlasTexture_66hfc")
+texture_hover = SubResource("AtlasTexture_vf43n")
+script = ExtResource("4_i3mvl")
+scene_path = "res://screens/menu.tscn"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 441.0
+offset_top = 284.0
+offset_right = 495.0
+offset_bottom = 302.0
+scale = Vector2(5, 5)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="lvl1" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_oesi6")
+texture_pressed = SubResource("AtlasTexture_i3mvl")
+texture_hover = SubResource("AtlasTexture_wp4vp")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level1.tscn"
+
+[node name="lvl2" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_kgnis")
+texture_pressed = SubResource("AtlasTexture_agvs6")
+texture_hover = SubResource("AtlasTexture_pxqeb")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level2.tscn"
+
+[node name="lvl3" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_4201d")
+texture_pressed = SubResource("AtlasTexture_egw0k")
+texture_hover = SubResource("AtlasTexture_0twsl")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level3.tscn"
+
+[node name="lvl4" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_eel1j")
+texture_pressed = SubResource("AtlasTexture_wq2tl")
+texture_hover = SubResource("AtlasTexture_24l1q")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level4_tho.tscn"
+
+[node name="lvl5" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_2dktp")
+texture_pressed = SubResource("AtlasTexture_8adas")
+texture_hover = SubResource("AtlasTexture_xot2b")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level2.tscn"
+
+[node name="lvl6" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_sngxk")
+texture_pressed = SubResource("AtlasTexture_s255a")
+texture_hover = SubResource("AtlasTexture_u31k4")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level2.tscn"
+
+[node name="lvl7" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_0fsmg")
+texture_pressed = SubResource("AtlasTexture_pk8vh")
+texture_hover = SubResource("AtlasTexture_nvmhi")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level2.tscn"
+
+[node name="lvl8" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_j7p3w")
+texture_pressed = SubResource("AtlasTexture_o5dv4")
+texture_hover = SubResource("AtlasTexture_t102d")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level2.tscn"
+
+[node name="lvl9" type="TextureButton" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_o2b3v")
+texture_pressed = SubResource("AtlasTexture_p7p3x")
+texture_hover = SubResource("AtlasTexture_bcxvy")
+script = ExtResource("4_i3mvl")
+scene_path = "res://levels/Level2.tscn"
+
+[connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl1" to="MarginContainer/ScrollContainer/HBoxContainer/lvl1" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl2" to="MarginContainer/ScrollContainer/HBoxContainer/lvl2" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl3" to="MarginContainer/ScrollContainer/HBoxContainer/lvl3" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl4" to="MarginContainer/ScrollContainer/HBoxContainer/lvl4" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl5" to="MarginContainer/ScrollContainer/HBoxContainer/lvl5" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl6" to="MarginContainer/ScrollContainer/HBoxContainer/lvl6" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl7" to="MarginContainer/ScrollContainer/HBoxContainer/lvl7" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl8" to="MarginContainer/ScrollContainer/HBoxContainer/lvl8" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/HBoxContainer/lvl9" to="MarginContainer/ScrollContainer/HBoxContainer/lvl9" method="_on_pressed"]
