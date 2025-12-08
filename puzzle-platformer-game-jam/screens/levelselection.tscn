@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://buw321pe8c2nl" path="res://assets/Buttons/level.png" id="2_5wdeb"]
 [ext_resource type="Texture2D" uid="uid://cftslyc5shb5f" path="res://assets/Buttons/menu.png" id="3_7apgu"]
 [ext_resource type="Script" uid="uid://bnnf5nl8u4ts1" path="res://changeSceneButton.gd" id="4_i3mvl"]
-[ext_resource type="PackedScene" uid="uid://c4ld1r3uwtsw7" path="res://screens/level_button.tscn" id="6_l7wxu"]
+[ext_resource type="PackedScene" path="res://screens/level_button.tscn" id="6_l7wxu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxmqt"]
 atlas = ExtResource("2_5wdeb")
@@ -102,12 +102,12 @@ scene_path = "res://levels/Level5.tscndddd"
 [node name="lvl6" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl6"
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Level6.tscn"
 
 [node name="lvl7" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2
 numbers = "lvl7"
-scene_path = "res://levels/Level1.tscn"
+scene_path = "res://levels/Level6.tscn"
 
 [node name="lvl8" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
 layout_mode = 2

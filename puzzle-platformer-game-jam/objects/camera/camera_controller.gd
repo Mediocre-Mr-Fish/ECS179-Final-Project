@@ -1,7 +1,7 @@
 class_name CameraController
 extends Camera2D
 
-@export var zoom_scale: float = 1.0
+@export var zoom_scale: float = 0.6
 
 @export_group("Required Nodes")
 @export var subject:PlayerController:
