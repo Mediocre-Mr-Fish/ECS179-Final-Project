@@ -430,7 +430,7 @@ scale = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D2"]
 position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0.31556, 0.56, 0.016799984, 1)
 energy = 3.0
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
@@ -440,7 +440,7 @@ texture = SubResource("GradientTexture2D_8hr7c")
 height = 100.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D2/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0.66, 0.39600003, 0, 1)
 energy = 3.0
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
@@ -449,7 +449,7 @@ texture = ExtResource("3_0a4s2")
 height = 100.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="Past/Decoration/Node2D2/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0, 0.43700007, 0.69, 1)
 energy = 1.5
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
@@ -470,7 +470,7 @@ scale = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D3"]
 position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0.31556, 0.56, 0.016799984, 1)
 energy = 3.0
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
@@ -480,7 +480,7 @@ texture = SubResource("GradientTexture2D_8hr7c")
 height = 100.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D3/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0.66, 0.39600003, 0, 1)
 energy = 3.0
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
@@ -489,7 +489,7 @@ texture = ExtResource("3_0a4s2")
 height = 100.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="Past/Decoration/Node2D3/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0, 0.43700007, 0.69, 1)
 energy = 1.5
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
@@ -510,7 +510,7 @@ scale = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D6"]
 position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0.31556, 0.56, 0.016799984, 1)
 energy = 3.0
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
@@ -520,7 +520,7 @@ texture = SubResource("GradientTexture2D_8hr7c")
 height = 100.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D6/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0.66, 0.39600003, 0, 1)
 energy = 3.0
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
@@ -529,7 +529,7 @@ texture = ExtResource("3_0a4s2")
 height = 100.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="Past/Decoration/Node2D6/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0, 0.43700007, 0.69, 1)
 energy = 2.0
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
@@ -550,7 +550,7 @@ scale = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D7"]
 position = Vector2(-0.6666667, -35.00001)
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0.31556, 0.56, 0.016799984, 1)
 energy = 3.0
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
@@ -560,7 +560,7 @@ texture = SubResource("GradientTexture2D_8hr7c")
 height = 100.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Past/Decoration/Node2D7/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0.66, 0.39600003, 0, 1)
 energy = 3.0
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
@@ -569,7 +569,7 @@ texture = ExtResource("3_0a4s2")
 height = 100.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="Past/Decoration/Node2D7/PointLight2D"]
-color = Color(0.8458318, 0.57573074, 0.33930078, 1)
+color = Color(0, 0.43700007, 0.69, 1)
 energy = 2.0
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
