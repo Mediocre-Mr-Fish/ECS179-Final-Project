@@ -74,7 +74,7 @@ texture = ExtResource("10_oq8ku")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mppvi")
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_ldhjt")]
 
@@ -92,7 +92,7 @@ camera = NodePath("../../Camera2D")
 
 [node name="Exit" parent="Level" instance=ExtResource("4_rd3y7")]
 position = Vector2(2854, 432)
-scene_path = "res://screens/End.tscn"
+scene_path = "res://levels/Level4_tho.tscn"
 
 [node name="platform2" parent="Level" node_paths=PackedStringArray("camera") instance=ExtResource("3_h8oof")]
 position = Vector2(1844, 415)

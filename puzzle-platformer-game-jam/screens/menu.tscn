@@ -104,12 +104,12 @@ scale = Vector2(8, 8)
 texture = ExtResource("3_lt0en")
 
 [node name="Red Text" type="Label" parent="."]
-offset_left = 746.0
-offset_top = 281.99994
-offset_right = 1079.0
-offset_bottom = 325.99994
+offset_left = 822.0
+offset_top = 261.99994
+offset_right = 1155.0
+offset_bottom = 305.99994
 rotation = -0.22350973
-text = "Progress Report 1 Ver."
+text = "Final Ver."
 label_settings = SubResource("LabelSettings_mae5d")
 
 [node name="control" type="TextureButton" parent="."]
