@@ -1,5 +1,5 @@
 class_name ObjectIndeterminate
-extends StaticBody2D
+extends Node2D
 
 var determined: bool = false
 # Called when the node enters the scene tree for the first time.
