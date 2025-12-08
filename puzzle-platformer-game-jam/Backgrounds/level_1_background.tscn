@@ -109,12 +109,3 @@ script = ExtResource("1_wmpv6")
 position = Vector2(576, 753.1251)
 scale = Vector2(1.44, 2.5312502)
 texture = ExtResource("8_nihb1")
-
-[node name="Sky2" type="ColorRect" parent="."]
-z_index = -1
-offset_left = -1437.0
-offset_top = 436.99994
-offset_right = -332.80005
-offset_bottom = 503.99994
-scale = Vector2(5, 5)
-color = Color(0.3137255, 0.3254902, 0.30588236, 1)
