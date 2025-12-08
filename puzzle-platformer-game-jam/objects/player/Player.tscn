@@ -320,11 +320,15 @@ texture_scale = 2.0
 height = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="PlayerHurtBox" type="Area2D" parent="."]
+script = ExtResource("6_t2uaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
 shape = SubResource("RectangleShape2D_kpjcp")
 
 [node name="TouchHitBox" type="Area2D" parent="."]
-visible = false
 script = ExtResource("3_kne1u")
 
 [node name="StaticShape" type="CollisionShape2D" parent="TouchHitBox"]
