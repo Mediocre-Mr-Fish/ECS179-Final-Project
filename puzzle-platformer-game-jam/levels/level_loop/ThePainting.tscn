@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://d332nk1x7sahw"]
+
+[ext_resource type="Texture2D" uid="uid://ygea37bnx3qx" path="res://objects/painting/painting5.png" id="1_j64ij"]
+[ext_resource type="Texture2D" uid="uid://b2xjw610fh4xt" path="res://objects/painting/painting5_n.png" id="2_dt2qh"]
+[ext_resource type="Texture2D" uid="uid://bfbairb3b1bxf" path="res://objects/painting/painting5_eye_base.png" id="2_kxwwu"]
+[ext_resource type="Texture2D" uid="uid://dqcrnrqcdg2ya" path="res://objects/painting/painting5_eye.png" id="3_dt2qh"]
+[ext_resource type="Script" uid="uid://dkl4jg2oojdss" path="res://levels/level_loop/eye_control.gd" id="4_kxwwu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_m1ul1"]
+diffuse_texture = ExtResource("1_j64ij")
+normal_texture = ExtResource("2_dt2qh")
+
+[node name="ThePainting" type="Node2D"]
+
+[node name="Painting" type="Sprite2D" parent="."]
+position = Vector2(0, 45)
+texture = SubResource("CanvasTexture_m1ul1")
+
+[node name="EyeBase" type="Sprite2D" parent="Painting"]
+show_behind_parent = true
+z_index = -2
+texture = ExtResource("2_kxwwu")
+
+[node name="Eye" type="Sprite2D" parent="Painting"]
+z_index = -1
+texture = ExtResource("3_dt2qh")
+script = ExtResource("4_kxwwu")
+max_eye_offset_y = 2.5
+max_eye_offset_x = 6.0

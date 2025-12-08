@@ -14,25 +14,25 @@ region = Rect2(16.01191, 31.956522, 95.96403, 63.984894)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0o1eh"]
 texture = SubResource("AtlasTexture_qyhqh")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfwxu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o1eh"]
 atlas = ExtResource("1_hfwxu")
 region = Rect2(32.00335, 26.99211, 15.997055, 4.9879704)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e8gum"]
 content_margin_left = 10.0
-texture = SubResource("AtlasTexture_hfwxu")
+texture = SubResource("AtlasTexture_0o1eh")
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8gum"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhs7c"]
 atlas = ExtResource("1_hfwxu")
 region = Rect2(48.02242, 22.992558, 15.999424, 9.961094)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qyhqh"]
 content_margin_left = 5.0
 content_margin_right = 5.0
-texture = SubResource("AtlasTexture_e8gum")
+texture = SubResource("AtlasTexture_hhs7c")
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 2.0
@@ -75,10 +75,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_0o1eh")
 theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_e8gum")
 theme_override_styles/tab_selected = SubResource("StyleBoxTexture_qyhqh")
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -91,7 +90,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -399.0
 offset_top = -152.5
-offset_right = 400.0
+offset_right = 398.0
 offset_bottom = 153.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -147,6 +146,11 @@ modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
 layout_mode = 2
 action_name = "menu"
 
+[node name="Hotkey_Keybind9" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_5em86")]
+modulate = Color(0.7372549, 0.5411765, 0.34117648, 1)
+layout_mode = 2
+action_name = "hint"
+
 [node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 2
@@ -158,6 +162,7 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Hint" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

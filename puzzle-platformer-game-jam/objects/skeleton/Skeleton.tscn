@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtishir6xushf"]
+
+[ext_resource type="Texture2D" uid="uid://d1mslew7b65ix" path="res://assets/Lighting/inverse_square_light_1024.png" id="1_s0s4t"]
+[ext_resource type="Texture2D" uid="uid://b637wmwwka2qi" path="res://assets/Objects/Decoration/brazier.png" id="2_w328e"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yow4o"]
+polygon = PackedVector2Array(-11, -27.333328, -12.3333435, -25.666664, -11.5, -22.1, -6.3333435, -16.666664, -10.7, -16.5, -11, -12.999992, -9.5, -8.5, -8, 8.666664, -10, 9.333336, -10, 12.333336, -6.3333435, 17.333336, -6.3333435, 20.666664, -12, 25.666664, -12, 29.999992, 12.9999695, 29.999992, 12.6666565, 25.999992, 9.200001, 22.5, 7.333313, 20.333336, 7.5, 16.8, 11.333313, 11.666664, 9.333313, 8.333336, 9.5, -9.200001, 11.9999695, -12.999992, 11.333313, -16.666664, 7.333313, -16.666664, 13.333313, -25.333328, 11.9999695, -27.333328)
+
+[node name="Skeleton" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(3.4999997e-05, 3.4999997e-05)
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D"]
+position = Vector2(-28572, -2742857.5)
+scale = Vector2(114285.73, 114285.73)
+energy = 10.05
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = ExtResource("1_s0s4t")
+
+[node name="Brazier" type="Sprite2D" parent="Node2D"]
+scale = Vector2(85714.3, 85714.3)
+texture = ExtResource("2_w328e")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Node2D"]
+position = Vector2(0, 28571.428)
+scale = Vector2(85714.3, 85714.3)
+occluder = SubResource("OccluderPolygon2D_yow4o")
