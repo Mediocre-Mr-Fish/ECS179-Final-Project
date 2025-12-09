@@ -1,10 +1,10 @@
 extends Node2D
 
-@export var player:Node
-@export var camera:Node
 @export var item_name:Item
 @export var color:colors.FilterColors
 
+@onready var player: PlayerController = %player
+@onready var camera: CameraController = %Camera2D
 @onready var sprite = $Sprite2D
 
 enum Item {
@@ -23,10 +23,12 @@ var sprite_dict = {
 	"TORCH":"res://assets/flower_daffodil.png",
 }
 
+
 func _ready() -> void:
 	$Sprite2D.set_texture(load(sprite_dict.values()[item_name]))
 	if item_name == 2:
 		sprite.modulate = colors.getColorFromEnum(color)
+
 
 func on_touch(_touch:bool) -> void:
 	match item_name:
