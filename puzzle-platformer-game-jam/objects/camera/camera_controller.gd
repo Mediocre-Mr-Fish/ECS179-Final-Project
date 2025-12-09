@@ -149,13 +149,13 @@ func _draw() -> void:
 
 func _detect_shift() -> bool:
 	var pressed:bool = Input.is_action_pressed("look_in_direction")
-	if pressed and not is_shifted:
+	if pressed and shift_tri_state == Vector2i.ZERO:
 		@warning_ignore("narrowing_conversion")
 		shift_tri_state.x = signf(Input.get_axis("left", "right"))
 		@warning_ignore("narrowing_conversion")
 		shift_tri_state.y = signf(Input.get_axis("up", "down"))
-		is_shifted = true
-	elif pressed:
+		
+	elif pressed and shift_tri_state != Vector2i.ZERO:
 		is_shifted = true
 	else:
 		shift_tri_state = Vector2i.ZERO

@@ -60,6 +60,7 @@ var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platfor
 @onready var torch_light: Node2D = $PlayerSprite2D/TorchLight
 
 
+@onready var camera: CameraController = %Camera2D
 @onready var sprite: PlayerSprite = $PlayerSprite2D
 @onready var PlayerSFXPlayer: AudioStreamPlayer2D = get_node("/root/AutoloadAudioPlayer/PlayerSFXPlayer")
 @onready var animation_tree:AnimationTree = $AnimationTree
@@ -68,7 +69,9 @@ var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platfor
 @onready var forwards_box_extender: CollisionShape2D = $TouchHitBox/ForwardsBoxExtender
 @onready var fade: ColorRect = $"../Fade"
 
+
 func _ready() -> void:
+	assert(camera, "Could not find camera. Make sure it is Acessable as a Unique Node!")
 	fade.modulate.a = 1.0
 	_fade_in(1.5)
 	facing = Facing.RIGHT
@@ -96,7 +99,8 @@ func _ready() -> void:
 			Items.BLUE:
 				beholder.append(colors.FilterColors.BLUE)
 				currentColor = colors.FilterColors.BLUE
-	
+
+
 func _physics_process(delta: float) -> void:
 	# Locks movement on death
 	_process_commands()
@@ -138,7 +142,7 @@ func _physics_process(delta: float) -> void:
 	# move the second touchbox in the direction of movement	
 	forwards_box_extender.position = velocity * forwards_box_extender_ratio
 	
-	if not Input.is_action_pressed("look_in_direction"):
+	if not camera.is_shifted:
 		if direction.x > 0:
 			if facing != Facing.RIGHT:
 				facing = Facing.RIGHT
@@ -269,21 +273,27 @@ func playback_walk_sfx() -> void:
 func player_having_torch(having: bool) -> void:
 	_is_having_torch = having
 
+
 func is_player_torch_light_on() -> bool:
 	return _is_torch_light_on
+
 
 func light_torch() -> void:
 	_is_torch_light_on = true
 	_is_having_torch_out = true
 
+
 func set_near_light_source(near: bool) -> void:
 	_is_near_light_source = near
+
 
 func has_torch() -> bool:
 	return _is_having_torch
 
+
 func is_torch_out() -> bool:
 	return _is_having_torch_out
+
 
 func set_torch_interact_consumed(consumed: bool) -> void:
 	_torch_interact_consumed = consumed

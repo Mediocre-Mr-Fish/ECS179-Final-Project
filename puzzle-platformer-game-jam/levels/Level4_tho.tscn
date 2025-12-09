@@ -1,7 +1,7 @@
 [gd_scene load_steps=63 format=4 uid="uid://dchiqmg6qhjxt"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_fyd7e"]
-[ext_resource type="Script" uid="uid://cx331m440ailt" path="res://levels/level_4_tho.gd" id="1_qsve6"]
+[ext_resource type="Script" path="res://levels/level_4_tho.gd" id="1_qsve6"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="3_x6mvt"]
 [ext_resource type="Script" uid="uid://bg1skxgeudlsj" path="res://Backgrounds/Background_scale.gd" id="5_obpke"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="6_qsve6"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://dfpnfbt7n5krx" path="res://Level Props/push_back.gd" id="13_fmyj0"]
 [ext_resource type="Texture2D" uid="uid://vcphjxnwnhw1" path="res://assets/Buttons/control_panel.png" id="16_yj1xp"]
 [ext_resource type="Script" uid="uid://jnx88k5ts2mf" path="res://Level Props/fake_door.gd" id="17_u5yh1"]
-[ext_resource type="Script" uid="uid://dp201ecadhtkp" path="res://levels/helperhint.gd" id="17_ujm31"]
+[ext_resource type="Script" path="res://levels/helperhint.gd" id="17_ujm31"]
 [ext_resource type="Texture2D" uid="uid://cq4ufqkjdt8ms" path="res://assets/Adventure_Platformer/Player/Player_Run1.png" id="18_1s8do"]
 [ext_resource type="Texture2D" uid="uid://bio7h3bi0b1ht" path="res://assets/Adventure_Platformer/Player/Player_Run2.png" id="19_obpke"]
 [ext_resource type="Texture2D" uid="uid://cuf1wgyxo07jy" path="res://assets/Adventure_Platformer/Player/Player_Run3.png" id="20_0gn75"]
@@ -716,12 +716,13 @@ position = Vector2(0.33485413, 0.42222214)
 scale = Vector2(0.9999999, 0.99999976)
 shape = SubResource("RectangleShape2D_u5yh1")
 
-[node name="Camera2D2" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("8_06pqo")]
+[node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("8_06pqo")]
 unique_name_in_owner = true
 position = Vector2(574, -817)
 subject = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource("7_k3fly")]
+unique_name_in_owner = true
 position = Vector2(191, 321)
 scale = Vector2(0.5, 0.5)
 inventory = Array[int]([0, 5])
