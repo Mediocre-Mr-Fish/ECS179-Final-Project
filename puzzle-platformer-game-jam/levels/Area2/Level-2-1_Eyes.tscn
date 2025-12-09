@@ -206,8 +206,8 @@ scale = Vector2(5, 5)
 
 [node name="Fade" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = -3440.0
+offset_left = -2384.0
 offset_top = -968.0
-offset_right = 4824.0
+offset_right = 7840.0
 offset_bottom = 2192.0
 color = Color(0, 0, 0, 1)
