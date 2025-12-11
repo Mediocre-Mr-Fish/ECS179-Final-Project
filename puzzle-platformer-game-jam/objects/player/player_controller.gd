@@ -281,6 +281,9 @@ func _manage_animation_tree_state() -> void:
 func playback_walk_sfx() -> void:
 	if is_on_floor():
 		PlayerSFXPlayer.play_walk_sfx(global_position)
+
+func playback_thunder_sfx() -> void:
+	PlayerSFXPlayer.play_thunder_sfx()
 	
 
 func player_having_torch(having: bool) -> void:

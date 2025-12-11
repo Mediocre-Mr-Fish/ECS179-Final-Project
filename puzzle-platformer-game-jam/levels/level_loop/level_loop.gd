@@ -87,6 +87,7 @@ func _physics_process(delta: float) -> void:
 				print("Setting the painting on fire!")
 				_is_ready_to_set_painting_on_fire = false
 				the_painting.set_on_fire()
+				player.playback_thunder_sfx() 
 				guide.hide_prompt(guide.press_e_to_set_on_fire)
 				_painting_warning_cooldown = 5.0  # Set 3 second cooldown
 				_is_game_end = true
