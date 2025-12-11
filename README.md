@@ -133,7 +133,7 @@ Github: brianleekim
 
 - Supported the team by helping build small reusable systems and workflows that made our development smoother. Because the project moved quickly and a lot of ideas were being built at the same time, some of the tooling responsibilities were shared across the group. Still, I contributed to technical pieces that were used throughout the game.
 - I collaborated with my teammate on getting the Beholder system implemented, since it's the main mechanic in the game, and making sure it behaved correctly across levels.
-- Beholder Lens Rotation & Color-Filter System:
+- Beholder Lens Rotation & Color-Filter System (https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/levels/level5_brian.tscn):
   - Implemented the logic that allows the Beholder to switch between different lenses and rotate through color filters.
   - Created the scripts that let the Beholder cycle through lens states, activate the correct filter color, and interact smoothly with the player's input bindings.
   - Worked on the part of the lens system that controls which walls or platforms become visible depending on the active color. This included setting up the logic so certain obstacles only appear when viewed through the correct lens.
