@@ -220,14 +220,6 @@ visible = false
 position = Vector2(-102.5, 151.5)
 shape = SubResource("RectangleShape2D_bdl2p")
 
-[node name="Fade" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = -3408.0
-offset_top = -1808.0
-offset_right = 4856.0
-offset_bottom = 1352.0
-color = Color(0, 0, 0, 1)
-
 [node name="Spike" parent="." instance=ExtResource("9_xnr0y")]
 position = Vector2(368.00003, 376)
 scale = Vector2(5, 5)
@@ -239,3 +231,11 @@ scale = Vector2(5, 5)
 [node name="flower2" parent="." instance=ExtResource("10_uprqg")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(696.00006, 40.000015)
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -3408.0
+offset_top = -1808.0
+offset_right = 4856.0
+offset_bottom = 1352.0
+color = Color(0, 0, 0, 1)

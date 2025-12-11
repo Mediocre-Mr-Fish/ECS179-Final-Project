@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_ldhjt"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="4_rd3y7"]
-[ext_resource type="PackedScene" uid="uid://dw1xcfi4m6pc3" path="res://objects/player/Player.tscn" id="5_qlmxs"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="5_qlmxs"]
 [ext_resource type="Script" uid="uid://u7kg5kmahcs4" path="res://objects/indeterminate_object/filtered_visble_tangible.gd" id="6_gjyow"]
 [ext_resource type="Script" uid="uid://bvsspxn0c5u7g" path="res://zone_out.gd" id="7_mppvi"]
 [ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="7_nqeel"]
@@ -220,17 +220,13 @@ script = ExtResource("7_mppvi")
 position = Vector2(166, 2476)
 shape = SubResource("RectangleShape2D_uog4x")
 
-[node name="Red Gem" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_oq8ku")]
+[node name="Red Gem" parent="Level" instance=ExtResource("7_oq8ku")]
 position = Vector2(592, 466)
-player = NodePath("../../player")
-camera = NodePath("../../Camera2D")
 item_name = 2
 color = 1
 
-[node name="Blue Gem" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("7_oq8ku")]
+[node name="Blue Gem" parent="Level" instance=ExtResource("7_oq8ku")]
 position = Vector2(754, 470)
-player = NodePath("../../player")
-camera = NodePath("../../Camera2D")
 item_name = 2
 color = 2
 
@@ -539,6 +535,7 @@ position = Vector2(5883, 483)
 shape = SubResource("RectangleShape2D_tjudt")
 
 [node name="player" parent="." instance=ExtResource("5_qlmxs")]
+unique_name_in_owner = true
 position = Vector2(-90, 433)
 scale = Vector2(0.5, 0.5)
 inventory = Array[int]([0, 5])

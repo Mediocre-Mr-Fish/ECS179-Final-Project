@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddqykxjcpkvdl"]
+[gd_scene load_steps=13 format=3 uid="uid://ddqykxjcpkvdl"]
 
+[ext_resource type="Script" uid="uid://22rmpkkji4dg" path="res://screens/levelselection.gd" id="1_l7wxu"]
 [ext_resource type="PackedScene" uid="uid://p2cl4x5mbeh2" path="res://Backgrounds/title_screen_background.tscn" id="1_y15wq"]
 [ext_resource type="Texture2D" uid="uid://buw321pe8c2nl" path="res://assets/Buttons/level.png" id="2_5wdeb"]
 [ext_resource type="Texture2D" uid="uid://cftslyc5shb5f" path="res://assets/Buttons/menu.png" id="3_7apgu"]
@@ -29,6 +30,7 @@ font_size = 31
 font_color = Color(1, 0, 0, 1)
 
 [node name="levelselection" type="Node2D"]
+script = ExtResource("1_l7wxu")
 
 [node name="Title_Screen_Background" parent="." instance=ExtResource("1_y15wq")]
 
@@ -64,125 +66,12 @@ scale = Vector2(5, 5)
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 1
-theme_override_styles/separator = SubResource("StyleBoxEmpty_i3mvl")
-
-[node name="lvl1" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl1"
-scene_path = "res://levels/Area1/Level-1-1_Run_And_Jump.tscn"
-
-[node name="lvl2" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl2"
-scene_path = "res://levels/Area1/Level-1-2_Spikes.tscn"
-
-[node name="lvl3" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl3"
-scene_path = "res://levels/Area2/Level-2-1_Eyes.tscn"
-
-[node name="lvl4" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl4"
-scene_path = "res://levels/Area2/Level-2-2_Wall.tscn"
-
-[node name="lvl5" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl5"
-scene_path = "res://levels/Area2/Level-2-3_Leap_Of_Faith.tscn"
-
-[node name="lvl6" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl6"
-scene_path = "res://levels/Area3/Level-3-1_Green.tscn"
-
-[node name="lvl7" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl7"
-scene_path = "res://levels/Area3/Level-3-2_Bridge.tscn"
-
-[node name="lvl8" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl8"
-scene_path = "res://levels/Area3/Level-3-3_Green_Wall.tscn"
-
-[node name="lvl9" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl9"
-scene_path = "res://levels/level5_brian.tscn"
-
-[node name="lvl10" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl10"
-scene_path = "res://levels/Level6.tscn"
-
-[node name="lvl11" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl11"
-scene_path = "res://levels/Level4_tho.tscn"
-
-[node name="lvl12" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-layout_mode = 2
-numbers = "lvl12"
-scene_path = "res://levels/level_loop/LevelLoop.tscn"
-
-[node name="lvl13" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-visible = false
-layout_mode = 2
-numbers = "lvl13"
-scene_path = "res://levels/Level1.tscn"
-
-[node name="lvl14" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-visible = false
-layout_mode = 2
-numbers = "lvl14"
-scene_path = "res://levels/Level1.tscn"
-
-[node name="lvl15" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-visible = false
-layout_mode = 2
-numbers = "lvl15"
-scene_path = "res://levels/Level1.tscn"
-
-[node name="lvl16" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-visible = false
-layout_mode = 2
-numbers = "lvl16"
-scene_path = "res://levels/Level1.tscn"
-
-[node name="lvl17" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-visible = false
-layout_mode = 2
-numbers = "lvl17"
-scene_path = "res://levels/Level1.tscn"
-
-[node name="lvl18" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-visible = false
-layout_mode = 2
-numbers = "lvl18"
-scene_path = "res://levels/Level1.tscn"
-
-[node name="lvl19" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-visible = false
-layout_mode = 2
-numbers = "lvl19"
-scene_path = "res://levels/Level1.tscn"
-
-[node name="lvl20" parent="MarginContainer/ScrollContainer/HBoxContainer" instance=ExtResource("6_l7wxu")]
-visible = false
-layout_mode = 2
-numbers = "lvl20"
-scene_path = "res://levels/Level1.tscn"
-
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/HBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/ButtonContainer"]
 layout_mode = 2
 theme_override_constants/separation = 1
 theme_override_styles/separator = SubResource("StyleBoxEmpty_i3mvl")
@@ -194,5 +83,8 @@ offset_right = 693.00006
 offset_bottom = 272.0
 text = "Scroll to the lvl!"
 label_settings = SubResource("LabelSettings_i3mvl")
+
+[node name="LevelButtonTemplate" parent="." instance=ExtResource("6_l7wxu")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="mainmenu" to="mainmenu" method="_on_pressed"]
