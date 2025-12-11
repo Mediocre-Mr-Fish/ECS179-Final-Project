@@ -1,5 +1,6 @@
 extends Node
 
+var end_screen: String = "res://screens/End.tscn"
 var levels: Array[String] = [
 		"res://levels/Area1/Level-1-1_Run_And_Jump.tscn",
 		"res://levels/Area1/Level-1-2_Spikes.tscn",
@@ -20,3 +21,24 @@ var levels: Array[String] = [
 func _ready() -> void:
 	for level in levels:
 		assert(ResourceLoader.exists(level), "Could not find level \"" + level + "\"")
+
+
+func get_first_level() -> String:
+	return levels[0]
+
+
+func get_level_index(level:String) -> int:
+	var index:int = levels.find(level)
+	assert(index != -1, "Could not find level \"" + level + "\"")
+	return index
+
+
+func is_last_level(level:String) -> bool:
+	return get_level_index(level) == len(levels) - 1
+
+
+func get_next_level(current_level:String) -> String:
+	var index:int = get_level_index(current_level)
+	if index == len(levels) - 1:
+		return end_screen
+	return levels[index]
