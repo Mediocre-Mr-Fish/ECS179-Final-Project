@@ -740,9 +740,9 @@ sprite_frames = SubResource("SpriteFrames_van56")
 animation = &"Green Flower"
 frame_progress = 0.81702477
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HintScreen" type="CanvasLayer" parent="."]
 
-[node name="TabContainer" type="TabContainer" parent="CanvasLayer"]
+[node name="TabContainer" type="TabContainer" parent="HintScreen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -766,13 +766,13 @@ tab_alignment = 1
 current_tab = 0
 script = ExtResource("17_ujm31")
 
-[node name="Hint1" type="TabBar" parent="CanvasLayer/TabContainer"]
+[node name="Hint1" type="TabBar" parent="HintScreen/TabContainer"]
 layout_mode = 2
 script = ExtResource("19_0gn75")
-sprite_animation = "\"Running\""
+sprite_animation = "Running"
 metadata/_tab_index = 0
 
-[node name="Hints2" type="Label" parent="CanvasLayer/TabContainer/Hint1"]
+[node name="Hints2" type="Label" parent="HintScreen/TabContainer/Hint1"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 87.5
@@ -784,7 +784,7 @@ Before heading out see what is around first."
 label_settings = SubResource("LabelSettings_0gn75")
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/TabContainer/Hint1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HintScreen/TabContainer/Hint1"]
 position = Vector2(437, 258.5)
 scale = Vector2(5.2115383, 4.6538463)
 sprite_frames = SubResource("SpriteFrames_u5yh1")
@@ -792,14 +792,14 @@ animation = &"Running"
 frame_progress = 0.14153388
 flip_h = true
 
-[node name="Hint2" type="TabBar" parent="CanvasLayer/TabContainer"]
+[node name="Hint2" type="TabBar" parent="HintScreen/TabContainer"]
 visible = false
 layout_mode = 2
 script = ExtResource("19_0gn75")
-sprite_animation = "\"Green Flower\""
+sprite_animation = "Green Flower"
 metadata/_tab_index = 1
 
-[node name="Hints" type="Label" parent="CanvasLayer/TabContainer/Hint2"]
+[node name="Hints" type="Label" parent="HintScreen/TabContainer/Hint2"]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 52.5
@@ -813,26 +813,26 @@ With life does it appear!"
 label_settings = SubResource("LabelSettings_0gn75")
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/TabContainer/Hint2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HintScreen/TabContainer/Hint2"]
 position = Vector2(435, 293.5)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_van56")
 animation = &"Green Flower"
 frame_progress = 0.49104312
 
-[node name="Hint3" type="TabBar" parent="CanvasLayer/TabContainer"]
+[node name="Hint3" type="TabBar" parent="HintScreen/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Hints" type="Label" parent="CanvasLayer/TabContainer/Hint3"]
+[node name="Hints" type="Label" parent="HintScreen/TabContainer/Hint3"]
 layout_mode = 0
 offset_left = 145.0
 offset_top = 124.5
 offset_right = 747.0
 offset_bottom = 361.5
 theme_override_font_sizes/font_size = 15
-text = "There seems to be fake exists around...
+text = "There seems to be fake exits around...
 you must becareful out there!"
 label_settings = SubResource("LabelSettings_0gn75")
 horizontal_alignment = 1
