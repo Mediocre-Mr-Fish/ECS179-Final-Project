@@ -172,11 +172,11 @@ Github: ThoN148
 - Familiarized myself with the tiles and created / polished them for early testing, including learning how to add physics, collision as well, and implementing them as a substitute for sprites.
   - I took it upon myself to learn how to do the tiles in order to refurbish the earlier stages during progress 1 so that during the interview with other teams, we have something to present that was more fleshed out. So I learned how to use tile maps and the sets with the given assets we had, adding physics, and how to code it so that we can substitute the sprite2D models with miles for some of the tiles. (Believed others have also learned how to do this in the end)
 
-## Team Member 6: Zishuo Li
+## Zishuo Li
 
 Github: AllRightsReserved093
 
-  **Main Role \- Movement / Physics**
+### Main Role \- Movement / Physics
 
 - Our actual development was based on a playable framework built by our team members during the Game Jam; due to time constraints, the control and physics systems were relatively rudimentary at the time, and I was responsible for the remaster, adjustment, and iteration of this control system. Which included:  
   - Character control: I was responsible for redesigning the character's movement and control system, adding a motion pattern of stationary-accelerated-constant; Slow fall function when long-pressing the jump button speed-decelerated-stationar, Input invalidation functionality added to cutscene, and etc.  
@@ -188,7 +188,7 @@ Github: AllRightsReserved093
   - Painting’s eye tracking mechanism \- In the final level, I designed a character (The Painting) whose eyes automatically track the player. It's hung on the wall of the level's room and silently watches the player. I implemented this eye-tracking using the simple similar triangles principle.  
     - [Eye control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/ad662ff01e0c56cb4343ee66de1ce6a25be9a017/puzzle-platformer-game-jam/levels/level_loop/eye_control.gd) 
 
-  **Sub-Role \- Visual Cohesion and Style Guide**
+### Sub-Role \- Visual Cohesion and Style Guide
 
 - My original sub-role was press kit and trailer, but due to the enormous workload involved in this game project, I chose to focus on the visual design of the game itself instead. This includes my new Sub-role Visual Cohesion and Style Guide, as well as a host of other contributions that I will list in “Other contributions”.  
   - Guidance was provided to the team when selecting art asset packs to ensure a consistent overall art style.  
@@ -201,7 +201,7 @@ Github: AllRightsReserved093
   - I tested various AI image generation tools, including different pixel art generation models, but the results were unsatisfactory. Ultimately, I chose to use ChatGPT to generate high-resolution images that approximate pixel art, and then manually repaired and pixelated them in Photoshop.  
   - The new materials and textures I made are scattered in various places, but they are mainly gathered in the [assets/Object](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/tree/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/assets/Objects), [assects/Desert 8×8](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/tree/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/assets/World/Desert/desert-8x8), and [object/Painting](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/tree/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/objects/painting) .
 
-  **Other contributions**
+### Other contributions
 
 - Level design \- Responsible for the design and construction of the final level  
   - [Level design document](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/7b175c234cf99ca25759eaa13878a6e26e67d723/puzzle-platformer-game-jam/doc/level_loop_design_document.pdf)   
