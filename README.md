@@ -85,13 +85,15 @@ Github: asianfry
   - And I helped implement my ideas and suggestions because I was not comfortable with making so many demands and suggestions without helping out myself. I help create traps like the spikes and moving platforms, but more details about that will be discussed in other contributions.
 
 ### Sub-Role - Narrative Design
-
-- I sketched up and made a whole lot of sketches about the lore and world for our game, but I wish I was able to implement it within the various levels, but outside of the cutscene and some implementations like level 12 I was unable to make up for it in time. Copies of my sketches will be uploaded to the github.
+- I sketched up and made a whole lot of sketches about the lore and world for our game, but I wish I was able to implement it within the various levels, but outside of the cutscene and some implementations like level 12 I was unable to make up for it in time. Copies of my sketches will be uploaded to the [github](Sketches).
 
 ### Other contributions
 
-- The spike trap and moving platforms I contributed to the project, as well as a shooting arrow trap that did not make it into the project. I've wanted to try merging these with the indeterminate object class but that did not make it far.
+- The [spike trap](puzzle-platformer-game-jam/scripts/traps/spike.gd) and [moving platforms](puzzle-platformer-game-jam/scripts/traps/moving_platform.tscn) I contributed to the project, as well as a shooting arrow trap that did not make it into the project. I’ve wanted to try merging these with the indeterminate object class but that did not make it far.
 - Most of my time was spent trying to implement the lasso mechanic because it just sounded really cool and if we were able to have it it would have made our game. Unfortunately my attempts at it did not work, and I wish I was able to show what progress I have actually made, but I ran into trouble with Github Desktop and my scripts and scenes were lost to history. There is evidence on my computer of the scenes, so I hope that is enough to show.
+- Some animation help, but I designed the [death animation](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/4fbcca61d41c906e93611d08fa4647d21ee035f8/puzzle-platformer-game-jam/objects/player/player_controller.gd#L331).
+- [DurativeDeath](puzzle-platformer-game-jam/scripts/commands/npc/durative_death_command.gd) Command inspired from Exercise 1.
+- [DurativeDade](puzzle-platformer-game-jam/scripts/commands/npc/durative_fade_out_command.gd) Command inspired from Exercise 1.
 
 ## Ellison Song
 
