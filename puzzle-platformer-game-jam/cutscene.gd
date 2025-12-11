@@ -20,6 +20,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		current_timer.timeout.disconnect(_on_timer_timeout)
 		_on_timer_timeout()
+	
+	if Input.is_action_just_pressed("menu"):
+		current_timer.timeout.disconnect(_on_timer_timeout)
+		get_tree().change_scene_to_file(LevelMap.get_first_level())
 
 
 func _on_timer_timeout() -> void:
