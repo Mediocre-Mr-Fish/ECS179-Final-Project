@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://ru5hopewms17"]
+[gd_scene load_steps=32 format=4 uid="uid://ru5hopewms17"]
 
 [ext_resource type="Script" uid="uid://cp01n82ou5v1f" path="res://levels/level_loop/level_loop.gd" id="1_ja8hb"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="2_lwnbc"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bt7o04o4fyq5n" path="res://objects/painting/painting3.png" id="11_eggmq"]
 [ext_resource type="Texture2D" uid="uid://vbi6f3e1r0xb" path="res://objects/painting/painting4.png" id="12_8wp0b"]
 [ext_resource type="PackedScene" uid="uid://d332nk1x7sahw" path="res://levels/level_loop/ThePainting.tscn" id="13_lwnbc"]
+[ext_resource type="Texture2D" uid="uid://dhsbkag4m3ynk" path="res://assets/Objects/Stage/stageFix.png" id="13_ucsgq"]
 [ext_resource type="Texture2D" uid="uid://b1560p8tw635w" path="res://assets/Objects/Torch/torch.png" id="16_0a4s2"]
 [ext_resource type="Script" uid="uid://bbbueggp61ul4" path="res://levels/level_loop/torch.gd" id="16_cp5jv"]
 [ext_resource type="PackedScene" uid="uid://d2lfosmujhre2" path="res://levels/level_loop/the_not_moving_painting.tscn" id="17_q5w88"]
@@ -148,7 +149,8 @@ scene_path = "res://screens/End.tscn"
 
 [node name="Crown" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1195, 291)
+z_index = -6
+position = Vector2(1196, 279)
 
 [node name="Sprite2D" type="Sprite2D" parent="Crown"]
 scale = Vector2(1.5, 1.5)
@@ -177,6 +179,7 @@ position = Vector2(10, -224)
 scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="player/PlayerCrown"]
+position = Vector2(-2, 0)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_d7ep7")
 
@@ -384,6 +387,11 @@ texture = ExtResource("9_lwnbc")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="FarPast/Decoration/Node2D7"]
 occluder = SubResource("OccluderPolygon2D_cp5jv")
+
+[node name="Stage" type="Sprite2D" parent="FarPast/Decoration"]
+position = Vector2(1195, 356)
+scale = Vector2(3, 3)
+texture = ExtResource("13_ucsgq")
 
 [node name="Painting" type="Node2D" parent="FarPast"]
 z_index = -10
