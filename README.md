@@ -21,23 +21,14 @@ Beginning the game, the first few levels are there for you to get comfortable wi
 Default Keybindings:
 
 | Movement | A, D, left arrow key, right arrow key |
-| --- | --- |
 | Jump | Space Bar |
-| --- | --- |
 | Activate Filter | Q   |
-| --- | --- |
 | Filter Color Swap | Tab |
-| --- | --- |
 | Camera Shifting | Shift |
-| --- | --- |
 | Hints | H   |
-| --- | --- |
 | Interaction | E   |
-| --- | --- |
 | Main Menu | Escape |
-| --- | --- |
 | Reset | R   |
-| --- | --- |
 
 The following contains spoilers for the solutions to the puzzles.
 
@@ -70,6 +61,9 @@ ChatGPT
   - Physics
   - Lighting
   - Computer Graphic in general
+
+Class resources
+- Used exercise 1 durative commands
 
 # Team Member Contributions
 
