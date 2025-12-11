@@ -97,25 +97,33 @@ Github: Mediocre-Mr-Fish
 ### Main Role - Game Logic
 
 - Wrote the initial scripts for prototype testing. Although many more scripts have been added since and much of the player and camera scripts have been rewritten, many of the smaller scripts remain intact in the current version.
-  - Notable examples include the zone-out script, the exit script, the base indeterminate object script, and the hitbox/hurtbox script
-  - Much of the camera hitbox logic remains intact
+  - Notable examples:
+    - [zone-out script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/zone_out.gd),
+    - [the exit script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/objects/exit/exit.gd),
+    - [the base indeterminate object script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/object_indeterminate.gd),
+    - [hitbox script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/hit_box.gd)
+      - [touch hitbox script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/touch_hit_box.gd)
+      - [camera hitbox script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/objects/camera/camera_hitbox.gd)
 - Wrote the extended scripts for the indeterminate objects. A key objective for these scripts was to make them highly parameterized and easy to place into levels without needing to subclass them for every variant of behavior; this was something that was lacking in the Game Jam Version. This would greatly accelerate the process of creating levels.
-- Wrote the scripts for the camera movement logic. The camera is a very integral part of the mechanics of Beholden, so it needed to feel natural and cooperative.
+  - [Simple Visble-Tangible Objects](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/objects/indeterminate_object/simple_visble_tangible.gd)
+  - [Filtered Visble-Tangible Objects](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/objects/indeterminate_object/filtered_visble_tangible.gd)
+- Implemented the [camera movement logic](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/objects/camera/camera_controller.gd). The camera is a very integral part of the mechanics of Beholden, so it needed to feel natural and cooperative.
   - A key complaint that came up during both development and testing was that the camera felt too zoomed in. The camera's zoom also affected the scale of all other objects in the world. To remedy this, the camera's zoom, scale, and movement were made to be parameterizable.
-  - Because the camera zoom was made to be parametrizable, a script to dynamically change the zoom based on player location was added. This gave some levels a significant juicing.
+  - Because the camera zoom was made to be parametrizable, [a script to dynamically change the zoom based on player location](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/objects/camera/camera_changer.gd) was added. This gave some levels a significant juicing.
 - Set the foundation for player movement and controls. Although most of the code has been overridden since, some parts still remain
-- Wrote the scripts that automate the assignment of levels to the level select screen and to each of the level exits. This allows the level order to be adjusted very easily without needing to change
+- Wrote the scripts that automate the [assignment of levels to the level select screen](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/screens/levelselection.gd) and [to each of the level exits](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/objects/exit/exit.gd). This allows the level order to be adjusted very easily without needing to change every level.
+  - [Global Level Map Class](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/main/puzzle-platformer-game-jam/level_map.gd)
 
 ### Sub-Role - Player Onboarding and Tutorial Design
 
-- Designed and implemented the first 7 levels. A key objective was to create situations where the player would discover the mechanics naturally. This is very difficult for such an unintuitive mechanic
+- Designed and implemented the first 7 levels. A key objective was to create situations where the player would discover the mechanics naturally. This is very difficult for such an unintuitive mechanic.
 
 ### Other contributions
 
-- Developed the Physics Boxes and Floor Buttons, which ended up not making it into the current version.
-- Partially developed the lasso projectile mechanic, which ended up not making it into the current version.
+- Developed the [Physics Boxes](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/Level-LeapOfFaith/puzzle-platformer-game-jam/objects/physics_box/PhysicsBox.tscn) and [Floor Buttons](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/Level-LeapOfFaith/puzzle-platformer-game-jam/objects/floor_button/floor_button.tscn), which ended up not making it into the current version.
+- Partially developed the [lasso projectile mechanic](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/dev-lasso/puzzle-platformer-game-jam/objects/player/lasso_end.tscn), which ended up not making it into the current version.
 - Drew the majority of placeholder sprites. As they are placeholders, none of these are used in the current version.
-- Manages the itch.io page
+- Manages the [itch.io page](https://mediocre-mr-fish.itch.io/beholden) and the [Github page](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project)
 
 ## Brian Kim
 
