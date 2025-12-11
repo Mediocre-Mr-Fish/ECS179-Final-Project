@@ -69,6 +69,7 @@ var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platfor
 @onready var forwards_box_extender: CollisionShape2D = $TouchHitBox/ForwardsBoxExtender
 @onready var fade: ColorRect = $"../Fade"
 
+var is_control_enabled: bool = true
 
 func _ready() -> void:
 	assert(camera, "Could not find camera. Make sure it is Acessable as a Unique Node!")
@@ -120,6 +121,9 @@ func _physics_process(delta: float) -> void:
 	# If character is in air and jump is pressed, apply slow fall.
 	# Kinda like the mechnism in google dinosaur game.
 	if Input.is_action_pressed("jump"):
+		if is_control_enabled == false:
+			return
+
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		else:
@@ -129,7 +133,10 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction:Vector2 = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
-
+	
+	if is_control_enabled == false:
+		direction = Vector2.ZERO
+	
 	# Handle character walking.
 	# Walk normally on ground.
 	# Apply small amount of acceleration in the air.
@@ -168,6 +175,8 @@ func _physics_process(delta: float) -> void:
 				facing_y = FacingY.DOWN
 	
 	if Input.is_action_just_pressed("torch_interact") and not _torch_interact_consumed:
+		if is_control_enabled == false:
+			return
 		# Don't allow toggling off if near light source and not lit yet
 		# Once lit, allow normal toggling
 		if _is_near_light_source and not _is_torch_light_on and _is_having_torch_out:
@@ -181,6 +190,8 @@ func _physics_process(delta: float) -> void:
 		
 
 	if Input.is_action_just_pressed("filter_switch"):
+		if is_control_enabled == false:
+			return
 		if not hasBeholder:
 			return
 		#if theres no current color, pick the first color gem player picked up
@@ -197,6 +208,8 @@ func _physics_process(delta: float) -> void:
 		command_callback("restart")
 
 	if Input.is_action_just_pressed("menu"):
+		if is_control_enabled == false:
+			return
 		# Notify BGM player before changing scene
 		var bgm_player = get_node_or_null("/root/AutoloadAudioPlayer/BGMPlayer")
 		if bgm_player:
