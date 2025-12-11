@@ -1,5 +1,6 @@
 extends Node
 
+var start_cutscene_path: String = "res://screens/cutscene.tscn"
 var end_screen: String = "res://screens/End.tscn"
 var levels: Array[String] = [
 		"res://levels/Area1/Level-1-1_Run_And_Jump.tscn",

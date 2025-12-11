@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b77al7fj1h2yh"]
+[gd_scene load_steps=8 format=3 uid="uid://beuufnvkejgvh"]
 
 [ext_resource type="Script" uid="uid://ffsr7vjtegrs" path="res://cutscene.gd" id="1_knbvh"]
 [ext_resource type="Texture2D" uid="uid://df8okkd87c0x0" path="res://assets/Cutscene/Beholden Cutscene1.png" id="2_ra2fq"]
