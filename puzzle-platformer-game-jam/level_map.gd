@@ -41,4 +41,4 @@ func get_next_level(current_level:String) -> String:
 	var index:int = get_level_index(current_level)
 	if index == len(levels) - 1:
 		return end_screen
-	return levels[index]
+	return levels[index + 1]
