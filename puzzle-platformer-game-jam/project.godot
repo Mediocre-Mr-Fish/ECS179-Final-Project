@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 colors="*res://colors.gd"
 AutoloadAudioPlayer="*res://audio_control/AudioPlayer.tscn"
+LevelMap="*res://level_map.gd"
 
 [display]
 
