@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=4 uid="uid://vyifq403bgt5"]
+[gd_scene load_steps=10 format=4 uid="uid://vyifq403bgt5"]
 
-[ext_resource type="PackedScene" uid="uid://b77al7fj1h2yh" path="res://screens/cutscene.tscn" id="1_5xfvd"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="1_nr8nu"]
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_yr5xh"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="2_yr5xh"]
@@ -85,11 +84,6 @@ sources/0 = SubResource("TileSetAtlasSource_i6tw1")
 size = Vector2(1010, 390)
 
 [node name="Level11RunAndJump" type="Node2D"]
-
-[node name="Cutscene" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_5xfvd")]
-z_index = 1
-position = Vector2(-1212, 98)
-player = NodePath("../player")
 
 [node name="Background" parent="." instance=ExtResource("1_yr5xh")]
 
