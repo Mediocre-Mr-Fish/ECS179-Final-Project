@@ -823,6 +823,7 @@ frame_progress = 0.49104312
 [node name="Hint3" type="TabBar" parent="HintScreen/TabContainer"]
 visible = false
 layout_mode = 2
+script = ExtResource("19_0gn75")
 metadata/_tab_index = 2
 
 [node name="Hints" type="Label" parent="HintScreen/TabContainer/Hint3"]
