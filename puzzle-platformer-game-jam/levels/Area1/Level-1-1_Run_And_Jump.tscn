@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b77al7fj1h2yh" path="res://screens/cutscene.tscn" id="1_5xfvd"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="1_nr8nu"]
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_yr5xh"]
-[ext_resource type="PackedScene" uid="uid://dw1xcfi4m6pc3" path="res://objects/player/Player.tscn" id="2_yr5xh"]
-[ext_resource type="PackedScene" uid="uid://bt6ny7gkud23l" path="res://objects/camera/PlayerCamera.tscn" id="3_8w3em"]
+[ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="2_yr5xh"]
+[ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="3_8w3em"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="3_i6tw1"]
 [ext_resource type="Script" path="res://objects/camera/camera_changer.gd" id="5_8w3em"]
 
@@ -86,9 +86,10 @@ size = Vector2(1010, 390)
 
 [node name="Level11RunAndJump" type="Node2D"]
 
-[node name="Cutscene" parent="." instance=ExtResource("1_5xfvd")]
+[node name="Cutscene" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_5xfvd")]
 z_index = 1
 position = Vector2(-1212, 98)
+player = NodePath("../player")
 
 [node name="Background" parent="." instance=ExtResource("1_yr5xh")]
 

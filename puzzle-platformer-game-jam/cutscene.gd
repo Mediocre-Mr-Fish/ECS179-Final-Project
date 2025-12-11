@@ -1,12 +1,14 @@
 extends Node2D
 
+@export var player: Node = null
+
 const TIMER := 7.0
 
 var images := []
 var current := 0
 
 func _ready():
-	
+	player.is_control_enabled = false
 	images = get_children()
 	
 	for img in images:
@@ -24,4 +26,5 @@ func _show_image(index):
 		_show_image(current + 1)
 	else:
 		images[current].visible = false
+		player.is_control_enabled = true
 		
