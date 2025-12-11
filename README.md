@@ -172,37 +172,44 @@ Github: ThoN148
 - Familiarized myself with the tiles and created / polished them for early testing, including learning how to add physics, collision as well, and implementing them as a substitute for sprites.
   - I took it upon myself to learn how to do the tiles in order to refurbish the earlier stages during progress 1 so that during the interview with other teams, we have something to present that was more fleshed out. So I learned how to use tile maps and the sets with the given assets we had, adding physics, and how to code it so that we can substitute the sprite2D models with miles for some of the tiles. (Believed others have also learned how to do this in the end)
 
-## Zishuo Li
+## Team Member 6: Zishuo Li
+
 Github: AllRightsReserved093
 
-### Main Role - Movement / Physics
-- Our actual development was based on a playable framework built by our team members during the Game Jam; due to time constraints, the control and physics systems were relatively rudimentary at the time, and I was responsible for the remaster, adjustment, and iteration of this control system. Which included:
-  - Character control: I was responsible for redesigning the character's movement and control system, adding a motion pattern of stationary-accelerated-constant; Slow fall function when long-pressing the jump button speed-decelerated-stationar, Input invalidation functionality added to cutscene, and etc.
-    - [Character control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/bf00438b4b9b8f2775d1f56986832d5db77c3eab/puzzle-platformer-game-jam/objects/player/player_controller.gd#L118C2-L118C16)
-  - I created animations and animation trees for the characters, and built a character animation logic tree and support system. Because the original asset pack's animation textures were misaligned, they were completely unusable. I used tools like Photoshop to adjust and redraw some of the character textures, achieving the correct animation playback effect.
-    - [Animation control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/bf00438b4b9b8f2775d1f56986832d5db77c3eab/puzzle-platformer-game-jam/objects/player/player_controller.gd#L236)
-  - It implemented some physics-based map components, such as rail objects(A module that binds physically based objects to a fixed track and allows for real-time interaction.) This was originally intended to be a major module in our gameplay, but unfortunately, it wasn't ultimately implemented in the game due to the limitations of the Godot physics system, which made the lasso system used for interaction difficult to implement.
-    - [rail_object control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/bf00438b4b9b8f2775d1f56986832d5db77c3eab/puzzle-platformer-game-jam/objects/rail_object/rail_object_control.gd#L2C1-L3C1) 
+  **Main Role \- Movement / Physics**
 
-### Sub-Role - Visual Cohesion and Style Guide
-- My original sub-role was press kit and trailer, but due to the enormous workload involved in this game project, I chose to focus on the visual design of the game itself instead. This includes my new Sub-role Visual Cohesion and Style Guide, as well as a host of other contributions that I will list in “Other contributions”.
-  - Guidance was provided to the team when selecting art asset packs to ensure a consistent overall art style.
-  - In charge of the lighting design, primarily for the final chapter, utilizes Godot's texture-based 2D lighting system. The lighting design employs procedurally generated inverse square intensity maps and overlays multiple layers of light objects to simulate diffuse reflection and glow effects on walls and objects, achieving a relatively satisfactory visual effect.
-  - I used Photoshop's Camera Raw to adjust the color style of multiple texture files to match the overall art style.
-  - Normal map systems were applied to many game textures related to lighting effects. Using Photoshop 3D tools to generate and manually repair the textures, normal maps were applied to some materials that interact with Godot light sources, resulting in a virtual 3D effect and a more layered visual presentation.
-    - [One of the normal map that I created](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/7b175c234cf99ca25759eaa13878a6e26e67d723/puzzle-platformer-game-jam/assets/World/Desert/desert-8x8/sprites/desert_brickwall_background_normal_map.png)
-  - Parallax background: I reprocessed the background layers extracted from the original background texture using Photoshop and designed appropriate Godot parallax background parameters to achieve a visually plausible parallax background effect.
-  - Created quite a few texture assets that fit the overall style were created using AI tools and photoshop.
-    - I tested various AI image generation tools, including different pixel art generation models, but the results were unsatisfactory. Ultimately, I chose to use ChatGPT to generate high-resolution images that approximate pixel art, and then manually repaired and pixelated them in Photoshop.
-    - The new materials and textures I made are scattered in various places, but they are mainly gathered in the assets/Object, assects/Desert 8×8, and object/Painting .
+- Our actual development was based on a playable framework built by our team members during the Game Jam; due to time constraints, the control and physics systems were relatively rudimentary at the time, and I was responsible for the remaster, adjustment, and iteration of this control system. Which included:  
+  - Character control: I was responsible for redesigning the character's movement and control system, adding a motion pattern of stationary-accelerated-constant; Slow fall function when long-pressing the jump button speed-decelerated-stationar, Input invalidation functionality added to cutscene, and etc.  
+    - [Character control scrip](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/bf00438b4b9b8f2775d1f56986832d5db77c3eab/puzzle-platformer-game-jam/objects/player/player_controller.gd#L118C2-L118C16)   
+  - I created animations and animation trees for the characters, and built a character animation logic tree and support system. Because the original asset pack's animation textures were misaligned, they were completely unusable. I used tools like Photoshop to adjust and redraw some of the character textures, achieving the correct animation playback effect.  
+    - [Animation control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/bf00438b4b9b8f2775d1f56986832d5db77c3eab/puzzle-platformer-game-jam/objects/player/player_controller.gd#L236)   
+  - It implemented some physics-based map components, such as rail objects(A module that binds physically based objects to a fixed track and allows for real-time interaction.) This was originally intended to be a major module in our gameplay, but unfortunately, it wasn't ultimately implemented in the game due to the limitations of the Godot physics system, which made the lasso system used for interaction difficult to implement.  
+    - [rail\_object control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/bf00438b4b9b8f2775d1f56986832d5db77c3eab/puzzle-platformer-game-jam/objects/rail_object/rail_object_control.gd#L2C1-L3C1)   
+  - Painting’s eye tracking mechanism \- In the final level, I designed a character (The Painting) whose eyes automatically track the player. It's hung on the wall of the level's room and silently watches the player. I implemented this eye-tracking using the simple similar triangles principle.  
+    - [Eye control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/ad662ff01e0c56cb4343ee66de1ce6a25be9a017/puzzle-platformer-game-jam/levels/level_loop/eye_control.gd) 
 
-### Other contributions
-- Level design - Responsible for the design and construction of the final level
-  - [Level design document](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/7b175c234cf99ca25759eaa13878a6e26e67d723/puzzle-platformer-game-jam/doc/level_loop_design_document.pdf)
-- Audio system:
-  - A background audio system, completely independent of the level system, was implemented to uniformly play background music and various character and level-related sound effects.
-    - [BGM control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/audio_control/bgm_player.gd)
-    - [SFX control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/audio_control/player_sfx_player.gd)
-  - I downloaded many attribution-free/open-source sound effect files on free game sound effect websites such as Freesound, Pixabay Sound Effects, and Creazilla Audio, and applied them to the game.
-    - [Audio assets](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/tree/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/assets/Audio)
-  - Buttons textures - A few buttons that were not included in the asset pack have been drawn, such as the Debug level button and the Loop level button (temporary, and will not be used in the final game).
+  **Sub-Role \- Visual Cohesion and Style Guide**
+
+- My original sub-role was press kit and trailer, but due to the enormous workload involved in this game project, I chose to focus on the visual design of the game itself instead. This includes my new Sub-role Visual Cohesion and Style Guide, as well as a host of other contributions that I will list in “Other contributions”.  
+  - Guidance was provided to the team when selecting art asset packs to ensure a consistent overall art style.  
+- In charge of the lighting design, primarily for the final chapter, utilizes Godot's texture-based 2D lighting system. The lighting design employs procedurally generated inverse square intensity maps and overlays multiple layers of light objects to simulate diffuse reflection and glow effects on walls and objects, achieving a relatively satisfactory visual effect.  
+- I used Photoshop's Camera Raw to adjust the color style of multiple texture files to match the overall art style.  
+- Normal map systems were applied to many game textures related to lighting effects. Using Photoshop 3D tools to generate and manually repair the textures, normal maps were applied to some materials that interact with Godot light sources, resulting in a virtual 3D effect and a more layered visual presentation.  
+  - [One of the normal map that I created](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/7b175c234cf99ca25759eaa13878a6e26e67d723/puzzle-platformer-game-jam/assets/World/Desert/desert-8x8/sprites/desert_brickwall_background_normal_map.png)   
+- Parallax background: I reprocessed the background layers extracted from the original background texture using Photoshop and designed appropriate Godot parallax background parameters to achieve a visually plausible parallax background effect.  
+- Created quite a few texture assets that fit the overall style were created using AI tools and photoshop.  
+  - I tested various AI image generation tools, including different pixel art generation models, but the results were unsatisfactory. Ultimately, I chose to use ChatGPT to generate high-resolution images that approximate pixel art, and then manually repaired and pixelated them in Photoshop.  
+  - The new materials and textures I made are scattered in various places, but they are mainly gathered in the [assets/Object](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/tree/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/assets/Objects), [assects/Desert 8×8](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/tree/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/assets/World/Desert/desert-8x8), and [object/Painting](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/tree/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/objects/painting) .
+
+  **Other contributions**
+
+- Level design \- Responsible for the design and construction of the final level  
+  - [Level design document](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/7b175c234cf99ca25759eaa13878a6e26e67d723/puzzle-platformer-game-jam/doc/level_loop_design_document.pdf)   
+- Audio system:  
+  - A background audio system, completely independent of the level system, was implemented to uniformly play background music and various character and level-related sound effects.  
+    - [BGM control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/audio_control/bgm_player.gd)   
+    - [SFX control script](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/blob/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/audio_control/player_sfx_player.gd)  
+  - I downloaded many attribution-free/open-source sound effect files on free game sound effect websites such as Freesound, Pixabay Sound Effects, and Creazilla Audio, and applied them to the game.  
+    - [Audio assets](https://github.com/Mediocre-Mr-Fish/ECS179-Final-Project/tree/555fa2a686de2b6cdb0bd8b66cfdc0e9dcb42e1d/puzzle-platformer-game-jam/assets/Audio)   
+- Buttons textures \- A few buttons that were not included in the asset pack have been drawn, such as the Debug level button and the Loop level button (temporary, and will not be used in the final game).
+
