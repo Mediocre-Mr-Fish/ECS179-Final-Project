@@ -33,7 +33,16 @@ Default Keybindings:
 
 The following contains spoilers for the solutions to the puzzles.
 
-**Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+Certain objects have a fickle existence.
+These objects exist when evidence supports their existence
+and are non-existant when evidence contradicts it.
+
+Seeing an object supports its existence.
+Walking though an empty space denies it.
+
+Many of the puzzles you will encounter play with this concept in mind-bending ways. Some puzzles require you to shift the camera towards or away from objects, while others require you to reveal objects using the Beholder's colored filter.
+
+An important aspect to consider is that once an object's existence becomes determined, it cannnot be undetermined. 
 
 # External Code, Ideas, and Structure
 
