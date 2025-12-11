@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://vyifq403bgt5"]
+[gd_scene load_steps=29 format=4 uid="uid://vyifq403bgt5"]
 
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="1_nr8nu"]
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_yr5xh"]
@@ -6,6 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://df05sh52lygxh" path="res://objects/camera/PlayerCamera.tscn" id="3_8w3em"]
 [ext_resource type="PackedScene" uid="uid://dpcht0t44h8fj" path="res://objects/exit/exit.tscn" id="3_i6tw1"]
 [ext_resource type="Script" path="res://objects/camera/camera_changer.gd" id="5_8w3em"]
+[ext_resource type="Texture2D" uid="uid://vcphjxnwnhw1" path="res://assets/Buttons/control_panel.png" id="7_xhmqe"]
+[ext_resource type="Script" uid="uid://dp201ecadhtkp" path="res://levels/helperhint.gd" id="8_6ypg1"]
+[ext_resource type="Script" uid="uid://by6ftk2eky0ar" path="res://levels/hint_tab.gd" id="9_x3now"]
+[ext_resource type="Texture2D" uid="uid://cq4ufqkjdt8ms" path="res://assets/Adventure_Platformer/Player/Player_Run1.png" id="10_kep05"]
+[ext_resource type="Texture2D" uid="uid://bio7h3bi0b1ht" path="res://assets/Adventure_Platformer/Player/Player_Run2.png" id="11_50f1s"]
+[ext_resource type="Texture2D" uid="uid://cuf1wgyxo07jy" path="res://assets/Adventure_Platformer/Player/Player_Run3.png" id="12_8766j"]
+[ext_resource type="Texture2D" uid="uid://craqors02rymq" path="res://assets/Adventure_Platformer/Player/Player_Run4.png" id="13_8kwjs"]
+[ext_resource type="Texture2D" uid="uid://bpf46iwxbkpnr" path="res://assets/Adventure_Platformer/Player/Player_Run5.png" id="14_i1anb"]
+[ext_resource type="Texture2D" uid="uid://dtfwr0wcs0256" path="res://assets/Adventure_Platformer/Player/Player_Run6.png" id="15_ayha2"]
+[ext_resource type="Texture2D" uid="uid://c07fqdh4uka6r" path="res://assets/Adventure_Platformer/Player/Player_Run7.png" id="16_hxwyx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6tw1"]
 texture = ExtResource("1_nr8nu")
@@ -83,6 +93,71 @@ sources/0 = SubResource("TileSetAtlasSource_i6tw1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr5xh"]
 size = Vector2(1010, 390)
 
+[sub_resource type="Theme" id="Theme_powrg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g07fo"]
+atlas = ExtResource("7_xhmqe")
+region = Rect2(16.01191, 31.956522, 95.96403, 63.984894)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ae8iu"]
+texture = SubResource("AtlasTexture_g07fo")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57fod"]
+atlas = ExtResource("7_xhmqe")
+region = Rect2(32.00335, 26.99211, 15.997055, 4.9879704)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jfukd"]
+content_margin_left = 10.0
+texture = SubResource("AtlasTexture_57fod")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5pdt"]
+atlas = ExtResource("7_xhmqe")
+region = Rect2(48.02242, 22.992558, 15.999424, 9.961094)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xalcx"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+texture = SubResource("AtlasTexture_v5pdt")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_v15hn"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6d4eb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_kep05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_50f1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8766j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8kwjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_i1anb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ayha2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hxwyx")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 15.0
+}]
+
 [node name="Level11RunAndJump" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_yr5xh")]
@@ -123,3 +198,55 @@ offset_top = -1312.0
 offset_right = 3977.0
 offset_bottom = 1325.0
 color = Color(0, 0, 0, 1)
+
+[node name="HintScreen" type="CanvasLayer" parent="."]
+
+[node name="TabContainer" type="TabContainer" parent="HintScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1013.0
+offset_top = -515.5
+offset_right = -139.0
+offset_bottom = -132.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_powrg")
+theme_override_colors/font_selected_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_hovered_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_unselected_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
+theme_override_constants/tab_separation = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_ae8iu")
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_jfukd")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_xalcx")
+tab_alignment = 1
+current_tab = 0
+script = ExtResource("8_6ypg1")
+
+[node name="Intro" type="TabBar" parent="HintScreen/TabContainer"]
+layout_mode = 2
+script = ExtResource("9_x3now")
+sprite_animation = "Running"
+metadata/_tab_index = 0
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Intro"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "Run and Jump
+The blocks block my way.
+No sweat for a master adventurer!"
+label_settings = SubResource("LabelSettings_v15hn")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HintScreen/TabContainer/Intro"]
+position = Vector2(437, 258.5)
+scale = Vector2(5.2115383, 4.6538463)
+sprite_frames = SubResource("SpriteFrames_6d4eb")
+animation = &"Running"
+flip_h = true

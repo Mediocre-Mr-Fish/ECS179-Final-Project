@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cmbtjgw3o0uqi"]
+[gd_scene load_steps=36 format=4 uid="uid://cmbtjgw3o0uqi"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_y4bo6"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="2_m52et"]
@@ -10,6 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="8_nrvk5"]
 [ext_resource type="Script" uid="uid://u7kg5kmahcs4" path="res://objects/indeterminate_object/filtered_visble_tangible.gd" id="9_gq435"]
 [ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="10_6t0ni"]
+[ext_resource type="Texture2D" uid="uid://vcphjxnwnhw1" path="res://assets/Buttons/control_panel.png" id="11_fsld1"]
+[ext_resource type="Script" uid="uid://dp201ecadhtkp" path="res://levels/helperhint.gd" id="12_wis2h"]
+[ext_resource type="Script" uid="uid://by6ftk2eky0ar" path="res://levels/hint_tab.gd" id="13_rv8ih"]
+[ext_resource type="Texture2D" uid="uid://cq4ufqkjdt8ms" path="res://assets/Adventure_Platformer/Player/Player_Run1.png" id="14_gqrfx"]
+[ext_resource type="Texture2D" uid="uid://bio7h3bi0b1ht" path="res://assets/Adventure_Platformer/Player/Player_Run2.png" id="15_gnyth"]
+[ext_resource type="Texture2D" uid="uid://cuf1wgyxo07jy" path="res://assets/Adventure_Platformer/Player/Player_Run3.png" id="16_4ofba"]
+[ext_resource type="Texture2D" uid="uid://craqors02rymq" path="res://assets/Adventure_Platformer/Player/Player_Run4.png" id="17_t8sq6"]
+[ext_resource type="Texture2D" uid="uid://bpf46iwxbkpnr" path="res://assets/Adventure_Platformer/Player/Player_Run5.png" id="18_7idgx"]
+[ext_resource type="Texture2D" uid="uid://dtfwr0wcs0256" path="res://assets/Adventure_Platformer/Player/Player_Run6.png" id="19_se4u7"]
+[ext_resource type="Texture2D" uid="uid://c07fqdh4uka6r" path="res://assets/Adventure_Platformer/Player/Player_Run7.png" id="20_0v71u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pn2a"]
 size = Vector2(12432, 3173)
@@ -174,6 +184,71 @@ texture = ExtResource("8_nrvk5")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_y4bo6")
 
+[sub_resource type="Theme" id="Theme_7xnkd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdq5j"]
+atlas = ExtResource("11_fsld1")
+region = Rect2(16.01191, 31.956522, 95.96403, 63.984894)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81mce"]
+texture = SubResource("AtlasTexture_jdq5j")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3gg3"]
+atlas = ExtResource("11_fsld1")
+region = Rect2(32.00335, 26.99211, 15.997055, 4.9879704)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gn4c"]
+content_margin_left = 10.0
+texture = SubResource("AtlasTexture_c3gg3")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqjnt"]
+atlas = ExtResource("11_fsld1")
+region = Rect2(48.02242, 22.992558, 15.999424, 9.961094)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2axx"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+texture = SubResource("AtlasTexture_rqjnt")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6kr7"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ts4vf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_gqrfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gnyth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4ofba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_t8sq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7idgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_se4u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0v71u")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 15.0
+}]
+
 [node name="World2" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_y4bo6")]
@@ -202,16 +277,12 @@ script = ExtResource("5_c0m3x")
 position = Vector2(814, 3097)
 shape = SubResource("RectangleShape2D_5pn2a")
 
-[node name="Beholder" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("6_n37ak")]
+[node name="Beholder" parent="Level" instance=ExtResource("6_n37ak")]
 position = Vector2(-211, 443)
-player = NodePath("../../player")
-camera = NodePath("../../Camera2D")
 item_name = 1
 
-[node name="Green Gem" parent="Level" node_paths=PackedStringArray("player", "camera") instance=ExtResource("6_n37ak")]
+[node name="Green Gem" parent="Level" instance=ExtResource("6_n37ak")]
 position = Vector2(29, 437)
-player = NodePath("../../player")
-camera = NodePath("../../Camera2D")
 item_name = 2
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("7_vty7t")]
@@ -255,3 +326,94 @@ offset_top = -1167.0
 offset_right = 4105.0
 offset_bottom = 1470.0
 color = Color(0, 0, 0, 1)
+
+[node name="HintScreen" type="CanvasLayer" parent="."]
+
+[node name="TabContainer" type="TabContainer" parent="HintScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -1252.0
+offset_right = 778.0
+offset_bottom = -869.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7xnkd")
+theme_override_colors/font_selected_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_hovered_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_unselected_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
+theme_override_constants/tab_separation = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_81mce")
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_8gn4c")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_s2axx")
+tab_alignment = 1
+current_tab = 2
+script = ExtResource("12_wis2h")
+
+[node name="Intro" type="TabBar" parent="HintScreen/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("13_rv8ih")
+sprite_animation = "Running"
+metadata/_tab_index = 0
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Intro"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "Bridge
+A gap is quite the roadblock.
+If only there was some way to cross.
+"
+label_settings = SubResource("LabelSettings_w6kr7")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HintScreen/TabContainer/Intro"]
+position = Vector2(437, 258.5)
+scale = Vector2(5.2115383, 4.6538463)
+sprite_frames = SubResource("SpriteFrames_ts4vf")
+animation = &"Running"
+flip_h = true
+
+[node name="Hint" type="TabBar" parent="HintScreen/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("13_rv8ih")
+metadata/_tab_index = 1
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Hint"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "That fall is dangerous!
+It feels like the's nothing there at all.
+Better to stay back and examine first."
+label_settings = SubResource("LabelSettings_w6kr7")
+horizontal_alignment = 1
+
+[node name="Solution" type="TabBar" parent="HintScreen/TabContainer"]
+layout_mode = 2
+script = ExtResource("13_rv8ih")
+metadata/_tab_index = 2
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Solution"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "The bridge only shows under the green filter.
+But if you get too close,
+you'll find there's nothing there."
+label_settings = SubResource("LabelSettings_w6kr7")
+horizontal_alignment = 1
