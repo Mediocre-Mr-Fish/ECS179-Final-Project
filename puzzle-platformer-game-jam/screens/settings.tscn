@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdtqqirog1fyv"]
+[gd_scene load_steps=16 format=3 uid="uid://bdtqqirog1fyv"]
 
 [ext_resource type="PackedScene" uid="uid://nmkxfuui0iq1" path="res://screens/hotkey_keybind.tscn" id="1_5em86"]
 [ext_resource type="Texture2D" uid="uid://vcphjxnwnhw1" path="res://assets/Buttons/control_panel.png" id="1_hfwxu"]
+[ext_resource type="Script" uid="uid://slnu7b1xr4gm" path="res://screens/volume_setting.gd" id="3_0o1eh"]
 [ext_resource type="PackedScene" uid="uid://sk5jonqt3uvr" path="res://objects/landmarks/flower_tulip.tscn" id="3_qyhqh"]
 [ext_resource type="Texture2D" uid="uid://cwvs7mrn4c4qf" path="res://assets/Beholden Assets/think.png" id="4_0o1eh"]
 
@@ -165,6 +166,34 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_230t2")
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Sounds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_right = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_0o1eh")
+bus_name = "Master"
+
+[node name="Hints" type="Label" parent="TabContainer/Sounds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 93.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 15
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_hhs7c")
+horizontal_alignment = 1
 
 [node name="Hint" type="TabBar" parent="TabContainer"]
 visible = false
