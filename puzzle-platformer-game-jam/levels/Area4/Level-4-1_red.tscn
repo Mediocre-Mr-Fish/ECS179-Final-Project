@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b4glc3hb522hc"]
+[gd_scene load_steps=37 format=4 uid="uid://b4glc3hb522hc"]
 
 [ext_resource type="PackedScene" uid="uid://dqyr2ukdesbr" path="res://Backgrounds/level_1_background.tscn" id="1_nbj0j"]
 [ext_resource type="PackedScene" uid="uid://b3tycvd50f06t" path="res://objects/player/Player.tscn" id="2_6ku8p"]
@@ -10,6 +10,16 @@
 [ext_resource type="Script" uid="uid://u7kg5kmahcs4" path="res://objects/indeterminate_object/filtered_visble_tangible.gd" id="8_5eqwr"]
 [ext_resource type="Texture2D" uid="uid://boyeeub8wak7t" path="res://assets/World/Desert/desert-8x8/sprites/desert-16x16-ground-tiles-dirt.png" id="9_vifrc"]
 [ext_resource type="Script" uid="uid://ckjtyknpdr1bh" path="res://hurt_box.gd" id="10_77am8"]
+[ext_resource type="Texture2D" uid="uid://vcphjxnwnhw1" path="res://assets/Buttons/control_panel.png" id="11_affc8"]
+[ext_resource type="Script" uid="uid://dp201ecadhtkp" path="res://levels/helperhint.gd" id="12_dquo4"]
+[ext_resource type="Script" uid="uid://by6ftk2eky0ar" path="res://levels/hint_tab.gd" id="13_23crh"]
+[ext_resource type="Texture2D" uid="uid://cq4ufqkjdt8ms" path="res://assets/Adventure_Platformer/Player/Player_Run1.png" id="14_sa6ps"]
+[ext_resource type="Texture2D" uid="uid://bio7h3bi0b1ht" path="res://assets/Adventure_Platformer/Player/Player_Run2.png" id="15_onvuw"]
+[ext_resource type="Texture2D" uid="uid://cuf1wgyxo07jy" path="res://assets/Adventure_Platformer/Player/Player_Run3.png" id="16_r6lv1"]
+[ext_resource type="Texture2D" uid="uid://craqors02rymq" path="res://assets/Adventure_Platformer/Player/Player_Run4.png" id="17_6rclu"]
+[ext_resource type="Texture2D" uid="uid://bpf46iwxbkpnr" path="res://assets/Adventure_Platformer/Player/Player_Run5.png" id="18_ek2oq"]
+[ext_resource type="Texture2D" uid="uid://dtfwr0wcs0256" path="res://assets/Adventure_Platformer/Player/Player_Run6.png" id="19_4ek3x"]
+[ext_resource type="Texture2D" uid="uid://c07fqdh4uka6r" path="res://assets/Adventure_Platformer/Player/Player_Run7.png" id="20_0yik3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_affc8"]
 size = Vector2(12432, 3173)
@@ -177,6 +187,71 @@ size = Vector2(720, 882)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ku8p"]
 size = Vector2(720, 880)
 
+[sub_resource type="Theme" id="Theme_otnbe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yulfd"]
+atlas = ExtResource("11_affc8")
+region = Rect2(16.01191, 31.956522, 95.96403, 63.984894)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kk1hj"]
+texture = SubResource("AtlasTexture_yulfd")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo1vn"]
+atlas = ExtResource("11_affc8")
+region = Rect2(32.00335, 26.99211, 15.997055, 4.9879704)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gyqki"]
+content_margin_left = 10.0
+texture = SubResource("AtlasTexture_oo1vn")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdl21"]
+atlas = ExtResource("11_affc8")
+region = Rect2(48.02242, 22.992558, 15.999424, 9.961094)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lw6l5"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+texture = SubResource("AtlasTexture_wdl21")
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_m7a0p"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vy3kl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_sa6ps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_onvuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_r6lv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6rclu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ek2oq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4ek3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0yik3")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 15.0
+}]
+
 [node name="Level41Red" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_nbj0j")]
@@ -283,3 +358,93 @@ offset_top = -1167.0
 offset_right = 4105.0
 offset_bottom = 1470.0
 color = Color(0, 0, 0, 1)
+
+[node name="HintScreen" type="CanvasLayer" parent="."]
+
+[node name="TabContainer" type="TabContainer" parent="HintScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -1252.0
+offset_right = 778.0
+offset_bottom = -869.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_otnbe")
+theme_override_colors/font_selected_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_hovered_color = Color(0.7372549, 0.5411765, 0.34117648, 1)
+theme_override_colors/font_unselected_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
+theme_override_constants/tab_separation = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_kk1hj")
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_gyqki")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_lw6l5")
+tab_alignment = 1
+current_tab = 0
+script = ExtResource("12_dquo4")
+
+[node name="Intro" type="TabBar" parent="HintScreen/TabContainer"]
+layout_mode = 2
+script = ExtResource("13_23crh")
+sprite_animation = "Running"
+metadata/_tab_index = 0
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Intro"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "Red
+Another gap, another gem.
+I'll solve this one fast."
+label_settings = SubResource("LabelSettings_m7a0p")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HintScreen/TabContainer/Intro"]
+position = Vector2(437, 258.5)
+scale = Vector2(5.2115383, 4.6538463)
+sprite_frames = SubResource("SpriteFrames_vy3kl")
+animation = &"Running"
+flip_h = true
+
+[node name="Hint" type="TabBar" parent="HintScreen/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("13_23crh")
+metadata/_tab_index = 1
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Hint"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "This red gem looks a lot
+like the green one."
+label_settings = SubResource("LabelSettings_m7a0p")
+horizontal_alignment = 1
+
+[node name="Solution" type="TabBar" parent="HintScreen/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("13_23crh")
+metadata/_tab_index = 2
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Solution"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "Some objects are only revealed
+under a specific filter.
+Switch the active filter to
+see them. "
+label_settings = SubResource("LabelSettings_m7a0p")
+horizontal_alignment = 1
