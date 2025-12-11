@@ -11,6 +11,7 @@ var levels: Array[String] = [
 		"res://levels/Area3/Level-3-1_Green.tscn",
 		"res://levels/Area3/Level-3-2_Bridge.tscn",
 		"res://levels/Area3/Level-3-3_Green_Wall.tscn",
+		"res://levels/Area4/Level-4-1_red.tscn",
 		"res://levels/level5_brian.tscn",
 		"res://levels/Level6.tscn",
 		"res://levels/Level4_tho.tscn",

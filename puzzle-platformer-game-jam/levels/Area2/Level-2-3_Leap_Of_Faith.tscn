@@ -377,7 +377,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pxyuf")
 theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_ifjqj")
 theme_override_styles/tab_selected = SubResource("StyleBoxTexture_eqesn")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 script = ExtResource("12_4cjmp")
 
 [node name="Intro" type="TabBar" parent="HintScreen/TabContainer"]
@@ -406,29 +406,46 @@ sprite_frames = SubResource("SpriteFrames_3drnp")
 animation = &"Running"
 flip_h = true
 
-[node name="Hint" type="TabBar" parent="HintScreen/TabContainer"]
-visible = false
+[node name="Hint 1" type="TabBar" parent="HintScreen/TabContainer"]
 layout_mode = 2
 script = ExtResource("13_kdf8n")
 metadata/_tab_index = 1
 
-[node name="Hint" type="Label" parent="HintScreen/TabContainer/Hint"]
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Hint 1"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 40.0
 offset_right = 778.0
 offset_bottom = 180.0
 theme_override_font_sizes/font_size = 15
-text = "I'm up so high!
-Even the clouds are beneath me!
-I wonder if I could get even higher..."
+text = "Such a beatiful view!
+I could stare at the sky forever."
+label_settings = SubResource("LabelSettings_gf0q4")
+horizontal_alignment = 1
+
+[node name="Hint 2" type="TabBar" parent="HintScreen/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("13_kdf8n")
+metadata/_tab_index = 2
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Hint 2"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "My friends have got to see
+to see this to believe it"
 label_settings = SubResource("LabelSettings_gf0q4")
 horizontal_alignment = 1
 
 [node name="Solution" type="TabBar" parent="HintScreen/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("13_kdf8n")
-metadata/_tab_index = 2
+metadata/_tab_index = 3
 
 [node name="Hint" type="Label" parent="HintScreen/TabContainer/Solution"]
 layout_mode = 0
