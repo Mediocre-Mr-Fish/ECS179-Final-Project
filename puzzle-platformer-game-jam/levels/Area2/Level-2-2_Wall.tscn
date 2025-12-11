@@ -357,7 +357,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_ysfwv")
 theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_f08xi")
 theme_override_styles/tab_selected = SubResource("StyleBoxTexture_nw4ey")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 script = ExtResource("10_i80xm")
 
 [node name="Intro" type="TabBar" parent="HintScreen/TabContainer"]
@@ -387,30 +387,11 @@ animation = &"Running"
 flip_h = true
 
 [node name="Hint 1" type="TabBar" parent="HintScreen/TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("11_asgud")
 metadata/_tab_index = 1
 
 [node name="Hint" type="Label" parent="HintScreen/TabContainer/Hint 1"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 40.0
-offset_right = 778.0
-offset_bottom = 180.0
-theme_override_font_sizes/font_size = 15
-text = "These runes are actually kind of creepy...
-They look like they're staring back at me.
-Maybe its best not to look at them."
-label_settings = SubResource("LabelSettings_5e1m6")
-horizontal_alignment = 1
-
-[node name="Hint 2" type="TabBar" parent="HintScreen/TabContainer"]
-layout_mode = 2
-script = ExtResource("11_asgud")
-metadata/_tab_index = 2
-
-[node name="Hint" type="Label" parent="HintScreen/TabContainer/Hint 2"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 40.0
@@ -423,6 +404,25 @@ You'll know there's a table in your way
 when you stub your toes.\"
 What a stupid thing to say."
 label_settings = SubResource("LabelSettings_oovap")
+horizontal_alignment = 1
+
+[node name="Hint 2" type="TabBar" parent="HintScreen/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("11_asgud")
+metadata/_tab_index = 2
+
+[node name="Hint" type="Label" parent="HintScreen/TabContainer/Hint 2"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 778.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 15
+text = "These runes are actually kind of creepy...
+They look like they're staring back at me.
+Maybe its best not to look at them."
+label_settings = SubResource("LabelSettings_5e1m6")
 horizontal_alignment = 1
 
 [node name="Solution" type="TabBar" parent="HintScreen/TabContainer"]

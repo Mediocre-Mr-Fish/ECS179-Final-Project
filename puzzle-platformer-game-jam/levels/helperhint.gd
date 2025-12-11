@@ -1,7 +1,10 @@
 extends TabContainer
 
+
 func _ready():
 	visible = false
+	current_tab = 0
+
 
 func _input(event):
 	if event.is_action_pressed("hint"):
@@ -9,6 +12,7 @@ func _input(event):
 			hide()
 		else:
 			_show_centered()
+
 
 func _show_centered():
 	visible = true
