@@ -190,7 +190,8 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
-		
+		command_callback("restart")
+
 	if Input.is_action_just_pressed("menu"):
 		# Notify BGM player before changing scene
 		var bgm_player = get_node_or_null("/root/AutoloadAudioPlayer/BGMPlayer")
@@ -227,6 +228,9 @@ func command_callback(cmd_name:String) -> void:
 	if "undeath" == cmd_name:
 		pass
 		#_play($Audio/undeath)
+
+	if "restart" == cmd_name:
+		PlayerSFXPlayer.play_retry_sfx()
 
 #Logic to support the state machine in the AnimationTree
 func _manage_animation_tree_state() -> void:

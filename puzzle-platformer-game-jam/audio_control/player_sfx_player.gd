@@ -4,6 +4,7 @@ extends AudioStreamPlayer2D
 @export var player_node_path: NodePath
 @export var jump_sfx: AudioStream
 @export var land_sfx: AudioStream
+@export var retry_sfx: AudioStream
 
 # SFX
 @export var walk_sfx_list: Array[AudioStream] = []
@@ -32,3 +33,10 @@ func play_land_sfx() -> void:
 		play()
 	else:
 		print("Warning: land_sfx is not assigned.")
+		
+func play_retry_sfx() -> void:
+	if retry_sfx != null:
+		stream = retry_sfx
+		play()
+	else:
+		print("Warning: retry_sfx is not assigned.")
