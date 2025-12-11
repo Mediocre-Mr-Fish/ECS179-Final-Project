@@ -65,7 +65,7 @@ Github: asianfry
   - And I helped implement my ideas and suggestions because I was not comfortable with making so many demands and suggestions without helping out myself. I help create traps like the spikes and moving platforms, but more details about that will be discussed in other contributions.
 
 ### Sub-Role - Narrative Design
-- I sketched up and made a whole lot of sketches about the lore and world for our game, but I wish I was able to implement it within the various levels, but outside of the cutscene and some implementations like level 12 I was unable to make up for it in time. Copies of my sketches will be uploaded to the github.
+- I sketched up and made a whole lot of sketches about the lore and world for our game, but I wish I was able to implement it within the various levels, but outside of the cutscene and some implementations like level 12 I was unable to make up for it in time. Copies of my sketches will be uploaded to the [github](Sketches).
 
 ### Other contributions
 
