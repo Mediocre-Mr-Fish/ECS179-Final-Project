@@ -72,6 +72,10 @@ var torch_light_off_texture: Texture2D = preload("res://assets/Adventure_Platfor
 
 func _ready() -> void:
 	assert(camera, "Could not find camera. Make sure it is Acessable as a Unique Node!")
+	# Required
+	# Randomize for any random elements
+	randomize() 
+
 	fade.modulate.a = 1.0
 	_fade_in(1.5)
 	facing = Facing.RIGHT
@@ -190,7 +194,12 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+		
 	if Input.is_action_just_pressed("menu"):
+		# Notify BGM player before changing scene
+		var bgm_player = get_node_or_null("/root/AutoloadAudioPlayer/BGMPlayer")
+		if bgm_player:
+			bgm_player.scene_changed("menu")
 		get_tree().change_scene_to_file(menu_route)
 	
 	move_and_slide()

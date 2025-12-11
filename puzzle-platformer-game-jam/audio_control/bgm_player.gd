@@ -24,6 +24,8 @@ func _ready():
 
 
 func scene_changed(bgm_select: String) -> void:
+	print("scene_changed called with: ", bgm_select)
+	print("Currently playing: ", playing, " current_bgm: ", current_bgm)
 	
 	match bgm_select:
 		# Main Menu and similar scenes
@@ -43,13 +45,27 @@ func scene_changed(bgm_select: String) -> void:
 		"Level3":
 			stream = level_three_bgm
 		_:
-			stream = null
+			stream = main_menu_bgm
 
-	if is_bgm_playing and stream != null and stream != current_bgm:
-		stop()
-		current_bgm = stream
-		play()
+	if is_bgm_playing and stream != null:
+		if stream != current_bgm:
+			# Only stop and restart if it's a different BGM
+			print("Switching BGM from ", current_bgm, " to ", stream)
+			stop()
+			current_bgm = stream
+			play()
+		else:
+			# If stream == current_bgm, keep playing (or restart if stopped)
+			print("Same BGM, continuing playback. Playing: ", playing)
+			if not playing:
+				print("BGM was stopped, restarting...")
+				play()
 	else:
+		# Stop if BGM is disabled or no stream
+		print("Stopping BGM")
 		stop()
+		current_bgm = null
+		
+		
 		
 	
