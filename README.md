@@ -35,6 +35,9 @@ Default Keybindings:
 
 The following contains spoilers for the solutions to the puzzles.
 
+<details>
+  <summary><b>Spoiler warning</b></summary>
+  
 Certain objects have a fickle existence.
 These objects exist when evidence supports their existence
 and are non-existant when evidence contradicts it.
@@ -44,7 +47,10 @@ Walking though an empty space denies it.
 
 Many of the puzzles you will encounter play with this concept in mind-bending ways. Some puzzles require you to shift the camera towards or away from objects, while others require you to reveal objects using the Beholder's colored filter.
 
-An important aspect to consider is that once an object's existence becomes determined, it cannnot be undetermined. 
+Once an such an object's existence is supported or denied, its existence is no longer indeterminate; intsead, it becomes determined. Objects cannot be "undetermined" once determined, necessitating a level restart. 
+
+</details>
+<br />
 
 # External Code, Ideas, and Structure
 
@@ -127,7 +133,7 @@ Github: Mediocre-Mr-Fish
 
 ### Sub-Role - Player Onboarding and Tutorial Design
 
-- Designed and implemented the first 7 levels. A key objective was to create situations where the player would discover the mechanics naturally. This is very difficult for such an unintuitive mechanic.
+- Designed and implemented the first 9 levels (except level 8). A key objective was to create situations where the player would discover the mechanics naturally. This is very difficult for such an unintuitive mechanic.
   - Using the multi-tab capablities of the hint system,
   levels can dispense multiple stages of helpful information without spoiling too much all at once. They also add a lot of personality to each of the levels. 
 - Playtested work-in-progress builds with friends to guage how difficult the puzzles were to solve.
