@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://b77al7fj1h2yh"]
+
+[ext_resource type="Script" uid="uid://ffsr7vjtegrs" path="res://cutscene.gd" id="1_knbvh"]
+[ext_resource type="Texture2D" uid="uid://df8okkd87c0x0" path="res://assets/Cutscene/Beholden Cutscene1.png" id="2_ra2fq"]
+[ext_resource type="Texture2D" uid="uid://boqj14v652cwh" path="res://assets/Cutscene/Beholden Cutscene2.png" id="3_43ahx"]
+[ext_resource type="Texture2D" uid="uid://besgxtuqh37s7" path="res://assets/Cutscene/Beholden Cutscene3.png" id="4_dqbh1"]
+[ext_resource type="Texture2D" uid="uid://cw3lubpt7ggmy" path="res://assets/Cutscene/Beholden Cutscene4.png" id="5_33ewm"]
+[ext_resource type="Texture2D" uid="uid://dornwqan7bmaf" path="res://assets/Cutscene/Beholden Cutscene5.png" id="6_doqx5"]
+[ext_resource type="Texture2D" uid="uid://dpj3aqunhlw4d" path="res://assets/Cutscene/Beholden Cutscene6.png" id="7_q5vpi"]
+
+[node name="Cutscene" type="Node2D"]
+script = ExtResource("1_knbvh")
+
+[node name="BeholdenCutscene1" type="TextureRect" parent="."]
+texture = ExtResource("2_ra2fq")
+
+[node name="BeholdenCutscene2" type="TextureRect" parent="."]
+texture = ExtResource("3_43ahx")
+
+[node name="BeholdenCutscene3" type="TextureRect" parent="."]
+texture = ExtResource("4_dqbh1")
+
+[node name="BeholdenCutscene4" type="TextureRect" parent="."]
+texture = ExtResource("5_33ewm")
+
+[node name="BeholdenCutscene5" type="TextureRect" parent="."]
+texture = ExtResource("6_doqx5")
+
+[node name="BeholdenCutscene6" type="TextureRect" parent="."]
+texture = ExtResource("7_q5vpi")
