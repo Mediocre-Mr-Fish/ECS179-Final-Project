@@ -128,6 +128,8 @@ Github: Mediocre-Mr-Fish
 - Designed and implemented the first 7 levels. A key objective was to create situations where the player would discover the mechanics naturally. This is very difficult for such an unintuitive mechanic.
   - Using the multi-tab capablities of the hint system,
   levels can dispense multiple stages of helpful information without spoiling too much all at once. They also add a lot of personality to each of the levels. 
+- Playtested work-in-progress builds with friends to guage how difficult the puzzles were to solve.
+
 
 ### Other contributions
 
