@@ -12,6 +12,8 @@ Playable Link - [Beholden by Mediocre-Mr-Fish](https://mediocre-mr-fish.itch.io/
 
 Game Project Initial Plans - [Game Project: Initial Plan](https://docs.google.com/document/d/1JWGkOymUIyjewWZnPvQ477D33R6pdZ5rX4beXp0gH3E/edit?usp=sharing)
 
+Fall Game Jam Version - [Beholden (Fall Game Jam) by Mediocre-Mr-Fish](https://mediocre-mr-fish.itch.io/beholden-fall-game-jam)
+
 ## Gameplay Explanation
 
 As you start the game you are thrown into the main menu, which from here there are 4 buttons, these buttons being Start, Control, Level, and Credit. Clicking the credit sends you to our team! Clicking level sends you to the level selection page, where you can select which level you want to go to. Then clicking Control goes into the setting. In the setting there are multiple things you can do, such as change some of the controls and rebind different keys, check out spoilers for the game, or have hints. Pressing start, or any level within the level selection page, begins the game.
